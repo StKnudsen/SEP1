@@ -26,7 +26,7 @@ public class ViewLoginController
     return root;
   }
 
-  public void gotoViewList()
+  public void loginButtonPressed()
   {
     viewHandler.openView("viewList");
   }
