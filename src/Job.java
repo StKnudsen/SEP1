@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-
+/*
 public abstract class Job
 {
   int id, projectId, priority, estimatedTime;
@@ -8,7 +8,8 @@ public abstract class Job
   TeamMember responsibleTeamMember;
   ArrayList<TeamMember> TeamMemberList;
 
-  public Job(String title){
+  public Job(String title)
+  {
     //idk
   }
 
@@ -80,3 +81,4 @@ public abstract class Job
 
   }
 }
+    */
