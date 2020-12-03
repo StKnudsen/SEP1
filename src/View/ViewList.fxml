@@ -19,10 +19,10 @@
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
-                                <TableView maxHeight="400.0" maxWidth="600.0" prefHeight="313.0" prefWidth="600.0">
+                                <TableView fx:id="projectsTable" maxHeight="400.0" maxWidth="600.0" prefHeight="313.0" prefWidth="600.0">
                                     <columns>
-                                        <TableColumn prefWidth="456.0000305175781" text="Project title" />
-                                        <TableColumn minWidth="0.0" prefWidth="150.0" text="Status" />
+                                        <TableColumn fx:id="projectsTitle" prefWidth="456.0000305175781" text="Project title" />
+                                        <TableColumn fx:id="projectsStatus" minWidth="0.0" prefWidth="150.0" text="Status" />
                                     </columns>
                                 </TableView>
                             </children>
@@ -33,7 +33,7 @@
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
-                                <TableView maxHeight="400.0" maxWidth="600.0" prefHeight="313.0" prefWidth="600.0">
+                                <TableView fx:id="requirementsTable" maxHeight="400.0" maxWidth="600.0" prefHeight="313.0" prefWidth="600.0">
                                     <columns>
                                         <TableColumn prefWidth="456.0000305175781" text="Requirement title" />
                                         <TableColumn minWidth="0.0" prefWidth="150.0" text="Status" />
@@ -47,7 +47,7 @@
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
-                                <TableView maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="313.0" prefWidth="600.0">
+                                <TableView fx:id="tasksTable" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="313.0" prefWidth="600.0">
                                     <columns>
                                         <TableColumn prefWidth="456.0000305175781" text="Task title" />
                                         <TableColumn minWidth="0.0" prefWidth="150.0" text="Status" />
