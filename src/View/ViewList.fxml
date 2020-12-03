@@ -35,8 +35,8 @@
                             <children>
                                 <TableView fx:id="requirementsTable" maxHeight="400.0" maxWidth="600.0" prefHeight="313.0" prefWidth="600.0">
                                     <columns>
-                                        <TableColumn prefWidth="456.0000305175781" text="Requirement title" />
-                                        <TableColumn minWidth="0.0" prefWidth="150.0" text="Status" />
+                                        <TableColumn fx:id="requirementsTitle" prefWidth="456.0000305175781" text="Requirement title" />
+                                        <TableColumn fx:id="requirementsStatus" minWidth="0.0" prefWidth="150.0" text="Status" />
                                     </columns>
                                 </TableView>
                             </children>
@@ -49,8 +49,8 @@
                             <children>
                                 <TableView fx:id="tasksTable" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="313.0" prefWidth="600.0">
                                     <columns>
-                                        <TableColumn prefWidth="456.0000305175781" text="Task title" />
-                                        <TableColumn minWidth="0.0" prefWidth="150.0" text="Status" />
+                                        <TableColumn fx:id="tasksTitle" prefWidth="456.0000305175781" text="Task title" />
+                                        <TableColumn fx:id="tasksStatus" minWidth="0.0" prefWidth="150.0" text="Status" />
                                     </columns>
                                 </TableView>
                             </children>
