@@ -16,6 +16,7 @@ public class ViewHandler
   // Tilføj alle view controllers her
   private ViewLoginController viewLoginController;
   private ViewListController viewListController;
+  private ViewProjectController viewProjectController;
 
   private Model model;
 
@@ -38,10 +39,13 @@ public class ViewHandler
     switch (id)
     {
       case "viewLogin":
-        root = loadViewLogin("ViewLogin.fxml");
+        root = loadViewLogin();
         break;
       case "viewList":
-        root = loadViewList("ViewList.fxml");
+        root = loadViewList();
+        break;
+      case "viewProject":
+        root = loadViewProject();
         break;
     }
 
@@ -58,14 +62,14 @@ public class ViewHandler
     primaryStage.close();
   }
 
-  private Region loadViewLogin(String fxmlFile)
+  private Region loadViewLogin()
   {
     if (viewLoginController == null)
     {
       try
       {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource(fxmlFile));
+        loader.setLocation(getClass().getResource("ViewLogin.fxml"));
         Region root = loader.load();
         viewLoginController = loader.getController();
         viewLoginController.init(this, model, root);
@@ -83,14 +87,14 @@ public class ViewHandler
     return viewLoginController.getRoot();
   }
 
-  private Region loadViewList(String fxmlFile)
+  private Region loadViewList()
   {
     if (viewListController == null)
     {
       try
       {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource(fxmlFile));
+        loader.setLocation(getClass().getResource("ViewList.fxml"));
         Region root = loader.load();
         viewListController = loader.getController();
         viewListController.init(this, model, root);
@@ -108,5 +112,28 @@ public class ViewHandler
     return viewListController.getRoot();
   }
 
+  private Region loadViewProject()
+  {
+    if (viewProjectController == null)
+    {
+      try
+      {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("ViewProject.fxml"));
+        Region root = loader.load();
+        viewProjectController = loader.getController();
+        viewProjectController.init(this, model, root);
+      }
+      catch (IOException e)
+      {
+        e.printStackTrace();
+      }
+    }
+    else
+    {
+      viewProjectController.reset();
+    }
 
+    return viewProjectController.getRoot();
+  }
 }

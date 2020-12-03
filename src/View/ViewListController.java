@@ -1,17 +1,21 @@
 package View;
 
+import com.sun.javafx.collections.ObservableListWrapper;
+
 import Model.Task;
 import Model.Model;
 import Model.Project;
 import Model.Requirement;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Region;
 
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 public class ViewListController
@@ -33,6 +37,7 @@ public class ViewListController
   @FXML private TableColumn<String, String> requirementsStatus;
 
   @FXML private TableView tasksTable;
+  @FXML private TableColumn<String, String> tasksPriority;
   @FXML private TableColumn<String, String> tasksTitle;
   @FXML private TableColumn<String, String> tasksStatus;
 
@@ -68,6 +73,7 @@ public class ViewListController
 
   public void populateProjectsTable()
   {
+    // Dummy data
     dummyProjects.add(new Project("Best Project ever!", "Hah, you wish"));
     dummyProjects.add(new Project("Colour IT PMS", "Started"));
 
@@ -75,17 +81,26 @@ public class ViewListController
     projectsTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
     projectsStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
 
-    // Lav vores liste (ArrayList) til observable liste
-    ObservableList<Project> projectsList = FXCollections.observableArrayList(dummyProjects);
-
     // Indsæt data i tabellen
-    projectsTable.getItems().addAll(projectsList);
+    projectsTable.getItems().addAll(dummyProjects);
+
+    // Fang klik på 'row' og åben det valgte projekt
+    projectsTable.setOnMousePressed(new EventHandler<>()
+    {
+      @Override public void handle(javafx.scene.input.MouseEvent mouseEvent)
+      {
+        System.out.println("mouse pressed: " + projectsTable.getSelectionModel()
+            .getSelectedItem());
+        viewHandler.openView("viewProject");
+      }
+    });
 
     System.out.println((projectsTable.getSelectionModel().getSelectedItem()));
   }
 
   public void populateRequirementsTable()
   {
+    // Dummy data
     dummyRequirements.add(new Requirement("Find a fish", "Started"));
     dummyRequirements.add(new Requirement("Slap someone with fish", "Not started"));
 
@@ -93,30 +108,39 @@ public class ViewListController
     requirementsTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
     requirementsStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
 
-    // Lav vores liste (ArrayList) til observable liste
-    ObservableList<Requirement> requirementsList = FXCollections.observableArrayList(dummyRequirements);
-
     // Indsæt data i tabellen
-    requirementsTable.getItems().addAll(requirementsList);
+    requirementsTable.getItems().addAll(dummyRequirements);
 
     System.out.println((requirementsTable.getSelectionModel().getSelectedItem()));
   }
 
   public void populateTasksTable()
   {
-    dummyTasks.add(new Task("Find a fishing hole", "Hah, you wish"));
-    dummyTasks.add(new Task("Remember fishing pole", "F*****ck"));
+    // Dummy data
+    Task task1 = new Task("Find a fishing hole", "Hah, you wish");
+    task1.setPriority(dummyTasks.size() + 1);
+    dummyTasks.add(task1);
+
+    Task task2 = new Task("Remember fishing pole", "F*****ck");
+    task2.setPriority(dummyTasks.size() + 1);
+    dummyTasks.add(task2);
 
     // Hvilke data felter vi vil tilknytte column cellerne
+    tasksPriority.setCellValueFactory(new PropertyValueFactory<>("priority"));
     tasksTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
     tasksStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
 
-    // Lav vores liste (ArrayList) til observable liste
-    ObservableList<Task> taskList = FXCollections.observableArrayList(dummyTasks);
-
     // Indsæt data i tabellen
-    tasksTable.getItems().addAll(taskList);
+    tasksTable.getItems().addAll(dummyTasks);
 
     System.out.println((tasksTable.getSelectionModel().getSelectedItem()));
+  }
+
+  @FXML public void ClickItem(MouseEvent event)
+  {
+    if (event.getClickCount() == 1)
+    {
+      System.out.println(projectsTable.getSelectionModel().getSelectedItem());
+    }
   }
 }

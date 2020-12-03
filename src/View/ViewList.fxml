@@ -10,8 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="389.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ViewListController" userData="Colour IT - Oversigt ">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="389.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ViewListController" userData="Colour IT - Projekt Management System">
     <children>
         <TabPane prefHeight="399.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
             <tabs>
@@ -47,10 +46,11 @@
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
-                                <TableView fx:id="tasksTable" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="313.0" prefWidth="600.0">
+                                <TableView fx:id="tasksTable" maxHeight="400.0" maxWidth="600.0" prefHeight="314.0" prefWidth="579.0">
                                     <columns>
-                                        <TableColumn fx:id="tasksTitle" prefWidth="456.0000305175781" text="Task title" />
-                                        <TableColumn fx:id="tasksStatus" minWidth="0.0" prefWidth="150.0" text="Status" />
+                                        <TableColumn fx:id="tasksPriority" maxWidth="600.0" prefWidth="90.0" text="Prioritering" />
+                                        <TableColumn fx:id="tasksTitle" maxWidth="600.0" prefWidth="396.0000686645508" text="Task title" />
+                                        <TableColumn fx:id="tasksStatus" maxWidth="600.0" minWidth="0.0" prefWidth="91.19996948242192" text="Status" />
                                     </columns>
                                 </TableView>
                             </children>
@@ -65,8 +65,11 @@
                 <Button alignment="CENTER" mnemonicParsing="false" onAction="#gotoViewLogin" prefHeight="31.0" prefWidth="90.0" text="Skift bruger" />
             </children>
             <padding>
-                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                <Insets top="10.0" />
             </padding>
         </HBox>
     </children>
+    <padding>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+    </padding>
 </VBox>
