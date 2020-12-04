@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Region;
 
-public class ViewRequirementController
+public class ViewTaskController
 {
   @FXML private Label title;
 

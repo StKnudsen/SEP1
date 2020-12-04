@@ -137,6 +137,35 @@ public class ViewListController
     // Indsæt data i tabellen
     requirementsTable.getItems().addAll(dummyRequirements);
 
+    // Fang klik på 'row' og åben den valgte requirement
+    requirementsTable.setOnMousePressed(new EventHandler<>()
+    {
+      @Override public void handle(javafx.scene.input.MouseEvent mouseEvent)
+      {
+        try
+        {
+          Requirement requirement = (Requirement) requirementsTable.getSelectionModel().getSelectedItem();
+          FXMLLoader loader = new FXMLLoader(
+              getClass().getResource("ViewRequirement.fxml"));
+          Parent root = loader.load();
+
+          //Følgende to linjer er et krav for at kunne sende data videre til ViewProjectController
+          ViewRequirementController viewRequirementController = loader.getController();
+          viewRequirementController.setTitleLabel(requirement.getTitle());
+
+          Stage stage = new Stage();
+          stage.setScene(new Scene(root));
+          stage.setTitle("Colour IT - Requirement: " + requirement.getTitle());
+          stage.show();
+
+        }
+        catch (IOException e)
+        {
+          e.printStackTrace();
+        }
+      }
+      });
+
     //System.out.println((requirementsTable.getSelectionModel().getSelectedItem()));
   }
 
@@ -159,8 +188,64 @@ public class ViewListController
     // Indsæt data i tabellen
     tasksTable.getItems().addAll(dummyTasks);
 
+    // Fang klik på 'row' og åben den valgte requirement
+    tasksTable.setOnMousePressed(new EventHandler<>()
+    {
+      @Override public void handle(javafx.scene.input.MouseEvent mouseEvent)
+      {
+        try
+        {
+          Task task = (Task) tasksTable.getSelectionModel().getSelectedItem();
+          FXMLLoader loader = new FXMLLoader(
+              getClass().getResource("ViewTask.fxml"));
+          Parent root = loader.load();
+
+          //Følgende to linjer er et krav for at kunne sende data videre til ViewProjectController
+          ViewTaskController viewTaskController = loader.getController();
+          viewTaskController.setTitleLabel(task.getTitle());
+
+          Stage stage = new Stage();
+          stage.setScene(new Scene(root));
+          stage.setTitle("Colour IT - Task: " + task.getTitle());
+          stage.show();
+
+        }
+        catch (IOException e)
+        {
+          e.printStackTrace();
+        }
+      }
+    });
+
     //System.out.println((tasksTable.getSelectionModel().getSelectedItem()));
   }
+
+  @FXML public void addProjectButton()
+  {
+    try
+    {
+      //Nedenstående skal bruges til at overføre en bruger senere
+      //Task task = (Task) tasksTable.getSelectionModel().getSelectedItem();
+      FXMLLoader loader = new FXMLLoader(
+          getClass().getResource("ViewAddProject.fxml"));
+      Parent root = loader.load();
+
+      //Følgende to linjer er et krav for at kunne sende data videre til ViewProjectController
+      //ViewAddProjectController viewAddProjectController = loader.getController();
+      //viewAddProjectController.setTitleLabel(task.getTitle());
+
+      Stage stage = new Stage();
+      stage.setScene(new Scene(root));
+      stage.setTitle("Colour IT - Nyt projekt: ");
+      stage.show();
+
+    }
+    catch (IOException e)
+    {
+      e.printStackTrace();
+    }
+  }
+
 
   @FXML public void ClickItem(MouseEvent event)
   {

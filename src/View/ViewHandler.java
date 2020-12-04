@@ -18,6 +18,7 @@ public class ViewHandler
   private ViewListController viewListController;
   private ViewProjectController viewProjectController;
   private ViewRequirementController viewRequirementController;
+  private ViewTaskController viewTaskController;
 
   private Model model;
 
