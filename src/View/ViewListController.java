@@ -10,12 +10,17 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Region;
+import javafx.stage.Stage;
 
 import java.awt.event.MouseEvent;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class ViewListController
@@ -89,29 +94,50 @@ public class ViewListController
     {
       @Override public void handle(javafx.scene.input.MouseEvent mouseEvent)
       {
-        System.out.println("mouse pressed: " + projectsTable.getSelectionModel()
-            .getSelectedItem());
-        viewHandler.openView("viewProject");
+        try
+        {
+          Project project = (Project) projectsTable.getSelectionModel()
+              .getSelectedItem();
+          FXMLLoader loader = new FXMLLoader(
+              getClass().getResource("ViewProject.fxml"));
+          Parent root = loader.load();
+
+          //Følgende to linjer er et krav for at kunne sende data videre til ViewProjectController
+          ViewProjectController viewProjectController = loader.getController();
+          viewProjectController.setTitleLabel(project.getTitle());
+
+          Stage stage = new Stage();
+          stage.setScene(new Scene(root));
+          stage.setTitle("Colour IT - Projekt: " + project.getTitle());
+          stage.show();
+
+        }
+        catch (IOException e)
+        {
+          e.printStackTrace();
+        }
       }
     });
 
-    System.out.println((projectsTable.getSelectionModel().getSelectedItem()));
+    //System.out.println((projectsTable.getSelectionModel().getSelectedItem()));
   }
 
   public void populateRequirementsTable()
   {
     // Dummy data
     dummyRequirements.add(new Requirement("Find a fish", "Started"));
-    dummyRequirements.add(new Requirement("Slap someone with fish", "Not started"));
+    dummyRequirements
+        .add(new Requirement("Slap someone with fish", "Not started"));
 
     // Hvilke data felter vi vil tilknytte column cellerne
     requirementsTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
-    requirementsStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
+    requirementsStatus
+        .setCellValueFactory(new PropertyValueFactory<>("status"));
 
     // Indsæt data i tabellen
     requirementsTable.getItems().addAll(dummyRequirements);
 
-    System.out.println((requirementsTable.getSelectionModel().getSelectedItem()));
+    //System.out.println((requirementsTable.getSelectionModel().getSelectedItem()));
   }
 
   public void populateTasksTable()
@@ -133,7 +159,7 @@ public class ViewListController
     // Indsæt data i tabellen
     tasksTable.getItems().addAll(dummyTasks);
 
-    System.out.println((tasksTable.getSelectionModel().getSelectedItem()));
+    //System.out.println((tasksTable.getSelectionModel().getSelectedItem()));
   }
 
   @FXML public void ClickItem(MouseEvent event)

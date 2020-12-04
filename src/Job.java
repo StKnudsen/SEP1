@@ -6,7 +6,7 @@ public abstract class Job
   String title, description, status;
   Date deadline;
   TeamMember responsibleTeamMember;
-  ArrayList<TeamMember> TeamMemberList;
+  ArrayList<TeamMember> teamMemberList;
 
   public Job(String title)
   {
@@ -74,7 +74,7 @@ public abstract class Job
   }
 
   public void addTeamMembers(TeamMember teammember){
-    TeamMemberList.add(teammember);
+    teamMemberList.add(teammember);
   }
 
   public  void deleteTeamMember(){

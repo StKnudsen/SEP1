@@ -17,6 +17,7 @@ public class ViewHandler
   private ViewLoginController viewLoginController;
   private ViewListController viewListController;
   private ViewProjectController viewProjectController;
+  private ViewRequirementController viewRequirementController;
 
   private Model model;
 
@@ -44,9 +45,14 @@ public class ViewHandler
       case "viewList":
         root = loadViewList();
         break;
-      case "viewProject":
+      /*case "viewProject":
         root = loadViewProject();
         break;
+      case "viewRequirement":
+        root = loadViewRequirement();
+        break;
+
+       */
     }
 
     currentScene.setRoot(root);
@@ -111,7 +117,7 @@ public class ViewHandler
 
     return viewListController.getRoot();
   }
-
+/*
   private Region loadViewProject()
   {
     if (viewProjectController == null)
@@ -136,4 +142,31 @@ public class ViewHandler
 
     return viewProjectController.getRoot();
   }
+
+  private Region loadViewRequirement()
+  {
+    if (viewRequirementController == null)
+    {
+      try
+      {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("ViewRequirement.fxml"));
+        Region root = loader.load();
+        viewRequirementController = loader.getController();
+        viewRequirementController.init(this, model, root);
+      }
+      catch (IOException e)
+      {
+        e.printStackTrace();
+      }
+    }
+    else
+    {
+      viewRequirementController.reset();
+    }
+
+    return viewRequirementController.getRoot();
+
+  }
+ */
 }

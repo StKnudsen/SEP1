@@ -11,7 +11,7 @@
             <children>
                 <HBox alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="303.0">
                     <children>
-                        <Label alignment="CENTER" text="Project title">
+                        <Label fx:id="title" alignment="CENTER" text="Project title">
                             <font>
                                 <Font name="System Bold" size="14.0" />
                             </font>
