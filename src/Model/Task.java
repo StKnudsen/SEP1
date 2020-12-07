@@ -20,4 +20,14 @@ public class Task extends Job
   {
 
   }
+
+  public boolean equals(Object obj)
+  {
+    if (!(obj instanceof Task))
+    {
+      return false;
+    }
+    Task other = (Task) obj;
+    return title.equals(other.getTitle()) && status.equals(other.status);
+  }
 }

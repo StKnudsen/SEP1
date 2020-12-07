@@ -47,7 +47,7 @@ public abstract class Job
     return priority;
   }
 
-  public void setStatus(String status)
+  public void updateStatus(String status)
   {
     this.status = status;
   }
@@ -67,7 +67,7 @@ public abstract class Job
     return deadline;
   }
 
-  public void addTeamMembers(TeamMember teammember){
+  public void addTeamMember(TeamMember teammember){
     teamMemberList.add(teammember);
   }
 
@@ -97,4 +97,8 @@ public abstract class Job
     return responsibleTeamMember;
   }
 
+  public void setEstimatedTime(int hours)
+  {
+    this.estimatedTime = hours;
+  }
 }

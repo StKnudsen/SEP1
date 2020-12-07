@@ -11,7 +11,7 @@ public class EmployeeList
     employeeList = new ArrayList<>();
   }
 
-  public ArrayList search(String name)
+  public ArrayList searchEmployee(String name)
   {
     ArrayList<TeamMember> results = new ArrayList<>();
     for (int i = 0; i < employeeList.size(); i++)
