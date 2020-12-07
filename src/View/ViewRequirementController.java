@@ -1,6 +1,6 @@
 package View;
 
-import Model.Model;
+import Model.ColourIT;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Region;
@@ -10,13 +10,13 @@ public class ViewRequirementController
   @FXML private Label title;
 
   private Region root;
-  private Model model;
+  private ColourIT colourIT;
   private ViewHandler viewHandler;
 
-  public void init(ViewHandler viewHandler, Model model, Region root)
+  public void init(ViewHandler viewHandler, ColourIT colourIT, Region root)
   {
     this.root = root;
-    this.model = model;
+    this.colourIT = colourIT;
     this.viewHandler = viewHandler;
   }
 

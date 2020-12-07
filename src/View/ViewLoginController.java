@@ -1,18 +1,18 @@
 package View;
 
-import Model.Model;
+import Model.ColourIT;
 import javafx.scene.layout.Region;
 
 public class ViewLoginController
 {
   private Region root;
-  private Model model;
+  private ColourIT colourIT;
   private ViewHandler viewHandler;
 
-  public void init(ViewHandler viewHandler, Model model, Region root)
+  public void init(ViewHandler viewHandler, ColourIT colourIT, Region root)
   {
     this.root = root;
-    this.model = model;
+    this.colourIT = colourIT;
     this.viewHandler = viewHandler;
   }
 

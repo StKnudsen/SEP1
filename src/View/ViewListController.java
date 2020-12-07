@@ -1,13 +1,6 @@
 package View;
 
-import com.sun.javafx.collections.ObservableListWrapper;
-
-import Model.Task;
-import Model.Model;
-import Model.Project;
-import Model.Requirement;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import Model.*;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,7 +19,7 @@ import java.util.ArrayList;
 public class ViewListController
 {
   private Region root;
-  private Model model;
+  private ColourIT colourIT;
   private ViewHandler viewHandler;
 
   private ArrayList<Project> dummyProjects;
@@ -35,7 +28,6 @@ public class ViewListController
 
   @FXML private TableView projectsTable;
   @FXML private TableColumn<String, String> projectsTitle;
-  @FXML private TableColumn<String, String> projectsStatus;
 
   @FXML private TableView requirementsTable;
   @FXML private TableColumn<String, String> requirementsTitle;
@@ -46,10 +38,10 @@ public class ViewListController
   @FXML private TableColumn<String, String> tasksTitle;
   @FXML private TableColumn<String, String> tasksStatus;
 
-  public void init(ViewHandler viewHandler, Model model, Region root)
+  public void init(ViewHandler viewHandler, ColourIT colourIT, Region root)
   {
     this.root = root;
-    this.model = model;
+    this.colourIT = colourIT;
     this.viewHandler = viewHandler;
 
     dummyProjects = new ArrayList<>();
@@ -79,12 +71,11 @@ public class ViewListController
   public void populateProjectsTable()
   {
     // Dummy data
-    dummyProjects.add(new Project("Best Project ever!", "Hah, you wish"));
-    dummyProjects.add(new Project("Colour IT PMS", "Started"));
+    dummyProjects.add(new Project("Best Project ever!", new Customer("Jack"), new TeamMember("Black")));
+    dummyProjects.add(new Project("Colour IT PMS", new Customer("Jimifer"), new TeamMember("Jensen")));
 
     // Hvilke data felter vi vil tilknytte column cellerne
     projectsTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
-    projectsStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
 
     // Indsæt data i tabellen
     projectsTable.getItems().addAll(dummyProjects);

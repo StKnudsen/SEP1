@@ -1,33 +1,27 @@
 package Model;
 
-public class Requirement
+public class Requirement extends Job
 {
-  private String title;
-  private String status;
+  private String type;
+
+  public Requirement(String title, String status, String type)
+  {
+    super(title,status);
+    this.type = type;
+  }
 
   public Requirement(String title, String status)
   {
-    this.title = title;
-    this.status = status;
+    super(title,status);
   }
 
-  public String getTitle()
-  {
-    return title;
+  /* Kommer til at virke
+  public Task<Task> getTasks(){
+    return null;
   }
+   */
 
-  public void setTitle(String title)
-  {
-    this.title = title;
-  }
 
-  public String getStatus()
-  {
-    return status;
-  }
 
-  public void setStatus(String status)
-  {
-    this.status = status;
-  }
+
 }

@@ -1,0 +1,39 @@
+package Model;
+
+public class TeamMember
+{
+  private String name;
+  private int timeSpentOnTask;
+
+  public TeamMember(String name)
+  {
+    this.name = name;
+  }
+
+  public String getName()
+  {
+    return name;
+  }
+
+  //Scrum master kan både lægge timer til og trække fra
+  public void updateTime(int time)
+  {
+    timeSpentOnTask += time;
+  }
+
+  //Team member kan lægge timer til
+  public void registerTime(int time)
+  {
+    if(time > 0)
+    {
+      timeSpentOnTask += time;
+    }
+  }
+
+  public TeamMember copy()
+  {
+    TeamMember other;
+    other = new TeamMember(name);
+    return other;
+  }
+}

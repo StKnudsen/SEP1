@@ -1,6 +1,6 @@
 package View;
 
-import Model.Model;
+import Model.ColourIT;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Region;
@@ -20,11 +20,11 @@ public class ViewHandler
   private ViewRequirementController viewRequirementController;
   private ViewTaskController viewTaskController;
 
-  private Model model;
+  private ColourIT colourIT;
 
-  public ViewHandler(Model model)
+  public ViewHandler(ColourIT colourIT)
   {
-    this.model = model;
+    this.colourIT = colourIT;
     currentScene = new Scene(new Region());
   }
 
@@ -79,7 +79,7 @@ public class ViewHandler
         loader.setLocation(getClass().getResource("ViewLogin.fxml"));
         Region root = loader.load();
         viewLoginController = loader.getController();
-        viewLoginController.init(this, model, root);
+        viewLoginController.init(this, colourIT, root);
       }
       catch (IOException e)
       {
@@ -104,7 +104,7 @@ public class ViewHandler
         loader.setLocation(getClass().getResource("ViewList.fxml"));
         Region root = loader.load();
         viewListController = loader.getController();
-        viewListController.init(this, model, root);
+        viewListController.init(this, colourIT, root);
       }
       catch (IOException e)
       {
@@ -129,7 +129,7 @@ public class ViewHandler
         loader.setLocation(getClass().getResource("ViewProject.fxml"));
         Region root = loader.load();
         viewProjectController = loader.getController();
-        viewProjectController.init(this, model, root);
+        viewProjectController.init(this, colourIT, root);
       }
       catch (IOException e)
       {
@@ -154,7 +154,7 @@ public class ViewHandler
         loader.setLocation(getClass().getResource("ViewRequirement.fxml"));
         Region root = loader.load();
         viewRequirementController = loader.getController();
-        viewRequirementController.init(this, model, root);
+        viewRequirementController.init(this, colourIT, root);
       }
       catch (IOException e)
       {

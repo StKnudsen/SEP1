@@ -1,14 +1,21 @@
 package Model;
 
+import java.util.ArrayList;
+
 public class Project
 {
   private String title;
-  private String status;
+  private String description;
+  private Customer customer;
+  private TeamMember projectCreator;
+  private ArrayList<TeamMember> teamMemberList;
+  private ArrayList<Requirement> requirementList;
 
-  public Project(String title, String status)
+  public Project(String title, Customer customer, TeamMember projectCreator)
   {
     this.title = title;
-    this.status = status;
+    this.customer = customer;
+    this.projectCreator = projectCreator;
   }
 
   public String getTitle()
@@ -16,18 +23,18 @@ public class Project
     return title;
   }
 
-  public void setTitle(String title)
+  public void addTeamMember(TeamMember teamMember)
   {
-    this.title = title;
+    teamMemberList.add(teamMember);
   }
 
-  public String getStatus()
+  public ArrayList<TeamMember> getTeamMemberList()
   {
-    return status;
+    return teamMemberList;
   }
 
-  public void setStatus(String status)
+  public ArrayList<Requirement> getRequirementList()
   {
-    this.status = status;
+    return requirementList;
   }
 }

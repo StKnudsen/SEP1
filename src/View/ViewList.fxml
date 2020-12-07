@@ -14,8 +14,7 @@
                             <children>
                                 <TableView fx:id="projectsTable" maxHeight="400.0" maxWidth="600.0" prefHeight="313.0" prefWidth="600.0">
                                     <columns>
-                                        <TableColumn fx:id="projectsTitle" prefWidth="456.0000305175781" text="Project title" />
-                                        <TableColumn fx:id="projectsStatus" minWidth="0.0" prefWidth="150.0" text="Status" />
+                                        <TableColumn fx:id="projectsTitle" prefWidth="579.7999633550644" text="Project title" />
                                     </columns>
                                 </TableView>
                             </children>
@@ -62,7 +61,7 @@
                 </HBox>
                 <HBox alignment="TOP_RIGHT" prefHeight="26.0" prefWidth="313.0">
                     <children>
-                        <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="31.0" prefWidth="122.0" text="Skift bruger" />
+                        <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#gotoViewLogin" prefHeight="31.0" prefWidth="122.0" text="Skift bruger" />
                     </children>
                 </HBox>
             </children>

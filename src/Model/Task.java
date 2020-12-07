@@ -1,44 +1,23 @@
 package Model;
 
-public class Task
+import java.util.ArrayList;
+
+public class Task extends Job
 {
-  private String title;
-  private String status;
-  private int priority;
+  private ArrayList<Integer> timeSpentPerTeamMember;
 
   public Task(String title, String status)
   {
-    this.title = title;
-    this.status = status;
+    super(title, status);
   }
 
-  public String getTitle()
+  public void updateTime(TeamMember teamMember, int time)
   {
-    return title;
+
   }
 
-  public void setTitle(String title)
+  public void registerTime(TeamMember teamMember, int time)
   {
-    this.title = title;
-  }
 
-  public String getStatus()
-  {
-    return status;
-  }
-
-  public void setStatus(String status)
-  {
-    this.status = status;
-  }
-
-  public int getPriority()
-  {
-    return priority;
-  }
-
-  public void setPriority(int priority)
-  {
-    this.priority = priority;
   }
 }
