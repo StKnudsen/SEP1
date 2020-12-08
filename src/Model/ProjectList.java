@@ -253,7 +253,7 @@ public class ProjectList
     return tasks;
   }
 
-  private void updateTask(Project project, Requirement requirement, Task task, String title, String description, int estimatedTime, Date deadline, TeamMember responsibleTeamMember)
+  public void updateTask(Project project, Requirement requirement, Task task, String title, String description, int estimatedTime, Date deadline, TeamMember responsibleTeamMember)
   {
     for (int i = 0; i < projectList.size(); i++)
     {
