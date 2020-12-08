@@ -37,4 +37,9 @@ public class ViewRequirementController
   {
     viewHandler.openView("viewAddTask");
   }
+
+  public void editRequirement()
+  {
+    viewHandler.openView("viewEditRequirement");
+  }
 }

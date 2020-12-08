@@ -33,8 +33,18 @@ public class ViewTaskController
     viewHandler.openView("viewLogin");
   }
 
-  public void setTitleLabel(String text)
+  public void editTask()
   {
-    title.setText(text);
+    viewHandler.openView("viewEditTask");
+  }
+
+  public void updateTaskTime()
+  {
+    viewHandler.openView("viewTaskUpdateTime");
+  }
+
+  public void addTeamMember()
+  {
+    viewHandler.openView("viewTaskAddTeamMember");
   }
 }

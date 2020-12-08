@@ -1,13 +1,13 @@
 package View;
 
-import Model.ColourIT;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
+import javafx.scene.control.Button;
 import javafx.scene.layout.Region;
+import javafx.stage.Stage;
 
-public class ViewProjectController
+public class ViewTeamMemberController
 {
-  @FXML private Label title;
+  @FXML private Button closeButton;
 
   private Region root;
   private ViewHandler viewHandler;
@@ -18,9 +18,15 @@ public class ViewProjectController
     this.viewHandler = viewHandler;
   }
 
+  public void closeButtonAction()
+  {
+    Stage stage = (Stage) closeButton.getScene().getWindow();
+    stage.close();
+  }
+
   public void reset()
   {
-    title.setText(viewHandler.getModelManager().getSelectedProject().getTitle());
+    //
   }
 
   public Region getRoot()
@@ -31,15 +37,5 @@ public class ViewProjectController
   public void gotoViewLogin()
   {
     viewHandler.openView("viewLogin");
-  }
-
-  public void addRequirement()
-  {
-    viewHandler.openView("viewAddRequirement");
-  }
-
-  public void addTeamMember()
-  {
-    viewHandler.openView("viewProjectAddTeamMember");
   }
 }
