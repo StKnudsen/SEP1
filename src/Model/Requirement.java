@@ -14,6 +14,7 @@ public class Requirement extends Job
     taskList = new ArrayList<>();
   }
 
+  //  Denne "constructor" skal fjernes, når vi går væk fra dummy data
   public Requirement(String title, String status)
   {
     super(title, status);

@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) {
         ColourIT colourIT = new ColourIT();
         ViewHandler viewHandler = new ViewHandler(colourIT);
         viewHandler.start(primaryStage);
