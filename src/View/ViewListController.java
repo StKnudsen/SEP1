@@ -85,6 +85,15 @@ public class ViewListController
     {
       @Override public void handle(javafx.scene.input.MouseEvent mouseEvent)
       {
+        viewHandler.getModelManager().setSelectedProject(
+            (Project) projectsTable.getSelectionModel().getSelectedItem()
+        );
+        System.out.println(viewHandler.getModelManager().getSelectedProject().getTitle());
+
+        viewHandler.openView("viewProject");
+
+        /*
+        // Vore gamle code hvor projekt bliver vist i nyt vindue
         try
         {
           Project project = (Project) projectsTable.getSelectionModel()
@@ -107,10 +116,9 @@ public class ViewListController
         {
           e.printStackTrace();
         }
+        */
       }
     });
-
-    //System.out.println((projectsTable.getSelectionModel().getSelectedItem()));
   }
 
   public void populateRequirementsTable()
@@ -133,6 +141,15 @@ public class ViewListController
     {
       @Override public void handle(javafx.scene.input.MouseEvent mouseEvent)
       {
+        viewHandler.getModelManager().setSelectedRequirement(
+            (Requirement) requirementsTable.getSelectionModel().getSelectedItem()
+        );
+
+        //System.out.println(viewHandler.getModelManager().getSelectedProject().getTitle());
+
+        viewHandler.openView("viewRequirement");
+
+        /*
         try
         {
           Requirement requirement = (Requirement) requirementsTable.getSelectionModel().getSelectedItem();
@@ -154,6 +171,7 @@ public class ViewListController
         {
           e.printStackTrace();
         }
+        */
       }
       });
 
@@ -184,6 +202,11 @@ public class ViewListController
     {
       @Override public void handle(javafx.scene.input.MouseEvent mouseEvent)
       {
+        viewHandler.getModelManager().setSelectedTask(
+            (Task) tasksTable.getSelectionModel().getSelectedItem()
+        );
+
+        /*
         try
         {
           Task task = (Task) tasksTable.getSelectionModel().getSelectedItem();
@@ -205,6 +228,9 @@ public class ViewListController
         {
           e.printStackTrace();
         }
+         */
+
+        viewHandler.openView("viewTask");
       }
     });
 
@@ -213,7 +239,8 @@ public class ViewListController
 
   @FXML public void addProjectButton()
   {
-    try
+    viewHandler.openView("viewAddProject");
+    /*try
     {
       //Nedenstående skal bruges til at overføre en bruger senere
       //Task task = (Task) tasksTable.getSelectionModel().getSelectedItem();
@@ -235,6 +262,8 @@ public class ViewListController
     {
       e.printStackTrace();
     }
+
+     */
   }
 
 

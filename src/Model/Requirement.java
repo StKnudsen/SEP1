@@ -37,8 +37,7 @@ public class Requirement extends Job
       return false;
     }
     Requirement other = (Requirement) obj;
-    return title.equals(other.getTitle()) && status.equals(other.status) && type
-        .equals(other.type);
+    return title.equals(other.getTitle()) && status.equals(other.status);// && type.equals(other.type);
   }
 
   public void setType(String type)

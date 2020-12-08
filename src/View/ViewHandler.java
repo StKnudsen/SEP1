@@ -10,6 +10,8 @@ import java.io.IOException;
 
 public class ViewHandler
 {
+  private ColourIT colourIT;
+
   private Scene currentScene;
   private Stage primaryStage;
 
@@ -19,8 +21,13 @@ public class ViewHandler
   private ViewProjectController viewProjectController;
   private ViewRequirementController viewRequirementController;
   private ViewTaskController viewTaskController;
+  private ViewAddProjectController viewAddProjectController;
+  private ViewAddTaskController viewAddTaskController;
 
-  private ColourIT colourIT;
+  public ColourIT getModelManager()
+  {
+    return colourIT;
+  }
 
   public ViewHandler(ColourIT colourIT)
   {
@@ -46,14 +53,21 @@ public class ViewHandler
       case "viewList":
         root = loadViewList();
         break;
-      /*case "viewProject":
+      case "viewProject":
         root = loadViewProject();
         break;
       case "viewRequirement":
         root = loadViewRequirement();
         break;
-
-       */
+      case "viewTask":
+        root = loadViewTask();
+        break;
+      case "viewAddProject":
+        root = loadViewAddProject();
+        break;
+      case "viewAddTask":
+        root = loadViewAddTask();
+        break;
     }
 
     currentScene.setRoot(root);
@@ -86,10 +100,10 @@ public class ViewHandler
         e.printStackTrace();
       }
     }
-    else
-    {
+    //else
+    //{
       viewLoginController.reset();
-    }
+    //}
 
     return viewLoginController.getRoot();
   }
@@ -111,14 +125,12 @@ public class ViewHandler
         e.printStackTrace();
       }
     }
-    else
-    {
-      viewListController.reset();
-    }
+
+    viewListController.reset();
 
     return viewListController.getRoot();
   }
-/*
+
   private Region loadViewProject()
   {
     if (viewProjectController == null)
@@ -129,17 +141,15 @@ public class ViewHandler
         loader.setLocation(getClass().getResource("ViewProject.fxml"));
         Region root = loader.load();
         viewProjectController = loader.getController();
-        viewProjectController.init(this, colourIT, root);
+        viewProjectController.init(this, root);
       }
       catch (IOException e)
       {
         e.printStackTrace();
       }
     }
-    else
-    {
-      viewProjectController.reset();
-    }
+
+    viewProjectController.reset();
 
     return viewProjectController.getRoot();
   }
@@ -154,20 +164,85 @@ public class ViewHandler
         loader.setLocation(getClass().getResource("ViewRequirement.fxml"));
         Region root = loader.load();
         viewRequirementController = loader.getController();
-        viewRequirementController.init(this, colourIT, root);
+        viewRequirementController.init(this, root);
       }
       catch (IOException e)
       {
         e.printStackTrace();
       }
     }
-    else
-    {
-      viewRequirementController.reset();
-    }
+
+    viewRequirementController.reset();
 
     return viewRequirementController.getRoot();
-
   }
- */
+
+  private Region loadViewTask()
+  {
+    if (viewTaskController == null)
+    {
+      try
+      {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("ViewTask.fxml"));
+        Region root = loader.load();
+        viewTaskController = loader.getController();
+        viewTaskController.init(this, root);
+      }
+      catch (IOException e)
+      {
+        e.printStackTrace();
+      }
+    }
+
+    viewTaskController.reset();
+
+    return viewTaskController.getRoot();
+  }
+
+  private Region loadViewAddProject()
+  {
+    if (viewAddProjectController == null)
+    {
+      try
+      {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("ViewAddProject.fxml"));
+        Region root = loader.load();
+        viewAddProjectController = loader.getController();
+        viewAddProjectController.init(this, root);
+      }
+      catch (IOException e)
+      {
+        e.printStackTrace();
+      }
+    }
+
+    viewAddProjectController.reset();
+
+    return viewAddProjectController.getRoot();
+  }
+
+  private Region loadViewAddTask()
+  {
+    if (viewAddTaskController == null)
+    {
+      try
+      {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("ViewAddTask.fxml"));
+        Region root = loader.load();
+        viewAddTaskController = loader.getController();
+        viewAddTaskController.init(this, root);
+      }
+      catch (IOException e)
+      {
+        e.printStackTrace();
+      }
+    }
+
+    viewAddTaskController.reset();
+
+    return viewAddTaskController.getRoot();
+  }
 }

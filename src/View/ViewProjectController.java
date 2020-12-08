@@ -10,19 +10,17 @@ public class ViewProjectController
   @FXML private Label title;
 
   private Region root;
-  private ColourIT colourIT;
   private ViewHandler viewHandler;
 
-  public void init(ViewHandler viewHandler, ColourIT colourIT, Region root)
+  public void init(ViewHandler viewHandler, Region root)
   {
     this.root = root;
-    this.colourIT = colourIT;
     this.viewHandler = viewHandler;
   }
 
   public void reset()
   {
-    // ...
+    title.setText(viewHandler.getModelManager().getSelectedProject().getTitle());
   }
 
   public Region getRoot()
@@ -33,10 +31,5 @@ public class ViewProjectController
   public void gotoViewLogin()
   {
     viewHandler.openView("viewLogin");
-  }
-
-  public void setTitleLabel(String text)
-  {
-    title.setText(text);
   }
 }

@@ -142,7 +142,7 @@
                 </HBox>
                 <HBox alignment="CENTER_RIGHT" layoutX="324.0" layoutY="20.0" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="290.0">
                     <children>
-                        <Button mnemonicParsing="false" prefWidth="80.0" text="Skift bruger" />
+                        <Button mnemonicParsing="false" onAction="#gotoViewLogin" prefWidth="80.0" text="Skift bruger" />
                     </children>
                 </HBox>
             </children>

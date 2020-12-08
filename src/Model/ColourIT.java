@@ -13,6 +13,13 @@ public class ColourIT
   private CustomerList customerList;
   private EmployeeList employeeList;
 
+  /*
+   *  Herunder er nye fields vi bruger for at få data til views!
+   */
+  private Project selectedProject;
+  private Requirement selectedRequirement;
+  private Task selectedTask;
+
   public ColourIT()
   {
     //  Når ColourIT PMS starter, si initialiseres
@@ -142,5 +149,38 @@ public class ColourIT
   {
     projectList.updateTask(project, requirement, task, title, description, estimatedTime
     , deadline, responsibleTeamMember);
+  }
+
+  /*
+   *  Herunder er methoder vi bruger for at få data til views!
+   */
+  public void setSelectedProject(Project selectedProject)
+  {
+    this.selectedProject = selectedProject;
+  }
+
+  public Project getSelectedProject()
+  {
+    return selectedProject;
+  }
+
+  public void setSelectedRequirement(Requirement requirement)
+  {
+    this.selectedRequirement = requirement;
+  }
+
+  public Requirement getSelectedRequirement()
+  {
+    return selectedRequirement;
+  }
+
+  public Task getSelectedTask()
+  {
+    return selectedTask;
+  }
+
+  public void setSelectedTask(Task selectedTask)
+  {
+    this.selectedTask = selectedTask;
   }
 }

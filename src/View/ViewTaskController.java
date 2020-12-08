@@ -10,19 +10,17 @@ public class ViewTaskController
   @FXML private Label title;
 
   private Region root;
-  private ColourIT colourIT;
   private ViewHandler viewHandler;
 
-  public void init(ViewHandler viewHandler, ColourIT colourIT, Region root)
+  public void init(ViewHandler viewHandler, Region root)
   {
     this.root = root;
-    this.colourIT = colourIT;
     this.viewHandler = viewHandler;
   }
 
   public void reset()
   {
-    // ...
+    title.setText(viewHandler.getModelManager().getSelectedTask().getTitle());
   }
 
   public Region getRoot()

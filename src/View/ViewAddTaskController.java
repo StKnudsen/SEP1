@@ -1,13 +1,13 @@
 package View;
 
-import Model.ColourIT;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
+import javafx.scene.control.Button;
 import javafx.scene.layout.Region;
+import javafx.stage.Stage;
 
-public class ViewRequirementController
+public class ViewAddTaskController
 {
-  @FXML private Label title;
+  @FXML private Button closeButton;
 
   private Region root;
   private ViewHandler viewHandler;
@@ -18,9 +18,15 @@ public class ViewRequirementController
     this.viewHandler = viewHandler;
   }
 
+  public void closeButtonAction()
+  {
+    Stage stage = (Stage) closeButton.getScene().getWindow();
+    stage.close();
+  }
+
   public void reset()
   {
-    title.setText(viewHandler.getModelManager().getSelectedRequirement().getTitle());
+    //
   }
 
   public Region getRoot()
@@ -31,10 +37,5 @@ public class ViewRequirementController
   public void gotoViewLogin()
   {
     viewHandler.openView("viewLogin");
-  }
-
-  public void addTask()
-  {
-    viewHandler.openView("viewAddTask");
   }
 }

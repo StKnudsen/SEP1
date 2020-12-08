@@ -23,7 +23,7 @@
                 </HBox>
                 <HBox alignment="CENTER_LEFT" layoutX="253.0" layoutY="20.0" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="300.0">
                     <children>
-                        <Label alignment="CENTER" text="Kunde/Requirement title">
+                        <Label alignment="CENTER" text="Requirement title">
                             <font>
                                 <Font size="14.0" />
                             </font>
@@ -136,13 +136,13 @@
             <children>
                 <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="290.0" spacing="15.0">
                     <children>
-                        <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="126.0" text="Opdatér tidsforbrug" />
+                        <Button mnemonicParsing="false" onAction="#addTask" prefHeight="26.0" prefWidth="126.0" text="Tilføj Task" />
                         <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="80.0" text="Rediger" />
                     </children>
                 </HBox>
                 <HBox alignment="CENTER_RIGHT" layoutX="324.0" layoutY="20.0" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="290.0">
                     <children>
-                        <Button mnemonicParsing="false" prefWidth="80.0" text="Skift bruger" />
+                        <Button mnemonicParsing="false" onAction="#gotoViewLogin" prefWidth="80.0" text="Skift bruger" />
                     </children>
                 </HBox>
             </children>

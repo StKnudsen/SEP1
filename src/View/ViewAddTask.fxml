@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="297.0" prefWidth="601.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Label text="Opret ny task">
+            <font>
+                <Font name="System Bold Italic" size="14.0" />
+            </font>
+        </Label>
+        <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="579.0">
+            <children>
+                <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="222.0">
+                    <children>
+                        <Label text="Vælg projekt" />
+                    </children>
+                    <HBox.margin>
+                        <Insets left="5.0" />
+                    </HBox.margin>
+                </HBox>
+                <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="450.0">
+                    <children>
+                        <ChoiceBox prefWidth="450.0" />
+                    </children>
+                </HBox>
+            </children>
+            <VBox.margin>
+                <Insets top="15.0" />
+            </VBox.margin>
+        </HBox>
+        <HBox fx:id="hideOnAddProject" alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="579.0">
+            <children>
+                <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="222.0">
+                    <children>
+                        <Label text="Vælg requirement: " />
+                    </children>
+                    <HBox.margin>
+                        <Insets left="5.0" />
+                    </HBox.margin>
+                </HBox>
+                <HBox layoutX="192.0" layoutY="10.0" prefHeight="100.0" prefWidth="450.0">
+                    <children>
+                        <ChoiceBox prefWidth="450.0" />
+                    </children>
+                    <HBox.margin>
+                        <Insets />
+                    </HBox.margin>
+                </HBox>
+            </children>
+            <VBox.margin>
+                <Insets top="10.0" />
+            </VBox.margin>
+        </HBox>
+        <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="579.0">
+            <children>
+                <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="222.0">
+                    <children>
+                        <Label text="Title: " />
+                    </children>
+                    <HBox.margin>
+                        <Insets left="5.0" />
+                    </HBox.margin>
+                </HBox>
+                <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="450.0">
+                    <children>
+                        <TextField prefHeight="26.0" prefWidth="450.0" text="Angiv titel her..." />
+                    </children>
+                </HBox>
+            </children>
+            <VBox.margin>
+                <Insets top="10.0" />
+            </VBox.margin>
+        </HBox>
+        <HBox alignment="BOTTOM_LEFT" maxHeight="248.0" maxWidth="600.0" prefHeight="130.0" prefWidth="581.0">
+            <children>
+                <HBox alignment="BOTTOM_LEFT" prefHeight="30.0" prefWidth="290.0" spacing="15.0">
+                    <children>
+                        <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="110.0" text="Opret og redigér" />
+                    </children>
+                </HBox>
+                <HBox alignment="BOTTOM_RIGHT" layoutX="324.0" layoutY="20.0" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="290.0">
+                    <children>
+                        <Button mnemonicParsing="false" prefWidth="80.0" text="Skift bruger" />
+                    </children>
+                </HBox>
+            </children>
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+            <VBox.margin>
+                <Insets />
+            </VBox.margin>
+        </HBox>
+    </children>
+    <padding>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+    </padding>
+</VBox>
