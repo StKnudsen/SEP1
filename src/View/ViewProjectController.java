@@ -32,4 +32,9 @@ public class ViewProjectController
   {
     viewHandler.openView("viewLogin");
   }
+
+  public void addRequirement()
+  {
+    viewHandler.openView("viewAddRequirement");
+  }
 }

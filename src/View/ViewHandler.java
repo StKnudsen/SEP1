@@ -23,6 +23,9 @@ public class ViewHandler
   private ViewTaskController viewTaskController;
   private ViewAddProjectController viewAddProjectController;
   private ViewAddTaskController viewAddTaskController;
+  private ViewAddRequirementController viewAddRequirementController;
+  private ViewAddCustomerController viewAddCustomerController;
+  private ViewAddEmployeeController viewAddEmployeeController;
 
   public ColourIT getModelManager()
   {
@@ -68,6 +71,15 @@ public class ViewHandler
       case "viewAddTask":
         root = loadViewAddTask();
         break;
+      case "viewAddRequirement":
+        root = loadViewAddRequirement();
+        break;
+      case "viewAddCustomer":
+        root = loadViewAddCustomer();
+        break;
+      case "viewAddEmployee":
+        root = loadViewAddEmployee();
+        break;
     }
 
     currentScene.setRoot(root);
@@ -100,10 +112,8 @@ public class ViewHandler
         e.printStackTrace();
       }
     }
-    //else
-    //{
-      viewLoginController.reset();
-    //}
+
+    viewLoginController.reset();
 
     return viewLoginController.getRoot();
   }
@@ -244,5 +254,74 @@ public class ViewHandler
     viewAddTaskController.reset();
 
     return viewAddTaskController.getRoot();
+  }
+
+  private Region loadViewAddRequirement()
+  {
+    if (viewAddRequirementController == null)
+    {
+      try
+      {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("ViewAddRequirement.fxml"));
+        Region root = loader.load();
+        viewAddRequirementController = loader.getController();
+        viewAddRequirementController.init(this, root);
+      }
+      catch (IOException e)
+      {
+        e.printStackTrace();
+      }
+    }
+
+    viewAddRequirementController.reset();
+
+    return viewAddRequirementController.getRoot();
+  }
+
+  private Region loadViewAddCustomer()
+  {
+    if (viewAddCustomerController == null)
+    {
+      try
+      {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("ViewAddCustomer.fxml"));
+        Region root = loader.load();
+        viewAddCustomerController = loader.getController();
+        viewAddCustomerController.init(this, root);
+      }
+      catch (IOException e)
+      {
+        e.printStackTrace();
+      }
+    }
+
+    viewAddCustomerController.reset();
+
+    return viewAddCustomerController.getRoot();
+  }
+
+  private Region loadViewAddEmployee()
+  {
+    if (viewAddEmployeeController == null)
+    {
+      try
+      {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("ViewAddEmployee.fxml"));
+        Region root = loader.load();
+        viewAddEmployeeController = loader.getController();
+        viewAddEmployeeController.init(this, root);
+      }
+      catch (IOException e)
+      {
+        e.printStackTrace();
+      }
+    }
+
+    viewAddEmployeeController.reset();
+
+    return viewAddEmployeeController.getRoot();
   }
 }

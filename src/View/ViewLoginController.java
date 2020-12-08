@@ -30,4 +30,14 @@ public class ViewLoginController
   {
     viewHandler.openView("viewList");
   }
+
+  public void addCustomer()
+  {
+    viewHandler.openView("viewAddCustomer");
+  }
+
+  public void addEmployee()
+  {
+    viewHandler.openView("viewAddEmployee");
+  }
 }
