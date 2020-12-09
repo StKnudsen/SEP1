@@ -24,4 +24,16 @@ public class EmployeeList
 
 //Husk getAllTasks(TeamMember teamMember)
 
+  /*
+   *  Skal tilføjes til UML classe diagram!
+   */
+  //public ArrayList<TeamMember> getEmployeeList()
+  //{
+  //  return employeeList;
+  //}
+
+  public void addEmployee(TeamMember teamMember)
+  {
+    employeeList.add(teamMember);
+  }
 }

@@ -16,6 +16,9 @@ public class Project
     this.title = title;
     this.customer = customer;
     this.projectCreator = projectCreator;
+
+    teamMemberList = new ArrayList<>();
+    requirementList = new ArrayList<>();
   }
 
   public String getTitle()

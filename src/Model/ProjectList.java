@@ -1,5 +1,6 @@
 package Model;
 
+import java.awt.image.AreaAveragingScaleFilter;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -284,4 +285,24 @@ public class ProjectList
     }
   }
 
+
+  /*
+   *  Nyeste nye, få en liste med projekter
+   */
+  public ArrayList<Project> getProjects()
+  {
+    return projectList;
+  }
+
+  public ArrayList<Requirement> getRequirements()
+  {
+    ArrayList<Requirement> allRequirements = new ArrayList<>();
+
+    for (Project project : projectList)
+    {
+      allRequirements.addAll(project.getRequirementList());
+    }
+
+    return allRequirements;
+  }
 }

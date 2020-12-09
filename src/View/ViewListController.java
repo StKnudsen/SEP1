@@ -22,7 +22,7 @@ public class ViewListController
   private ColourIT colourIT;
   private ViewHandler viewHandler;
 
-  private ArrayList<Project> dummyProjects;
+  //private ArrayList<Project> dummyProjects;
   private ArrayList<Requirement> dummyRequirements;
   private ArrayList<Task> dummyTasks;
 
@@ -44,7 +44,7 @@ public class ViewListController
     this.colourIT = colourIT;
     this.viewHandler = viewHandler;
 
-    dummyProjects = new ArrayList<>();
+    //dummyProjects = new ArrayList<>();
     dummyRequirements = new ArrayList<>();
     dummyTasks = new ArrayList<>();
 
@@ -70,15 +70,17 @@ public class ViewListController
 
   public void populateProjectsTable()
   {
+    /*
     // Dummy data
     dummyProjects.add(new Project("Best Project ever!", new Customer("Jack"), new TeamMember("Black")));
     dummyProjects.add(new Project("Colour IT PMS", new Customer("Jimifer"), new TeamMember("Jensen")));
+     */
 
     // Hvilke data felter vi vil tilknytte column cellerne
     projectsTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
 
     // Indsæt data i tabellen
-    projectsTable.getItems().addAll(dummyProjects);
+    projectsTable.getItems().addAll(colourIT.getProjects());
 
     // Fang klik på 'row' og åben det valgte projekt
     projectsTable.setOnMousePressed(new EventHandler<>()
@@ -96,18 +98,19 @@ public class ViewListController
 
   public void populateRequirementsTable()
   {
+    /*
     // Dummy data
     dummyRequirements.add(new Requirement("Find a fish", "Started"));
     dummyRequirements
         .add(new Requirement("Slap someone with fish", "Not started"));
-
+*/
     // Hvilke data felter vi vil tilknytte column cellerne
     requirementsTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
     requirementsStatus
         .setCellValueFactory(new PropertyValueFactory<>("status"));
 
     // Indsæt data i tabellen
-    requirementsTable.getItems().addAll(dummyRequirements);
+    requirementsTable.getItems().addAll(colourIT.getAllRequirements());
 
     // Fang klik på 'row' og åben den valgte requirement
     requirementsTable.setOnMousePressed(new EventHandler<>()
@@ -125,6 +128,7 @@ public class ViewListController
 
   public void populateTasksTable()
   {
+    /*
     // Dummy data
     Task task1 = new Task("Find a fishing hole", "Hah, you wish");
     task1.setPriority(dummyTasks.size() + 1);
@@ -133,6 +137,7 @@ public class ViewListController
     Task task2 = new Task("Remember fishing pole", "F*****ck");
     task2.setPriority(dummyTasks.size() + 1);
     dummyTasks.add(task2);
+*/
 
     // Hvilke data felter vi vil tilknytte column cellerne
     tasksPriority.setCellValueFactory(new PropertyValueFactory<>("priority"));
@@ -140,7 +145,9 @@ public class ViewListController
     tasksStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
 
     // Indsæt data i tabellen
-    tasksTable.getItems().addAll(dummyTasks);
+    tasksTable.getItems().addAll(
+        colourIT.getAllTasks(colourIT.searchProject("Best Project ever!"))
+    );
 
     // Fang klik på 'row' og åben den valgte requirement
     tasksTable.setOnMousePressed(new EventHandler<>()
