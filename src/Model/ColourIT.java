@@ -1,5 +1,8 @@
 package Model;
 
+import parser.XmlJsonParser;
+
+import java.io.File;
 import java.awt.image.AreaAveragingScaleFilter;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -14,6 +17,7 @@ public class ColourIT
   private Requirement selectedRequirement;
   private Task selectedTask;
   private TeamMember selectedTeamMember;
+  private XmlJsonParser theParser;
 
   private ProjectList projectList;
   private CustomerList customerList;
@@ -25,6 +29,9 @@ public class ColourIT
     projectList = new ProjectList();
     customerList = new CustomerList();
     employeeList = new EmployeeList();
+
+    // vi starter også lige en parser, det kan vi godt lide
+    theParser = new XmlJsonParser();
 
     /*
      *  Når vi har lavet persist data med filer
@@ -47,6 +54,9 @@ public class ColourIT
       TeamMember projectCreator)
   {
     projectList.createNewProject(title, customer, projectCreator);
+
+    File projectlist = theParser
+        .toXml(projectList.getProjects(), projectlist.xml);
   }
 
   public void addNewTeamMemberToProject(TeamMember teamMember, Project project)
