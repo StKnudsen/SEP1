@@ -22,13 +22,6 @@
                     </HBox.margin>
                 </HBox>
                 <HBox alignment="CENTER_LEFT" layoutX="253.0" layoutY="20.0" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="300.0">
-                    <children>
-                        <Label alignment="CENTER" text="Requirement title">
-                            <font>
-                                <Font size="14.0" />
-                            </font>
-                        </Label>
-                    </children>
                     <HBox.margin>
                         <Insets />
                     </HBox.margin>
@@ -42,7 +35,7 @@
             <children>
                 <HBox prefHeight="100.0" prefWidth="303.0">
                     <children>
-                        <Label fx:id="title" contentDisplay="CENTER" prefHeight="40.0" prefWidth="257.0" text="Requirement/task title">
+                        <Label fx:id="title" contentDisplay="CENTER" prefHeight="40.0" prefWidth="257.0" text="Requirement title">
                             <font>
                                 <Font name="System Bold" size="13.0" />
                             </font>
