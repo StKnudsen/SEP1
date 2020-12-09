@@ -26,7 +26,7 @@
                       </HBox>
                       <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="450.0">
                           <children>
-                              <ChoiceBox maxWidth="-Infinity" prefWidth="300.0" />
+                              <ChoiceBox fx:id="chooseProject" maxWidth="-Infinity" prefWidth="300.0" />
                           </children>
                       </HBox>
                   </children>
@@ -75,7 +75,7 @@
                       </HBox>
                       <HBox alignment="TOP_RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="450.0">
                           <children>
-                              <TextField maxWidth="-Infinity" prefHeight="26.0" prefWidth="300.0" promptText="Angiv titel her..." />
+                              <TextField fx:id="taskTitleInput" maxWidth="-Infinity" prefHeight="26.0" prefWidth="300.0" promptText="Angiv titel her..." />
                           </children>
                       </HBox>
                   </children>
@@ -83,16 +83,17 @@
                       <Insets top="10.0" />
                   </VBox.margin>
               </HBox>
+            <Label fx:id="missingInputLabel" />
               <HBox alignment="BOTTOM_LEFT" maxHeight="248.0" maxWidth="600.0" prefHeight="130.0" prefWidth="581.0">
                   <children>
                       <HBox alignment="BOTTOM_LEFT" prefHeight="30.0" prefWidth="290.0" spacing="15.0">
                           <children>
-                              <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="110.0" text="Opret og redigér" />
+                              <Button mnemonicParsing="false" onAction="#addTask" prefHeight="26.0" prefWidth="110.0" text="Opret og redigér" />
                           </children>
                       </HBox>
                       <HBox alignment="BOTTOM_RIGHT" layoutX="324.0" layoutY="20.0" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="290.0">
                           <children>
-                              <Button mnemonicParsing="false" prefWidth="80.0" text="Skift bruger" />
+                              <Button mnemonicParsing="false" onAction="#goToViewList" prefWidth="80.0" text="Afslut" />
                           </children>
                       </HBox>
                   </children>

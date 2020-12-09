@@ -43,10 +43,6 @@ public class ViewListController
     this.root = root;
     this.colourIT = colourIT;
     this.viewHandler = viewHandler;
-
-    /*populateProjectsTable();
-    populateRequirementsTable();
-    populateTasksTable();*/
   }
 
   public void reset()

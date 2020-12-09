@@ -55,8 +55,8 @@ public class ColourIT
   {
     projectList.createNewProject(title, customer, projectCreator);
 
-    File projectlist = theParser
-        .toXml(projectList.getProjects(), projectlist.xml);
+   // File projectlist = theParser
+     //   .toXml(projectList.getProjects(), projectlist.xml);
   }
 
   public void addNewTeamMemberToProject(TeamMember teamMember, Project project)

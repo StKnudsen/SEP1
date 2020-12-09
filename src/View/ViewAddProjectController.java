@@ -1,20 +1,17 @@
 package View;
 
 import Model.Customer;
-import Model.Project;
-import Model.TeamMember;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
-import javafx.stage.Stage;
 
 public class ViewAddProjectController
 {
   @FXML private Button closeButton;
-  @FXML private ChoiceBox chooseCustomer;
+  @FXML private ChoiceBox<Customer> chooseCustomer;
   @FXML private Label missingInputLabel;
   @FXML private TextField projectTitleInput;
 
@@ -50,7 +47,8 @@ public class ViewAddProjectController
         if (!projectTitleInput.getText().equalsIgnoreCase(""))
         {
           viewHandler.getModelManager()
-              .createNewProject(projectTitleInput.getText(), (Customer) chooseCustomer.getValue(),
+              .createNewProject(projectTitleInput.getText(),
+                  chooseCustomer.getValue(),
                   viewHandler.getModelManager().getCurrentUser());
 
           viewHandler.openView("viewLogin");
