@@ -1,5 +1,8 @@
 package Model;
 
+import parser.XmlJsonParser;
+
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -20,6 +23,7 @@ public class ColourIT
   private Requirement selectedRequirement;
   private Task selectedTask;
   private TeamMember selectedTeamMember;
+  private XmlJsonParser theParser;
 
   public ColourIT()
   {
@@ -28,6 +32,9 @@ public class ColourIT
     projectList = new ProjectList();
     customerList = new CustomerList();
     employeeList = new EmployeeList();
+
+    // vi starter også lige en parser, det kan vi godt lide
+    theParser = new XmlJsonParser();
 
     /*
      *  Når vi har lavet persist data med filer
@@ -50,6 +57,9 @@ public class ColourIT
       TeamMember projectCreator)
   {
     projectList.createNewProject(title, customer, projectCreator);
+
+    File projectlist = theParser
+        .toXml(projectList.getProjects(), projectlist.xml);
   }
 
   public void addNewTeamMemberToProject(TeamMember teamMember, Project project)
@@ -67,7 +77,8 @@ public class ColourIT
     projectList.addTask(project, requirement, task);
   }
 
-  public void addTeamMemberToTask(Project project, Requirement requirement, Task task, TeamMember teamMember)
+  public void addTeamMemberToTask(Project project, Requirement requirement,
+      Task task, TeamMember teamMember)
   {
     projectList.addTeamMemberToTask(project, requirement, task, teamMember);
   }
@@ -82,7 +93,8 @@ public class ColourIT
     projectList.prioritizeTask(value);
   }
 
-  public void approveRequirement(Project project, Requirement requirement, String value)
+  public void approveRequirement(Project project, Requirement requirement,
+      String value)
   {
     projectList.approveRequirement(project, requirement, value);
   }
@@ -110,7 +122,7 @@ public class ColourIT
     teamMember.registerTime(time);
   }
 
-  public  void updateTime(TeamMember teamMember, Task task, int time)
+  public void updateTime(TeamMember teamMember, Task task, int time)
   {
     // TODO projectList.updateTime(teamMember, task, time)
     teamMember.updateTime(time);
@@ -131,11 +143,13 @@ public class ColourIT
       String title, String description, String type, int estimatedTime,
       Date deadline, TeamMember responsibleTeamMember)
   {
-    projectList.updateRequirement(project, requirement, title, description, type,
-        estimatedTime, deadline, responsibleTeamMember);
+    projectList
+        .updateRequirement(project, requirement, title, description, type,
+            estimatedTime, deadline, responsibleTeamMember);
   }
 
-  public ArrayList<Task> searchTask(Project project, Requirement requirement, String title)
+  public ArrayList<Task> searchTask(Project project, Requirement requirement,
+      String title)
   {
     return projectList.searchTask(project, requirement, title);
   }
@@ -147,10 +161,11 @@ public class ColourIT
   }
 
   public void updateTask(Project project, Requirement requirement, Task task,
-      String title, String description, int estimatedTime, Date deadline, TeamMember responsibleTeamMember)
+      String title, String description, int estimatedTime, Date deadline,
+      TeamMember responsibleTeamMember)
   {
-    projectList.updateTask(project, requirement, task, title, description, estimatedTime
-    , deadline, responsibleTeamMember);
+    projectList.updateTask(project, requirement, task, title, description,
+        estimatedTime, deadline, responsibleTeamMember);
   }
 
   /*
@@ -206,8 +221,6 @@ public class ColourIT
     return projectList.getRequirements();
   }
 
-
-
   /*
    *  DUMMY D>TA
    */
@@ -231,74 +244,72 @@ public class ColourIT
     this.createNewProject("Best Project ever!", customer1, teamMember1);
     this.createNewProject("Colour IT PMS", customer2, teamMember2);
     //  Tilføj Team Members
-    this.addNewTeamMemberToProject(teamMember2, projectList.searchProject("Best Project ever!"));
-    this.addNewTeamMemberToProject(teamMember1, projectList.searchProject("Colour IT PMS"));
+    this.addNewTeamMemberToProject(teamMember2,
+        projectList.searchProject("Best Project ever!"));
+    this.addNewTeamMemberToProject(teamMember1,
+        projectList.searchProject("Colour IT PMS"));
 
     //  Nogle requirements
     // To til projekt 1
-    Requirement prj1Requirement1 = new Requirement("Find a fish", "Started", "Functional Requirement");
-    Requirement prj1Requirement2 = new Requirement("Slap someone with fish", "Not Started", "Functional Requirement");
-    this.addRequirement(projectList.searchProject("Best Project ever!"), prj1Requirement1);
-    this.addRequirement(projectList.searchProject("Best Project ever!"), prj1Requirement2);
+    Requirement prj1Requirement1 = new Requirement("Find a fish", "Started",
+        "Functional Requirement");
+    Requirement prj1Requirement2 = new Requirement("Slap someone with fish",
+        "Not Started", "Functional Requirement");
+    this.addRequirement(projectList.searchProject("Best Project ever!"),
+        prj1Requirement1);
+    this.addRequirement(projectList.searchProject("Best Project ever!"),
+        prj1Requirement2);
     // To til projekt 2
-    Requirement prj2Requirement1 = new Requirement("Blow a rainbow", "Started", "Functional Requirement");
-    Requirement prj2Requirement2 = new Requirement("Colour that rainbow", "Not Started", "Non Requirement");
-    this.addRequirement(projectList.searchProject("Colour IT PMS"), prj2Requirement1);
-    this.addRequirement(projectList.searchProject("Colour IT PMS"), prj2Requirement2);
+    Requirement prj2Requirement1 = new Requirement("Blow a rainbow", "Started",
+        "Functional Requirement");
+    Requirement prj2Requirement2 = new Requirement("Colour that rainbow",
+        "Not Started", "Non Requirement");
+    this.addRequirement(projectList.searchProject("Colour IT PMS"),
+        prj2Requirement1);
+    this.addRequirement(projectList.searchProject("Colour IT PMS"),
+        prj2Requirement2);
 
     // Tasks til requirements
     // projekt 1 requirement 1
     Task prj1Req1Task1 = new Task("Find a fishing hole", "Hah, you wish");
     Task prj1Req1Task2 = new Task("Remember fishing pole", "Doh!");
-    this.addTask(
-        projectList.searchProject("Best Project ever!"),
-        projectList.searchProject("Best Project ever!").getRequirementList().get(0),
-        prj1Req1Task1
-    );
-    this.addTask(
-        projectList.searchProject("Best Project ever!"),
-        projectList.searchProject("Best Project ever!").getRequirementList().get(0),
-        prj1Req1Task2
-    );
+    this.addTask(projectList.searchProject("Best Project ever!"),
+        projectList.searchProject("Best Project ever!").getRequirementList()
+            .get(0), prj1Req1Task1);
+    this.addTask(projectList.searchProject("Best Project ever!"),
+        projectList.searchProject("Best Project ever!").getRequirementList()
+            .get(0), prj1Req1Task2);
     // projekt 1 requirement 2
-    Task prj1Req2Task1 = new Task("Find someone to slap with a fish", "Hah, you wish");
+    Task prj1Req2Task1 = new Task("Find someone to slap with a fish",
+        "Hah, you wish");
     Task prj1Req2Task2 = new Task("Someone found you first!", "F*****ck");
-    this.addTask(
-        projectList.searchProject("Best Project ever!"),
-        projectList.searchProject("Best Project ever!").getRequirementList().get(1),
-        prj1Req2Task1
-    );
-    this.addTask(
-        projectList.searchProject("Best Project ever!"),
-        projectList.searchProject("Best Project ever!").getRequirementList().get(1),
-        prj1Req2Task2
-    );
+    this.addTask(projectList.searchProject("Best Project ever!"),
+        projectList.searchProject("Best Project ever!").getRequirementList()
+            .get(1), prj1Req2Task1);
+    this.addTask(projectList.searchProject("Best Project ever!"),
+        projectList.searchProject("Best Project ever!").getRequirementList()
+            .get(1), prj1Req2Task2);
     // projekt 2 requirement 1
-    Task prj2Req1Task1 = new Task("Find someone who is abel to blow a rainbow", "Hah, you wish");
-    Task prj2Req1Task2 = new Task("Bribe that person with candy", "Not Started");
-    this.addTask(
-        projectList.searchProject("Colour IT PMS"),
+    Task prj2Req1Task1 = new Task("Find someone who is abel to blow a rainbow",
+        "Hah, you wish");
+    Task prj2Req1Task2 = new Task("Bribe that person with candy",
+        "Not Started");
+    this.addTask(projectList.searchProject("Colour IT PMS"),
         projectList.searchProject("Colour IT PMS").getRequirementList().get(0),
-        prj2Req1Task1
-    );
-    this.addTask(
-        projectList.searchProject("Colour IT PMS"),
+        prj2Req1Task1);
+    this.addTask(projectList.searchProject("Colour IT PMS"),
         projectList.searchProject("Colour IT PMS").getRequirementList().get(0),
-        prj2Req1Task2
-    );
+        prj2Req1Task2);
     // projekt 2 requirement 1
     Task prj2Req2Task1 = new Task("Take a red crayon", "Started");
-    Task prj2Req2Task2 = new Task("Find a rainbow coloured crayon!", "YAY I WIN!");
-    this.addTask(
-        projectList.searchProject("Colour IT PMS"),
+    Task prj2Req2Task2 = new Task("Find a rainbow coloured crayon!",
+        "YAY I WIN!");
+    this.addTask(projectList.searchProject("Colour IT PMS"),
         projectList.searchProject("Colour IT PMS").getRequirementList().get(1),
-        prj2Req2Task1
-    );
-    this.addTask(
-        projectList.searchProject("Colour IT PMS"),
+        prj2Req2Task1);
+    this.addTask(projectList.searchProject("Colour IT PMS"),
         projectList.searchProject("Colour IT PMS").getRequirementList().get(1),
-        prj2Req2Task2
-    );
+        prj2Req2Task2);
   }
 
 }
