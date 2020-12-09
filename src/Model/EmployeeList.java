@@ -36,4 +36,9 @@ public class EmployeeList
   {
     employeeList.add(teamMember);
   }
+
+  public ArrayList<TeamMember> getEmployees()
+  {
+    return employeeList;
+  }
 }

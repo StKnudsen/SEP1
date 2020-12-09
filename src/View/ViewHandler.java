@@ -129,7 +129,7 @@ public class ViewHandler
         loader.setLocation(getClass().getResource("ViewLogin.fxml"));
         Region root = loader.load();
         viewLoginController = loader.getController();
-        viewLoginController.init(this, colourIT, root);
+        viewLoginController.init(this, root);
       }
       catch (IOException e)
       {
@@ -259,6 +259,8 @@ public class ViewHandler
 
   private Region loadViewAddTask()
   {
+
+   // viewAddTaskController.reset();
     if (viewAddTaskController == null)
     {
       try
@@ -274,10 +276,8 @@ public class ViewHandler
         e.printStackTrace();
       }
     }
-
-    viewAddTaskController.reset();
-
     return viewAddTaskController.getRoot();
+
   }
 
   private Region loadViewAddRequirement()

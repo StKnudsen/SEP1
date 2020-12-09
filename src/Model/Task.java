@@ -9,11 +9,14 @@ public class Task extends Job
   //  således at tiden opdateres på denne kopi af team member
   //  dermed slipper vi for at holde styr på to arrays
   //  på tasks (1. team member, 2. timeSpentPe...)
-  private ArrayList<Integer> timeSpentPerTeamMember;
+  //private ArrayList<Integer> timeSpentPerTeamMember;
+  private ArrayList<TeamMember> teamMemberList;
 
   public Task(String title, String status)
   {
     super(title, status);
+
+    teamMemberList = new ArrayList<>();
   }
 
   public void updateTime(TeamMember teamMember, int time)
@@ -25,6 +28,26 @@ public class Task extends Job
   {
 
   }
+
+  public void addTeamMember(TeamMember teammember){
+    teamMemberList.add(teammember);
+  }
+
+  public TeamMember getTeamMember(TeamMember teamMember)
+  {
+    for (TeamMember member : teamMemberList)
+    {
+      if (member.equals(teamMember))
+        return teamMember;
+    }
+    return null;
+  }
+
+  /* PT kan man ikke slette en team member!
+   public void deleteTeamMember(TeamMember teamMember){
+     teamMemberList.remove(teamMember);
+   }
+    */
 
   public boolean equals(Object obj)
   {

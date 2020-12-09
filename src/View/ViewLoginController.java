@@ -1,24 +1,29 @@
 package View;
 
-import Model.ColourIT;
+import Model.TeamMember;
+import javafx.fxml.FXML;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.layout.Region;
 
 public class ViewLoginController
 {
+  @FXML ChoiceBox chooseUser;
+  @FXML Label missingInputLabel;
   private Region root;
-  private ColourIT colourIT;
   private ViewHandler viewHandler;
 
-  public void init(ViewHandler viewHandler, ColourIT colourIT, Region root)
+  public void init(ViewHandler viewHandler, Region root)
   {
     this.root = root;
-    this.colourIT = colourIT;
     this.viewHandler = viewHandler;
   }
 
   public void reset()
   {
-    // ...
+    chooseUser.getItems().removeAll(viewHandler.getModelManager().getEmployees());
+    chooseUser.getItems().addAll(viewHandler.getModelManager().getEmployees());
+    missingInputLabel.setText("");
   }
 
   public Region getRoot()
@@ -28,7 +33,21 @@ public class ViewLoginController
 
   public void loginButtonPressed()
   {
-    viewHandler.openView("viewList");
+    //System.out.println(chooseUser.getValue());
+    try
+    {
+      if (!chooseUser.getValue().equals(""))
+      {
+        viewHandler.getModelManager().setCurrentUser((TeamMember) chooseUser.getValue());
+
+        viewHandler.openView("viewList");
+      }
+    }
+    catch (NullPointerException e)
+    {
+      e.printStackTrace();
+    }
+    missingInputLabel.setText("Vælg bruger");
   }
 
   public void addCustomer()

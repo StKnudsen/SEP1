@@ -3,11 +3,13 @@ package View;
 import Model.ColourIT;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.layout.Region;
 
 public class ViewProjectController
 {
   @FXML private Label title;
+  @FXML private ListView teamMemberList;
 
   private Region root;
   private ViewHandler viewHandler;
@@ -21,6 +23,8 @@ public class ViewProjectController
   public void reset()
   {
     title.setText(viewHandler.getModelManager().getSelectedProject().getTitle());
+    teamMemberList.getItems().removeAll(viewHandler.getModelManager().getSelectedProject().getTeamMemberList());
+    teamMemberList.getItems().addAll(viewHandler.getModelManager().getSelectedProject().getTeamMemberList());
   }
 
   public Region getRoot()

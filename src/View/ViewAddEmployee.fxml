@@ -22,17 +22,18 @@
                         <Insets left="10.0" />
                     </HBox.margin>
                 </Label>
-                <TextField prefHeight="25.0" prefWidth="293.0" promptText="... Skriv medarbejderens navn her">
+                <TextField fx:id="employeeNameInput" prefHeight="25.0" prefWidth="293.0" promptText="... Skriv medarbejderens navn her">
                <HBox.margin>
                   <Insets right="20.0" />
                </HBox.margin></TextField>
             </children>
         </HBox>
+      <Label fx:id="missingInputLabel" />
         <HBox prefHeight="81.0" prefWidth="600.0">
             <children>
                 <HBox alignment="BOTTOM_LEFT" prefHeight="43.0" prefWidth="314.0">
                     <children>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="34.0" prefWidth="79.0" text="Opret">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#addEmployee" prefHeight="30.0" prefWidth="80.0" text="Opret">
                             <HBox.margin>
                                 <Insets left="20.0" />
                             </HBox.margin>
@@ -41,7 +42,7 @@
                 </HBox>
                 <HBox alignment="BOTTOM_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="81.0" prefWidth="363.0">
                     <children>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" text="Afslut">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#gotoViewLogin" prefHeight="30.0" prefWidth="80.0" text="Afslut">
                             <opaqueInsets>
                                 <Insets right="10.0" />
                             </opaqueInsets>

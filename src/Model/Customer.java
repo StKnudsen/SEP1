@@ -8,4 +8,9 @@ public class Customer
   {
     this.name = name;
   }
+
+  public String toString()
+  {
+    return name;
+  }
 }

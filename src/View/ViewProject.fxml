@@ -94,7 +94,7 @@
                 <VBox prefHeight="102.0" prefWidth="600.0">
                     <children>
                         <Label text="Team members" />
-                        <ListView maxWidth="1.7976931348623157E308" prefHeight="110.0" prefWidth="579.0">
+                        <ListView fx:id="teamMemberList" maxWidth="1.7976931348623157E308" prefHeight="110.0" prefWidth="579.0">
                             <VBox.margin>
                                 <Insets />
                             </VBox.margin>

@@ -1,13 +1,18 @@
 package View;
 
+import Model.TeamMember;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 
 public class ViewProjectAddTeamMemberController
 {
   @FXML private Button closeButton;
+  @FXML private Label missingInputLabel;
+  @FXML private ChoiceBox chooseEmployee;
 
   private Region root;
   private ViewHandler viewHandler;
@@ -18,15 +23,30 @@ public class ViewProjectAddTeamMemberController
     this.viewHandler = viewHandler;
   }
 
-  public void closeButtonAction()
-  {
-    Stage stage = (Stage) closeButton.getScene().getWindow();
-    stage.close();
-  }
-
   public void reset()
   {
-    //
+    chooseEmployee.getItems().removeAll(viewHandler.getModelManager().getEmployees());
+    chooseEmployee.getItems().addAll(viewHandler.getModelManager().getEmployees());
+    missingInputLabel.setText("");
+  }
+
+  public void addTeamMemberToProject()
+  {
+    try
+    {
+      if (!chooseEmployee.getValue().equals(""))
+      {
+        viewHandler.getModelManager().addNewTeamMemberToProject((TeamMember) chooseEmployee.getValue(), viewHandler.getModelManager()
+            .getSelectedProject());
+
+        viewHandler.openView("viewList");
+      }
+    }
+    catch (NullPointerException e)
+    {
+      e.printStackTrace();
+    }
+    missingInputLabel.setText("Vælg bruger");
   }
 
   public Region getRoot()
@@ -34,8 +54,8 @@ public class ViewProjectAddTeamMemberController
     return root;
   }
 
-  public void gotoViewLogin()
+  public void gotoViewList()
   {
-    viewHandler.openView("viewLogin");
+    viewHandler.openView("viewList");
   }
 }
