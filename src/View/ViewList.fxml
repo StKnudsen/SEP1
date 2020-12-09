@@ -21,7 +21,7 @@
                             <children>
                                 <VBox prefHeight="300.0" prefWidth="580.0">
                                     <children>
-                                        <HBox alignment="CENTER_RIGHT" prefHeight="36.0" prefWidth="580.0">
+                                        <HBox alignment="CENTER_RIGHT" prefHeight="33.0" prefWidth="580.0">
                                             <children>
                                                 <TextField>
                                                     <HBox.margin>
@@ -50,7 +50,7 @@
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
-                                <VBox layoutY="-1.0" prefHeight="338.0" prefWidth="580.0">
+                                <VBox layoutY="-1.0" prefHeight="300.0" prefWidth="580.0">
                                     <children>
                                         <HBox alignment="CENTER_RIGHT" prefHeight="33.0" prefWidth="586.0">
                                             <children>
@@ -66,7 +66,7 @@
                                                 </Button>
                                             </children>
                                         </HBox>
-                                        <TableView fx:id="requirementsTable" maxHeight="400.0" maxWidth="600.0" prefHeight="253.0" prefWidth="580.0">
+                                        <TableView fx:id="requirementsTable" maxHeight="400.0" maxWidth="600.0" prefHeight="276.0" prefWidth="580.0">
                                             <columns>
                                                 <TableColumn fx:id="requirementsTitle" prefWidth="456.0" text="Requirement title" />
                                                 <TableColumn fx:id="requirementsStatus" minWidth="0.0" prefWidth="123.19998168945312" text="Status" />
@@ -82,7 +82,7 @@
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
-                                <VBox prefHeight="299.0" prefWidth="580.0">
+                                <VBox prefHeight="300.0" prefWidth="580.0">
                                     <children>
                                         <HBox alignment="CENTER_RIGHT" prefHeight="33.0" prefWidth="586.0">
                                             <children>
@@ -98,7 +98,7 @@
                                                 </Button>
                                             </children>
                                         </HBox>
-                                        <TableView fx:id="tasksTable" maxHeight="400.0" maxWidth="600.0" prefHeight="252.0" prefWidth="585.0">
+                                        <TableView fx:id="tasksTable" maxHeight="400.0" maxWidth="600.0" prefHeight="276.0" prefWidth="585.0">
                                             <columns>
                                                 <TableColumn fx:id="tasksPriority" maxWidth="600.0" prefWidth="90.0" text="Prioritering" />
                                                 <TableColumn fx:id="tasksTitle" maxWidth="600.0" prefWidth="366.0" text="Task title" />
