@@ -67,7 +67,7 @@
                 </HBox>
                 <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="450.0">
                     <children>
-                        <TextField prefHeight="26.0" prefWidth="450.0" text="Angiv titel her..." />
+                        <TextField prefHeight="26.0" prefWidth="450.0" promptText="Angiv titel her..." />
                     </children>
                 </HBox>
             </children>
