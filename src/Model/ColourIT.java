@@ -55,8 +55,8 @@ public class ColourIT
   {
     projectList.createNewProject(title, customer, projectCreator);
 
-   // File projectlist = theParser
-     //   .toXml(projectList.getProjects(), projectlist.xml);
+    //File projectlist = theParser
+    //    .toXml(projectList.getProjects(), projectlist.xml);
   }
 
   public void addNewTeamMemberToProject(TeamMember teamMember, Project project)
@@ -248,13 +248,13 @@ public class ColourIT
 
     //  Nogle requirements
     // To til projekt 1
-    Requirement prj1Requirement1 = new Requirement("Find a fish", "Started", "Functional Requirement");
-    Requirement prj1Requirement2 = new Requirement("Slap someone with fish", "Not Started", "Functional Requirement");
+    Requirement prj1Requirement1 = new Requirement("Find a fish", "Started", "Functional Requirement", projectList.getProjects().get(0).getTitle());
+    Requirement prj1Requirement2 = new Requirement("Slap someone with fish", "Not Started", "Functional Requirement", projectList.getProjects().get(0).getTitle());
     this.addRequirement(projectList.searchProject("Best Project ever!"), prj1Requirement1);
     this.addRequirement(projectList.searchProject("Best Project ever!"), prj1Requirement2);
     // To til projekt 2
-    Requirement prj2Requirement1 = new Requirement("Blow a rainbow", "Started", "Functional Requirement");
-    Requirement prj2Requirement2 = new Requirement("Colour that rainbow", "Not Started", "Non Requirement");
+    Requirement prj2Requirement1 = new Requirement("Blow a rainbow", "Started", "Functional Requirement", projectList.getProjects().get(1).getTitle());
+    Requirement prj2Requirement2 = new Requirement("Colour that rainbow", "Not Started", "Non Requirement", projectList.getProjects().get(1).getTitle());
     this.addRequirement(projectList.searchProject("Colour IT PMS"), prj2Requirement1);
     this.addRequirement(projectList.searchProject("Colour IT PMS"), prj2Requirement2);
 

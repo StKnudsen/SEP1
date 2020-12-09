@@ -39,8 +39,11 @@ public class ViewAddRequirementController
         {
           viewHandler.getModelManager()
               .addRequirement(viewHandler.getModelManager().getSelectedProject(),
-                  new Requirement(requirementTitleInput.getText(), "Not Started", (String) chooseRequirementType.getValue())
-
+                  new Requirement(
+                      requirementTitleInput.getText(),
+                      "Not Started", (String) chooseRequirementType.getValue(),
+                      viewHandler.getModelManager().getSelectedProject().getTitle()
+                  )
               );
 
           viewHandler.openView("viewList");
