@@ -1,13 +1,18 @@
 package View;
 
+import Model.Customer;
+import Model.Requirement;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
-import javafx.stage.Stage;
 
 public class ViewAddRequirementController
 {
-  @FXML private Button closeButton;
+  @FXML private ChoiceBox chooseRequirementType;
+  @FXML private Label missingInputLabel;
+  @FXML private TextField requirementTitleInput;
 
   private Region root;
   private ViewHandler viewHandler;
@@ -16,17 +21,38 @@ public class ViewAddRequirementController
   {
     this.root = root;
     this.viewHandler = viewHandler;
-  }
-
-  public void closeButtonAction()
-  {
-    Stage stage = (Stage) closeButton.getScene().getWindow();
-    stage.close();
+    chooseRequirementType.getItems().addAll(viewHandler.getModelManager().getRequirementTypes());
   }
 
   public void reset()
   {
-    //
+    missingInputLabel.setText("");
+  }
+
+  public void addRequirement()
+  {
+    String missingInputWarningText = "Vælg en type og indtast venligst en titel..";
+    try {
+      if (!chooseRequirementType.getValue().equals(""))
+      {
+        if (!requirementTitleInput.getText().equalsIgnoreCase(""))
+        {
+          viewHandler.getModelManager()
+              .addRequirement(viewHandler.getModelManager().getSelectedProject(),
+                  new Requirement(requirementTitleInput.getText(), "Not Started", (String) chooseRequirementType.getValue())
+
+              );
+
+          viewHandler.openView("viewList");
+        }
+      }
+    }
+    catch (NullPointerException e)
+    {
+      e.printStackTrace();
+    }
+
+    missingInputLabel.setText(missingInputWarningText);
   }
 
   public Region getRoot()
@@ -34,8 +60,8 @@ public class ViewAddRequirementController
     return root;
   }
 
-  public void gotoViewLogin()
+  public void goToViewList()
   {
-    viewHandler.openView("viewLogin");
+    viewHandler.openView("viewList");
   }
 }

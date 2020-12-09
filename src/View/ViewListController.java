@@ -76,7 +76,7 @@ public class ViewListController
     projectsTable.getItems().removeAll(viewHandler.getModelManager().getProjects());
 
     // Indsæt data i tabellen
-    projectsTable.getItems().addAll(colourIT.getProjects());
+    projectsTable.getItems().addAll(viewHandler.getModelManager().getProjects());
 
     // Fang klik på 'row' og åben det valgte projekt
     projectsTable.setOnMousePressed(new EventHandler<>()
@@ -100,8 +100,11 @@ public class ViewListController
     requirementsStatus
         .setCellValueFactory(new PropertyValueFactory<>("status"));
 
+    // nulstil
+    requirementsTable.getItems().removeAll(viewHandler.getModelManager().getAllRequirements());
+
     // Indsæt data i tabellen
-    requirementsTable.getItems().addAll(colourIT.getAllRequirements());
+    requirementsTable.getItems().addAll(viewHandler.getModelManager().getAllRequirements());
 
     // Fang klik på 'row' og åben den valgte requirement
     requirementsTable.setOnMousePressed(new EventHandler<>()
@@ -119,16 +122,17 @@ public class ViewListController
 
   public void populateTasksTable()
   {
-
     // Hvilke data felter vi vil tilknytte column cellerne
     tasksPriority.setCellValueFactory(new PropertyValueFactory<>("priority"));
     tasksTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
     tasksStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
 
+    // nulstil
+    tasksTable.getItems().removeAll(viewHandler.getModelManager().getAllTasks(
+        viewHandler.getModelManager().getSelectedProject()));
+
     // Indsæt data i tabellen
-    tasksTable.getItems().addAll(
-        colourIT.getAllTasks(colourIT.searchProject("Best Project ever!"))
-    );
+    tasksTable.getItems().addAll(viewHandler.getModelManager().getAllTasks(viewHandler.getModelManager().getSelectedProject()));
 
     // Fang klik på 'row' og åben den valgte requirement
     tasksTable.setOnMousePressed(new EventHandler<>()

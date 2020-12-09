@@ -38,6 +38,7 @@ public class ViewAddProjectController
     chooseCustomer.getItems().removeAll(viewHandler.getModelManager().getCustomers());
     chooseCustomer.getItems().addAll(viewHandler.getModelManager().getCustomers());
     missingInputLabel.setText("");
+    projectTitleInput.setText("");
   }
 
   public void addProject()

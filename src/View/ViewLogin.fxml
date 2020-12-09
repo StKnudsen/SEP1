@@ -38,6 +38,7 @@
                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
             </padding>
         </HBox>
+      <Label fx:id="missingInputLabel" />
         <HBox alignment="CENTER" prefHeight="53.0" prefWidth="423.0">
             <children>
                 <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="47.0" prefWidth="226.0">

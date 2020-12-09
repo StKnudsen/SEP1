@@ -1,6 +1,7 @@
 package Model;
 
 import java.awt.image.AreaAveragingScaleFilter;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -17,6 +18,7 @@ public class ColourIT
   private ProjectList projectList;
   private CustomerList customerList;
   private EmployeeList employeeList;
+  final private String[] typeList = {"Functional", "Non-functional", "Project requirement"};
 
   public ColourIT()
   {
@@ -314,5 +316,10 @@ public class ColourIT
   public ArrayList<Customer> getCustomers()
   {
     return customerList.getCustomers();
+  }
+
+  public String[] getRequirementTypes()
+  {
+    return typeList;
   }
 }

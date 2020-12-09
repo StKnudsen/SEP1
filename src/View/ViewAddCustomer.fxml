@@ -24,18 +24,19 @@
                               <Insets left="10.0" top="10.0" />
                           </HBox.margin>
                       </Label>
-                      <TextField prefHeight="25.0" prefWidth="293.0" promptText="... Skriv kundes firmanavn her">
+                      <TextField fx:id="customerNameInput" prefHeight="25.0" prefWidth="293.0" promptText="... Skriv kundes firmanavn her">
                      <HBox.margin>
                         <Insets right="20.0" top="10.0" />
                      </HBox.margin>
                   </TextField>
                   </children>
               </HBox>
+            <Label fx:id="missingInputLabel" />
               <HBox prefWidth="600.0">
                   <children>
                       <HBox alignment="BOTTOM_LEFT" prefWidth="267.0">
                           <children>
-                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="34.0" prefWidth="79.0" text="Opret">
+                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#addCustomer" prefHeight="34.0" prefWidth="79.0" text="Opret">
                                   <HBox.margin>
                                       <Insets />
                                   </HBox.margin>
@@ -44,7 +45,7 @@
                       </HBox>
                       <HBox alignment="BOTTOM_RIGHT" prefWidth="277.0">
                           <children>
-                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" text="Afslut">
+                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#gotoViewLogin" prefHeight="40.0" prefWidth="80.0" text="Afslut">
                                   <opaqueInsets>
                                       <Insets right="10.0" />
                                   </opaqueInsets>

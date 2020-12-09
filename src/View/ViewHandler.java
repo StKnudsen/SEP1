@@ -259,6 +259,8 @@ public class ViewHandler
 
   private Region loadViewAddTask()
   {
+
+   // viewAddTaskController.reset();
     if (viewAddTaskController == null)
     {
       try
@@ -274,10 +276,8 @@ public class ViewHandler
         e.printStackTrace();
       }
     }
-
-    viewAddTaskController.reset();
-
     return viewAddTaskController.getRoot();
+
   }
 
   private Region loadViewAddRequirement()
