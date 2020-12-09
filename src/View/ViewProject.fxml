@@ -106,10 +106,10 @@
                 <Insets bottom="10.0" />
             </padding>
         </HBox>
-        <TableView maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="110.0" prefWidth="0.0">
+        <TableView fx:id="requirementsTable" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="110.0" prefWidth="0.0">
             <columns>
-                <TableColumn minWidth="0.0" prefWidth="94.39998948574066" text="Prioritering" />
-                <TableColumn prefWidth="512.8000106811523" text="Requirement title" />
+                <TableColumn fx:id="prioritering" minWidth="0.0" prefWidth="94.39998948574066" text="Prioritering" />
+                <TableColumn fx:id="requirementTitle" prefWidth="512.8000106811523" text="Requirement title" />
             </columns>
         </TableView>
         <HBox alignment="CENTER_LEFT" maxHeight="73.0" maxWidth="600.0" prefHeight="45.0" prefWidth="579.0">

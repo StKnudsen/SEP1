@@ -11,6 +11,7 @@ public class Requirement extends Job
   {
     super(title, status);
     this.type = type;
+    //super.priority = .size();
     taskList = new ArrayList<>();
   }
 
