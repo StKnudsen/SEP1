@@ -16,7 +16,6 @@ public class ViewAddTaskController
   private Region root;
   private ViewHandler viewHandler;
 
-
   public void init(ViewHandler viewHandler, Region root)
   {
     this.root = root;
@@ -32,17 +31,22 @@ public class ViewAddTaskController
   //Problem med at der ikke nødvendigvis er en selectedProject, hvis user tilgår addTask direkte gennem et requirement.
   public void addTask()
   {
-    try {
-      if(!viewHandler.getModelManager().getSelectedProject().equals(""))
+    try
+    {
+      if (!taskTitleInput.getText().equalsIgnoreCase(""))
       {
-        if (!taskTitleInput.getText().equalsIgnoreCase(""))
-        {
-          viewHandler.getModelManager()
-              .addTask(viewHandler.getModelManager().getSelectedProject(),
-                  viewHandler.getModelManager().getSelectedRequirement(), new Task(taskTitleInput.getText(), "Not Started"));
+        viewHandler.getModelManager().setSelectedProject(
+            viewHandler.getModelManager().searchProject(
+                viewHandler.getModelManager().getSelectedRequirement()
+                    .getProjectTitle()));
+        viewHandler.getModelManager().addTask(viewHandler.getModelManager()
+                .searchProject(
+                    viewHandler.getModelManager().getSelectedRequirement()
+                        .getProjectTitle()),
+            viewHandler.getModelManager().getSelectedRequirement(),
+            new Task(taskTitleInput.getText(), "Not Started"));
 
-          viewHandler.openView("viewList");
-        }
+        viewHandler.openView("viewList");
       }
     }
     catch (NullPointerException e)

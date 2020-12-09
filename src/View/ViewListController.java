@@ -103,6 +103,7 @@ public class ViewListController
     requirementsTable.getItems().addAll(viewHandler.getModelManager().getAllRequirements());
 
     // Fang klik på 'row' og åben den valgte requirement
+    //Skal ordnes så der ikke kommer fejl, hvis man trykker på en tom 'row'!
     requirementsTable.setOnMousePressed(new EventHandler<>()
     {
       @Override public void handle(javafx.scene.input.MouseEvent mouseEvent)

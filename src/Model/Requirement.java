@@ -58,4 +58,9 @@ public class Requirement extends Job
     this.type = type;
   }
 
+  public String getProjectTitle()
+  {
+    return projectTitle;
+  }
+
 }
