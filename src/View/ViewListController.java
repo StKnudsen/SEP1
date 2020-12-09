@@ -44,18 +44,16 @@ public class ViewListController
     this.colourIT = colourIT;
     this.viewHandler = viewHandler;
 
-    //dummyProjects = new ArrayList<>();
-    dummyRequirements = new ArrayList<>();
-    dummyTasks = new ArrayList<>();
-
-    populateProjectsTable();
+    /*populateProjectsTable();
     populateRequirementsTable();
-    populateTasksTable();
+    populateTasksTable();*/
   }
 
   public void reset()
   {
-    // ...
+    populateProjectsTable();
+    populateRequirementsTable();
+    populateTasksTable();
   }
 
   public Region getRoot()
@@ -70,14 +68,12 @@ public class ViewListController
 
   public void populateProjectsTable()
   {
-    /*
-    // Dummy data
-    dummyProjects.add(new Project("Best Project ever!", new Customer("Jack"), new TeamMember("Black")));
-    dummyProjects.add(new Project("Colour IT PMS", new Customer("Jimifer"), new TeamMember("Jensen")));
-     */
 
     // Hvilke data felter vi vil tilknytte column cellerne
     projectsTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
+
+    // nulstil
+    projectsTable.getItems().removeAll(viewHandler.getModelManager().getProjects());
 
     // Indsæt data i tabellen
     projectsTable.getItems().addAll(colourIT.getProjects());
@@ -98,12 +94,7 @@ public class ViewListController
 
   public void populateRequirementsTable()
   {
-    /*
-    // Dummy data
-    dummyRequirements.add(new Requirement("Find a fish", "Started"));
-    dummyRequirements
-        .add(new Requirement("Slap someone with fish", "Not started"));
-*/
+
     // Hvilke data felter vi vil tilknytte column cellerne
     requirementsTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
     requirementsStatus
@@ -128,16 +119,6 @@ public class ViewListController
 
   public void populateTasksTable()
   {
-    /*
-    // Dummy data
-    Task task1 = new Task("Find a fishing hole", "Hah, you wish");
-    task1.setPriority(dummyTasks.size() + 1);
-    dummyTasks.add(task1);
-
-    Task task2 = new Task("Remember fishing pole", "F*****ck");
-    task2.setPriority(dummyTasks.size() + 1);
-    dummyTasks.add(task2);
-*/
 
     // Hvilke data felter vi vil tilknytte column cellerne
     tasksPriority.setCellValueFactory(new PropertyValueFactory<>("priority"));

@@ -1,24 +1,26 @@
 package View;
 
-import Model.ColourIT;
+import Model.TeamMember;
+import javafx.fxml.FXML;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.layout.Region;
 
 public class ViewLoginController
 {
+  @FXML ChoiceBox chooseUser;
   private Region root;
-  private ColourIT colourIT;
   private ViewHandler viewHandler;
 
-  public void init(ViewHandler viewHandler, ColourIT colourIT, Region root)
+  public void init(ViewHandler viewHandler, Region root)
   {
     this.root = root;
-    this.colourIT = colourIT;
     this.viewHandler = viewHandler;
   }
 
   public void reset()
   {
-    // ...
+    chooseUser.getItems().removeAll(viewHandler.getModelManager().getEmployees());
+    chooseUser.getItems().addAll(viewHandler.getModelManager().getEmployees());
   }
 
   public Region getRoot()
@@ -28,6 +30,9 @@ public class ViewLoginController
 
   public void loginButtonPressed()
   {
+    //System.out.println(chooseUser.getValue());
+    viewHandler.getModelManager().setCurrentUser((TeamMember) chooseUser.getValue());
+
     viewHandler.openView("viewList");
   }
 

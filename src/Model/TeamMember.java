@@ -36,4 +36,10 @@ public class TeamMember
     other = new TeamMember(name);
     return other;
   }
+
+  //  Denne er nødvendig for at navne vises i choicebox på login
+  public String toString()
+  {
+    return name;
+  }
 }

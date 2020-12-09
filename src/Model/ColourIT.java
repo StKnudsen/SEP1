@@ -1,5 +1,6 @@
 package Model;
 
+import java.awt.image.AreaAveragingScaleFilter;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -8,23 +9,17 @@ public class ColourIT
   // Bruges lige til opsætning af View Handler
 
   private TeamMember currentUser;
-
-  private ProjectList projectList;
-  private CustomerList customerList;
-  private EmployeeList employeeList;
-
-  /*
-   *  Herunder er nye fields vi bruger for at få data til views!
-   */
   private Project selectedProject;
   private Requirement selectedRequirement;
   private Task selectedTask;
   private TeamMember selectedTeamMember;
 
+  private ProjectList projectList;
+  private CustomerList customerList;
+  private EmployeeList employeeList;
+
   public ColourIT()
   {
-    //  Når ColourIT PMS starter, si initialiseres
-    //  vores listehaløjer således de kan bruges
     projectList = new ProjectList();
     customerList = new CustomerList();
     employeeList = new EmployeeList();
@@ -206,6 +201,11 @@ public class ColourIT
     return projectList.getRequirements();
   }
 
+  public ArrayList<TeamMember> getEmployees()
+  {
+    return employeeList.getEmployees();
+  }
+
 
 
   /*
@@ -295,10 +295,24 @@ public class ColourIT
         prj2Req2Task1
     );
     this.addTask(
-        projectList.searchProject("Colour IT PMS"),
-        projectList.searchProject("Colour IT PMS").getRequirementList().get(1),
+        projectList.getProjects().get(1),
+        projectList.getProjects().get(1).getRequirementList().get(1),
         prj2Req2Task2
     );
   }
 
+  public void addNewTeamMember(TeamMember newTeamMember)
+  {
+    employeeList.addEmployee(newTeamMember);
+  }
+
+  public void addNewCustomer(Customer customer)
+  {
+    customerList.addCustomer(customer);
+  }
+
+  public ArrayList<Customer> getCustomers()
+  {
+    return customerList.getCustomers();
+  }
 }

@@ -129,7 +129,7 @@ public class ViewHandler
         loader.setLocation(getClass().getResource("ViewLogin.fxml"));
         Region root = loader.load();
         viewLoginController = loader.getController();
-        viewLoginController.init(this, colourIT, root);
+        viewLoginController.init(this, root);
       }
       catch (IOException e)
       {

@@ -1,6 +1,5 @@
 package Model;
 
-import java.util.ArrayList;
 import java.util.Date;
 
 public abstract class Job
@@ -9,7 +8,6 @@ public abstract class Job
   String title, description, status;
   Date deadline;
   TeamMember responsibleTeamMember;
-  ArrayList<TeamMember> teamMemberList;
 
   public Job(String title, String status)
   {
@@ -66,26 +64,6 @@ public abstract class Job
   {
     return deadline;
   }
-
-  public void addTeamMember(TeamMember teammember){
-    teamMemberList.add(teammember);
-  }
-
-  public TeamMember getTeamMember(TeamMember teamMember)
-  {
-    for (TeamMember member : teamMemberList)
-    {
-      if (member.equals(teamMember))
-        return teamMember;
-    }
-    return null;
-  }
-
-  /* PT kan man ikke slette en team member!
-   public void deleteTeamMember(TeamMember teamMember){
-     teamMemberList.remove(teamMember);
-   }
-    */
 
   public void setResponsibleTeamMember(TeamMember responsibleTeamMember)
   {
