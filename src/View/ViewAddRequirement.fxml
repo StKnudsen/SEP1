@@ -5,9 +5,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="297.0" prefWidth="601.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ViewAddTaskController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="297.0" prefWidth="601.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ViewAddRequirementController">
     <children>
-        <Label text="Opret ny task">
+        <Label text="Opret ny requirement">
             <font>
                 <Font name="System Bold Italic" size="14.0" />
             </font>
@@ -36,7 +36,7 @@
             <children>
                 <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="222.0">
                     <children>
-                        <Label text="Vælg requirement: " />
+                        <Label text="Vælg type:" />
                     </children>
                     <HBox.margin>
                         <Insets left="5.0" />

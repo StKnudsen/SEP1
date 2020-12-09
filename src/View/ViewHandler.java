@@ -23,6 +23,15 @@ public class ViewHandler
   private ViewTaskController viewTaskController;
   private ViewAddProjectController viewAddProjectController;
   private ViewAddTaskController viewAddTaskController;
+  private ViewAddRequirementController viewAddRequirementController;
+  private ViewAddCustomerController viewAddCustomerController;
+  private ViewAddEmployeeController viewAddEmployeeController;
+  private ViewEditTaskController viewEditTaskController;
+  private ViewEditRequirementController viewEditRequirementController;
+  private ViewTaskUpdateTimeController viewTaskUpdateTimeController;
+  private ViewProjectAddTeamMemberController viewProjectAddTeamMemberController;
+  private ViewTaskAddTeamMemberController viewTaskAddTeamMemberController;
+  private ViewTeamMemberController viewTeamMemberController;
 
   public ColourIT getModelManager()
   {
@@ -68,6 +77,33 @@ public class ViewHandler
       case "viewAddTask":
         root = loadViewAddTask();
         break;
+      case "viewAddRequirement":
+        root = loadViewAddRequirement();
+        break;
+      case "viewAddCustomer":
+        root = loadViewAddCustomer();
+        break;
+      case "viewAddEmployee":
+        root = loadViewAddEmployee();
+        break;
+      case "viewEditTask":
+        root = loadViewEditTask();
+        break;
+      case "viewEditRequirement":
+        root = loadViewEditRequirement();
+        break;
+      case "viewTaskUpdateTime":
+        root = loadViewTaskUpdateTime();
+        break;
+      case "viewProjectAddTeamMember":
+        root = loadViewProjectAddTeamMember();
+        break;
+      case "viewTaskAddTeamMember":
+        root = loadViewTaskAddTeamMember();
+        break;
+      case "viewTeamMember":
+        root = loadViewTeamMember();
+        break;
     }
 
     currentScene.setRoot(root);
@@ -100,10 +136,8 @@ public class ViewHandler
         e.printStackTrace();
       }
     }
-    //else
-    //{
-      viewLoginController.reset();
-    //}
+
+    viewLoginController.reset();
 
     return viewLoginController.getRoot();
   }
@@ -244,5 +278,212 @@ public class ViewHandler
     viewAddTaskController.reset();
 
     return viewAddTaskController.getRoot();
+  }
+
+  private Region loadViewAddRequirement()
+  {
+    if (viewAddRequirementController == null)
+    {
+      try
+      {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("ViewAddRequirement.fxml"));
+        Region root = loader.load();
+        viewAddRequirementController = loader.getController();
+        viewAddRequirementController.init(this, root);
+      }
+      catch (IOException e)
+      {
+        e.printStackTrace();
+      }
+    }
+
+    viewAddRequirementController.reset();
+
+    return viewAddRequirementController.getRoot();
+  }
+
+  private Region loadViewAddCustomer()
+  {
+    if (viewAddCustomerController == null)
+    {
+      try
+      {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("ViewAddCustomer.fxml"));
+        Region root = loader.load();
+        viewAddCustomerController = loader.getController();
+        viewAddCustomerController.init(this, root);
+      }
+      catch (IOException e)
+      {
+        e.printStackTrace();
+      }
+    }
+
+    viewAddCustomerController.reset();
+
+    return viewAddCustomerController.getRoot();
+  }
+
+  private Region loadViewAddEmployee()
+  {
+    if (viewAddEmployeeController == null)
+    {
+      try
+      {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("ViewAddEmployee.fxml"));
+        Region root = loader.load();
+        viewAddEmployeeController = loader.getController();
+        viewAddEmployeeController.init(this, root);
+      }
+      catch (IOException e)
+      {
+        e.printStackTrace();
+      }
+    }
+
+    viewAddEmployeeController.reset();
+
+    return viewAddEmployeeController.getRoot();
+  }
+
+  private Region loadViewEditTask()
+  {
+    if (viewEditTaskController == null)
+    {
+      try
+      {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("ViewEditTask.fxml"));
+        Region root = loader.load();
+        viewEditTaskController = loader.getController();
+        viewEditTaskController.init(this, root);
+      }
+      catch (IOException e)
+      {
+        e.printStackTrace();
+      }
+    }
+
+    viewEditTaskController.reset();
+
+    return viewEditTaskController.getRoot();
+  }
+
+  private Region loadViewEditRequirement()
+  {
+    if (viewEditRequirementController == null)
+    {
+      try
+      {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("ViewEditRequirement.fxml"));
+        Region root = loader.load();
+        viewEditRequirementController = loader.getController();
+        viewEditRequirementController.init(this, root);
+      }
+      catch (IOException e)
+      {
+        e.printStackTrace();
+      }
+    }
+
+    viewEditRequirementController.reset();
+
+    return viewEditRequirementController.getRoot();
+  }
+
+  private Region loadViewTaskUpdateTime()
+  {
+    if (viewTaskUpdateTimeController == null)
+    {
+      try
+      {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("ViewTaskUpdateTime.fxml"));
+        Region root = loader.load();
+        viewTaskUpdateTimeController = loader.getController();
+        viewTaskUpdateTimeController.init(this, root);
+      }
+      catch (IOException e)
+      {
+        e.printStackTrace();
+      }
+    }
+
+    viewTaskUpdateTimeController.reset();
+
+    return viewTaskUpdateTimeController.getRoot();
+  }
+
+  private Region loadViewProjectAddTeamMember()
+  {
+    if (viewProjectAddTeamMemberController == null)
+    {
+      try
+      {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("ViewProjectAddTeamMember.fxml"));
+        Region root = loader.load();
+        viewProjectAddTeamMemberController = loader.getController();
+        viewProjectAddTeamMemberController.init(this, root);
+      }
+      catch (IOException e)
+      {
+        e.printStackTrace();
+      }
+    }
+
+    viewProjectAddTeamMemberController.reset();
+
+    return viewProjectAddTeamMemberController.getRoot();
+  }
+
+  private Region loadViewTaskAddTeamMember()
+  {
+    if (viewTaskAddTeamMemberController == null)
+    {
+      try
+      {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("ViewTaskAddTeamMember.fxml"));
+        Region root = loader.load();
+        viewTaskAddTeamMemberController = loader.getController();
+        viewTaskAddTeamMemberController.init(this, root);
+      }
+      catch (IOException e)
+      {
+        e.printStackTrace();
+      }
+    }
+
+    viewTaskAddTeamMemberController.reset();
+
+    return viewTaskAddTeamMemberController.getRoot();
+  }
+
+  private Region loadViewTeamMember()
+  {
+    if (viewTeamMemberController == null)
+    {
+      try
+      {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("ViewTeamMember.fxml"));
+        Region root = loader.load();
+        viewTeamMemberController = loader.getController();
+        viewTeamMemberController.init(this, root);
+      }
+      catch (IOException e)
+      {
+        e.printStackTrace();
+      }
+    }
+
+    viewTeamMemberController.reset();
+
+    return viewTeamMemberController.getRoot();
   }
 }

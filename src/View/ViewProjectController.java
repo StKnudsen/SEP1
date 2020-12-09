@@ -32,4 +32,14 @@ public class ViewProjectController
   {
     viewHandler.openView("viewLogin");
   }
+
+  public void addRequirement()
+  {
+    viewHandler.openView("viewAddRequirement");
+  }
+
+  public void addTeamMember()
+  {
+    viewHandler.openView("viewProjectAddTeamMember");
+  }
 }

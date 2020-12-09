@@ -137,7 +137,7 @@
                 <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="290.0" spacing="15.0">
                     <children>
                         <Button mnemonicParsing="false" onAction="#addTask" prefHeight="26.0" prefWidth="126.0" text="Tilføj Task" />
-                        <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="80.0" text="Rediger" />
+                        <Button mnemonicParsing="false" onAction="#editRequirement" prefHeight="26.0" prefWidth="80.0" text="Rediger" />
                     </children>
                 </HBox>
                 <HBox alignment="CENTER_RIGHT" layoutX="324.0" layoutY="20.0" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="290.0">

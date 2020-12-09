@@ -3,9 +3,8 @@ package View;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Region;
-import javafx.stage.Stage;
 
-public class ViewAddProjectController
+public class ViewAddCustomerController
 {
   @FXML private Button closeButton;
 

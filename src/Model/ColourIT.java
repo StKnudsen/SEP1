@@ -19,6 +19,7 @@ public class ColourIT
   private Project selectedProject;
   private Requirement selectedRequirement;
   private Task selectedTask;
+  private TeamMember selectedTeamMember;
 
   public ColourIT()
   {
@@ -182,5 +183,15 @@ public class ColourIT
   public void setSelectedTask(Task selectedTask)
   {
     this.selectedTask = selectedTask;
+  }
+
+  public TeamMember getSelectedTeamMember()
+  {
+    return selectedTeamMember;
+  }
+
+  public void setSelectedTeamMember(TeamMember selectedTeamMember)
+  {
+    this.selectedTeamMember = selectedTeamMember;
   }
 }

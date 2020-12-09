@@ -88,35 +88,8 @@ public class ViewListController
         viewHandler.getModelManager().setSelectedProject(
             (Project) projectsTable.getSelectionModel().getSelectedItem()
         );
-        System.out.println(viewHandler.getModelManager().getSelectedProject().getTitle());
 
         viewHandler.openView("viewProject");
-
-        /*
-        // Vore gamle code hvor projekt bliver vist i nyt vindue
-        try
-        {
-          Project project = (Project) projectsTable.getSelectionModel()
-              .getSelectedItem();
-          FXMLLoader loader = new FXMLLoader(
-              getClass().getResource("ViewProject.fxml"));
-          Parent root = loader.load();
-
-          //Følgende to linjer er et krav for at kunne sende data videre til ViewProjectController
-          ViewProjectController viewProjectController = loader.getController();
-          viewProjectController.setTitleLabel(project.getTitle());
-
-          Stage stage = new Stage();
-          stage.setScene(new Scene(root));
-          stage.setTitle("Colour IT - Projekt: " + project.getTitle());
-          stage.show();
-
-        }
-        catch (IOException e)
-        {
-          e.printStackTrace();
-        }
-        */
       }
     });
   }
@@ -145,37 +118,9 @@ public class ViewListController
             (Requirement) requirementsTable.getSelectionModel().getSelectedItem()
         );
 
-        //System.out.println(viewHandler.getModelManager().getSelectedProject().getTitle());
-
         viewHandler.openView("viewRequirement");
-
-        /*
-        try
-        {
-          Requirement requirement = (Requirement) requirementsTable.getSelectionModel().getSelectedItem();
-          FXMLLoader loader = new FXMLLoader(
-              getClass().getResource("ViewRequirement.fxml"));
-          Parent root = loader.load();
-
-          //Følgende to linjer er et krav for at kunne sende data videre til ViewProjectController
-          ViewRequirementController viewRequirementController = loader.getController();
-          viewRequirementController.setTitleLabel(requirement.getTitle());
-
-          Stage stage = new Stage();
-          stage.setScene(new Scene(root));
-          stage.setTitle("Colour IT - Requirement: " + requirement.getTitle());
-          stage.show();
-
-        }
-        catch (IOException e)
-        {
-          e.printStackTrace();
-        }
-        */
       }
-      });
-
-    //System.out.println((requirementsTable.getSelectionModel().getSelectedItem()));
+    });
   }
 
   public void populateTasksTable()
@@ -206,72 +151,13 @@ public class ViewListController
             (Task) tasksTable.getSelectionModel().getSelectedItem()
         );
 
-        /*
-        try
-        {
-          Task task = (Task) tasksTable.getSelectionModel().getSelectedItem();
-          FXMLLoader loader = new FXMLLoader(
-              getClass().getResource("ViewTask.fxml"));
-          Parent root = loader.load();
-
-          //Følgende to linjer er et krav for at kunne sende data videre til ViewProjectController
-          ViewTaskController viewTaskController = loader.getController();
-          viewTaskController.setTitleLabel(task.getTitle());
-
-          Stage stage = new Stage();
-          stage.setScene(new Scene(root));
-          stage.setTitle("Colour IT - Task: " + task.getTitle());
-          stage.show();
-
-        }
-        catch (IOException e)
-        {
-          e.printStackTrace();
-        }
-         */
-
         viewHandler.openView("viewTask");
       }
     });
-
-    //System.out.println((tasksTable.getSelectionModel().getSelectedItem()));
   }
 
-  @FXML public void addProjectButton()
+  public void addProjectButton()
   {
     viewHandler.openView("viewAddProject");
-    /*try
-    {
-      //Nedenstående skal bruges til at overføre en bruger senere
-      //Task task = (Task) tasksTable.getSelectionModel().getSelectedItem();
-      FXMLLoader loader = new FXMLLoader(
-          getClass().getResource("ViewAddProject.fxml"));
-      Parent root = loader.load();
-
-      //Følgende to linjer er et krav for at kunne sende data videre til ViewProjectController
-      //ViewAddProjectController viewAddProjectController = loader.getController();
-      //viewAddProjectController.setTitleLabel(task.getTitle());
-
-      Stage stage = new Stage();
-      stage.setScene(new Scene(root));
-      stage.setTitle("Colour IT - Nyt projekt: ");
-      stage.show();
-
-    }
-    catch (IOException e)
-    {
-      e.printStackTrace();
-    }
-
-     */
-  }
-
-
-  @FXML public void ClickItem(MouseEvent event)
-  {
-    if (event.getClickCount() == 1)
-    {
-      System.out.println(projectsTable.getSelectionModel().getSelectedItem());
-    }
   }
 }

@@ -5,7 +5,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 
-public class ViewAddProjectController
+public class ViewTeamMemberController
 {
   @FXML private Button closeButton;
 
@@ -20,7 +20,8 @@ public class ViewAddProjectController
 
   public void closeButtonAction()
   {
-    viewHandler.closeView();
+    Stage stage = (Stage) closeButton.getScene().getWindow();
+    stage.close();
   }
 
   public void reset()

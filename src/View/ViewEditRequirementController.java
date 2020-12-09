@@ -5,7 +5,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 
-public class ViewAddProjectController
+public class ViewEditRequirementController
 {
   @FXML private Button closeButton;
 

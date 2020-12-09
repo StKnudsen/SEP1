@@ -9,13 +9,13 @@ public class ViewRequirementController
 {
   @FXML private Label title;
 
-  private Region root;
   private ViewHandler viewHandler;
+  private Region root;
 
   public void init(ViewHandler viewHandler, Region root)
   {
-    this.root = root;
     this.viewHandler = viewHandler;
+    this.root = root;
   }
 
   public void reset()
@@ -36,5 +36,10 @@ public class ViewRequirementController
   public void addTask()
   {
     viewHandler.openView("viewAddTask");
+  }
+
+  public void editRequirement()
+  {
+    viewHandler.openView("viewEditRequirement");
   }
 }

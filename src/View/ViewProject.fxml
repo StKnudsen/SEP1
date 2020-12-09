@@ -116,8 +116,8 @@
             <children>
                 <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="290.0" spacing="15.0">
                     <children>
-                        <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="125.0" text="Tilføj team member" />
-                        <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="125.0" text="Tilføj requirement" />
+                        <Button mnemonicParsing="false" onAction="#addTeamMember" prefHeight="26.0" prefWidth="125.0" text="Tilføj team member" />
+                        <Button mnemonicParsing="false" onAction="#addRequirement" prefHeight="26.0" prefWidth="125.0" text="Tilføj requirement" />
                     </children>
                 </HBox>
                 <HBox alignment="CENTER_RIGHT" layoutX="324.0" layoutY="20.0" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="290.0">
