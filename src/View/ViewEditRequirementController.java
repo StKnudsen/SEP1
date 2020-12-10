@@ -38,20 +38,16 @@ public class ViewEditRequirementController
 
   public void reset()
   {
-    System.out.println(viewHandler.getModelManager().getSelectedRequirement().getProjectTitle());
-
     chooseResponsibleTeamMember.getItems().removeAll(
         viewHandler.getModelManager().searchProject(
             viewHandler.getModelManager().getSelectedRequirement().getProjectTitle()
         ).getTeamMemberList()
     );
-
     chooseResponsibleTeamMember.getItems().addAll(
         viewHandler.getModelManager().searchProject(
             viewHandler.getModelManager().getSelectedRequirement().getProjectTitle()
         ).getTeamMemberList()
     );
-
     chooseType.getItems().addAll(viewHandler.getModelManager().getRequirementTypes());
     chooseStatus.getItems().addAll(viewHandler.getModelManager().getAllStatus());
   }
