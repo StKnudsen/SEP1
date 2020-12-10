@@ -91,15 +91,14 @@ public class ProjectList
           if (projectList.get(i).getRequirementList().get(j)
               .equals(requirement))
             projectList.get(i).getRequirementList().get(j).addTask(
-                taskTitle, project.getTitle() ,responsibleTeamMember
+                taskTitle, requirement.getTitle(), project.getTitle(), responsibleTeamMember
             );
         }
       }
     }
   }
 
-  public void addTeamMemberToTask(Project project, Requirement requirement,
-      Task task, TeamMember teamMember)
+  public void addTeamMemberToTask(Project project, Requirement requirement, Task task, TeamMember teamMember)
   {
     for (int i = 0; i < projectList.size(); i++)
     {

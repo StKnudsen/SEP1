@@ -57,6 +57,19 @@ public class Project
     return requirementList;
   }
 
+  public Requirement searchRequirement(String requirementTitle)
+  {
+    for (Requirement requirement : requirementList)
+    {
+      if (requirementTitle.equalsIgnoreCase(requirement.getTitle()))
+      {
+        return requirement;
+      }
+    }
+
+    return null;
+  }
+
 
   //Der sammenlignes kun de tre værdier fra constructoren,
   // fordi det ikke er muligt at oprette et projekt med

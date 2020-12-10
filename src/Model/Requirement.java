@@ -33,10 +33,10 @@ public class Requirement extends Job
   }
 
   // Ny fancy dansy udgave af.... opret en task!
-  public void addTask(String taskTitle, String projectTitle, TeamMember responsibleTeamMember)
+  public void addTask(String taskTitle, String requirementTitle, String projectTitle, TeamMember responsibleTeamMember)
   {
     Task newTask = new Task(
-        taskTitle, projectTitle, responsibleTeamMember, taskList.size() + 1
+        taskTitle, requirementTitle, projectTitle, responsibleTeamMember, taskList.size() + 1
     );
     taskList.add(newTask);
   }
@@ -53,7 +53,7 @@ public class Requirement extends Job
       return false;
     }
     Requirement other = (Requirement) obj;
-    return title.equals(other.getTitle()); //&& status.equals(other.status);// && type.equals(other.type);
+    return title.equals(other.getTitle()) && status.equals(other.status);// && type.equals(other.type);
   }
 
   public void setType(String type)
