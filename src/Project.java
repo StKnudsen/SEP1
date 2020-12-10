@@ -26,6 +26,11 @@ public class Project
     this.title = "No title";
   }
 
+  public String getTitle()
+  {
+    return title;
+  }
+
   public void addTeamMember(TeamMember member)
   {
     TeamMemberList.add(member);

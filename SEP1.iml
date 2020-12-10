@@ -20,5 +20,16 @@
     </orderEntry>
     <orderEntry type="library" name="XmlJsonParser-1.4" level="project" />
     <orderEntry type="library" name="lib" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../XmlJsonParser-1.4.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://$MODULE_DIR$/../XmlJsonParser-1.4.jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
   </component>
 </module>
