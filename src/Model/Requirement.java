@@ -11,7 +11,7 @@ public class Requirement extends Job
   // Husk at vi skal opdatere denne i UML Class Diagram.
   public Requirement(String title, String type, String projectTitle, TeamMember responsibleTeamMember, int priority)
   {
-    super(title, responsibleTeamMember, priority, "Not Started");
+    super(title, responsibleTeamMember, priority);
     this.type = type;
     this.projectTitle = projectTitle;
     taskList = new ArrayList<>();
@@ -30,6 +30,15 @@ public class Requirement extends Job
   public void addTask(Task task)
   {
     taskList.add(task);
+  }
+
+  // Ny fancy dansy udgave af.... opret en task!
+  public void addTask(String taskTitle, TeamMember responsibleTeamMember)
+  {
+    Task newTask = new Task(
+        taskTitle, responsibleTeamMember, taskList.size() + 1
+    );
+    taskList.add(newTask);
   }
 
   public ArrayList<Task> getTasks()

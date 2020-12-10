@@ -12,6 +12,16 @@ public class Task extends Job
   //private ArrayList<Integer> timeSpentPerTeamMember;
   private ArrayList<TeamMember> teamMemberList;
 
+  public Task(String title, TeamMember responsibleTeamMember, int priority)
+  {
+    super(title, responsibleTeamMember, priority);
+
+    teamMemberList = new ArrayList<>();
+
+    System.out.println("Task: " + title + " priority: " + priority + " - oprettet af " + responsibleTeamMember + ". (Hilsen: Task constructor)");
+  }
+
+  // Gamle constructor
   public Task(String title, String status)
   {
     super(title, status);
