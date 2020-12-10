@@ -1,7 +1,7 @@
 package Model;
 
+import parser.ParserException;
 import parser.XmlJsonParser;
-
 import java.io.File;
 import java.awt.image.AreaAveragingScaleFilter;
 import java.lang.reflect.Array;
@@ -54,9 +54,16 @@ public class ColourIT
       TeamMember projectCreator)
   {
     projectList.createNewProject(title, customer, projectCreator);
-
-    //File projectlist = theParser
-    //    .toXml(projectList.getProjects(), projectlist.xml);
+//PARSER TIL XML
+    try
+    {
+      File projects = theParser.toXml(projectList.getProjects(), "projects.xml");
+    }
+    catch (ParserException e)
+    {
+      e.printStackTrace();
+      System.out.println("XML parser error");
+    }
   }
 
   public void addNewTeamMemberToProject(TeamMember teamMember, Project project)
