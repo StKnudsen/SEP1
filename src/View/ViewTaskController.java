@@ -4,6 +4,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.Region;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 
 public class ViewTaskController
 {
@@ -11,6 +13,7 @@ public class ViewTaskController
   @FXML private Label responsibleTeamMember;
   @FXML private Label taskStatus;
   @FXML private ListView teamMemberList;
+  @FXML private TextFlow taskDescriptionTextFlow;
 
   private Region root;
   private ViewHandler viewHandler;
@@ -29,6 +32,8 @@ public class ViewTaskController
 
     teamMemberList.getItems().removeAll(viewHandler.getModelManager().getSelectedTask().getTeamMemberList());
     teamMemberList.getItems().addAll(viewHandler.getModelManager().getSelectedTask().getTeamMemberList());
+
+    taskDescriptionTextFlow.getChildren().addAll(new Text(viewHandler.getModelManager().getTaskDescription()));
 
   }
 

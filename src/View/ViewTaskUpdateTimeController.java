@@ -1,13 +1,19 @@
 package View;
 
+import Model.TeamMember;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 
 public class ViewTaskUpdateTimeController
 {
-  @FXML private Button closeButton;
+  @FXML private Label missingInputLabel;
+  @FXML private TextField updateTimeInput;
+  @FXML private ChoiceBox chooseEmployee;
 
   private Region root;
   private ViewHandler viewHandler;
@@ -18,15 +24,28 @@ public class ViewTaskUpdateTimeController
     this.viewHandler = viewHandler;
   }
 
-  public void closeButtonAction()
-  {
-    Stage stage = (Stage) closeButton.getScene().getWindow();
-    stage.close();
-  }
-
   public void reset()
   {
-    //
+    chooseEmployee.getItems().removeAll(viewHandler.getModelManager().getEmployees());
+    chooseEmployee.getItems().addAll(viewHandler.getModelManager().getEmployees());
+  }
+
+  public void updateTime()
+  {
+    try
+    {
+      if (!chooseEmployee.getValue().equals("") && !updateTimeInput.getText().equals(""))
+      {
+        viewHandler.getModelManager().getSelectedTask()
+            .updateTime((TeamMember) chooseEmployee.getValue(), Integer.parseInt(updateTimeInput.getText()));
+        viewHandler.openView("viewTask");
+      }
+    }
+    catch (NullPointerException e)
+    {
+      e.printStackTrace();
+    }
+    missingInputLabel.setText("Udfyld venligst alt...");
   }
 
   public Region getRoot()
@@ -34,8 +53,8 @@ public class ViewTaskUpdateTimeController
     return root;
   }
 
-  public void gotoViewLogin()
+  public void goToViewTask()
   {
-    viewHandler.openView("viewLogin");
+    viewHandler.openView("viewTask");
   }
 }

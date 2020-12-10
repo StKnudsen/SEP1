@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="492.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ViewTaskController" userData="Colour IT - Se task">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="492.0" prefWidth="600.0" userData="Colour IT - Se task" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ViewTaskController">
     <children>
         <HBox alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" prefHeight="50.0" prefWidth="723.0">
             <children>
@@ -106,7 +106,7 @@
                         <Insets bottom="10.0" right="10.0" top="10.0" />
                     </padding>
                 </Label>
-                <TextFlow prefHeight="105.0" prefWidth="600.0" />
+                <TextFlow fx:id="taskDescriptionTextFlow" prefHeight="105.0" prefWidth="600.0" />
             </children>
         </VBox>
         <HBox prefHeight="100.0" prefWidth="200.0">

@@ -84,6 +84,7 @@ public class ViewEditRequirementController
     }
     missingInputLabel.setText("Udfyld venligst alt...");
 
+    //Kan dette koges ned ved at slå det sammen med koden i try? Altså i stedet for først at sette alting ovenfor og derefter gette dem her... (Se ViewTaskUpdateTimeController for reference)
       viewHandler.getModelManager().updateRequirement(
           viewHandler.getModelManager().searchProject(
               viewHandler.getModelManager().getSelectedRequirement().getProjectTitle()),

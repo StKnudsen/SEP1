@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="492.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ViewRequirementController" userData="Colour IT - Se requirement">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="492.0" prefWidth="600.0" userData="Colour IT - Se requirement" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ViewRequirementController">
     <children>
         <HBox alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" prefHeight="50.0" prefWidth="723.0">
             <children>
@@ -92,7 +92,7 @@
                 <Insets bottom="10.0" top="10.0" />
             </padding>
         </HBox>
-        <VBox prefHeight="115.0" prefWidth="600.0">
+        <VBox prefHeight="159.0" prefWidth="579.0">
             <children>
                 <Label text="Beskrivelse:">
                     <padding>
@@ -102,24 +102,7 @@
                 <TextFlow fx:id="requirementDescriptionTextFlow" prefHeight="105.0" prefWidth="600.0" />
             </children>
         </VBox>
-        <HBox prefHeight="100.0" prefWidth="200.0">
-            <children>
-                <VBox prefHeight="102.0" prefWidth="600.0">
-                    <children>
-                        <Label text="Team members -- Skal denne ikke væk? Team members er på project &amp; task" />
-                        <ListView maxWidth="1.7976931348623157E308" prefHeight="110.0" prefWidth="579.0">
-                            <VBox.margin>
-                                <Insets />
-                            </VBox.margin>
-                        </ListView>
-                    </children>
-                </VBox>
-            </children>
-            <padding>
-                <Insets bottom="10.0" />
-            </padding>
-        </HBox>
-        <TableView fx:id="taskTable" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="110.0" prefWidth="0.0">
+        <TableView fx:id="taskTable" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="142.0" prefWidth="579.0">
             <columns>
                 <TableColumn fx:id="taskPriotity" minWidth="0.0" prefWidth="94.39998948574066" text="Prioritering" />
                 <TableColumn fx:id="taskTitle" prefWidth="512.8000106811523" text="Task title" />

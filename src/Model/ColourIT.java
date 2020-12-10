@@ -19,6 +19,8 @@ public class ColourIT
   private TeamMember selectedTeamMember;
   private XmlJsonParser theParser;
   private String requirementDescription;
+  private String taskDescription;
+
 
   private ProjectList projectList;
   private CustomerList customerList;
@@ -40,6 +42,16 @@ public class ColourIT
      *  så skal data vel indlæses her ;)
      */
     settetTest(); // Vores dummy data
+  }
+
+  public String getTaskDescription()
+  {
+    return taskDescription;
+  }
+
+  public void setTaskDescription(String taskDescription)
+  {
+    this.taskDescription = taskDescription;
   }
 
   public String getRequirementDescription()
