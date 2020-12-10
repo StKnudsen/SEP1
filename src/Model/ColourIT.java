@@ -90,10 +90,11 @@ public class ColourIT
     projectList.addRequirement(project, requirement);
   }
 
+  /*
   public void addTask(Project project, Requirement requirement, Task task)
   {
     projectList.addTask(project, requirement, task);
-  }
+  } */
 
   // Ny udgave med responsible team member...
   public void addTask(Project project, Requirement requirement, String taskTitle, TeamMember responsibleTeamMember)

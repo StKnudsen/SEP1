@@ -2,11 +2,9 @@ package View;
 
 import Model.TeamMember;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Region;
-import javafx.stage.Stage;
 
 public class ViewTaskAddTeamMemberController
 {
@@ -24,7 +22,6 @@ public class ViewTaskAddTeamMemberController
 
   public void reset()
   {
-    System.out.println(viewHandler.getModelManager().getSelectedTask().getProjectTitle());
     chooseEmployee.getItems().removeAll(
       viewHandler.getModelManager()
         .searchProject(viewHandler.getModelManager().getSelectedTask().getProjectTitle())
@@ -74,8 +71,8 @@ public class ViewTaskAddTeamMemberController
     return root;
   }
 
-  public void gotoViewLogin()
+  public void gotoViewTask()
   {
-    viewHandler.openView("viewLogin");
+    viewHandler.openView("viewTask");
   }
 }

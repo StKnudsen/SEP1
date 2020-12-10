@@ -63,6 +63,7 @@ public class ProjectList
     }
   }
 
+  /*
   public void addTask(Project project, Requirement requirement, Task task)
   {
     for (int i = 0; i < projectList.size(); i++)
@@ -78,6 +79,7 @@ public class ProjectList
       }
     }
   }
+  */
 
   // Ny delux udgave..
   public void addTask(Project project, Requirement requirement, String taskTitle, TeamMember responsibleTeamMember)

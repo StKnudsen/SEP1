@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="220.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ViewTaskAddTeamMemberController">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="220.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ViewTaskAddTeamMemberController" userData="Colour IT - Tilføj team member til task">
    <children>
       <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="174.0" prefWidth="440.0">
           <children>
@@ -29,8 +29,6 @@
                   <children>
                       <Label prefHeight="18.0" prefWidth="122.0" text="Vælg medarbejder:" />
                       <ChoiceBox fx:id="chooseEmployee" prefHeight="26.0" prefWidth="366.0" GridPane.columnIndex="1" />
-                      <Label prefHeight="18.0" prefWidth="194.0" text="Vælg task:" GridPane.rowIndex="1" />
-                  <ChoiceBox layoutX="154.0" layoutY="15.0" prefHeight="26.0" prefWidth="366.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   </children>
               </GridPane>
             <Label fx:id="missingInputLabel" />
@@ -38,12 +36,12 @@
                   <children>
                       <HBox alignment="BOTTOM_LEFT" prefHeight="30.0" prefWidth="290.0" spacing="15.0">
                           <children>
-                              <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="100.0" text="Tilføj" />
+                              <Button mnemonicParsing="false" onAction="#addTeamMemberToTask" prefHeight="26.0" prefWidth="100.0" text="Tilføj" />
                           </children>
                       </HBox>
                       <HBox alignment="BOTTOM_RIGHT" layoutX="324.0" layoutY="20.0" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="290.0">
                           <children>
-                              <Button mnemonicParsing="false" prefWidth="80.0" text="Skift bruger" />
+                              <Button mnemonicParsing="false" onAction="#gotoViewTask" prefWidth="80.0" text="Tilbage" />
                           </children>
                       </HBox>
                   </children>

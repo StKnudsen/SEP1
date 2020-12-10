@@ -6,43 +6,13 @@ public class Task extends Job
 {
   private String requirementTitle;
 
-  //  Er denne ikke i 'TeamMember' nu?
-  //  Mener vi aftalte composition - association på team members
-  //  således at tiden opdateres på denne kopi af team member
-  //  dermed slipper vi for at holde styr på to arrays
-  //  på tasks (1. team member, 2. timeSpentPe...)
-  //private ArrayList<Integer> timeSpentPerTeamMember;
   private ArrayList<TeamMember> teamMemberList;
 
-  /*
-  public Task(String title, TeamMember responsibleTeamMember, int priority)
-  {
-    super(title, responsibleTeamMember, priority);
-
-    teamMemberList = new ArrayList<>();
-
-    System.out.println("Task: " + title + " priority: " + priority + " - oprettet af " + responsibleTeamMember + ". (Hilsen: Task constructor)");
-  }*/
-
-  // Nyeste nye inden for Task constructor 10-12-2020 11:46
-  /*public Task(String title, String projectTitle , TeamMember responsibleTeamMember, int priority)
-  {
-    super(title, projectTitle, responsibleTeamMember, priority);
-
-    teamMemberList = new ArrayList<>();
-
-    System.out.println("Task: " + title + " priority: " + priority + " på project: "+ projectTitle + " - oprettet af " + responsibleTeamMember + ". (Hilsen: Task constructor)");
-  }*/
-
-  // Nyeste nye inden for Task constructor 10-12-2020 12:34
-  public Task(String title, String projectTitle, String requirementTitle, TeamMember responsibleTeamMember, int priority)
+  public Task(String title, String requirementTitle, String projectTitle, TeamMember responsibleTeamMember, int priority)
   {
     super(title, projectTitle, responsibleTeamMember, priority);
     this.requirementTitle = requirementTitle;
-
     teamMemberList = new ArrayList<>();
-
-    System.out.println("Task: " + title + " priority: " + priority + " på project: "+ projectTitle + " - oprettet af " + responsibleTeamMember + ". (Hilsen: Task constructor)");
   }
 
   public String getRequirementTitle()

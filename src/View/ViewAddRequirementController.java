@@ -1,8 +1,5 @@
 package View;
 
-import Model.Customer;
-import Model.Requirement;
-import Model.TeamMember;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
@@ -39,15 +36,6 @@ public class ViewAddRequirementController
         if (!requirementTitleInput.getText().equalsIgnoreCase(""))
         {
           viewHandler.getModelManager()
-              /*
-              // Omskrives til at benytte den nye .addRequirement methode
-              .addRequirement(viewHandler.getModelManager().getSelectedProject(),
-                  new Requirement(
-                      requirementTitleInput.getText(),
-                      "Not Started", (String) chooseRequirementType.getValue(),
-                      viewHandler.getModelManager().getSelectedProject().getTitle()
-                  )
-              ); */
             .addRequirement(
                 requirementTitleInput.getText(),
                 (String) chooseRequirementType.getValue(),
