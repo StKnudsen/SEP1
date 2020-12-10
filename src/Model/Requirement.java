@@ -5,27 +5,27 @@ import java.util.ArrayList;
 public class Requirement extends Job
 {
   private String type;
-  private String projectTitle;
+  //private String projectTitle;
   private ArrayList<Task> taskList;
 
   // Husk at vi skal opdatere denne i UML Class Diagram.
-  public Requirement(String title, String type, String projectTitle, TeamMember responsibleTeamMember, int priority)
+  public Requirement(String title, String projectTitle, String type, TeamMember responsibleTeamMember, int priority)
   {
-    super(title, responsibleTeamMember, priority);
+    super(title, projectTitle, responsibleTeamMember, priority);
     this.type = type;
-    this.projectTitle = projectTitle;
+    //this.projectTitle = projectTitle;
     taskList = new ArrayList<>();
     System.out.println("Requirement: " + title + " with priority: " + priority + " - oprettet af " + responsibleTeamMember + ". (Hilsen: Requirement constructor)");
   }
 
   // I ViewAddRequirement, skal vi have ændret til at benytte den anden constructor!
-  public Requirement(String title, String status, String type, String projectTitle)
+  /*public Requirement(String title, String status, String type, String projectTitle)
   {
     super(title, status);
     this.type = type;
     this.projectTitle = projectTitle;
     taskList = new ArrayList<>();
-  }
+  } */
 
   public void addTask(Task task)
   {
@@ -33,10 +33,10 @@ public class Requirement extends Job
   }
 
   // Ny fancy dansy udgave af.... opret en task!
-  public void addTask(String taskTitle, TeamMember responsibleTeamMember)
+  public void addTask(String taskTitle, String projectTitle, TeamMember responsibleTeamMember)
   {
     Task newTask = new Task(
-        taskTitle, responsibleTeamMember, taskList.size() + 1
+        taskTitle, projectTitle, responsibleTeamMember, taskList.size() + 1
     );
     taskList.add(newTask);
   }

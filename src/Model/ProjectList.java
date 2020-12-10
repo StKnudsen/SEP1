@@ -91,7 +91,7 @@ public class ProjectList
           if (projectList.get(i).getRequirementList().get(j)
               .equals(requirement))
             projectList.get(i).getRequirementList().get(j).addTask(
-                taskTitle, responsibleTeamMember
+                taskTitle, project.getTitle() ,responsibleTeamMember
             );
         }
       }

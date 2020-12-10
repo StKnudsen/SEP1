@@ -21,13 +21,23 @@ public class Task extends Job
     System.out.println("Task: " + title + " priority: " + priority + " - oprettet af " + responsibleTeamMember + ". (Hilsen: Task constructor)");
   }
 
+  // Nyeste nye inden for Task constructor 10-12-2020 11:46
+  public Task(String title, String projectTitle , TeamMember responsibleTeamMember, int priority)
+  {
+    super(title, projectTitle, responsibleTeamMember, priority);
+
+    teamMemberList = new ArrayList<>();
+
+    System.out.println("Task: " + title + " priority: " + priority + " - oprettet af " + responsibleTeamMember + ". (Hilsen: Task constructor)");
+  }
+
   // Gamle constructor
-  public Task(String title, String status)
+  /*public Task(String title, String status)
   {
     super(title, status);
 
     teamMemberList = new ArrayList<>();
-  }
+  }*/
 
   public void updateTime(TeamMember teamMember, int time)
   {

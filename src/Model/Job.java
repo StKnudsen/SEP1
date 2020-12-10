@@ -5,12 +5,21 @@ import java.util.Date;
 public abstract class Job
 {
   int id, projectId, priority, estimatedTime;
-  String title, description, status;
+  String title, projectTitle, description, status;
   Date deadline;
   TeamMember responsibleTeamMember;
 
   // NYT! Nu med responsible Team Member
   public Job(String title, TeamMember responsibleTeamMember, int priority)
+  {
+    this.title = title;
+    this.responsibleTeamMember = responsibleTeamMember;
+    this.priority = priority;
+    this.status = "Not Started";
+  }
+
+  // NYT! Nu med responsible Team Member
+  public Job(String title, String projectTitle, TeamMember responsibleTeamMember, int priority)
   {
     this.title = title;
     this.responsibleTeamMember = responsibleTeamMember;
