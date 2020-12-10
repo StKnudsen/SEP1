@@ -79,6 +79,25 @@ public class ProjectList
     }
   }
 
+  // Ny delux udgave..
+  public void addTask(Project project, Requirement requirement, String taskTitle, TeamMember responsibleTeamMember)
+  {
+    for (int i = 0; i < projectList.size(); i++)
+    {
+      if (projectList.get(i).equals(project))
+      {
+        for (int j = 0; j < projectList.get(i).getRequirementList().size(); j++)
+        {
+          if (projectList.get(i).getRequirementList().get(j)
+              .equals(requirement))
+            projectList.get(i).getRequirementList().get(j).addTask(
+                taskTitle, responsibleTeamMember
+            );
+        }
+      }
+    }
+  }
+
   public void addTeamMemberToTask(Project project, Requirement requirement,
       Task task, TeamMember teamMember)
   {

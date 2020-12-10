@@ -10,12 +10,12 @@ public abstract class Job
   TeamMember responsibleTeamMember;
 
   // NYT! Nu med responsible Team Member
-  public Job(String title, TeamMember responsibleTeamMember, int priority, String status)
+  public Job(String title, TeamMember responsibleTeamMember, int priority)
   {
     this.title = title;
     this.responsibleTeamMember = responsibleTeamMember;
     this.priority = priority;
-    this.status = status;
+    this.status = "Not Started";
   }
 
   public Job(String title, String status)

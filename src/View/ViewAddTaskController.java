@@ -35,16 +35,16 @@ public class ViewAddTaskController
     {
       if (!taskTitleInput.getText().equalsIgnoreCase(""))
       {
-        viewHandler.getModelManager().setSelectedProject(
-            viewHandler.getModelManager().searchProject(
-                viewHandler.getModelManager().getSelectedRequirement()
-                    .getProjectTitle()));
-        viewHandler.getModelManager().addTask(viewHandler.getModelManager()
-                .searchProject(
-                    viewHandler.getModelManager().getSelectedRequirement()
-                        .getProjectTitle()),
-            viewHandler.getModelManager().getSelectedRequirement(),
-            new Task(taskTitleInput.getText(), "Not Started"));
+        //viewHandler.getModelManager().setSelectedProject(
+        //    viewHandler.getModelManager().searchProject(viewHandler.getModelManager().getSelectedRequirement().getProjectTitle())
+        //);
+        viewHandler.getModelManager().addTask(
+          viewHandler.getModelManager().searchProject(
+            viewHandler.getModelManager().getSelectedRequirement().getProjectTitle()
+          ),
+          viewHandler.getModelManager().getSelectedRequirement(),
+          taskTitleInput.getText(), viewHandler.getModelManager().getCurrentUser()
+        );
 
         viewHandler.openView("viewList");
       }
