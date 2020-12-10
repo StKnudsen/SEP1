@@ -26,6 +26,7 @@ public class Project
     this.title = "No title";
   }
 
+  //TODO komme denne her getter på UML
   public String getTitle()
   {
     return title;

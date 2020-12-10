@@ -2,7 +2,7 @@ import parser.ParserException;
 import parser.XmlJsonParser;
 import Model.ProjectList;
 
-import java.io.File;
+import java.io.*;
 
 public class FileHandler
 
@@ -28,8 +28,41 @@ public class FileHandler
   {
     String filename;
     if(obj instanceof Project)
+    {
       filename = ((Project) obj).getTitle();
+      FileOutputStream fstream = null; //TODO Jeg skal lige tjekke hvordan man gør det der med filnavnet
+      try
+      {
+        fstream = new FileOutputStream(filename);
+      }
+      catch (FileNotFoundException e)
+      {
+        e.printStackTrace();
+        System.out.println("File not found");
+      }
+      DataOutputStream outputFile = new DataOutputStream(fstream);
 
+      System.out.printf("writing to file");
+
+      //Here goes an array to be written, men jeg skal lige tænke over det
+     /* for (int i = 0; i < ; i++)
+      {
+
+      }*/
+
+      //This is where the file closes again
+      try
+      {
+        outputFile.close();
+        System.out.printf("File saved");
+      }
+      catch (IOException e)
+      {
+        e.printStackTrace();
+        System.out.println("Error closing file");
+      }
+
+    }
   }
 
   //TODO en metode som kan tilføje til filer (s. 734 i bogen)
