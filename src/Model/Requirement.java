@@ -65,10 +65,4 @@ public class Requirement extends Job
   {
     return type;
   }
-
-  public String getProjectTitle()
-  {
-    return projectTitle;
-  }
-
 }

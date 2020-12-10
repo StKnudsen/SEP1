@@ -22,6 +22,7 @@ public abstract class Job
   public Job(String title, String projectTitle, TeamMember responsibleTeamMember, int priority)
   {
     this.title = title;
+    this.projectTitle = projectTitle;
     this.responsibleTeamMember = responsibleTeamMember;
     this.priority = priority;
     this.status = "Not Started";
@@ -41,6 +42,11 @@ public abstract class Job
   public String getTitle()
   {
     return title;
+  }
+
+  public String getProjectTitle()
+  {
+    return projectTitle;
   }
 
   public void setDescription(String description)

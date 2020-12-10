@@ -28,7 +28,7 @@ public class Task extends Job
 
     teamMemberList = new ArrayList<>();
 
-    System.out.println("Task: " + title + " priority: " + priority + " - oprettet af " + responsibleTeamMember + ". (Hilsen: Task constructor)");
+    System.out.println("Task: " + title + " priority: " + priority + " på project: "+ projectTitle + " - oprettet af " + responsibleTeamMember + ". (Hilsen: Task constructor)");
   }
 
   // Gamle constructor

@@ -26,18 +26,31 @@ public class ViewTaskAddTeamMemberController
     //
     // VIGTIGT.. getSelectedProject, kan lige pt. være et andet project!!!
     //
-    //  Her er Stefan, han mangler project-requirement data her.
+    //  Her er Stefan...
     //
-    //System.out.println(viewHandler.getModelManager().getSelectedRequirement().getProjectTitle());
+
+    System.out.println(
+        viewHandler.getModelManager().getSelectedTask().getTitle()
+    );
+    System.out.println(
+        viewHandler.getModelManager().getSelectedTask().getProjectTitle()
+    );
+
     chooseEmployee.getItems().removeAll(
         viewHandler.getModelManager()
-            .searchProject(viewHandler.getModelManager().getSelectedRequirement().getProjectTitle())
+            .searchProject(
+                viewHandler.getModelManager().getSelectedTask().getProjectTitle()
+            )
             .getTeamMemberList()
     );
+
     chooseEmployee.getItems().addAll(
         viewHandler.getModelManager()
-            .searchProject(viewHandler.getModelManager().getSelectedRequirement().getProjectTitle())
+            .searchProject(
+                viewHandler.getModelManager().getSelectedTask().getProjectTitle()
+            )
             .getTeamMemberList());
+
     missingInputLabel.setText("");
   }
 
