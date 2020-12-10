@@ -5,7 +5,6 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-
 <AnchorPane minWidth="-Infinity" prefWidth="630.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ViewEditRequirementController">
    <children>
       <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="434.0" prefWidth="600.0">
@@ -58,7 +57,7 @@
               <VBox prefHeight="118.0" prefWidth="579.0">
                   <children>
                       <Label alignment="BOTTOM_LEFT" text="Beskrivelse:" />
-                      <TextArea prefHeight="106.0" prefWidth="580.0" />
+                      <TextArea fx:id="requirementDescription" prefHeight="106.0" prefWidth="580.0" promptText="Skriv beskrivelse her..." />
                   </children>
                   <VBox.margin>
                       <Insets bottom="10.0" />
@@ -98,12 +97,12 @@
                   <children>
                       <HBox alignment="BOTTOM_LEFT" prefHeight="30.0" prefWidth="290.0" spacing="15.0">
                           <children>
-                              <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="110.0" text="Opdatér" />
+                              <Button mnemonicParsing="false" onAction="#updateRequirement" prefHeight="26.0" prefWidth="110.0" text="Opdatér" />
                           </children>
                       </HBox>
                       <HBox alignment="BOTTOM_RIGHT" layoutX="324.0" layoutY="20.0" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="290.0">
                           <children>
-                              <Button mnemonicParsing="false" prefWidth="80.0" text="Skift bruger" />
+                              <Button mnemonicParsing="false" onAction="#gotoViewLogin" prefWidth="80.0" text="Afslut" />
                           </children>
                       </HBox>
                   </children>

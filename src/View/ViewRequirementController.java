@@ -5,11 +5,13 @@ import Model.Requirement;
 import Model.Task;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Region;
+import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 
 public class ViewRequirementController
@@ -19,7 +21,7 @@ public class ViewRequirementController
   @FXML private Label responsibleTeamMember;
   @FXML private Label requirementType;
   @FXML private Label requirementStatus;
-  @FXML private TextFlow requirementDescription;
+  @FXML private TextFlow requirementDescriptionTextFlow;
 
   @FXML private TableView taskTable;
   @FXML private TableColumn taskPriotity;
@@ -41,10 +43,12 @@ public class ViewRequirementController
     responsibleTeamMember.setText(viewHandler.getModelManager().getSelectedRequirement().getResponsibleTeamMember().getName());
     requirementType.setText(viewHandler.getModelManager().getSelectedRequirement().getType());
     requirementStatus.setText(viewHandler.getModelManager().getSelectedRequirement().getStatus());
-    //requirementDescription.
+
+    requirementDescriptionTextFlow.getChildren().addAll(new Text(viewHandler.getModelManager().getRequirementDescription()));
 
     populateTaskTable();
   }
+
 
   public Region getRoot()
   {
