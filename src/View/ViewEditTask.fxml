@@ -75,12 +75,12 @@
                       <RowConstraints maxHeight="35.0" minHeight="35.0" prefHeight="35.0" vgrow="SOMETIMES" />
                   </rowConstraints>
                   <children>
-                      <Label contentDisplay="CENTER" prefHeight="30.0" text="Estimeret tid:">
+                      <Label contentDisplay="CENTER" prefHeight="30.0" text="Estimeret antal timer:">
                           <font>
                               <Font size="13.0" />
                           </font>
                       </Label>
-                      <TextField prefHeight="25.0" prefWidth="450.0" promptText="Indtast tidsestimat i hele timer her..." GridPane.columnIndex="1" />
+                      <TextField fx:id="taskEstimate" prefHeight="27.0" prefWidth="233.0" promptText="Indtast tidsestimat i hele timer her..." GridPane.columnIndex="1" />
                       <Label contentDisplay="CENTER" prefHeight="30.0" prefWidth="222.0" text="Vælg deadline:" GridPane.rowIndex="1">
                           <font>
                               <Font size="13.0" />
@@ -88,16 +88,16 @@
                       </Label>
                       <DatePicker prefHeight="25.0" prefWidth="450.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                       <Label prefHeight="18.0" prefWidth="172.0" text="Vælg ansvarlig team member: " GridPane.rowIndex="2" />
-                      <ChoiceBox prefHeight="25.0" prefWidth="450.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                      <ChoiceBox fx:id="taskTeamMembers" prefHeight="25.0" prefWidth="450.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                       <Label prefHeight="18.0" prefWidth="172.0" text="Vælg status: " GridPane.rowIndex="3" />
-                      <ChoiceBox prefHeight="25.0" prefWidth="450.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                      <ChoiceBox fx:id="taskStatus" prefHeight="25.0" prefWidth="450.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                   </children>
               </GridPane>
               <HBox alignment="BOTTOM_LEFT" maxHeight="248.0" maxWidth="600.0" prefHeight="46.0" prefWidth="579.0">
                   <children>
                       <HBox alignment="BOTTOM_LEFT" prefHeight="30.0" prefWidth="290.0" spacing="15.0">
                           <children>
-                              <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="110.0" text="Opdatér" />
+                              <Button mnemonicParsing="false" onAction="#updateTask" prefHeight="26.0" prefWidth="110.0" text="Opdatér" />
                           </children>
                       </HBox>
                       <HBox alignment="BOTTOM_RIGHT" layoutX="324.0" layoutY="20.0" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="290.0">

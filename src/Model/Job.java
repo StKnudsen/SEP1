@@ -106,8 +106,8 @@ public abstract class Job
     this.estimatedTime = hours;
   }
 
-  public int getEstimatedTime()
+  public String getEstimatedTime()
   {
-    return estimatedTime;
+    return Integer.toString(estimatedTime);
   }
 }

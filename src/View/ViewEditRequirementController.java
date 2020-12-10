@@ -91,7 +91,8 @@ public class ViewEditRequirementController
           viewHandler.getModelManager().getSelectedRequirement().getTitle(),
           viewHandler.getModelManager().getRequirementDescription(),
           viewHandler.getModelManager().getSelectedRequirement().getType(),
-          viewHandler.getModelManager().getSelectedRequirement().getEstimatedTime(),
+          //  Stefan: getEstimatedTime returner en string
+          Integer.parseInt(viewHandler.getModelManager().getSelectedRequirement().getEstimatedTime()),
           viewHandler.getModelManager().getSelectedRequirement().getDeadline(),
           viewHandler.getModelManager().getSelectedRequirement().getResponsibleTeamMember());
   }

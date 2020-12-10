@@ -37,11 +37,6 @@ public class ViewTaskController
     return root;
   }
 
-  public void gotoViewLogin()
-  {
-    viewHandler.openView("viewLogin");
-  }
-
   public void editTask()
   {
     viewHandler.openView("viewEditTask");
@@ -55,5 +50,10 @@ public class ViewTaskController
   public void addTeamMember()
   {
     viewHandler.openView("viewTaskAddTeamMember");
+  }
+
+  public void gotoViewList()
+  {
+    viewHandler.openView("viewList");
   }
 }
