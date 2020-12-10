@@ -70,7 +70,7 @@ public class ViewEditTaskController
     }
     catch (NullPointerException e)
     {
-      //e.printStackTrace();
+      e.printStackTrace();
     }
 
     if (Integer.parseInt(taskEstimate.getText()) > 0)
@@ -103,8 +103,6 @@ public class ViewEditTaskController
     {
       e.printStackTrace();
     }
-
-    //missingInputLabel.setText(missingNameWarningText);
 
     viewHandler.openView("viewTask");
   }
