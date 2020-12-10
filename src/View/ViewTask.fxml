@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.TextFlow?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="492.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ViewTaskController">
     <children>
@@ -48,7 +42,7 @@
             <children>
                 <HBox prefHeight="100.0" prefWidth="303.0">
                     <children>
-                        <Label fx:id="title" contentDisplay="CENTER" prefHeight="40.0" prefWidth="257.0" text="Task title">
+                        <Label fx:id="taskTitle" contentDisplay="CENTER" prefHeight="40.0" prefWidth="257.0" text="Task title">
                             <font>
                                 <Font name="System Bold" size="13.0" />
                             </font>
@@ -60,7 +54,7 @@
                 </HBox>
                 <HBox prefHeight="100.0" prefWidth="300.0">
                     <children>
-                        <Label contentDisplay="CENTER" prefHeight="40.0" prefWidth="300.0" text="Type">
+                        <Label contentDisplay="CENTER" prefHeight="40.0" prefWidth="300.0">
                             <font>
                                 <Font size="13.0" />
                             </font>
@@ -84,7 +78,7 @@
                                 <Font name="System Italic" size="12.0" />
                             </font>
                         </Label>
-                        <Label text="Ansvarlig Smølf" />
+                        <Label fx:id="responsibleTeamMember" text="Ansvarlig Smølf" />
                     </children>
                 </HBox>
                 <HBox alignment="CENTER_LEFT" layoutX="253.0" layoutY="20.0" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="300.0">
@@ -97,7 +91,7 @@
                                 <Font name="System Italic" size="12.0" />
                             </font>
                         </Label>
-                        <Label text="Færdig" />
+                        <Label fx:id="taskStatus" text="Færdig" />
                     </children>
                 </HBox>
             </children>
@@ -120,7 +114,7 @@
                 <VBox prefHeight="102.0" prefWidth="600.0">
                     <children>
                         <Label text="Team members" />
-                        <ListView maxWidth="1.7976931348623157E308" prefHeight="110.0" prefWidth="579.0">
+                        <ListView fx:id="teamMemberList" maxWidth="1.7976931348623157E308" prefHeight="110.0" prefWidth="579.0">
                             <VBox.margin>
                                 <Insets />
                             </VBox.margin>

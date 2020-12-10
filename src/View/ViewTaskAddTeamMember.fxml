@@ -28,11 +28,12 @@
                   </rowConstraints>
                   <children>
                       <Label prefHeight="18.0" prefWidth="122.0" text="Vælg medarbejder:" />
-                      <ChoiceBox prefHeight="26.0" prefWidth="366.0" GridPane.columnIndex="1" />
+                      <ChoiceBox fx:id="chooseEmployee" prefHeight="26.0" prefWidth="366.0" GridPane.columnIndex="1" />
                       <Label prefHeight="18.0" prefWidth="194.0" text="Vælg task:" GridPane.rowIndex="1" />
                   <ChoiceBox layoutX="154.0" layoutY="15.0" prefHeight="26.0" prefWidth="366.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   </children>
               </GridPane>
+            <Label fx:id="missingInputLabel" />
               <HBox alignment="BOTTOM_LEFT" maxHeight="248.0" maxWidth="600.0" prefHeight="102.0" prefWidth="419.0">
                   <children>
                       <HBox alignment="BOTTOM_LEFT" prefHeight="30.0" prefWidth="290.0" spacing="15.0">

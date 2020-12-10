@@ -53,6 +53,11 @@ public class Task extends Job
     return null;
   }
 
+  public ArrayList<TeamMember> getTeamMemberList()
+  {
+    return teamMemberList;
+  }
+
   /* PT kan man ikke slette en team member!
    public void deleteTeamMember(TeamMember teamMember){
      teamMemberList.remove(teamMember);

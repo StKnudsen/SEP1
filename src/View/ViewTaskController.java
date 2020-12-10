@@ -1,13 +1,16 @@
 package View;
 
-import Model.ColourIT;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.layout.Region;
 
 public class ViewTaskController
 {
-  @FXML private Label title;
+  @FXML private Label taskTitle;
+  @FXML private Label responsibleTeamMember;
+  @FXML private Label taskStatus;
+  @FXML private ListView teamMemberList;
 
   private Region root;
   private ViewHandler viewHandler;
@@ -20,7 +23,13 @@ public class ViewTaskController
 
   public void reset()
   {
-    title.setText(viewHandler.getModelManager().getSelectedTask().getTitle());
+    taskTitle.setText(viewHandler.getModelManager().getSelectedTask().getTitle());
+    responsibleTeamMember.setText(viewHandler.getModelManager().getSelectedTask().getResponsibleTeamMember().getName());
+    taskStatus.setText(viewHandler.getModelManager().getSelectedTask().getStatus());
+
+    teamMemberList.getItems().removeAll(viewHandler.getModelManager().getSelectedTask().getTeamMemberList());
+    teamMemberList.getItems().addAll(viewHandler.getModelManager().getSelectedTask().getTeamMemberList());
+
   }
 
   public Region getRoot()
