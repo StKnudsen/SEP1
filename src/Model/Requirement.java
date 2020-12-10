@@ -46,4 +46,37 @@ public class Requirement extends Job
   {
     return type;
   }
+
+  public void resortTasks()
+  {
+    ArrayList<Task> oldTaskList = copyTaskList();
+
+    taskList.clear();
+
+    for (int i = 0; i < oldTaskList.size(); i++)
+    {
+      taskList.add(i,
+          new Task(
+              oldTaskList.get(i).getTitle(),
+              oldTaskList.get(i).getRequirementTitle(),
+              oldTaskList.get(i).getProjectTitle(),
+              oldTaskList.get(i).getResponsibleTeamMember(),
+              i+1
+          )
+      );
+    }
+  }
+
+  private ArrayList<Task> copyTaskList()
+  {
+    ArrayList<Task> copy = new ArrayList<>();
+
+    copy.addAll(taskList);
+    /*for (int i = 0; i < taskList.size(); i++)
+    {
+      copy.add(taskList.get(i));
+    }*/
+
+    return copy;
+  }
 }

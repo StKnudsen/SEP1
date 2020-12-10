@@ -126,9 +126,86 @@ public class ProjectList
     //Senere
   }
 
-  public void prioritizeTask(String value)
+  public void prioritizeTask(String value, Task task, Requirement requirement, Project project)
   {
-    //Senere
+    for (Project item : projectList)
+    {
+      if (item.equals(project))
+      {
+        for (int j = 0; j < item.getRequirementList().size(); j++)
+        {
+          if (item.getRequirementList().get(j).equals(requirement))
+          {
+            for (int k = 0;
+                 k < item.getRequirementList().get(j).getTasks().size(); k++)
+            {
+              if (item.getRequirementList().get(j).getTasks().get(k).equals(task))
+              {
+                int taskPriority = Integer.parseInt(item.getRequirementList().get(j).getTasks().get(k).getPriority());
+                int taskAmount = item.getRequirementList().get(j).getTasks().size();
+
+                if (value.equals("OP") && taskPriority > 1)
+                {
+                  // item.getRequirementList().get(j).getTasks().get(k).setPriority(taskPriority - 1); // Prioriterings index, ikke array index
+
+                  item.getRequirementList().get(j).getTasks().add(taskPriority - 2, item.getRequirementList().get(j).getTasks().remove(taskPriority - 1));
+
+                  item.getRequirementList().get(j).resortTasks();
+                }
+
+                if (value.equals("NED") && taskPriority < taskAmount)
+                {
+                  item.getRequirementList().get(j).getTasks().add(taskPriority, item.getRequirementList().get(j).getTasks().remove(taskPriority - 1));
+                  item.getRequirementList().get(j).resortTasks();
+                }
+
+                if (value.equals("TIL TOP") && taskPriority != 1)
+                {
+                  item.getRequirementList().get(j).getTasks().add(0, item.getRequirementList().get(j).getTasks().remove(taskPriority - 1));
+                  item.getRequirementList().get(j).resortTasks();
+                }
+
+                if (value.equals("TIL BUND") && taskPriority != taskAmount)
+                {
+                  item.getRequirementList().get(j).getTasks().add(taskAmount - 1, item.getRequirementList().get(j).getTasks().remove(taskPriority - 1));
+                  item.getRequirementList().get(j).resortTasks();
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    /*for (Project projectElement : projectList)
+    {
+      if (projectElement.equals(project))
+      {
+        for (Requirement requirementElement : projectElement.getRequirementList())
+        {
+          if (requirementElement.equals(requirement))
+          {
+            int numberOfTasks = requirementElement.getTasks().size();
+
+            for (Task taskElement : requirementElement.getTasks())
+            {
+              if (taskElement.equals(task))
+              {
+                int taskPriority = Integer.parseInt(taskElement.getPriority());
+                if (value.equals("OP") && taskPriority > 1)
+                {
+                  taskElement.setPriority(taskPriority - 1); // Prioriterings index, ikke array index
+                  requirementElement.getTasks().add(
+                      taskPriority - 2, requirementElement.getTasks().remove(taskPriority-1)
+                      );
+                  requirementElement.resortTasks();
+                }
+              }
+            }
+          }
+        }
+      }
+    }*/
   }
 
   public void approveRequirement(Project project, Requirement requirement,
