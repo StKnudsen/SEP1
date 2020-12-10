@@ -5,8 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-
-<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="630.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ViewEditTaskController" userData="Colour IT - Rediger task">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="630.0" userData="Colour IT - Rediger task" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ViewEditTaskController">
    <children>
       <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
           <children>
@@ -31,7 +30,7 @@
                       <Label prefHeight="18.0" prefWidth="37.0" text="Title: " />
                       <Label text="Vælg type:" GridPane.rowIndex="1" />
                       <ChoiceBox prefHeight="25.0" prefWidth="450.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                      <TextField prefHeight="25.0" prefWidth="450.0" promptText="Angiv titel her..." GridPane.columnIndex="1" />
+                      <TextField fx:id="taskTitle" prefHeight="25.0" prefWidth="450.0" promptText="Angiv titel her..." GridPane.columnIndex="1" />
                   </children>
               </GridPane>
               <GridPane>
@@ -47,18 +46,18 @@
                       <RowConstraints maxHeight="35.0" minHeight="35.0" prefHeight="35.0" vgrow="SOMETIMES" />
                   </rowConstraints>
                   <children>
-                      <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="134.0" text="TIL BUND" GridPane.columnIndex="5" />
-                      <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="142.0" text="OP" GridPane.columnIndex="2" />
-                      <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="122.0" text="NED" GridPane.columnIndex="3" />
-                      <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="131.0" text="TIL TOP" GridPane.columnIndex="4" />
+                      <Button mnemonicParsing="false" onAction="#changePriority" prefHeight="26.0" prefWidth="134.0" text="TIL BUND" GridPane.columnIndex="5" />
+                      <Button mnemonicParsing="false" onAction="#changePriority" prefHeight="26.0" prefWidth="142.0" text="OP" GridPane.columnIndex="2" />
+                      <Button mnemonicParsing="false" onAction="#changePriority" prefHeight="26.0" prefWidth="122.0" text="NED" GridPane.columnIndex="3" />
+                      <Button mnemonicParsing="false" onAction="#changePriority" prefHeight="26.0" prefWidth="131.0" text="TIL TOP" GridPane.columnIndex="4" />
                       <Label text="Prioritering:" />
-                      <Label text="0" GridPane.columnIndex="1" />
+                      <Label fx:id="taskPriority" text="0" GridPane.columnIndex="1" />
                   </children>
               </GridPane>
               <VBox prefHeight="118.0" prefWidth="579.0">
                   <children>
                       <Label alignment="BOTTOM_LEFT" text="Beskrivelse:" />
-                      <TextArea prefHeight="106.0" prefWidth="579.0" />
+                      <TextArea fx:id="taskDescription" prefHeight="106.0" prefWidth="579.0" />
                   </children>
                   <VBox.margin>
                       <Insets bottom="10.0" />
@@ -103,7 +102,7 @@
                       </HBox>
                       <HBox alignment="BOTTOM_RIGHT" layoutX="324.0" layoutY="20.0" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="290.0">
                           <children>
-                              <Button mnemonicParsing="false" prefWidth="80.0" text="Skift bruger" />
+                              <Button mnemonicParsing="false" onAction="#gotoViewTask" prefWidth="80.0" text="Tilbage" />
                           </children>
                       </HBox>
                   </children>

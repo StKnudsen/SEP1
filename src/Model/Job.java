@@ -28,11 +28,13 @@ public abstract class Job
     this.status = "Not Started";
   }
 
+  /*
   public Job(String title, String status)
   {
     this.title = title;
     this.status = status;
   }
+  */
 
   public void setTitle(String title)
   {
@@ -64,9 +66,9 @@ public abstract class Job
     this.priority = priority;
   }
 
-  public int getPriority()
+  public String getPriority()
   {
-    return priority;
+    return Integer.toString(priority);
   }
 
   public void updateStatus(String status)

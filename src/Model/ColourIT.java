@@ -112,9 +112,9 @@ public class ColourIT
     projectList.prioritizeRequirement(value);
   }
 
-  public void prioritizeTask(String value)
+  public void prioritizeTask(String value, Task task, Requirement requirement, Project project)
   {
-    projectList.prioritizeTask(value);
+    projectList.prioritizeTask(value, task, requirement, project);
   }
 
   public void approveRequirement(Project project, Requirement requirement, String value)
