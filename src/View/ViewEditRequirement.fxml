@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane minWidth="-Infinity" prefWidth="630.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ViewEditRequirementController" userData="Colour IT - Rediger requirement">
+<AnchorPane minWidth="-Infinity" prefWidth="630.0" userData="Colour IT - Rediger requirement" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ViewEditRequirementController">
    <children>
       <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="434.0" prefWidth="600.0">
           <children>
@@ -103,7 +103,7 @@
                       </HBox>
                       <HBox alignment="BOTTOM_RIGHT" layoutX="324.0" layoutY="20.0" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="290.0">
                           <children>
-                              <Button mnemonicParsing="false" onAction="#gotoViewLogin" prefWidth="80.0" text="Afslut" />
+                              <Button mnemonicParsing="false" onAction="#gotoViewRequirement" prefWidth="80.0" text="Afslut" />
                           </children>
                       </HBox>
                   </children>

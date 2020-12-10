@@ -1,19 +1,11 @@
 package View;
 
-import Model.Job;
-import Model.Requirement;
 import Model.TeamMember;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.Region;
-import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
 public class ViewEditRequirementController
 {
@@ -48,8 +40,15 @@ public class ViewEditRequirementController
             viewHandler.getModelManager().getSelectedRequirement().getProjectTitle()
         ).getTeamMemberList()
     );
+
+    chooseType.getItems().removeAll(viewHandler.getModelManager().getRequirementTypes());
     chooseType.getItems().addAll(viewHandler.getModelManager().getRequirementTypes());
+
+    chooseStatus.getItems().removeAll(viewHandler.getModelManager().getAllStatus());
     chooseStatus.getItems().addAll(viewHandler.getModelManager().getAllStatus());
+
+    requirementDescription.setText(viewHandler.getModelManager().getSelectedRequirement().getDescription());
+    requirementTitleInput.setText(viewHandler.getModelManager().getSelectedRequirement().getTitle());
   }
 
   public void updateRequirement() throws IOException
@@ -102,8 +101,8 @@ public class ViewEditRequirementController
     return root;
   }
 
-  public void gotoViewLogin()
+  public void gotoViewRequirement()
   {
-    viewHandler.openView("viewLogin");
+    viewHandler.openView("viewRequirement");
   }
 }
