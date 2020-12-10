@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="220.0" prefWidth="530.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ViewAddProjectController" userData="Colour IT - Opret projekt" >
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="220.0" prefWidth="530.0" stylesheets="@style.css" userData="Colour IT - Opret projekt" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ViewAddProjectController">
    <children>
       <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="172.0" prefWidth="497.0">
           <children>
@@ -64,7 +64,7 @@
                       </HBox>
                       <HBox alignment="BOTTOM_RIGHT" layoutX="324.0" layoutY="20.0" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="290.0">
                           <children>
-                              <Button fx:id="closeButton" mnemonicParsing="false" onAction="#gotoViewLogin" prefHeight="26.0" prefWidth="92.0" text="Afslut" />
+                              <Button mnemonicParsing="false" onAction="#gotoViewList" prefHeight="26.0" prefWidth="92.0" text="Afslut" />
                           </children>
                       </HBox>
                   </children>

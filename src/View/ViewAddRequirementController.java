@@ -30,6 +30,7 @@ public class ViewAddRequirementController
   public void addRequirement()
   {
     String missingInputWarningText = "Vælg en type og indtast venligst en titel..";
+
     try {
       if (!chooseRequirementType.getValue().equals(""))
       {

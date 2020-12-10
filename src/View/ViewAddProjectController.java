@@ -13,7 +13,6 @@ public class ViewAddProjectController
   @FXML private Label missingInputLabel;
   @FXML private TextField projectTitleInput;
 
-
   private Region root;
   private ViewHandler viewHandler;
 
@@ -21,11 +20,6 @@ public class ViewAddProjectController
   {
     this.root = root;
     this.viewHandler = viewHandler;
-  }
-
-  public void closeButtonAction()
-  {
-    viewHandler.closeView();
   }
 
   public void reset()
@@ -47,9 +41,10 @@ public class ViewAddProjectController
           viewHandler.getModelManager()
               .createNewProject(projectTitleInput.getText(),
                   chooseCustomer.getValue(),
-                  viewHandler.getModelManager().getCurrentUser());
+                  viewHandler.getModelManager().getCurrentUser()
+              );
 
-          viewHandler.openView("viewLogin");
+          viewHandler.openView("viewList");
         }
       }
     }
@@ -66,8 +61,8 @@ public class ViewAddProjectController
     return root;
   }
 
-  public void gotoViewLogin()
+  public void gotoViewList()
   {
-    viewHandler.openView("viewLogin");
+    viewHandler.openView("viewList");
   }
 }

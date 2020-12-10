@@ -11,7 +11,6 @@ public class ViewAddTaskController
 {
   @FXML private Label missingInputLabel;
   @FXML private TextField taskTitleInput;
-  @FXML private ChoiceBox chooseProject;
 
   private Region root;
   private ViewHandler viewHandler;
@@ -28,16 +27,12 @@ public class ViewAddTaskController
     taskTitleInput.setText("");
   }
 
-  //Problem med at der ikke nødvendigvis er en selectedProject, hvis user tilgår addTask direkte gennem et requirement.
   public void addTask()
   {
     try
     {
       if (!taskTitleInput.getText().equalsIgnoreCase(""))
       {
-        //viewHandler.getModelManager().setSelectedProject(
-        //    viewHandler.getModelManager().searchProject(viewHandler.getModelManager().getSelectedRequirement().getProjectTitle())
-        //);
         viewHandler.getModelManager().addTask(
           viewHandler.getModelManager().searchProject(
             viewHandler.getModelManager().getSelectedRequirement().getProjectTitle()
@@ -46,7 +41,7 @@ public class ViewAddTaskController
           taskTitleInput.getText(), viewHandler.getModelManager().getCurrentUser()
         );
 
-        viewHandler.openView("viewList");
+        viewHandler.openView("viewRequirement");
       }
     }
     catch (NullPointerException e)
