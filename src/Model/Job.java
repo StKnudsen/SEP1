@@ -9,6 +9,15 @@ public abstract class Job
   Date deadline;
   TeamMember responsibleTeamMember;
 
+  // NYT! Nu med responsible Team Member
+  public Job(String title, TeamMember responsibleTeamMember, int priority, String status)
+  {
+    this.title = title;
+    this.responsibleTeamMember = responsibleTeamMember;
+    this.priority = priority;
+    this.status = status;
+  }
+
   public Job(String title, String status)
   {
     this.title = title;

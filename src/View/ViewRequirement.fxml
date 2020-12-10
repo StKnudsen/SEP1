@@ -11,7 +11,7 @@
             <children>
                 <HBox alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="303.0">
                     <children>
-                        <Label alignment="CENTER" text="Project title">
+                        <Label fx:id="projectTitle" alignment="CENTER" text="Project title">
                             <font>
                                 <Font size="14.0" />
                             </font>
@@ -35,7 +35,7 @@
             <children>
                 <HBox prefHeight="100.0" prefWidth="303.0">
                     <children>
-                        <Label fx:id="title" contentDisplay="CENTER" prefHeight="40.0" prefWidth="257.0" text="Requirement title">
+                        <Label fx:id="requirementTitle" contentDisplay="CENTER" prefHeight="40.0" prefWidth="257.0" text="Requirement title">
                             <font>
                                 <Font name="System Bold" size="13.0" />
                             </font>
@@ -47,7 +47,7 @@
                 </HBox>
                 <HBox prefHeight="100.0" prefWidth="300.0">
                     <children>
-                        <Label contentDisplay="CENTER" prefHeight="40.0" prefWidth="300.0" text="Type">
+                        <Label fx:id="requirementType" contentDisplay="CENTER" prefHeight="40.0" prefWidth="300.0" text="Type">
                             <font>
                                 <Font size="13.0" />
                             </font>
@@ -71,7 +71,7 @@
                                 <Font name="System Italic" size="12.0" />
                             </font>
                         </Label>
-                        <Label text="Ansvarlig Smølf" />
+                        <Label fx:id="responsibleTeamMember" text="Ansvarlig Smølf" />
                     </children>
                 </HBox>
                 <HBox alignment="CENTER_LEFT" layoutX="253.0" layoutY="20.0" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="300.0">
@@ -84,7 +84,7 @@
                                 <Font name="System Italic" size="12.0" />
                             </font>
                         </Label>
-                        <Label text="Færdig" />
+                        <Label fx:id="requirementStatus" text="Færdig" />
                     </children>
                 </HBox>
             </children>
@@ -106,7 +106,7 @@
             <children>
                 <VBox prefHeight="102.0" prefWidth="600.0">
                     <children>
-                        <Label text="Team members" />
+                        <Label text="Team members -- Skal denne ikke væk? Team members er på project &amp; task" />
                         <ListView maxWidth="1.7976931348623157E308" prefHeight="110.0" prefWidth="579.0">
                             <VBox.margin>
                                 <Insets />
@@ -119,10 +119,10 @@
                 <Insets bottom="10.0" />
             </padding>
         </HBox>
-        <TableView maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="110.0" prefWidth="0.0">
+        <TableView fx:id="taskTable" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="110.0" prefWidth="0.0">
             <columns>
-                <TableColumn minWidth="0.0" prefWidth="94.39998948574066" text="Prioritering" />
-                <TableColumn prefWidth="512.8000106811523" text="Task title" />
+                <TableColumn fx:id="taskPriotity" minWidth="0.0" prefWidth="94.39998948574066" text="Prioritering" />
+                <TableColumn fx:id="taskTitle" prefWidth="512.8000106811523" text="Task title" />
             </columns>
         </TableView>
         <HBox alignment="CENTER_LEFT" maxHeight="73.0" maxWidth="600.0" prefHeight="31.0" prefWidth="600.0">

@@ -36,6 +36,17 @@ public class Project
     return teamMemberList;
   }
 
+  // Breaking News! addRequirement tager nu parametere i stedet for object
+  public void addRequirement(String title, String type, String projectTitle, TeamMember responsibleTeamMember)
+  {
+    // Her oprettes requirement, så kan vi også sætte prioriteringen!
+    Requirement newRequirement = new Requirement(
+        title, type, projectTitle, responsibleTeamMember, requirementList.size() +1
+    );
+
+    requirementList.add(newRequirement);
+  }
+
   public void addRequirement(Requirement requirement)
   {
     requirementList.add(requirement);

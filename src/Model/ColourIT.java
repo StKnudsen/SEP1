@@ -248,15 +248,17 @@ public class ColourIT
 
     //  Nogle requirements
     // To til projekt 1
-    Requirement prj1Requirement1 = new Requirement("Find a fish", "Started", "Functional Requirement", projectList.getProjects().get(0).getTitle());
-    Requirement prj1Requirement2 = new Requirement("Slap someone with fish", "Not Started", "Functional Requirement", projectList.getProjects().get(0).getTitle());
-    this.addRequirement(projectList.searchProject("Best Project ever!"), prj1Requirement1);
-    this.addRequirement(projectList.searchProject("Best Project ever!"), prj1Requirement2);
+    //Requirement prj1Requirement1 = new Requirement("Find a fish", "Started", "Functional Requirement", projectList.getProjects().get(0).getTitle());
+    //Requirement prj1Requirement2 = new Requirement("Slap someone with fish", "Not Started", "Functional Requirement", projectList.getProjects().get(0).getTitle());
+    //this.addRequirement(projectList.searchProject("Best Project ever!"), prj1Requirement1);
+    //this.addRequirement(projectList.searchProject("Best Project ever!"), prj1Requirement2);
+    this.addRequirement("Find a fish", "Functional Requirement", projectList.getProjects().get(0).getTitle(), teamMember1);
+    this.addRequirement("Slap someone with fish", "Functional Requirement", projectList.getProjects().get(0).getTitle(), teamMember1);
     // To til projekt 2
-    Requirement prj2Requirement1 = new Requirement("Blow a rainbow", "Started", "Functional Requirement", projectList.getProjects().get(1).getTitle());
-    Requirement prj2Requirement2 = new Requirement("Colour that rainbow", "Not Started", "Non Requirement", projectList.getProjects().get(1).getTitle());
-    this.addRequirement(projectList.searchProject("Colour IT PMS"), prj2Requirement1);
-    this.addRequirement(projectList.searchProject("Colour IT PMS"), prj2Requirement2);
+    //Requirement prj2Requirement1 = new Requirement("Blow a rainbow", "Started", "Functional Requirement", projectList.getProjects().get(1).getTitle());
+    //Requirement prj2Requirement2 = new Requirement("Colour that rainbow", "Not Started", "Colour that rainbow" projectList.getProjects().get(1).getTitle());
+    this.addRequirement("Blow a rainbow", "Functional Requirement", projectList.getProjects().get(1).getTitle(), teamMember2);
+    this.addRequirement("Colour that rainbow", "Colour that rainbow", projectList.getProjects().get(1).getTitle(), teamMember2);
 
     // Tasks til requirements
     // projekt 1 requirement 1
@@ -311,6 +313,12 @@ public class ColourIT
         projectList.getProjects().get(1).getRequirementList().get(1),
         prj2Req2Task2
     );
+  }
+
+  public void addRequirement(String title, String type, String projectTitle,
+      TeamMember teamMember)
+  {
+    projectList.addRequirement(title, type, projectTitle, teamMember);
   }
 
   public void addNewTeamMember(TeamMember newTeamMember)

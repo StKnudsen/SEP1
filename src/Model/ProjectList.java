@@ -51,6 +51,18 @@ public class ProjectList
     }
   }
 
+  public void addRequirement(String title, String type, String projectTitle, TeamMember responsibleTeamMember)
+  {
+    // Find project..
+    for (int i = 0; i < projectList.size(); i++)
+    {
+      if (projectList.get(i).getTitle().equals(projectTitle))
+      {
+        projectList.get(i).addRequirement(title, type, projectTitle, responsibleTeamMember);
+      }
+    }
+  }
+
   public void addTask(Project project, Requirement requirement, Task task)
   {
     for (int i = 0; i < projectList.size(); i++)
