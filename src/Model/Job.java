@@ -103,4 +103,9 @@ public abstract class Job
   {
     this.estimatedTime = hours;
   }
+
+  public int getEstimatedTime()
+  {
+    return estimatedTime;
+  }
 }

@@ -24,6 +24,7 @@ public class ColourIT
   private CustomerList customerList;
   private EmployeeList employeeList;
   final private String[] typeList = {"Functional", "Non-functional", "Project requirement"};
+  final private String[] statusList = {"Not started", "Started", "Ended","Approved", "Rejected"};
 
   public ColourIT()
   {
@@ -409,4 +410,6 @@ public class ColourIT
   {
     return typeList;
   }
+
+  public String[] getAllStatus() {return statusList;}
 }

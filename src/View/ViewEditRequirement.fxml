@@ -29,8 +29,8 @@
                   <children>
                       <Label prefHeight="18.0" prefWidth="37.0" text="Title: " />
                       <Label text="Vælg type:" GridPane.rowIndex="1" />
-                      <ChoiceBox prefHeight="25.0" prefWidth="450.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                      <TextField prefHeight="25.0" prefWidth="450.0" promptText="Angiv titel her..." GridPane.columnIndex="1" />
+                      <ChoiceBox fx:id="chooseType" prefHeight="25.0" prefWidth="450.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                      <TextField fx:id="requirementTitleInput" prefHeight="25.0" prefWidth="450.0" promptText="Angiv titel her..." GridPane.columnIndex="1" />
                   </children>
               </GridPane>
               <GridPane>
@@ -80,19 +80,20 @@
                               <Font size="13.0" />
                           </font>
                       </Label>
-                      <TextField prefHeight="25.0" prefWidth="450.0" promptText="Indtast tidsestimat i hele timer her..." GridPane.columnIndex="1" />
+                      <TextField fx:id="estimatedTimeInput" prefHeight="25.0" prefWidth="450.0" promptText="Indtast tidsestimat i hele timer her..." GridPane.columnIndex="1" />
                       <Label contentDisplay="CENTER" prefHeight="30.0" prefWidth="222.0" text="Vælg deadline:" GridPane.rowIndex="1">
                           <font>
                               <Font size="13.0" />
                           </font>
                       </Label>
-                      <DatePicker prefHeight="25.0" prefWidth="450.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                      <DatePicker fx:id="chooseDeadline" prefHeight="25.0" prefWidth="450.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                       <Label prefHeight="18.0" prefWidth="172.0" text="Vælg ansvarlig team member: " GridPane.rowIndex="2" />
-                      <ChoiceBox prefHeight="25.0" prefWidth="450.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                      <ChoiceBox fx:id="chooseResponsibleTeamMember" prefHeight="25.0" prefWidth="450.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                       <Label prefHeight="18.0" prefWidth="172.0" text="Vælg status: " GridPane.rowIndex="3" />
-                      <ChoiceBox prefHeight="25.0" prefWidth="450.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                      <ChoiceBox fx:id="chooseStatus" prefHeight="25.0" prefWidth="450.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                   </children>
               </GridPane>
+            <Label fx:id="missingInputLabel" />
               <HBox alignment="BOTTOM_LEFT" maxHeight="248.0" maxWidth="600.0" prefHeight="46.0" prefWidth="579.0">
                   <children>
                       <HBox alignment="BOTTOM_LEFT" prefHeight="30.0" prefWidth="290.0" spacing="15.0">
