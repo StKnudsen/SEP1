@@ -15,7 +15,7 @@ public class Requirement extends Job
     this.type = type;
     this.projectTitle = projectTitle;
     taskList = new ArrayList<>();
-    System.out.println("Task: " + title + " with priority: " + priority + " - oprettet af " + responsibleTeamMember + ". (Hilsen: Requirement constructor)");
+    System.out.println("Requirement: " + title + " with priority: " + priority + " - oprettet af " + responsibleTeamMember + ". (Hilsen: Requirement constructor)");
   }
 
   // I ViewAddRequirement, skal vi have ændret til at benytte den anden constructor!

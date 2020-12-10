@@ -19,6 +19,7 @@ public class ViewRequirementController
   @FXML private Label responsibleTeamMember;
   @FXML private Label requirementType;
   @FXML private Label requirementStatus;
+  @FXML private TextFlow requirementDescription;
 
   @FXML private TableView taskTable;
   @FXML private TableColumn taskPriotity;
@@ -40,6 +41,7 @@ public class ViewRequirementController
     responsibleTeamMember.setText(viewHandler.getModelManager().getSelectedRequirement().getResponsibleTeamMember().getName());
     requirementType.setText(viewHandler.getModelManager().getSelectedRequirement().getType());
     requirementStatus.setText(viewHandler.getModelManager().getSelectedRequirement().getStatus());
+    //requirementDescription.
 
     populateTaskTable();
   }
