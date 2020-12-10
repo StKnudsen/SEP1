@@ -58,7 +58,7 @@ public class ProjectList
     {
       if (projectList.get(i).getTitle().equals(projectTitle))
       {
-        projectList.get(i).addRequirement(title, type, projectTitle, responsibleTeamMember);
+        projectList.get(i).addRequirement(title, projectTitle, type, responsibleTeamMember);
       }
     }
   }
