@@ -61,8 +61,9 @@
                                         </HBox>
                                         <TableView fx:id="requirementsTable" maxHeight="400.0" maxWidth="600.0" prefHeight="276.0" prefWidth="580.0">
                                             <columns>
-                                                <TableColumn fx:id="requirementsTitle" prefWidth="456.0" text="Requirement title" />
-                                                <TableColumn fx:id="requirementsStatus" minWidth="0.0" prefWidth="123.19998168945312" text="Status" />
+                                                <TableColumn fx:id="tasksPriority1" maxWidth="600.0" prefWidth="90.0" text="Prioritering" />
+                                                <TableColumn fx:id="requirementsTitle" maxWidth="600.0" prefWidth="366.0" text="Requirement title" />
+                                                <TableColumn fx:id="requirementsStatus" maxWidth="600.0" minWidth="0.0" prefWidth="122.39999389648438" text="Status" />
                                             </columns>
                                         </TableView>
                                     </children>
@@ -96,6 +97,7 @@
                                                 <TableColumn fx:id="tasksPriority" maxWidth="600.0" prefWidth="90.0" text="Prioritering" />
                                                 <TableColumn fx:id="tasksTitle" maxWidth="600.0" prefWidth="366.0" text="Task title" />
                                                 <TableColumn fx:id="tasksStatus" maxWidth="600.0" minWidth="0.0" prefWidth="122.39999389648438" text="Status" />
+
                                             </columns>
                                         </TableView>
                                     </children>
