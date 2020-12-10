@@ -2,7 +2,6 @@ package View;
 
 import Model.Customer;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -10,7 +9,6 @@ import javafx.scene.layout.Region;
 
 public class ViewAddProjectController
 {
-  @FXML private Button closeButton;
   @FXML private ChoiceBox<Customer> chooseCustomer;
   @FXML private Label missingInputLabel;
   @FXML private TextField projectTitleInput;
