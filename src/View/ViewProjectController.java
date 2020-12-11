@@ -84,11 +84,12 @@ public class ViewProjectController
     /*requirementsTable.getItems().removeAll(
         viewHandler.getModelManager().getSelectedProject()
             .getRequirementList());*/
-    requirementsTable.getItems().removeAll(
+    /*requirementsTable.getItems().removeAll(
         viewHandler.getModelManager().getSelectedProject().getRequirementsForCurrentUser(
             viewHandler.getModelManager().getCurrentUser()
         )
-    );
+    );*/
+    requirementsTable.getItems().clear();
 
     // Indsæt data i tabellen
     /*requirementsTable.getItems().addAll(
