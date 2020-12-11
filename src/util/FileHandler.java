@@ -1,0 +1,133 @@
+package util;
+
+import Model.Project;
+import Model.Requirement;
+import Model.TeamMember;
+import com.google.gson.JsonParser;
+import parser.ParserException;
+import parser.XmlJsonParser;
+import Model.ProjectList;
+
+import java.io.*;
+
+public class FileHandler
+
+{
+
+  // En metode der gemmer vores projektliste til en XML, som kan loades ind på hjemmesiden.
+  public static void saveXML(ProjectList list)
+  {
+    XmlJsonParser theParser = new XmlJsonParser();
+    try
+    {
+      File file = theParser.toXml(list.getProjects(), "projects.xml");
+    }
+    catch (ParserException e)
+    {
+      e.printStackTrace();
+      System.out.println("XML parser error");
+    }
+  }
+
+  // En metode der kan oprette en ny fil og gemme data på nye projekter.
+  // denne her laver mapper
+  public static void newSave(Object obj)
+  {
+    String filename;
+    if (obj instanceof Project)
+    {
+      Project project = (Project) obj;
+      //Vi laver et nyt directory for hvert projekt, hvis dir ikke alle allerede eksisterer
+      String dirPath = "SavedProjects/";
+      String dirName = dirPath.concat((project).getTitle());
+      filename = project.getTitle() + ".bin";
+
+      File directory = new File(dirName);
+      if (!directory.exists())
+      {
+        directory.mkdir();
+      }
+
+      //Når vi er sikre på at vores directory findes, skal vi skrive projektfilen
+      DataOutputStream outputFile;
+      try
+      {
+        FileOutputStream fstream = new FileOutputStream(
+            dirName + "/" + filename);
+        outputFile = new DataOutputStream(fstream);
+
+        System.out.printf("writing to file");
+
+        //Here goes an array to be written, men jeg skal lige tænke over det
+
+        String stringTeamMembers = "";
+        String stringRequirements = "";
+        String title = project.getTitle();
+        String description = project.getDescription();
+        String customer = project.getCustomer();
+        String creator = project.getProjectCreator().getName();
+
+        for (TeamMember teamMember : project.getTeamMemberList())
+        {
+          stringTeamMembers += teamMember.getName() + ", ";
+        }
+
+        for (Requirement requirement : project.getRequirementList())
+        {
+          stringRequirements += requirement.getTitle() + ", ";
+        }
+
+        String outPutString =
+            title + "\n" + description + "\n" + customer + "\n" + creator + "\n"
+                + stringTeamMembers + "\n" + stringRequirements;
+
+        outputFile.writeUTF(outPutString);
+        //This is where the file closes again
+        try
+        {
+          outputFile.close();
+          System.out.printf("File saved");
+
+        }
+
+        //This is where all the errors are handled
+        catch (FileNotFoundException e)
+        {
+          e.printStackTrace();
+          System.out.println("File not found");
+        }
+        catch (IOException e)
+        {
+          e.printStackTrace();
+          System.out.println("Writing is hard");
+        }
+      }
+      catch (IOException e)
+      {
+        e.printStackTrace();
+        System.out.println("Error closing file");
+      }
+    }
+
+  }
+
+  //En metode der gemmer til en Json fil fordi det måske er nemmere, men gemmer alting i én fil
+  //Jeg tror virkelig ikke det er rigtigt, men jeg har ikke kunnet teste det endnu, så who knows?
+  public void saveJson(ProjectList projects)
+  {
+    XmlJsonParser jParser = new XmlJsonParser();
+
+    File file;
+    try
+    {
+      file = jParser.toJson(projects.getProjects() , "allData.json");
+    }
+    catch (ParserException e)
+    {
+      e.printStackTrace();
+      System.out.println("JSon parser error");
+    }
+  }
+}
+
+
