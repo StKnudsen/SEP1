@@ -458,11 +458,13 @@ public class ProjectList
           if (projectList.get(i).getRequirementList().get(j).getTasks().get(k).getResponsibleTeamMember().equals(currentUser))
           {
             allTeamMemberTasks.add(projectList.get(i).getRequirementList().get(j).getTasks().get(k));
+            System.out.println(projectList.get(i).getRequirementList().get(j).getTasks().get(k).getPriority());
           }
           //  Hvis currentUser er team member ud over responsibleTeamMember
           else if (projectList.get(i).getRequirementList().get(j).getTasks().get(k).getTeamMemberList().contains(currentUser))
           {
             allTeamMemberTasks.add(projectList.get(i).getRequirementList().get(j).getTasks().get(k));
+            System.out.println(projectList.get(i).getRequirementList().get(j).getTasks().get(k).getPriority());
           }
         }
       }
