@@ -87,7 +87,8 @@ public class ViewProjectController
     requirementsTable.getItems().removeAll(
         viewHandler.getModelManager().getSelectedProject().getRequirementsForCurrentUser(
             viewHandler.getModelManager().getCurrentUser()
-        ));
+        )
+    );
 
     // Indsæt data i tabellen
     /*requirementsTable.getItems().addAll(

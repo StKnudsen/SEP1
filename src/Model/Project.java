@@ -135,7 +135,7 @@ public class Project implements Serializable
     return projectCreator.getName();
   }
 
-  public Object getRequirementsForCurrentUser(TeamMember currentUser)
+  public ArrayList<Requirement> getRequirementsForCurrentUser(TeamMember currentUser)
   {
     ArrayList<Requirement> requirementArrayList = new ArrayList<>();
 
