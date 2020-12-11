@@ -79,4 +79,19 @@ public class Requirement extends Job
 
     return copy;
   }
+
+  public ArrayList<Task> getTeamMemberTasks(TeamMember teamMember)
+  {
+    ArrayList<Task> teamMemberTask = new ArrayList<>();
+
+    for (Task task : taskList)
+    {
+      if (task.getResponsibleTeamMember().equals(teamMember) || task.getTeamMemberList().contains(teamMember))
+      {
+        teamMemberTask.add(task);
+      }
+    }
+
+    return teamMemberTask;
+  }
 }

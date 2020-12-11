@@ -72,13 +72,16 @@ public class ViewRequirementController
     taskTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
 
     // nulstil
-    taskTable.getItems().removeAll(
+    /*taskTable.getItems().removeAll(
         viewHandler.getModelManager().getSelectedRequirement().getTasks()
-    );
+    ); */
+    taskTable.getItems().clear();
 
     // Indsæt data i tabellen
     taskTable.getItems().addAll(
-        viewHandler.getModelManager().getSelectedRequirement().getTasks()
+        viewHandler.getModelManager().getSelectedRequirement().getTeamMemberTasks(
+            viewHandler.getModelManager().getCurrentUser()
+        )
     );
     /*
     // Fang klik på 'row' og åben den valgte requirement
