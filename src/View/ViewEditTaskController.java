@@ -75,7 +75,7 @@ public class ViewEditTaskController
         )
     );
 
-    viewHandler.openView("viewEditTask");
+    viewHandler.openView("viewList");
   }
 
   public void updateTask() throws IOException

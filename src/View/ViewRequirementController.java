@@ -55,9 +55,9 @@ public class ViewRequirementController
     return root;
   }
 
-  public void gotoViewLogin()
+  public void gotoViewList()
   {
-    viewHandler.openView("viewLogin");
+    viewHandler.openView("viewList");
   }
 
   public void addTask()

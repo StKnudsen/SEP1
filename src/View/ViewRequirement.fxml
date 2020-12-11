@@ -11,9 +11,14 @@
             <children>
                 <HBox alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="303.0">
                     <children>
+                  <Label prefHeight="22.0" prefWidth="55.0" text="Projekt: ">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
                         <Label fx:id="projectTitle" alignment="CENTER" text="Project title">
                             <font>
-                                <Font size="14.0" />
+                                <Font name="System Bold" size="14.0" />
                             </font>
                         </Label>
                     </children>
@@ -33,9 +38,9 @@
         </HBox>
         <HBox prefHeight="40.0" prefWidth="579.0">
             <children>
-                <HBox prefHeight="100.0" prefWidth="303.0">
+                <HBox prefHeight="40.0" prefWidth="296.0">
                     <children>
-                        <Label fx:id="requirementTitle" contentDisplay="CENTER" prefHeight="40.0" prefWidth="257.0" text="Requirement title">
+                        <Label fx:id="requirementTitle" contentDisplay="CENTER" prefHeight="40.0" prefWidth="257.0" text="Requirement title" underline="true">
                             <font>
                                 <Font name="System Bold" size="13.0" />
                             </font>
@@ -47,9 +52,14 @@
                 </HBox>
                 <HBox prefHeight="100.0" prefWidth="300.0">
                     <children>
+                  <Label prefHeight="40.0" prefWidth="87.0" text="Type: ">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
                         <Label fx:id="requirementType" contentDisplay="CENTER" prefHeight="40.0" prefWidth="300.0" text="Type">
                             <font>
-                                <Font size="13.0" />
+                                <Font name="System Bold" size="13.0" />
                             </font>
                             <padding>
                                 <Insets bottom="10.0" right="10.0" top="10.0" />
@@ -66,12 +76,11 @@
                         <Insets />
                     </HBox.margin>
                     <children>
-                        <Label text="Ansvarlig: ">
-                            <font>
-                                <Font name="System Italic" size="12.0" />
-                            </font>
-                        </Label>
-                        <Label fx:id="responsibleTeamMember" text="Ansvarlig Smølf" />
+                        <Label prefHeight="18.0" prefWidth="93.0" text="Project owner: " />
+                        <Label fx:id="responsibleTeamMember" text="Ansvarlig Smølf">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Label>
                     </children>
                 </HBox>
                 <HBox alignment="CENTER_LEFT" layoutX="253.0" layoutY="20.0" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="300.0">
@@ -79,12 +88,11 @@
                         <Insets />
                     </HBox.margin>
                     <children>
-                        <Label text="Status: ">
-                            <font>
-                                <Font name="System Italic" size="12.0" />
-                            </font>
-                        </Label>
-                        <Label fx:id="requirementStatus" text="Færdig" />
+                        <Label prefHeight="18.0" prefWidth="45.0" text="Status: " />
+                        <Label fx:id="requirementStatus" text="Færdig">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Label>
                     </children>
                 </HBox>
             </children>
@@ -118,7 +126,7 @@
                 </HBox>
                 <HBox alignment="CENTER_RIGHT" layoutX="324.0" layoutY="20.0" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="290.0">
                     <children>
-                        <Button mnemonicParsing="false" onAction="#gotoViewLogin" prefWidth="80.0" text="Skift bruger" />
+                        <Button mnemonicParsing="false" onAction="#gotoViewList" prefWidth="80.0" text="Tilbage" />
                     </children>
                 </HBox>
             </children>

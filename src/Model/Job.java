@@ -4,7 +4,7 @@ import java.util.Date;
 
 public abstract class Job
 {
-  int id, projectId, priority, estimatedTime;
+  int priority;
   String title, projectTitle, description, status;
   Date deadline;
   TeamMember responsibleTeamMember;
@@ -101,13 +101,4 @@ public abstract class Job
     return responsibleTeamMember;
   }
 
-  public void setEstimatedTime(int hours)
-  {
-    this.estimatedTime = hours;
-  }
-
-  public String getEstimatedTime()
-  {
-    return Integer.toString(estimatedTime);
-  }
 }

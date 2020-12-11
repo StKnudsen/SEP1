@@ -9,61 +9,12 @@
    <children>
       <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="210.0" prefWidth="523.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-23.0" AnchorPane.topAnchor="0.0">
           <children>
-              <Label text="Opret ny task">
+              <Label alignment="TOP_LEFT" prefHeight="88.0" prefWidth="90.0" text="Opret ny task">
                   <font>
                       <Font name="System Bold Italic" size="14.0" />
                   </font>
               </Label>
-              <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="579.0">
-                  <children>
-                      <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="279.0">
-                          <children>
-                              <Label text="Vælg projekt:" />
-                          </children>
-                          <HBox.margin>
-                              <Insets left="5.0" />
-                          </HBox.margin>
-                      </HBox>
-                      <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="450.0">
-                          <children>
-                              <ChoiceBox maxWidth="-Infinity" prefWidth="300.0" />
-                          </children>
-                      </HBox>
-                  </children>
-                  <VBox.margin>
-                      <Insets top="15.0" />
-                  </VBox.margin>
-              </HBox>
-              <HBox fx:id="hideOnAddProject" alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="579.0">
-                  <children>
-                      <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="281.0">
-                          <children>
-                              <Label prefHeight="17.0" prefWidth="134.0" text="Vælg requirement: ">
-                           <HBox.margin>
-                              <Insets right="10.0" />
-                           </HBox.margin></Label>
-                          </children>
-                          <HBox.margin>
-                              <Insets left="5.0" />
-                          </HBox.margin>
-                      </HBox>
-                      <HBox layoutX="192.0" layoutY="10.0" prefHeight="100.0" prefWidth="450.0">
-                          <children>
-                              <ChoiceBox maxWidth="-Infinity" prefHeight="25.0" prefWidth="300.0">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin></ChoiceBox>
-                          </children>
-                          <HBox.margin>
-                              <Insets />
-                          </HBox.margin>
-                      </HBox>
-                  </children>
-                  <VBox.margin>
-                      <Insets top="10.0" />
-                  </VBox.margin>
-              </HBox>
-              <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="579.0">
+              <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="438.0">
                   <children>
                       <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="222.0">
                           <children>

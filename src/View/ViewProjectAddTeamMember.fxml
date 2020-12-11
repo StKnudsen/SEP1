@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="220.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ViewProjectAddTeamMemberController" userData="Colour IT - Tilføj team member til projekt">
+<AnchorPane prefHeight="220.0" prefWidth="460.0" userData="Colour IT - Tilføj team member til projekt" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ViewProjectAddTeamMemberController">
    <children>
       <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="174.0" prefWidth="440.0">
           <children>
@@ -24,13 +24,10 @@
                   </columnConstraints>
                   <rowConstraints>
                       <RowConstraints maxHeight="35.0" minHeight="35.0" prefHeight="35.0" vgrow="SOMETIMES" />
-                      <RowConstraints fx:id="hideOnAdd" maxHeight="35.0" minHeight="35.0" prefHeight="35.0" vgrow="SOMETIMES" />
                   </rowConstraints>
                   <children>
                       <Label prefHeight="18.0" prefWidth="122.0" text="Vælg medarbejder:" />
                       <ChoiceBox fx:id="chooseEmployee" prefHeight="26.0" prefWidth="366.0" GridPane.columnIndex="1" />
-                      <Label prefHeight="18.0" prefWidth="194.0" text="Vælg projekt:" GridPane.rowIndex="1" />
-                  <ChoiceBox layoutX="154.0" layoutY="15.0" prefHeight="26.0" prefWidth="366.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   </children>
               </GridPane>
             <Label fx:id="missingInputLabel" />

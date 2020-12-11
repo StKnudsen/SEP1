@@ -21,11 +21,29 @@
                         <Insets />
                     </HBox.margin>
                 </HBox>
-                <HBox alignment="CENTER_LEFT" layoutX="253.0" layoutY="20.0" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="300.0">
+            </children>
+            <padding>
+                <Insets bottom="10.0" top="10.0" />
+            </padding>
+        </HBox>
+        <HBox maxWidth="1.7976931348623157E308" prefHeight="40.0" prefWidth="300.0">
+            <children>
+            <HBox prefHeight="20.0" prefWidth="315.0">
+               <children>
+                      <Label prefHeight="18.0" prefWidth="100.0" text="Project creator: " />
+                      <Label fx:id="projectResponsibleTeamMember" text="Uansvarlig Smølf">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+                <HBox alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="300.0">
                     <children>
+                  <Label text="Kunde: " />
                         <Label fx:id="projectCustomer" alignment="CENTER" text="Kunde">
                             <font>
-                                <Font size="14.0" />
+                                <Font name="System Bold" size="12.0" />
                             </font>
                         </Label>
                     </children>
@@ -35,63 +53,52 @@
                 </HBox>
             </children>
             <padding>
-                <Insets bottom="10.0" top="10.0" />
+                <Insets bottom="10.0" right="10.0" top="10.0" />
             </padding>
         </HBox>
         <HBox prefHeight="40.0" prefWidth="579.0">
             <children>
                 <HBox prefHeight="100.0" prefWidth="303.0">
                     <children>
-                        <Label fx:id="projectEstimate" contentDisplay="CENTER" prefHeight="40.0" prefWidth="257.0" text="Total estimat">
-                            <font>
-                                <Font size="13.0" />
-                            </font>
+                  <Label prefHeight="39.0" prefWidth="190.0" text="Total timeestimat: " />
+                        <Label fx:id="projectEstimate" contentDisplay="CENTER" prefHeight="39.0" prefWidth="262.0" text="Total estimat">
                             <padding>
                                 <Insets bottom="10.0" right="10.0" top="10.0" />
                             </padding>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
                         </Label>
                     </children>
                 </HBox>
                 <HBox prefHeight="100.0" prefWidth="300.0">
                     <children>
+                  <Label prefHeight="38.0" prefWidth="250.0" text="Total timeforbrug: " />
                         <Label fx:id="projectTimeSpent" contentDisplay="CENTER" prefHeight="40.0" prefWidth="300.0" text="Total tidsforbrug">
-                            <font>
-                                <Font size="13.0" />
-                            </font>
                             <padding>
                                 <Insets bottom="10.0" right="10.0" top="10.0" />
                             </padding>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
                         </Label>
                     </children>
                 </HBox>
             </children>
         </HBox>
-        <HBox maxWidth="1.7976931348623157E308" prefHeight="40.0" prefWidth="300.0">
-            <children>
-                <Label text="Ansvarlig: ">
-                    <font>
-                        <Font name="System Italic" size="12.0" />
-                    </font>
-                </Label>
-                <Label fx:id="projectResponsibleTeamMember" text="Ansvarlig Smølf" />
-            </children>
-            <padding>
-                <Insets bottom="10.0" right="10.0" top="10.0" />
-            </padding>
-        </HBox>
-        <VBox prefHeight="115.0" prefWidth="600.0">
+        <VBox prefHeight="84.0" prefWidth="579.0">
             <children>
                 <Label text="Beskrivelse:">
                     <padding>
                         <Insets bottom="10.0" right="10.0" top="10.0" />
                     </padding>
                 </Label>
-                <TextFlow prefHeight="105.0" prefWidth="600.0" />
+                <TextFlow prefHeight="51.0" prefWidth="579.0" />
             </children>
         </VBox>
         <HBox prefHeight="100.0" prefWidth="200.0">
             <children>
-                <VBox prefHeight="102.0" prefWidth="600.0">
+                <VBox prefHeight="119.0" prefWidth="580.0">
                     <children>
                         <Label text="Team members" />
                         <ListView fx:id="teamMemberList" maxWidth="1.7976931348623157E308" prefHeight="110.0" prefWidth="579.0">
@@ -122,7 +129,7 @@
                 </HBox>
                 <HBox alignment="CENTER_RIGHT" layoutX="324.0" layoutY="20.0" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="290.0">
                     <children>
-                        <Button mnemonicParsing="false" onAction="#gotoViewLogin" prefWidth="80.0" text="Skift bruger" />
+                        <Button mnemonicParsing="false" onAction="#gotoViewList" prefWidth="80.0" text="Tilbage" />
                     </children>
                 </HBox>
             </children>

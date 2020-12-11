@@ -5,10 +5,11 @@ import java.util.ArrayList;
 public class Task extends Job
 {
   private String requirementTitle;
-
+  private int estimatedTime;
   private ArrayList<TeamMember> teamMemberList;
 
-  public Task(String title, String requirementTitle, String projectTitle, TeamMember responsibleTeamMember, int priority)
+  public Task(String title, String requirementTitle, String projectTitle,
+      TeamMember responsibleTeamMember, int priority)
   {
     super(title, projectTitle, responsibleTeamMember, priority);
     this.requirementTitle = requirementTitle;
@@ -30,7 +31,8 @@ public class Task extends Job
 
   }
 
-  public void addTeamMember(TeamMember teammember){
+  public void addTeamMember(TeamMember teammember)
+  {
     teamMemberList.add(teammember);
   }
 
@@ -75,5 +77,15 @@ public class Task extends Job
     }
 
     return timeSpent;
+  }
+
+  public void setEstimatedTime(int hours)
+  {
+    this.estimatedTime = hours;
+  }
+
+  public String getEstimatedTime()
+  {
+    return Integer.toString(estimatedTime);
   }
 }

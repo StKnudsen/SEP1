@@ -84,7 +84,7 @@
                           </font>
                       </Label>
                       <DatePicker fx:id="chooseDeadline" prefHeight="25.0" prefWidth="450.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                      <Label prefHeight="18.0" prefWidth="172.0" text="Vælg ansvarlig team member: " GridPane.rowIndex="2" />
+                      <Label prefHeight="18.0" prefWidth="172.0" text="Vælg scrum master: " GridPane.rowIndex="2" />
                       <ChoiceBox fx:id="chooseResponsibleTeamMember" prefHeight="25.0" prefWidth="450.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                       <Label prefHeight="18.0" prefWidth="172.0" text="Vælg status: " GridPane.rowIndex="3" />
                       <ChoiceBox fx:id="chooseStatus" prefHeight="25.0" prefWidth="450.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />

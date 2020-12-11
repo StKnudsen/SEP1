@@ -52,9 +52,9 @@ public class ViewProjectController
     return root;
   }
 
-  public void gotoViewLogin()
+  public void gotoViewList()
   {
-    viewHandler.openView("viewLogin");
+    viewHandler.openView("viewList");
   }
 
   public void addRequirement()

@@ -176,11 +176,10 @@ public class ColourIT
   }
 
   public void updateRequirement(Project project, Requirement requirement,
-      String title, String description, String type, int estimatedTime,
+      String title, String description, String type,
       Date deadline, TeamMember responsibleTeamMember)
   {
-    projectList.updateRequirement(project, requirement, title, description, type,
-        estimatedTime, deadline, responsibleTeamMember);
+    projectList.updateRequirement(project, requirement, title, description, type, deadline, responsibleTeamMember);
   }
 
   public ArrayList<Task> searchTask(Project project, Requirement requirement, String title)

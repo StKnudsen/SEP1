@@ -11,7 +11,6 @@ public class ViewEditRequirementController
 {
   @FXML private TextArea requirementDescription;
   @FXML private TextField requirementTitleInput;
-  @FXML private TextField estimatedTimeInput;
   @FXML private ChoiceBox chooseResponsibleTeamMember;
   @FXML private ChoiceBox chooseType;
   @FXML private ChoiceBox chooseStatus;
@@ -70,7 +69,6 @@ public class ViewEditRequirementController
         }
         viewHandler.getModelManager().setRequirementDescription(requirementDescription.getText());
         viewHandler.getModelManager().getSelectedRequirement().setType((String) chooseType.getValue());
-        viewHandler.getModelManager().getSelectedRequirement().setEstimatedTime(Integer.parseInt(estimatedTimeInput.getText()));
         //LocalDate skal konverteres til Date
        //viewHandler.getModelManager().getSelectedRequirement().setDeadline(chooseDeadline.getValue().VIRKER IKKE DET LORT);
         viewHandler.getModelManager().getSelectedRequirement().setResponsibleTeamMember((TeamMember) chooseResponsibleTeamMember.getValue());
@@ -93,7 +91,6 @@ public class ViewEditRequirementController
           viewHandler.getModelManager().getRequirementDescription(),
           viewHandler.getModelManager().getSelectedRequirement().getType(),
           //  Stefan: getEstimatedTime returner en string
-          Integer.parseInt(viewHandler.getModelManager().getSelectedRequirement().getEstimatedTime()),
           viewHandler.getModelManager().getSelectedRequirement().getDeadline(),
           viewHandler.getModelManager().getSelectedRequirement().getResponsibleTeamMember());
   }

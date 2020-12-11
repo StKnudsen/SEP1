@@ -146,10 +146,7 @@ public class ProjectList
 
                 if (value.equals("OP") && taskPriority > 1)
                 {
-                  // item.getRequirementList().get(j).getTasks().get(k).setPriority(taskPriority - 1); // Prioriterings index, ikke array index
-
                   item.getRequirementList().get(j).getTasks().add(taskPriority - 2, item.getRequirementList().get(j).getTasks().remove(taskPriority - 1));
-
                   item.getRequirementList().get(j).resortTasks();
                 }
 
@@ -157,6 +154,10 @@ public class ProjectList
                 {
                   item.getRequirementList().get(j).getTasks().add(taskPriority, item.getRequirementList().get(j).getTasks().remove(taskPriority - 1));
                   item.getRequirementList().get(j).resortTasks();
+                  for (int i = 0; i < item.getRequirementList().get(j).getTasks().size(); i++)
+                  {
+                    System.out.println(item.getRequirementList().get(j).getTasks().get(i).getTitle());
+                  }
                 }
 
                 if (value.equals("TIL TOP") && taskPriority != 1)
@@ -306,7 +307,7 @@ public class ProjectList
   }
 
   public void updateRequirement(Project project, Requirement requirement,
-      String title, String description, String type, int estimatedTime,
+      String title, String description, String type,
       Date deadline, TeamMember responsibleTeamMember)
   {
     for (int i = 0; i < projectList.size(); i++)
@@ -321,7 +322,6 @@ public class ProjectList
             requirement.setTitle(title);
             requirement.setDescription(description);
             requirement.setType(type);
-            requirement.setEstimatedTime(estimatedTime);
             requirement.setDeadline(deadline);
             requirement.setResponsibleTeamMember(responsibleTeamMember);
           }

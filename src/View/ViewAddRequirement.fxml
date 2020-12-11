@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="240.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ViewAddRequirementController" userData="Colour IT - Tilføj requirement" >
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="240.0" prefWidth="520.0" userData="Colour IT - Tilføj requirement" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ViewAddRequirementController">
    <children>
       <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="500.0">
           <children>
@@ -14,26 +14,6 @@
                       <Font name="System Bold Italic" size="14.0" />
                   </font>
               </Label>
-              <HBox alignment="CENTER_LEFT">
-                  <children>
-                      <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="222.0">
-                          <children>
-                              <Label text="Vælg projekt:" />
-                          </children>
-                          <HBox.margin>
-                              <Insets left="5.0" />
-                          </HBox.margin>
-                      </HBox>
-                      <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="450.0">
-                          <children>
-                              <ChoiceBox prefWidth="450.0" />
-                          </children>
-                      </HBox>
-                  </children>
-                  <VBox.margin>
-                      <Insets top="15.0" />
-                  </VBox.margin>
-              </HBox>
               <HBox fx:id="hideOnAddProject" alignment="CENTER_LEFT">
                   <children>
                       <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="222.0">
