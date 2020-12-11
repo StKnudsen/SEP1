@@ -1,8 +1,9 @@
 package Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Project
+public class Project implements Serializable
 {
   private String title;
   private String description;
@@ -24,6 +25,16 @@ public class Project
   public String getTitle()
   {
     return title;
+  }
+
+  public String getDescription()
+  {
+    return description;
+  }
+
+  public TeamMember getProjectCreator()
+  {
+    return projectCreator;
   }
 
   public String getCustomer()
