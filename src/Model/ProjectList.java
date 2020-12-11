@@ -414,4 +414,33 @@ public class ProjectList
 
     return allRequirements;
   }
+
+  public ArrayList<Project> getProjectsCurrentUser(TeamMember currentUser)
+  {
+    ArrayList<Project> projectArrayList = new ArrayList<>();
+    for (int i = 0; i < projectList.size(); i++)
+    {
+      if(projectList.get(i).getResponsibleTeamMember().equals(currentUser.getName()))
+      {
+        projectArrayList.add(projectList.get(i));
+      }
+    }
+    return projectArrayList;
+  }
+
+  public ArrayList<Requirement> getAllRequirementsCurrentUser(TeamMember currentUser)
+  {
+    ArrayList<Requirement> requirementArrayList = new ArrayList<>();
+    for (int i = 0; i < projectList.size(); i++)
+    {
+      for (int j = 0; j < projectList.get(i).getRequirementList().size(); j++)
+      {
+        if(projectList.get(i).getRequirementList().get(j).getResponsibleTeamMember().equals(currentUser))
+        {
+          requirementArrayList.add(projectList.get(i).getRequirementList().get(j));
+        }
+      }
+    }
+    return requirementArrayList;
+  }
 }

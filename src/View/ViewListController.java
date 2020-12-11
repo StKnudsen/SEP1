@@ -3,18 +3,10 @@ package View;
 import Model.*;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Region;
-import javafx.stage.Stage;
-
-import java.awt.event.MouseEvent;
-import java.io.IOException;
-import java.util.ArrayList;
 
 public class ViewListController
 {
@@ -67,8 +59,10 @@ public class ViewListController
     projectsTable.getItems().removeAll(viewHandler.getModelManager().getProjects());
 
     // Indsæt data i tabellen
-    projectsTable.getItems().addAll(viewHandler.getModelManager().getProjects());
-
+    //projectsTable.getItems().addAll(viewHandler.getModelManager().getProjects()); SLETTES
+    projectsTable.getItems().addAll(viewHandler.getModelManager().getProjectsCurrentUser(
+        viewHandler.getModelManager().getCurrentUser()
+    ));
     // Fang klik på 'row' og åben det valgte projekt
     projectsTable.setOnMousePressed(new EventHandler<>()
     {
@@ -98,7 +92,9 @@ public class ViewListController
     requirementsTable.getItems().removeAll(viewHandler.getModelManager().getAllRequirements());
 
     // Indsæt data i tabellen
-    requirementsTable.getItems().addAll(viewHandler.getModelManager().getAllRequirements());
+    requirementsTable.getItems().addAll(viewHandler.getModelManager().getAllRequirementsCurrentUser(
+        viewHandler.getModelManager().getCurrentUser()
+    ));
 
     // Fang klik på 'row' og åben den valgte requirement
     requirementsTable.setOnMousePressed(new EventHandler<>()

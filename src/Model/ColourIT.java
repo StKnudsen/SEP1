@@ -430,4 +430,14 @@ public class ColourIT
   {
     return taskStatusList;
   }
+
+  public ArrayList<Project> getProjectsCurrentUser(TeamMember currentUser)
+  {
+    return projectList.getProjectsCurrentUser(currentUser);
+  }
+
+  public ArrayList<Requirement> getAllRequirementsCurrentUser(TeamMember currentUser)
+  {
+    return projectList.getAllRequirementsCurrentUser(currentUser);
+  }
 }
