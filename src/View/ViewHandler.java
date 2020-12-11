@@ -152,7 +152,7 @@ public class ViewHandler
         loader.setLocation(getClass().getResource("ViewList.fxml"));
         Region root = loader.load();
         viewListController = loader.getController();
-        viewListController.init(this, colourIT, root);
+        viewListController.init(this, root);
       }
       catch (IOException e)
       {
