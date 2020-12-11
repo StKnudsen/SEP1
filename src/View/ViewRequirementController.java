@@ -72,9 +72,6 @@ public class ViewRequirementController
     taskTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
 
     // nulstil
-    /*taskTable.getItems().removeAll(
-        viewHandler.getModelManager().getSelectedRequirement().getTasks()
-    ); */
     taskTable.getItems().clear();
 
     // Indsæt data i tabellen
@@ -83,22 +80,19 @@ public class ViewRequirementController
             viewHandler.getModelManager().getCurrentUser()
         )
     );
-    /*
+
     // Fang klik på 'row' og åben den valgte requirement
     taskTable.setOnMousePressed(new EventHandler<>()
     {
       @Override public void handle(javafx.scene.input.MouseEvent mouseEvent)
       {
-        viewHandler.getModelManager().setSelectedRequirement(
-            //(Task) taskTable.getSelectionModel().getSelectedItem()
+        viewHandler.getModelManager().setSelectedTask(
             (Task) taskTable.getSelectionModel().getSelectedItem()
         );
 
         viewHandler.openView("viewTask");
       }
     });
-  */
-
   }
 
   public void editRequirement()

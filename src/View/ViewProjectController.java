@@ -90,7 +90,6 @@ public class ViewProjectController
         )
     );
 
-
     // Fang klik på 'row' og åbn den valgte requirement
     requirementsTable.setOnMousePressed(new EventHandler<>()
     {
