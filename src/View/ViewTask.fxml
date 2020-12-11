@@ -11,7 +11,7 @@
             <children>
                 <HBox alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="303.0">
                     <children>
-                        <Label alignment="CENTER" text="Project title">
+                        <Label fx:id="taskProjectTitle" alignment="CENTER" text="Project title">
                             <font>
                                 <Font size="14.0" />
                             </font>
@@ -23,7 +23,7 @@
                 </HBox>
                 <HBox alignment="CENTER_LEFT" layoutX="253.0" layoutY="20.0" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="300.0">
                     <children>
-                        <Label alignment="CENTER" text="Kunde/Requirement title">
+                        <Label fx:id="taskRequirementTitle" alignment="CENTER" text="Kunde/Requirement title">
                             <font>
                                 <Font size="14.0" />
                             </font>
@@ -143,7 +143,7 @@
                 </HBox>
                 <HBox alignment="CENTER_RIGHT" layoutX="324.0" layoutY="20.0" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="114.0">
                     <children>
-                        <Button mnemonicParsing="false" onAction="#gotoViewLogin" prefWidth="80.0" text="Skift bruger" />
+                        <Button mnemonicParsing="false" onAction="#gotoViewList" prefWidth="80.0" text="Tilbage" />
                     </children>
                 </HBox>
             </children>

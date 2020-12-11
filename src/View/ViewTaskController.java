@@ -14,7 +14,6 @@ public class ViewTaskController
   @FXML private Label taskTitle;
   @FXML private Label responsibleTeamMember;
   @FXML private Label taskStatus;
-  @FXML private Label taskDescription;
   @FXML private ListView teamMemberList;
   @FXML private TextFlow taskDescriptionTextFlow;
 
@@ -29,17 +28,27 @@ public class ViewTaskController
 
   public void reset()
   {
-    taskProjectTitle.setText(viewHandler.getModelManager().getSelectedTask().getProjectTitle());
-    taskRequirementTitle.setText(viewHandler.getModelManager().getSelectedTask().getRequirementTitle());
-    taskTitle.setText(viewHandler.getModelManager().getSelectedTask().getTitle());
-    responsibleTeamMember.setText(viewHandler.getModelManager().getSelectedTask().getResponsibleTeamMember().getName());
-    taskStatus.setText(viewHandler.getModelManager().getSelectedTask().getStatus());
-    //taskDescription.getChildren().add(new Text(viewHandler.getModelManager().getSelectedTask().getDescription()));
-    taskDescription.setText(viewHandler.getModelManager().getSelectedTask().getDescription());
-    teamMemberList.getItems().removeAll(viewHandler.getModelManager().getSelectedTask().getTeamMemberList());
-    teamMemberList.getItems().addAll(viewHandler.getModelManager().getSelectedTask().getTeamMemberList());
+    try
+    {
+      taskProjectTitle.setText(
+          viewHandler.getModelManager().getSelectedTask().getProjectTitle());
+      taskRequirementTitle.setText(
+          viewHandler.getModelManager().getSelectedTask().getRequirementTitle());
+      taskTitle.setText(viewHandler.getModelManager().getSelectedTask().getTitle());
+      responsibleTeamMember.setText(
+          viewHandler.getModelManager().getSelectedTask().getResponsibleTeamMember().getName());
+      taskStatus.setText(viewHandler.getModelManager().getSelectedTask().getStatus());
+      teamMemberList.getItems().removeAll(
+          viewHandler.getModelManager().getSelectedTask().getTeamMemberList());
+      teamMemberList.getItems().addAll(
+          viewHandler.getModelManager().getSelectedTask().getTeamMemberList());
 
-    taskDescriptionTextFlow.getChildren().addAll(new Text(viewHandler.getModelManager().getTaskDescription()));
+      taskDescriptionTextFlow.getChildren().addAll(new Text(viewHandler.getModelManager().getTaskDescription()));
+    }
+    catch (NullPointerException e)
+    {
+      e.printStackTrace();
+    }
 
   }
 

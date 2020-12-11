@@ -1,12 +1,12 @@
 package View;
 
+import Model.TeamMember;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.Region;
+
+import java.io.IOException;
 
 public class ViewEditTaskController
 {
@@ -127,7 +127,7 @@ public class ViewEditTaskController
         viewHandler.getModelManager().getSelectedTask(),
         viewHandler.getModelManager().getSelectedTask().getTitle(),
         viewHandler.getModelManager().getTaskDescription(),
-        viewHandler.getModelManager().getSelectedTask().getEstimatedTime(),
+        Integer.parseInt(viewHandler.getModelManager().getSelectedTask().getEstimatedTime()),
         viewHandler.getModelManager().getSelectedTask().getDeadline(),
         viewHandler.getModelManager().getSelectedTask()
             .getResponsibleTeamMember());
