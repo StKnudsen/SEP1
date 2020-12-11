@@ -439,4 +439,9 @@ public class ColourIT
   {
     return projectList.getAllRequirementsCurrentUser(currentUser);
   }
+
+  public Object getAllTeamMemberTasks(TeamMember currentUser)
+  {
+    return projectList.getAllTeamMemberTasks(currentUser);
+  }
 }

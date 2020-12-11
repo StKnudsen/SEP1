@@ -121,11 +121,21 @@ public class ViewListController
     tasksStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
 
     // nulstil
-    tasksTable.getItems().removeAll(viewHandler.getModelManager().getAllTasks(
-        viewHandler.getModelManager().getSelectedProject()));
+    /*tasksTable.getItems().removeAll(viewHandler.getModelManager().getAllTasks(
+        viewHandler.getModelManager().getSelectedProject()));*/
+    tasksTable.getItems().clear();
 
     // Indsæt data i tabellen
-    tasksTable.getItems().addAll(viewHandler.getModelManager().getAllTasks(viewHandler.getModelManager().getSelectedProject()));
+    /*tasksTable.getItems().addAll(
+        viewHandler.getModelManager().getAllTasks(
+            viewHandler.getModelManager().getSelectedProject()
+        )
+    ); */
+    tasksTable.getItems().addAll(
+        viewHandler.getModelManager().getAllTeamMemberTasks(
+            viewHandler.getModelManager().getCurrentUser()
+        )
+    );
 
     // Fang klik på 'row' og åben den valgte requirement
     tasksTable.setOnMousePressed(new EventHandler<>()
