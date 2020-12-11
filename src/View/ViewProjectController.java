@@ -34,15 +34,22 @@ public class ViewProjectController
 
   public void reset()
   {
-    projectTitle.setText(viewHandler.getModelManager().getSelectedProject().getTitle());
-    projectCustomer.setText(viewHandler.getModelManager().getSelectedProject().getCustomer());
-    projectEstimate.setText(viewHandler.getModelManager().getSelectedProject().getEstimate());
-    projectTimeSpent.setText(viewHandler.getModelManager().getSelectedProject().getTimeSpent());
-    projectResponsibleTeamMember.setText(viewHandler.getModelManager().getSelectedProject().getResponsibleTeamMember());
+    projectTitle
+        .setText(viewHandler.getModelManager().getSelectedProject().getTitle());
+    projectCustomer.setText(
+        viewHandler.getModelManager().getSelectedProject().getCustomer());
+    projectEstimate.setText(
+        viewHandler.getModelManager().getSelectedProject().getEstimate());
+    projectTimeSpent.setText(
+        viewHandler.getModelManager().getSelectedProject().getTimeSpent());
+    projectResponsibleTeamMember.setText(
+        viewHandler.getModelManager().getSelectedProject()
+            .getResponsibleTeamMember());
 
-    teamMemberList.getItems().removeAll(viewHandler.getModelManager().getSelectedProject().getTeamMemberList());
-    teamMemberList.getItems().addAll(viewHandler.getModelManager().getSelectedProject().getTeamMemberList());
-
+    teamMemberList.getItems().removeAll(
+        viewHandler.getModelManager().getSelectedProject().getTeamMemberList());
+    teamMemberList.getItems().addAll(
+        viewHandler.getModelManager().getSelectedProject().getTeamMemberList());
 
     populateRequirementsTable();
   }
@@ -75,22 +82,30 @@ public class ViewProjectController
 
     // nulstil
     requirementsTable.getItems().removeAll(
-        viewHandler.getModelManager().getSelectedProject().getRequirementList()
-    );
+        viewHandler.getModelManager().getSelectedProject()
+            .getRequirementList());
 
     // Indsæt data i tabellen
     requirementsTable.getItems().addAll(
-        viewHandler.getModelManager().getSelectedProject().getRequirementList()
-    );
+        viewHandler.getModelManager().getSelectedProject()
+            .getRequirementList());
 
-    // Fang klik på 'row' og åben den valgte requirement
+    /*DENNE KAN MÅSKE BLIVE TIL LØSNINGEN PÅ PROBLEMET MED: at currentUser kan se andre brugeres nyoprettede requirements på sit eget projekt
+     // Indsæt data i tabellen
+    requirementsTable.getItems().addAll(
+        viewHandler.getModelManager().getSelectedProject().getRequirementList()
+            .getRequirementsForCurrentUser(
+                viewHandler.getModelManager().getCurrentUser()));
+     */
+
+    // Fang klik på 'row' og åbn den valgte requirement
     requirementsTable.setOnMousePressed(new EventHandler<>()
     {
       @Override public void handle(javafx.scene.input.MouseEvent mouseEvent)
       {
         viewHandler.getModelManager().setSelectedRequirement(
-            (Requirement) requirementsTable.getSelectionModel().getSelectedItem()
-        );
+            (Requirement) requirementsTable.getSelectionModel()
+                .getSelectedItem());
 
         viewHandler.openView("viewRequirement");
       }
