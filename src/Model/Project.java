@@ -134,4 +134,16 @@ public class Project implements Serializable
   {
     return projectCreator.getName();
   }
+
+  public Object getRequirementsForCurrentUser(TeamMember currentUser)
+  {
+    ArrayList<Requirement> requirementArrayList = new ArrayList<>();
+
+    for (Requirement requirement : requirementList)
+    {
+      requirementArrayList.add(requirement);
+    }
+
+    return requirementArrayList;
+  }
 }

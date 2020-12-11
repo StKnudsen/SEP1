@@ -91,12 +91,13 @@ public class ViewProjectController
             .getRequirementList());
 
     /*DENNE KAN MÅSKE BLIVE TIL LØSNINGEN PÅ PROBLEMET MED: at currentUser kan se andre brugeres nyoprettede requirements på sit eget projekt
-     // Indsæt data i tabellen
+     // Indsæt data i tabellen */
     requirementsTable.getItems().addAll(
-        viewHandler.getModelManager().getSelectedProject().getRequirementList()
-            .getRequirementsForCurrentUser(
-                viewHandler.getModelManager().getCurrentUser()));
-     */
+        viewHandler.getModelManager().getSelectedProject().getRequirementsForCurrentUser(
+                viewHandler.getModelManager().getCurrentUser()
+        )
+    );
+
 
     // Fang klik på 'row' og åbn den valgte requirement
     requirementsTable.setOnMousePressed(new EventHandler<>()
