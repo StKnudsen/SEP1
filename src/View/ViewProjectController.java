@@ -81,14 +81,18 @@ public class ViewProjectController
     requirementTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
 
     // nulstil
-    requirementsTable.getItems().removeAll(
+    /*requirementsTable.getItems().removeAll(
         viewHandler.getModelManager().getSelectedProject()
-            .getRequirementList());
+            .getRequirementList());*/
+    requirementsTable.getItems().removeAll(
+        viewHandler.getModelManager().getSelectedProject().getRequirementsForCurrentUser(
+            viewHandler.getModelManager().getCurrentUser()
+        ));
 
     // Indsæt data i tabellen
-    requirementsTable.getItems().addAll(
+    /*requirementsTable.getItems().addAll(
         viewHandler.getModelManager().getSelectedProject()
-            .getRequirementList());
+            .getRequirementList());*/
 
     /*DENNE KAN MÅSKE BLIVE TIL LØSNINGEN PÅ PROBLEMET MED: at currentUser kan se andre brugeres nyoprettede requirements på sit eget projekt
      // Indsæt data i tabellen */
