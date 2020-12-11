@@ -1,11 +1,8 @@
 package View;
 
-import Model.ColourIT;
-import Model.Requirement;
 import Model.Task;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;

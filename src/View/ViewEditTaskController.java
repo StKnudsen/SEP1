@@ -10,7 +10,6 @@ import java.io.IOException;
 
 public class ViewEditTaskController
 {
-  @FXML private TextField taskTitle;
   @FXML private Label taskPriority;
   @FXML private TextArea taskDescription;
   @FXML private TextField taskTitleInput;
@@ -37,8 +36,6 @@ public class ViewEditTaskController
         .setText(viewHandler.getModelManager().getSelectedTask().getPriority());
     taskDescription.setText(
         viewHandler.getModelManager().getSelectedTask().getDescription());
-
-    //System.out.println(viewHandler.getModelManager().getSelectedTask().getPriority());
 
     chooseResponsibleTeamMember.getItems().removeAll(
         viewHandler.getModelManager().searchProject(
@@ -85,17 +82,10 @@ public class ViewEditTaskController
       if (!chooseResponsibleTeamMember.getValue().equals("") && !chooseStatus
           .getValue().equals(""))
       {
-        //Hvis titelfelt udfyldes, opdater titel - ER DETTE STADIG NØDVENDIGT EFTER STEFANS NY TAKTIK MED AT LADE TITLEN VÆRE SKREVET IND PÅ FORHÅND?
         if (!taskTitleInput.getText().equals(""))
         {
           viewHandler.getModelManager().getSelectedTask()
               .setTitle(taskTitleInput.getText());
-        }
-        //Hvis titelfelt ikke udfyldes, titel forbliver den samme
-        else if (taskTitleInput.getText().equals(""))
-        {
-          viewHandler.getModelManager().getSelectedTask().setTitle(
-              viewHandler.getModelManager().getSelectedTask().getTitle());
         }
         viewHandler.getModelManager()
             .setTaskDescription(taskDescription.getText());

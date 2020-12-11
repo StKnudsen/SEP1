@@ -55,23 +55,26 @@ public class ViewEditRequirementController
     try
     {
 
-      if (!chooseType.getValue().equals("") && !chooseResponsibleTeamMember.getValue().equals("") && !chooseStatus.getValue().equals(""))
+      if (!chooseType.getValue().equals("") && !chooseStatus.getValue().equals(""))
       {
         //Hvis titelfelt udfyldes, opdater titel
         if(!requirementTitleInput.getText().equals(""))
         {
           viewHandler.getModelManager().getSelectedRequirement().setTitle(requirementTitleInput.getText());
         }
-        //Hvis titelfelt ikke udfyldes, titel forbliver den samme
-        else if(requirementTitleInput.getText().equals(""))
-        {
-          viewHandler.getModelManager().getSelectedRequirement().setTitle(viewHandler.getModelManager().getSelectedRequirement().getTitle());
-        }
         viewHandler.getModelManager().setRequirementDescription(requirementDescription.getText());
         viewHandler.getModelManager().getSelectedRequirement().setType((String) chooseType.getValue());
         //LocalDate skal konverteres til Date
        //viewHandler.getModelManager().getSelectedRequirement().setDeadline(chooseDeadline.getValue().VIRKER IKKE DET LORT);
-        viewHandler.getModelManager().getSelectedRequirement().setResponsibleTeamMember((TeamMember) chooseResponsibleTeamMember.getValue());
+        if(chooseResponsibleTeamMember.getValue() != null)
+        {
+          viewHandler.getModelManager().getSelectedRequirement()
+              .setResponsibleTeamMember((TeamMember) chooseResponsibleTeamMember.getValue());
+        }
+        else
+        {
+          viewHandler.getModelManager().getSelectedRequirement().setResponsibleTeamMember((viewHandler.getModelManager().getSelectedRequirement().getResponsibleTeamMember()));
+        }
         viewHandler.getModelManager().getSelectedRequirement().updateStatus((String) chooseStatus.getValue());
       }
       viewHandler.openView("viewList");
@@ -90,7 +93,6 @@ public class ViewEditRequirementController
           viewHandler.getModelManager().getSelectedRequirement().getTitle(),
           viewHandler.getModelManager().getRequirementDescription(),
           viewHandler.getModelManager().getSelectedRequirement().getType(),
-          //  Stefan: getEstimatedTime returner en string
           viewHandler.getModelManager().getSelectedRequirement().getDeadline(),
           viewHandler.getModelManager().getSelectedRequirement().getResponsibleTeamMember());
   }

@@ -51,7 +51,6 @@ public class ViewListController
 
   public void populateProjectsTable()
   {
-
     // Hvilke data felter vi vil tilknytte column cellerne
     projectsTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
 
@@ -59,7 +58,6 @@ public class ViewListController
     projectsTable.getItems().removeAll(viewHandler.getModelManager().getProjects());
 
     // Indsæt data i tabellen
-    //projectsTable.getItems().addAll(viewHandler.getModelManager().getProjects()); SLETTES
     projectsTable.getItems().addAll(viewHandler.getModelManager().getProjectsCurrentUser(
         viewHandler.getModelManager().getCurrentUser()
     ));
@@ -82,7 +80,6 @@ public class ViewListController
 
   public void populateRequirementsTable()
   {
-
     // Hvilke data felter vi vil tilknytte column cellerne
     requirementsPriority.setCellValueFactory(new PropertyValueFactory<>("priority"));
     requirementsTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
@@ -96,7 +93,7 @@ public class ViewListController
         viewHandler.getModelManager().getCurrentUser()
     ));
 
-    // Fang klik på 'row' og åben den valgte requirement
+    // Fang klik på 'row' og åbn den valgte requirement
     requirementsTable.setOnMousePressed(new EventHandler<>()
     {
       @Override public void handle(javafx.scene.input.MouseEvent mouseEvent)
@@ -121,16 +118,9 @@ public class ViewListController
     tasksStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
 
     // nulstil
-    /*tasksTable.getItems().removeAll(viewHandler.getModelManager().getAllTasks(
-        viewHandler.getModelManager().getSelectedProject()));*/
     tasksTable.getItems().clear();
 
     // Indsæt data i tabellen
-    /*tasksTable.getItems().addAll(
-        viewHandler.getModelManager().getAllTasks(
-            viewHandler.getModelManager().getSelectedProject()
-        )
-    ); */
     tasksTable.getItems().addAll(
         viewHandler.getModelManager().getAllTeamMemberTasks(
             viewHandler.getModelManager().getCurrentUser()

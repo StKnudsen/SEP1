@@ -10,7 +10,6 @@ import javafx.stage.Stage;
 
 public class ViewProjectAddTeamMemberController
 {
-  @FXML private Button closeButton;
   @FXML private Label missingInputLabel;
   @FXML private ChoiceBox chooseEmployee;
 
