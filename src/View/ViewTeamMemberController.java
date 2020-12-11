@@ -1,13 +1,20 @@
 package View;
 
+import Model.Project;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Region;
-import javafx.stage.Stage;
 
 public class ViewTeamMemberController
 {
-  @FXML private Button closeButton;
+  //Skal vi overhovedet have estimatedTime på teamMember???
+  @FXML private Label estimatedTimeLabel;
+  @FXML private Label spentTimeLabel;
+  @FXML private Label teamMemberNameLabel;
+  @FXML private ListView<Project> projectListView;
 
   private Region root;
   private ViewHandler viewHandler;
@@ -18,15 +25,35 @@ public class ViewTeamMemberController
     this.viewHandler = viewHandler;
   }
 
-  public void closeButtonAction()
-  {
-    Stage stage = (Stage) closeButton.getScene().getWindow();
-    stage.close();
-  }
-
   public void reset()
   {
-    //
+    spentTimeLabel.setText(viewHandler.getModelManager()
+        .getTimeSpentForTeamMember(
+            viewHandler.getModelManager().getSelectedTeamMember()));
+    teamMemberNameLabel.setText(
+        viewHandler.getModelManager().getSelectedTeamMember().getName());
+
+    populateProjectList();
+  }
+
+  public void populateProjectList()
+  {
+    projectListView.getItems().clear();
+    projectListView.getItems().addAll(viewHandler.getModelManager()
+        .getTeamMemberProjects(
+            viewHandler.getModelManager().getSelectedTeamMember()));
+    projectListView.setOnMousePressed(new EventHandler<MouseEvent>()
+    {
+      @Override public void handle(javafx.scene.input.MouseEvent mouseEvent)
+      {
+        if (projectListView.getSelectionModel().getSelectedItem() != null)
+        {
+          viewHandler.getModelManager().setSelectedProject(
+              (Project) projectListView.getSelectionModel().getSelectedItem());
+          viewHandler.openView("viewProject");
+        }
+      }
+    });
   }
 
   public Region getRoot()
@@ -34,8 +61,8 @@ public class ViewTeamMemberController
     return root;
   }
 
-  public void gotoViewLogin()
+  public void gotoViewList()
   {
-    viewHandler.openView("viewLogin");
+    viewHandler.openView("viewList");
   }
 }

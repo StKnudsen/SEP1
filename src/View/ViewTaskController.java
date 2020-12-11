@@ -1,8 +1,11 @@
 package View;
 
+import Model.TeamMember;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Region;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
@@ -33,23 +36,45 @@ public class ViewTaskController
       taskProjectTitle.setText(
           viewHandler.getModelManager().getSelectedTask().getProjectTitle());
       taskRequirementTitle.setText(
-          viewHandler.getModelManager().getSelectedTask().getRequirementTitle());
-      taskTitle.setText(viewHandler.getModelManager().getSelectedTask().getTitle());
+          viewHandler.getModelManager().getSelectedTask()
+              .getRequirementTitle());
+      taskTitle
+          .setText(viewHandler.getModelManager().getSelectedTask().getTitle());
       responsibleTeamMember.setText(
-          viewHandler.getModelManager().getSelectedTask().getResponsibleTeamMember().getName());
-      taskStatus.setText(viewHandler.getModelManager().getSelectedTask().getStatus());
-      teamMemberList.getItems().removeAll(
-          viewHandler.getModelManager().getSelectedTask().getTeamMemberList());
-      teamMemberList.getItems().addAll(
-          viewHandler.getModelManager().getSelectedTask().getTeamMemberList());
+          viewHandler.getModelManager().getSelectedTask()
+              .getResponsibleTeamMember().getName());
+      taskStatus
+          .setText(viewHandler.getModelManager().getSelectedTask().getStatus());
 
-      taskDescriptionTextFlow.getChildren().addAll(new Text(viewHandler.getModelManager().getTaskDescription()));
+      populateTeamMemberList();
+
+      taskDescriptionTextFlow.getChildren()
+          .addAll(new Text(viewHandler.getModelManager().getTaskDescription()));
     }
     catch (NullPointerException e)
     {
       e.printStackTrace();
     }
+  }
 
+  public void populateTeamMemberList()
+  {
+    teamMemberList.getItems().clear();
+    teamMemberList.getItems().addAll(
+        viewHandler.getModelManager().getSelectedTask().getTeamMemberList());
+    teamMemberList.setOnMousePressed(new EventHandler<MouseEvent>()
+       {
+         @Override public void handle(javafx.scene.input.MouseEvent mouseEvent)
+         {
+            if(teamMemberList.getSelectionModel().getSelectedItem() != null)
+            {
+              viewHandler.getModelManager().setSelectedTeamMember(
+                  (TeamMember) teamMemberList.getSelectionModel().getSelectedItem());
+              viewHandler.openView("viewTeamMember");
+            }
+         }
+       }
+    );
   }
 
   public Region getRoot()

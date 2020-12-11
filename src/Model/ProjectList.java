@@ -1,6 +1,5 @@
 package Model;
 
-import java.awt.image.AreaAveragingScaleFilter;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -114,7 +113,7 @@ public class ProjectList
               .equals(task))
           {
             projectList.get(i).getRequirementList().get(j).getTasks().get(k)
-                .addTeamMember(teamMember);
+                .addTeamMember(teamMember.copy());
           }
         }
       }
@@ -469,5 +468,43 @@ public class ProjectList
     }
 
     return allTeamMemberTasks;
+  }
+
+  public String getTimeSpentForTeamMember(TeamMember selectedTeamMember)
+  {
+    int spentHours = 0;
+    for (int i = 0; i < projectList.size(); i++)
+    {
+      for (int j = 0; j < projectList.get(i).getRequirementList().size(); j++)
+      {
+        for (int k = 0; k < projectList.get(i).getRequirementList().get(j).getTasks().size(); k++)
+        {
+          for (int l = 0; l < projectList.get(i).getRequirementList().get(j).getTasks().get(k).getTeamMemberList().size(); l++)
+          {
+            if(projectList.get(i).getRequirementList().get(j).getTasks().get(k).getTeamMemberList().get(l).equals(selectedTeamMember))
+            {
+              spentHours += projectList.get(i).getRequirementList().get(j).getTasks().get(k).getTeamMemberList().get(l).getTimeSpent();
+            }
+          }
+        }
+      }
+    }
+    return Integer.toString(spentHours);
+  }
+
+  public ArrayList<Project> getTeamMemberProjects(TeamMember selectedTeamMember)
+  {
+    ArrayList<Project> projectArrayList = new ArrayList<>();
+    for (int i = 0; i < projectList.size(); i++)
+    {
+      for (int j = 0; j < projectList.get(i).getTeamMemberList().size(); j++)
+      {
+        if(projectList.get(i).getTeamMemberList().get(j).equals(selectedTeamMember))
+        {
+          projectArrayList.add(projectList.get(i));
+        }
+      }
+    }
+    return projectArrayList;
   }
 }

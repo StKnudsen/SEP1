@@ -444,4 +444,14 @@ public class ColourIT
   {
     return projectList.getAllTeamMemberTasks(currentUser);
   }
+
+  public String getTimeSpentForTeamMember(TeamMember selectedTeamMember)
+  {
+    return projectList.getTimeSpentForTeamMember(selectedTeamMember);
+  }
+
+  public ArrayList<Project> getTeamMemberProjects(TeamMember selectedTeamMember)
+  {
+    return projectList.getTeamMemberProjects(selectedTeamMember);
+  }
 }

@@ -5,54 +5,43 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ViewTeamMemberController" userData="Colour IT - Se team member/medarbejder">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" userData="Colour IT - Se team member/medarbejder" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ViewTeamMemberController">
     <children>
-        <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="579.0">
-            <children>
-                <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="300.0">
-                    <children>
-                        <Label text="Navn">
-                            <font>
-                                <Font name="System Bold Italic" size="14.0" />
-                            </font>
-                        </Label>
-                    </children>
-                </HBox>
-                <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="300.0">
-                    <children>
-                        <Label text="ID">
-                            <font>
-                                <Font size="14.0" />
-                            </font>
-                        </Label>
-                    </children>
-                </HBox>
-            </children>
-        </HBox>
+            <Label fx:id="teamMemberNameLabel" text="Navn">
+                <font>
+                    <Font name="System Bold Italic" size="14.0" />
+                </font>
+            </Label>
         <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="20.0" prefHeight="30.0" prefWidth="579.0">
             <children>
-                <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="300.0">
+                <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="148.0">
                     <children>
-                        <Label text="Estimeret tid:" />
+                        <Label text="Estimeret antal timer:" textFill="RED" />
                     </children>
                 </HBox>
                 <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="300.0">
                     <children>
-                        <Label text="0" />
+                        <Label fx:id="estimatedTimeLabel" text="0" textFill="RED">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Label>
                     </children>
                 </HBox>
             </children>
         </HBox>
         <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="71.0" prefHeight="30.0" prefWidth="579.0">
             <children>
-                <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="300.0">
+                <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="148.0">
                     <children>
-                        <Label text="Forbrugt tid:" />
+                        <Label prefHeight="18.0" prefWidth="95.0" text="Forbrugte timer: " />
                     </children>
                 </HBox>
                 <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="300.0">
                     <children>
-                        <Label text="0" />
+                        <Label fx:id="spentTimeLabel" text="0">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Label>
                     </children>
                 </HBox>
             </children>
@@ -62,7 +51,7 @@
                 <VBox prefHeight="196.0" prefWidth="580.0">
                     <children>
                         <Label text="Projekter" />
-                        <ListView maxWidth="1.7976931348623157E308" prefHeight="210.0" prefWidth="580.0">
+                        <ListView fx:id="projectListView" maxWidth="1.7976931348623157E308" prefHeight="210.0" prefWidth="580.0">
                             <VBox.margin>
                                 <Insets top="5.0" />
                             </VBox.margin>
@@ -81,7 +70,7 @@
             <children>
                 <HBox alignment="CENTER_RIGHT" layoutX="324.0" layoutY="20.0" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="600.0">
                     <children>
-                        <Button mnemonicParsing="false" prefWidth="80.0" text="Skift bruger" />
+                        <Button mnemonicParsing="false" onAction="#gotoViewList" prefWidth="80.0" text="Tilbage" />
                     </children>
                 </HBox>
             </children>
