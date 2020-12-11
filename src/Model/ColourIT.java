@@ -27,6 +27,7 @@ public class ColourIT
   private EmployeeList employeeList;
   final private String[] typeList = {"Functional", "Non-functional", "Project requirement"};
   final private String[] statusList = {"Not started", "Started", "Ended","Approved", "Rejected"};
+  final private String[] taskStatusList = {"Not started", "Started", "Ended"};
 
   public ColourIT()
   {
@@ -425,4 +426,9 @@ public class ColourIT
   }
 
   public String[] getAllStatus() {return statusList;}
+
+  public String[] getTaskStatusList()
+  {
+    return taskStatusList;
+  }
 }

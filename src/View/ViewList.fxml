@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ViewListController" userData="Colour IT">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" userData="Colour IT" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ViewListController">
     <children>
         <TabPane prefHeight="399.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
             <tabs>
@@ -61,7 +61,7 @@
                                         </HBox>
                                         <TableView fx:id="requirementsTable" maxHeight="400.0" maxWidth="600.0" prefHeight="276.0" prefWidth="580.0">
                                             <columns>
-                                                <TableColumn fx:id="tasksPriority1" maxWidth="600.0" prefWidth="90.0" text="Prioritering" />
+                                                <TableColumn fx:id="requirementsPriority" maxWidth="600.0" prefWidth="90.0" text="Prioritering" />
                                                 <TableColumn fx:id="requirementsTitle" maxWidth="600.0" prefWidth="366.0" text="Requirement title" />
                                                 <TableColumn fx:id="requirementsStatus" maxWidth="600.0" minWidth="0.0" prefWidth="122.39999389648438" text="Status" />
                                             </columns>

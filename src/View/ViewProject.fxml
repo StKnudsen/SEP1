@@ -5,13 +5,13 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="492.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ViewProjectController" userData="Colour IT - Se projekt">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="492.0" prefWidth="600.0" userData="Colour IT - Se projekt" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ViewProjectController">
     <children>
         <HBox alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" prefHeight="50.0" prefWidth="723.0">
             <children>
                 <HBox alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="303.0">
                     <children>
-                        <Label fx:id="title" alignment="CENTER" text="Project title">
+                        <Label fx:id="projectTitle" alignment="CENTER" text="Project title" underline="true">
                             <font>
                                 <Font name="System Bold" size="14.0" />
                             </font>
@@ -23,7 +23,7 @@
                 </HBox>
                 <HBox alignment="CENTER_LEFT" layoutX="253.0" layoutY="20.0" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="300.0">
                     <children>
-                        <Label alignment="CENTER" text="Kunde">
+                        <Label fx:id="projectCustomer" alignment="CENTER" text="Kunde">
                             <font>
                                 <Font size="14.0" />
                             </font>
@@ -42,7 +42,7 @@
             <children>
                 <HBox prefHeight="100.0" prefWidth="303.0">
                     <children>
-                        <Label contentDisplay="CENTER" prefHeight="40.0" prefWidth="257.0" text="Total estimat">
+                        <Label fx:id="projectEstimate" contentDisplay="CENTER" prefHeight="40.0" prefWidth="257.0" text="Total estimat">
                             <font>
                                 <Font size="13.0" />
                             </font>
@@ -54,7 +54,7 @@
                 </HBox>
                 <HBox prefHeight="100.0" prefWidth="300.0">
                     <children>
-                        <Label contentDisplay="CENTER" prefHeight="40.0" prefWidth="300.0" text="Total tidsforbrug">
+                        <Label fx:id="projectTimeSpent" contentDisplay="CENTER" prefHeight="40.0" prefWidth="300.0" text="Total tidsforbrug">
                             <font>
                                 <Font size="13.0" />
                             </font>
@@ -73,7 +73,7 @@
                         <Font name="System Italic" size="12.0" />
                     </font>
                 </Label>
-                <Label text="Ansvarlig Smølf" />
+                <Label fx:id="projectResponsibleTeamMember" text="Ansvarlig Smølf" />
             </children>
             <padding>
                 <Insets bottom="10.0" right="10.0" top="10.0" />

@@ -64,4 +64,16 @@ public class Task extends Job
     Task other = (Task) obj;
     return title.equals(other.getTitle()) && status.equals(other.status);
   }
+
+  public int getTimeSpent()
+  {
+    int timeSpent = 0;
+
+    for (TeamMember teamMember : teamMemberList)
+    {
+      timeSpent += teamMember.getTimeSpent();
+    }
+
+    return timeSpent;
+  }
 }

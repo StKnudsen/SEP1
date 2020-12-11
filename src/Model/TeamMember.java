@@ -42,4 +42,9 @@ public class TeamMember
   {
     return name;
   }
+
+  public int getTimeSpent()
+  {
+    return timeSpentOnTask;
+  }
 }

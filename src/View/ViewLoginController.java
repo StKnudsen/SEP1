@@ -33,7 +33,6 @@ public class ViewLoginController
 
   public void loginButtonPressed()
   {
-    //System.out.println(chooseUser.getValue());
     try
     {
       if (!chooseUser.getValue().equals(""))

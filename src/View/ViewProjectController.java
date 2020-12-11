@@ -1,6 +1,5 @@
 package View;
 
-import Model.ColourIT;
 import Model.Requirement;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -13,9 +12,13 @@ import javafx.scene.layout.Region;
 
 public class ViewProjectController
 {
-  @FXML private Label title;
-  @FXML private ListView teamMemberList;
+  @FXML private Label projectTitle;
+  @FXML private Label projectCustomer;
+  @FXML private Label projectEstimate;
+  @FXML private Label projectTimeSpent;
+  @FXML private Label projectResponsibleTeamMember;
 
+  @FXML private ListView teamMemberList;
   @FXML private TableView requirementsTable;
   @FXML private TableColumn prioritering;
   @FXML private TableColumn requirementTitle;
@@ -31,9 +34,15 @@ public class ViewProjectController
 
   public void reset()
   {
-    title.setText(viewHandler.getModelManager().getSelectedProject().getTitle());
+    projectTitle.setText(viewHandler.getModelManager().getSelectedProject().getTitle());
+    projectCustomer.setText(viewHandler.getModelManager().getSelectedProject().getCustomer());
+    projectEstimate.setText(viewHandler.getModelManager().getSelectedProject().getEstimate());
+    projectTimeSpent.setText(viewHandler.getModelManager().getSelectedProject().getTimeSpent());
+    projectEstimate.setText(viewHandler.getModelManager().getSelectedProject().getResponsibleTeamMember());
+
     teamMemberList.getItems().removeAll(viewHandler.getModelManager().getSelectedProject().getTeamMemberList());
     teamMemberList.getItems().addAll(viewHandler.getModelManager().getSelectedProject().getTeamMemberList());
+
 
     populateRequirementsTable();
   }

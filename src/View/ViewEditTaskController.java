@@ -1,16 +1,16 @@
 package View;
 
-import Model.TeamMember;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
-import javafx.scene.text.TextFlow;
-
-import java.io.IOException;
 
 public class ViewEditTaskController
 {
+  @FXML private TextField taskTitle;
   @FXML private Label taskPriority;
   @FXML private TextArea taskDescription;
   @FXML private TextField taskTitleInput;
@@ -62,16 +62,18 @@ public class ViewEditTaskController
 
   public void changePriority(ActionEvent actionEvent)
   {
-    viewHandler.getModelManager()
-        .prioritizeTask(((Button) actionEvent.getSource()).getText(),
-            viewHandler.getModelManager().getSelectedTask(),
-            viewHandler.getModelManager().searchProject(
-                viewHandler.getModelManager().getSelectedTask()
-                    .getProjectTitle()).searchRequirement(
-                viewHandler.getModelManager().getSelectedTask()
-                    .getRequirementTitle()), viewHandler.getModelManager()
-                .searchProject(viewHandler.getModelManager().getSelectedTask()
-                    .getProjectTitle()));
+    viewHandler.getModelManager().prioritizeTask(
+        ((Button) actionEvent.getSource()).getText(),
+        viewHandler.getModelManager().getSelectedTask(),
+        viewHandler.getModelManager().searchProject(
+            viewHandler.getModelManager().getSelectedTask().getProjectTitle()
+        ).searchRequirement(
+            viewHandler.getModelManager().getSelectedTask().getRequirementTitle()
+        ),
+        viewHandler.getModelManager().searchProject(
+            viewHandler.getModelManager().getSelectedTask().getProjectTitle()
+        )
+    );
 
     viewHandler.openView("viewEditTask");
   }

@@ -26,6 +26,11 @@ public class Project
     return title;
   }
 
+  public String getCustomer()
+  {
+    return customer.toString();
+  }
+
   public void addTeamMember(TeamMember teamMember)
   {
     teamMemberList.add(teamMember);
@@ -82,5 +87,40 @@ public class Project
     }
     Project other = (Project) obj;
     return title.equals(other.getTitle()) && customer.equals(other.customer) && projectCreator.equals(other.projectCreator);
+  }
+
+  public String getEstimate()
+  {
+    int estimate = 0;
+
+    for (Requirement requirement : requirementList )
+    {
+      for (Task task : requirement.getTasks())
+      {
+        estimate += Integer.parseInt(task.getEstimatedTime());
+      }
+    }
+
+    return Integer.toString(estimate);
+  }
+
+  public String getTimeSpent()
+  {
+    int timeSpent = 0;
+
+    for (Requirement requirement : requirementList )
+    {
+      for (Task task : requirement.getTasks())
+      {
+        timeSpent += task.getTimeSpent();
+      }
+    }
+
+    return Integer.toString(timeSpent);
+  }
+
+  public String getResponsibleTeamMember()
+  {
+    return projectCreator.getName();
   }
 }

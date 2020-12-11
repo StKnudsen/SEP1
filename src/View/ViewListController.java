@@ -19,17 +19,13 @@ import java.util.ArrayList;
 public class ViewListController
 {
   private Region root;
-  private ColourIT colourIT;
   private ViewHandler viewHandler;
-
-  //private ArrayList<Project> dummyProjects;
-  private ArrayList<Requirement> dummyRequirements;
-  private ArrayList<Task> dummyTasks;
 
   @FXML private TableView projectsTable;
   @FXML private TableColumn<String, String> projectsTitle;
 
   @FXML private TableView requirementsTable;
+  @FXML private TableColumn<String, String> requirementsPriority;
   @FXML private TableColumn<String, String> requirementsTitle;
   @FXML private TableColumn<String, String> requirementsStatus;
 
@@ -38,10 +34,9 @@ public class ViewListController
   @FXML private TableColumn<String, String> tasksTitle;
   @FXML private TableColumn<String, String> tasksStatus;
 
-  public void init(ViewHandler viewHandler, ColourIT colourIT, Region root)
+  public void init(ViewHandler viewHandler, Region root)
   {
     this.root = root;
-    this.colourIT = colourIT;
     this.viewHandler = viewHandler;
   }
 
@@ -79,11 +74,14 @@ public class ViewListController
     {
       @Override public void handle(javafx.scene.input.MouseEvent mouseEvent)
       {
-        viewHandler.getModelManager().setSelectedProject(
+        if (!(projectsTable.getSelectionModel().getSelectedItem() == null))
+        {
+          viewHandler.getModelManager().setSelectedProject(
             (Project) projectsTable.getSelectionModel().getSelectedItem()
-        );
+          );
 
-        viewHandler.openView("viewProject");
+          viewHandler.openView("viewProject");
+        }
       }
     });
   }
@@ -92,9 +90,9 @@ public class ViewListController
   {
 
     // Hvilke data felter vi vil tilknytte column cellerne
+    requirementsPriority.setCellValueFactory(new PropertyValueFactory<>("priority"));
     requirementsTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
-    requirementsStatus
-        .setCellValueFactory(new PropertyValueFactory<>("status"));
+    requirementsStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
 
     // nulstil
     requirementsTable.getItems().removeAll(viewHandler.getModelManager().getAllRequirements());
@@ -103,16 +101,18 @@ public class ViewListController
     requirementsTable.getItems().addAll(viewHandler.getModelManager().getAllRequirements());
 
     // Fang klik på 'row' og åben den valgte requirement
-    //Skal ordnes så der ikke kommer fejl, hvis man trykker på en tom 'row'!
     requirementsTable.setOnMousePressed(new EventHandler<>()
     {
       @Override public void handle(javafx.scene.input.MouseEvent mouseEvent)
       {
-        viewHandler.getModelManager().setSelectedRequirement(
-            (Requirement) requirementsTable.getSelectionModel().getSelectedItem()
-        );
+        if (!(requirementsTable.getSelectionModel().getSelectedItem() == null))
+        {
+          viewHandler.getModelManager().setSelectedRequirement(
+              (Requirement) requirementsTable.getSelectionModel().getSelectedItem()
+          );
 
-        viewHandler.openView("viewRequirement");
+          viewHandler.openView("viewRequirement");
+        }
       }
     });
   }
@@ -136,11 +136,14 @@ public class ViewListController
     {
       @Override public void handle(javafx.scene.input.MouseEvent mouseEvent)
       {
-        viewHandler.getModelManager().setSelectedTask(
-            (Task) tasksTable.getSelectionModel().getSelectedItem()
-        );
+        if (!( tasksTable.getSelectionModel().getSelectedItem() == null))
+        {
+          viewHandler.getModelManager().setSelectedTask(
+              (Task) tasksTable.getSelectionModel().getSelectedItem()
+          );
 
-        viewHandler.openView("viewTask");
+          viewHandler.openView("viewTask");
+        }
       }
     });
   }

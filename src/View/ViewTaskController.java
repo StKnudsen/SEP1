@@ -9,9 +9,12 @@ import javafx.scene.text.TextFlow;
 
 public class ViewTaskController
 {
+  @FXML private Label taskProjectTitle;
+  @FXML private Label taskRequirementTitle;
   @FXML private Label taskTitle;
   @FXML private Label responsibleTeamMember;
   @FXML private Label taskStatus;
+  @FXML private Label taskDescription;
   @FXML private ListView teamMemberList;
   @FXML private TextFlow taskDescriptionTextFlow;
 
@@ -26,10 +29,13 @@ public class ViewTaskController
 
   public void reset()
   {
+    taskProjectTitle.setText(viewHandler.getModelManager().getSelectedTask().getProjectTitle());
+    taskRequirementTitle.setText(viewHandler.getModelManager().getSelectedTask().getRequirementTitle());
     taskTitle.setText(viewHandler.getModelManager().getSelectedTask().getTitle());
     responsibleTeamMember.setText(viewHandler.getModelManager().getSelectedTask().getResponsibleTeamMember().getName());
     taskStatus.setText(viewHandler.getModelManager().getSelectedTask().getStatus());
-
+    //taskDescription.getChildren().add(new Text(viewHandler.getModelManager().getSelectedTask().getDescription()));
+    taskDescription.setText(viewHandler.getModelManager().getSelectedTask().getDescription());
     teamMemberList.getItems().removeAll(viewHandler.getModelManager().getSelectedTask().getTeamMemberList());
     teamMemberList.getItems().addAll(viewHandler.getModelManager().getSelectedTask().getTeamMemberList());
 
@@ -40,11 +46,6 @@ public class ViewTaskController
   public Region getRoot()
   {
     return root;
-  }
-
-  public void gotoViewLogin()
-  {
-    viewHandler.openView("viewLogin");
   }
 
   public void editTask()
@@ -60,5 +61,10 @@ public class ViewTaskController
   public void addTeamMember()
   {
     viewHandler.openView("viewTaskAddTeamMember");
+  }
+
+  public void gotoViewList()
+  {
+    viewHandler.openView("viewList");
   }
 }
