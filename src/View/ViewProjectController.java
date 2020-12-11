@@ -38,7 +38,7 @@ public class ViewProjectController
     projectCustomer.setText(viewHandler.getModelManager().getSelectedProject().getCustomer());
     projectEstimate.setText(viewHandler.getModelManager().getSelectedProject().getEstimate());
     projectTimeSpent.setText(viewHandler.getModelManager().getSelectedProject().getTimeSpent());
-    projectEstimate.setText(viewHandler.getModelManager().getSelectedProject().getResponsibleTeamMember());
+    projectResponsibleTeamMember.setText(viewHandler.getModelManager().getSelectedProject().getResponsibleTeamMember());
 
     teamMemberList.getItems().removeAll(viewHandler.getModelManager().getSelectedProject().getTeamMemberList());
     teamMemberList.getItems().addAll(viewHandler.getModelManager().getSelectedProject().getTeamMemberList());
