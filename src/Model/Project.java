@@ -141,7 +141,10 @@ public class Project implements Serializable
 
     for (Requirement requirement : requirementList)
     {
-      requirementArrayList.add(requirement);
+      if (requirement.getResponsibleTeamMember().equals(currentUser))
+      {
+        requirementArrayList.add(requirement);
+      }
     }
 
     return requirementArrayList;
