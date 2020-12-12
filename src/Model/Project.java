@@ -159,4 +159,15 @@ public class Project implements Serializable
   {
     return title;
   }
+
+  public void addTeamMemberToTask(Requirement requirement, Task task, TeamMember teamMember)
+  {
+    for (Requirement requirementElement : requirementList)
+    {
+      if (requirementElement.equals(requirement))
+      {
+        requirementElement.addTeamMemberToTask(task, teamMember);
+      }
+    }
+  }
 }

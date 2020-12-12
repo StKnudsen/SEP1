@@ -91,4 +91,15 @@ public class Requirement extends Job implements Serializable
 
     return teamMemberTask;
   }
+
+  public void addTeamMemberToTask(Task task, TeamMember teamMember)
+  {
+    for (Task taskElement : taskList)
+    {
+      if (taskElement.equals(task))
+      {
+        taskElement.addTeamMember(teamMember);
+      }
+    }
+  }
 }

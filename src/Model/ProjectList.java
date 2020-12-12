@@ -64,25 +64,6 @@ public class ProjectList implements Serializable
     }
   }
 
-  /*
-  public void addTask(Project project, Requirement requirement, Task task)
-  {
-    for (int i = 0; i < projectList.size(); i++)
-    {
-      if (projectList.get(i).equals(project))
-      {
-        for (int j = 0; j < projectList.get(i).getRequirementList().size(); j++)
-        {
-          if (projectList.get(i).getRequirementList().get(j)
-              .equals(requirement))
-            projectList.get(i).getRequirementList().get(j).addTask(task);
-        }
-      }
-    }
-  }
-  */
-
-  // Ny delux udgave..
   public void addTask(Project project, Requirement requirement, String taskTitle, TeamMember responsibleTeamMember)
   {
     for (int i = 0; i < projectList.size(); i++)
@@ -101,7 +82,8 @@ public class ProjectList implements Serializable
     }
   }
 
-  public void addTeamMemberToTask(Project project, Requirement requirement, Task task, TeamMember teamMember)
+
+  /*public void addTeamMemberToTask(Project project, Requirement requirement, Task task, TeamMember teamMember)
   {
     for (int i = 0; i < projectList.size(); i++)
     {
@@ -118,6 +100,17 @@ public class ProjectList implements Serializable
                 .addTeamMember(teamMember.copy());
           }
         }
+      }
+    }
+  }*/
+
+  public void addTeamMemberToTask(Project project, Requirement requirement, Task task, TeamMember teamMember)
+  {
+    for (Project projectElement : projectList)
+    {
+      if (projectElement.equals(project))
+      {
+        projectElement.addTeamMemberToTask(requirement, task, teamMember);
       }
     }
   }
