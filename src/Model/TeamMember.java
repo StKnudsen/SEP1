@@ -49,4 +49,15 @@ public class TeamMember implements Serializable
   {
     return timeSpentOnTask;
   }
+
+  public boolean equals(Object obj)
+  {
+    if (!(obj instanceof TeamMember))
+    {
+      return false;
+    }
+    TeamMember other = (TeamMember) obj;
+
+    return name.equals(other.name);
+  }
 }

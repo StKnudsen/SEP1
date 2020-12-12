@@ -497,11 +497,16 @@ public class ProjectList implements Serializable
   public ArrayList<Project> getTeamMemberProjects(TeamMember selectedTeamMember)
   {
     ArrayList<Project> projectArrayList = new ArrayList<>();
+
     for (int i = 0; i < projectList.size(); i++)
     {
       for (int j = 0; j < projectList.get(i).getTeamMemberList().size(); j++)
       {
-        if(projectList.get(i).getTeamMemberList().get(j).equals(selectedTeamMember))
+        if (projectList.get(i).getResponsibleTeamMember().equals(selectedTeamMember))
+        {
+          projectArrayList.add(projectList.get(i));
+        }
+        else if(projectList.get(i).getTeamMemberList().get(j).equals(selectedTeamMember))
         {
           projectArrayList.add(projectList.get(i));
         }

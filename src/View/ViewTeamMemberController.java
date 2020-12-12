@@ -39,9 +39,13 @@ public class ViewTeamMemberController
   public void populateProjectList()
   {
     projectListView.getItems().clear();
-    projectListView.getItems().addAll(viewHandler.getModelManager()
-        .getTeamMemberProjects(
-            viewHandler.getModelManager().getSelectedTeamMember()));
+
+    projectListView.getItems().addAll(
+      viewHandler.getModelManager().getTeamMemberProjects(
+        viewHandler.getModelManager().getSelectedTeamMember()
+      )
+    );
+
     projectListView.setOnMousePressed(new EventHandler<MouseEvent>()
     {
       @Override public void handle(javafx.scene.input.MouseEvent mouseEvent)

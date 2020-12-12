@@ -73,10 +73,6 @@ public class Requirement extends Job implements Serializable
     ArrayList<Task> copy = new ArrayList<>();
 
     copy.addAll(taskList);
-    /*for (int i = 0; i < taskList.size(); i++)
-    {
-      copy.add(taskList.get(i));
-    }*/
 
     return copy;
   }

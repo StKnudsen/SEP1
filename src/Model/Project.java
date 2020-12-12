@@ -154,4 +154,9 @@ public class Project implements Serializable
 
     return requirementArrayList;
   }
+
+  public String toString()
+  {
+    return title;
+  }
 }
