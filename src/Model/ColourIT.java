@@ -121,9 +121,9 @@ public class ColourIT implements Serializable
     projectList.addTeamMemberToTask(project, requirement, task, teamMember);
   }
 
-  public void prioritizeRequirement(String value)
+  public void prioritizeRequirement(Project project, Requirement requirement, String value)
   {
-    projectList.prioritizeRequirement(value);
+    projectList.prioritizeRequirement(project, requirement, value);
   }
 
   public void prioritizeTask(String value, Task task, Requirement requirement, Project project)

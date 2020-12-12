@@ -170,4 +170,69 @@ public class Project implements Serializable
       }
     }
   }
+
+  public void prioritize(Requirement requirement, String value)
+  {
+    for (Requirement requirementElement : requirementList)
+    {
+      if (requirementElement.equals(requirement))
+      {
+        int requirementPriority = Integer.parseInt(requirementElement.getPriority());
+        int requirementAmount = requirementList.size();
+
+        if (value.equals("OP") && requirementPriority > 1)
+        {
+          requirementList.add(requirementPriority - 2, requirementList.remove(requirementPriority - 1));
+        }
+
+        if (value.equals("NED") && requirementPriority < requirementAmount)
+        {
+          requirementList.add(requirementPriority, requirementList.remove(requirementPriority - 1));
+        }
+
+        if (value.equals("TIL TOP") && requirementPriority > 1)
+        {
+          requirementList.add(0, requirementList.remove(requirementPriority - 1));
+        }
+
+        if (value.equals("TIL BUND") && requirementPriority != requirementAmount)
+        {
+          requirementList.add(requirementAmount - 1, requirementList.remove(requirementPriority - 1));
+        }
+
+        resortRequirements();
+      }
+    }
+  }
+
+  public void resortRequirements()
+  {
+    ArrayList<Requirement> oldRequirementList = copyRequirementList();
+
+    requirementList.clear();
+
+    for (int i = 0; i < oldRequirementList.size(); i++)
+    {
+      requirementList.add(i,
+          new Requirement(
+              oldRequirementList.get(i).getTitle(),
+              oldRequirementList.get(i).getProjectTitle(),
+              oldRequirementList.get(i).getType(),
+              oldRequirementList.get(i).getResponsibleTeamMember(),
+              i+1,
+              oldRequirementList.get(i).getTasks()
+          )
+      );
+    }
+
+  }
+
+  private ArrayList<Requirement> copyRequirementList()
+  {
+    ArrayList<Requirement> copy = new ArrayList<>();
+
+    copy.addAll(requirementList);
+
+    return copy;
+  }
 }

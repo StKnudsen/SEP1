@@ -1,6 +1,7 @@
 package View;
 
 import Model.TeamMember;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.Region;
@@ -48,6 +49,18 @@ public class ViewEditRequirementController
 
     requirementDescription.setText(viewHandler.getModelManager().getSelectedRequirement().getDescription());
     requirementTitleInput.setText(viewHandler.getModelManager().getSelectedRequirement().getTitle());
+  }
+
+  public void changePriority(ActionEvent actionEvent)
+  {
+    viewHandler.getModelManager().prioritizeRequirement(
+      viewHandler.getModelManager().searchProject(
+        viewHandler.getModelManager().getSelectedRequirement().getProjectTitle()),
+      viewHandler.getModelManager().getSelectedRequirement(),
+      ((Button) actionEvent.getSource()).getText()
+    );
+
+    viewHandler.openView("viewList");
   }
 
   public void updateRequirement() throws IOException

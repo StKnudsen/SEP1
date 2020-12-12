@@ -15,6 +15,14 @@ public class Requirement extends Job implements Serializable
     taskList = new ArrayList<>();
   }
 
+  //  Bliver brugt i Project.resort()
+  public Requirement(String title, String projectTitle, String type, TeamMember responsibleTeamMember, int priority, ArrayList<Task> taskList)
+  {
+    super(title, projectTitle, responsibleTeamMember, priority);
+    this.type = type;
+    this.taskList = taskList;
+  }
+
   public void addTask(String taskTitle, String requirementTitle, String projectTitle, TeamMember responsibleTeamMember)
   {
     Task newTask = new Task(

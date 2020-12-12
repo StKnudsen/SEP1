@@ -115,9 +115,15 @@ public class ProjectList implements Serializable
     }
   }
 
-  public void prioritizeRequirement(String value)
+  public void prioritizeRequirement(Project project, Requirement requirement, String value)
   {
-    //Senere
+    for (Project projectElement : projectList)
+    {
+      if (projectElement.equals(project))
+      {
+        projectElement.prioritize(requirement, value);
+      }
+    }
   }
 
   public void prioritizeTask(String value, Task task, Requirement requirement, Project project)

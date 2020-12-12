@@ -46,10 +46,10 @@
                       <RowConstraints maxHeight="35.0" minHeight="35.0" prefHeight="35.0" vgrow="SOMETIMES" />
                   </rowConstraints>
                   <children>
-                      <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="134.0" text="TIL BUND" GridPane.columnIndex="5" />
-                      <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="142.0" text="OP" GridPane.columnIndex="2" />
-                      <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="122.0" text="NED" GridPane.columnIndex="3" />
-                      <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="131.0" text="TIL TOP" GridPane.columnIndex="4" />
+                      <Button mnemonicParsing="false" onAction="#changePriority" prefHeight="26.0" prefWidth="134.0" text="TIL BUND" GridPane.columnIndex="5" />
+                      <Button mnemonicParsing="false" onAction="#changePriority" prefHeight="26.0" prefWidth="142.0" text="OP" GridPane.columnIndex="2" />
+                      <Button mnemonicParsing="false" onAction="#changePriority" prefHeight="26.0" prefWidth="122.0" text="NED" GridPane.columnIndex="3" />
+                      <Button mnemonicParsing="false" onAction="#changePriority" prefHeight="26.0" prefWidth="131.0" text="TIL TOP" GridPane.columnIndex="4" />
                       <Label text="Prioritering:" />
                       <Label text="0" GridPane.columnIndex="1" />
                   </children>
