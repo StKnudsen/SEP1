@@ -173,35 +173,42 @@ public class Project implements Serializable
 
   public void prioritize(Requirement requirement, String value)
   {
-    for (Requirement requirementElement : requirementList)
+    try
     {
-      if (requirementElement.equals(requirement))
+      for (Requirement requirementElement : requirementList)
       {
-        int requirementPriority = Integer.parseInt(requirementElement.getPriority());
-        int requirementAmount = requirementList.size();
-
-        if (value.equals("OP") && requirementPriority > 1)
+        if (requirementElement.equals(requirement))
         {
-          requirementList.add(requirementPriority - 2, requirementList.remove(requirementPriority - 1));
-        }
+          int requirementPriority = Integer.parseInt(requirementElement.getPriority());
+          int requirementAmount = requirementList.size();
 
-        if (value.equals("NED") && requirementPriority < requirementAmount)
-        {
-          requirementList.add(requirementPriority, requirementList.remove(requirementPriority - 1));
-        }
+          if (value.equals("OP") && requirementPriority > 1)
+          {
+            requirementList.add(requirementPriority - 2, requirementList.remove(requirementPriority - 1));
+          }
 
-        if (value.equals("TIL TOP") && requirementPriority > 1)
-        {
-          requirementList.add(0, requirementList.remove(requirementPriority - 1));
-        }
+          if (value.equals("NED") && requirementPriority < requirementAmount)
+          {
+            requirementList.add(requirementPriority, requirementList.remove(requirementPriority - 1));
+          }
 
-        if (value.equals("TIL BUND") && requirementPriority != requirementAmount)
-        {
-          requirementList.add(requirementAmount - 1, requirementList.remove(requirementPriority - 1));
-        }
+          if (value.equals("TIL TOP") && requirementPriority > 1)
+          {
+            requirementList.add(0, requirementList.remove(requirementPriority - 1));
+          }
 
-        resortRequirements();
+          if (value.equals("TIL BUND") && requirementPriority != requirementAmount)
+          {
+            requirementList.add(requirementAmount - 1, requirementList.remove(requirementPriority - 1));
+          }
+
+          resortRequirements();
+        }
       }
+    }
+    catch (Exception e)
+    {
+      e.printStackTrace();
     }
   }
 
