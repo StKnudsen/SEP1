@@ -4,11 +4,12 @@ import parser.ParserException;
 import parser.XmlJsonParser;
 import java.io.File;
 import java.awt.image.AreaAveragingScaleFilter;
+import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class ColourIT
+public class ColourIT implements Serializable
 {
   // Bruges lige til opsætning af View Handler
 

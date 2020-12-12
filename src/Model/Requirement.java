@@ -1,8 +1,9 @@
 package Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Requirement extends Job
+public class Requirement extends Job implements Serializable
 {
   private String type;
   private ArrayList<Task> taskList;

@@ -1,9 +1,10 @@
 package Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class ProjectList
+public class ProjectList implements Serializable
 {
   private ArrayList<Project> projectList;
 

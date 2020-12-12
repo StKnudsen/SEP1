@@ -1,8 +1,9 @@
 package Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Task extends Job
+public class Task extends Job implements Serializable
 {
   private String requirementTitle;
   private int estimatedTime;

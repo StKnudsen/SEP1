@@ -14,23 +14,24 @@ public class FileHandler
 {
 
   // En metode der gemmer vores projektliste til en XML, som kan loades ind på hjemmesiden.
-  public static void saveXML(ProjectList list)
+  public static void saveXML(ProjectList projects)
   {
     XmlJsonParser theParser = new XmlJsonParser();
+    File XMLfile;
     try
     {
-      File file = theParser.toXml(list.getProjects(), "projects.xml");
+      XMLfile = theParser.toXml(projects.getProjects(), "projects.xml");
     }
     catch (ParserException e)
     {
-      e.printStackTrace();
       System.out.println("XML parser error");
+      e.printStackTrace();
     }
   }
 
   // En metode der kan oprette en ny fil og gemme data på nye projekter.
   // denne her laver mapper
-  public static void newSave(Object obj)
+  /*public static void newSave(Object obj)
   {
     String filename;
     if (obj instanceof Project)
@@ -108,7 +109,7 @@ public class FileHandler
       }
     }
 
-  }
+  }*/
 
   //En metode der gemmer til en Json fil fordi det måske er nemmere, men gemmer alting i én fil
   //Jeg tror virkelig ikke det er rigtigt, men jeg har ikke kunnet teste det endnu, så who knows?
@@ -123,8 +124,8 @@ public class FileHandler
     }
     catch (ParserException e)
     {
-      e.printStackTrace();
       System.out.println("JSon parser error");
+      e.printStackTrace();
     }
   }
 }
