@@ -22,6 +22,11 @@ public class Project implements Serializable
     requirementList = new ArrayList<>();
   }
 
+  public void addDescription(String description)
+  {
+    this.description = description;
+  }
+
   public String getTitle()
   {
     return title;

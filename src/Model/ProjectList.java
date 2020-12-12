@@ -12,6 +12,7 @@ public class ProjectList
     projectList = new ArrayList<>();
   }
 
+
   public void createNewProject(String title, Customer customer,
       TeamMember projectCreator)
   {

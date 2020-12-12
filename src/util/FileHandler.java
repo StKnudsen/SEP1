@@ -112,7 +112,7 @@ public class FileHandler
 
   //En metode der gemmer til en Json fil fordi det måske er nemmere, men gemmer alting i én fil
   //Jeg tror virkelig ikke det er rigtigt, men jeg har ikke kunnet teste det endnu, så who knows?
-  public void saveJson(ProjectList projects)
+  public static void saveJson(ProjectList projects)
   {
     XmlJsonParser jParser = new XmlJsonParser();
 
