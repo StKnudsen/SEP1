@@ -70,7 +70,8 @@ public class Requirement extends Job implements Serializable
               oldTaskList.get(i).getRequirementTitle(),
               oldTaskList.get(i).getProjectTitle(),
               oldTaskList.get(i).getResponsibleTeamMember(),
-              i+1
+              i+1,
+              oldTaskList.get(i).getTeamMemberList()
           )
       );
     }
@@ -108,6 +109,47 @@ public class Requirement extends Job implements Serializable
       {
         taskElement.addTeamMember(teamMember);
       }
+    }
+  }
+
+  public void prioritize(Task task, String value)
+  {
+    try
+    {
+      for (Task taskElement : taskList)
+      {
+        if (taskElement.equals(task))
+        {
+          int taskPriority = Integer.parseInt(taskElement.getPriority());
+          int taskAmount = taskList.size();
+
+          if (value.equals("OP") && taskPriority > 1)
+          {
+            taskList.add(taskPriority - 2, taskList.remove(taskPriority - 1));
+          }
+
+          if (value.equals("NED") && taskPriority < taskAmount)
+          {
+            taskList.add(taskPriority, taskList.remove(taskPriority - 1));
+          }
+
+          if (value.equals("TIL TOP") && taskPriority > 1)
+          {
+            taskList.add(0, taskList.remove(taskPriority - 1));
+          }
+
+          if (value.equals("TIL BUND") && taskPriority != taskAmount)
+          {
+            taskList.add(taskAmount - 1, taskList.remove(taskPriority - 1));
+          }
+
+          resortTasks();
+        }
+      }
+    }
+    catch (Exception e)
+    {
+      e.printStackTrace();
     }
   }
 }

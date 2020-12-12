@@ -128,6 +128,15 @@ public class ProjectList implements Serializable
 
   public void prioritizeTask(String value, Task task, Requirement requirement, Project project)
   {
+    for (Project projectElement : projectList)
+    {
+      if (projectElement.equals(project))
+      {
+        projectElement.prioritizeTask(requirement, task, value);
+
+      }
+    }
+    /*
     for (Project item : projectList)
     {
       if (item.equals(project))
@@ -176,37 +185,7 @@ public class ProjectList implements Serializable
           }
         }
       }
-    }
-
-    /*for (Project projectElement : projectList)
-    {
-      if (projectElement.equals(project))
-      {
-        for (Requirement requirementElement : projectElement.getRequirementList())
-        {
-          if (requirementElement.equals(requirement))
-          {
-            int numberOfTasks = requirementElement.getTasks().size();
-
-            for (Task taskElement : requirementElement.getTasks())
-            {
-              if (taskElement.equals(task))
-              {
-                int taskPriority = Integer.parseInt(taskElement.getPriority());
-                if (value.equals("OP") && taskPriority > 1)
-                {
-                  taskElement.setPriority(taskPriority - 1); // Prioriterings index, ikke array index
-                  requirementElement.getTasks().add(
-                      taskPriority - 2, requirementElement.getTasks().remove(taskPriority-1)
-                      );
-                  requirementElement.resortTasks();
-                }
-              }
-            }
-          }
-        }
-      }
-    }*/
+    } */
   }
 
   public void approveRequirement(Project project, Requirement requirement,

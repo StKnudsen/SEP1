@@ -242,4 +242,15 @@ public class Project implements Serializable
 
     return copy;
   }
+
+  public void prioritizeTask(Requirement requirement, Task task, String value)
+  {
+    for (Requirement requirementElement : requirementList)
+    {
+      if (requirementElement.equals(requirement))
+      {
+        requirementElement.prioritize(task, value);
+      }
+    }
+  }
 }

@@ -17,6 +17,15 @@ public class Task extends Job implements Serializable
     teamMemberList = new ArrayList<>();
   }
 
+  // Bruges til Requirement.resortTasks()
+  public Task(String title, String requirementTitle, String projectTitle,
+      TeamMember responsibleTeamMember, int priority, ArrayList<TeamMember> teamMemberList)
+  {
+    super(title, projectTitle, responsibleTeamMember, priority);
+    this.requirementTitle = requirementTitle;
+    this.teamMemberList = teamMemberList;
+  }
+
   public String getRequirementTitle()
   {
     return requirementTitle;
