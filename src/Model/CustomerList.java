@@ -30,6 +30,4 @@ public class CustomerList
   {
     return customerList;
   }
-
-
 }

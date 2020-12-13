@@ -10,15 +10,6 @@ public abstract class Job
   TeamMember responsibleTeamMember;
 
   // NYT! Nu med responsible Team Member
-  /*public Job(String title, TeamMember responsibleTeamMember, int priority)
-  {
-    this.title = title;
-    this.responsibleTeamMember = responsibleTeamMember;
-    this.priority = priority;
-    this.status = "Not Started";
-  }*/
-
-  // NYT! Nu med responsible Team Member
   public Job(String title, String projectTitle, TeamMember responsibleTeamMember, int priority)
   {
     this.title = title;
@@ -27,14 +18,6 @@ public abstract class Job
     this.priority = priority;
     this.status = "Not Started";
   }
-
-  /*
-  public Job(String title, String status)
-  {
-    this.title = title;
-    this.status = status;
-  }
-  */
 
   public void setTitle(String title)
   {
@@ -100,5 +83,4 @@ public abstract class Job
   {
     return responsibleTeamMember;
   }
-
 }

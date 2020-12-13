@@ -14,11 +14,13 @@ public class EmployeeList
   public ArrayList searchEmployee(String name)
   {
     ArrayList<TeamMember> results = new ArrayList<>();
+
     for (int i = 0; i < employeeList.size(); i++)
     {
       if(name.equalsIgnoreCase(employeeList.get(i).getName()))
         results.add(employeeList.get(i));
     }
+
     return results;
   }
 
