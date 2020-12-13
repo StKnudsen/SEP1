@@ -26,6 +26,9 @@ public class ViewListController
   @FXML private TableColumn<String, String> tasksTitle;
   @FXML private TableColumn<String, String> tasksStatus;
 
+  @FXML private TableView employeeTable;
+  @FXML private TableColumn<String, String> employeeName;
+
   public void init(ViewHandler viewHandler, Region root)
   {
     this.root = root;
@@ -37,6 +40,7 @@ public class ViewListController
     populateProjectsTable();
     populateRequirementsTable();
     populateTasksTable();
+    populateEmployeeTable();
   }
 
   public Region getRoot()
@@ -139,6 +143,37 @@ public class ViewListController
           );
 
           viewHandler.openView("viewTask");
+        }
+      }
+    });
+  }
+
+  public void populateEmployeeTable()
+  {
+    // Hvilke data felter vi vil tilknytte column cellerne
+    employeeName.setCellValueFactory(new PropertyValueFactory<>("name"));
+
+
+    // nulstil
+    employeeTable.getItems().clear();
+
+    // Indsæt data i tabellen
+    employeeTable.getItems().addAll(
+      viewHandler.getModelManager().getEmployees()
+    );
+
+    // Fang klik på 'row' og åben den valgte requirement
+    employeeTable.setOnMousePressed(new EventHandler<>()
+    {
+      @Override public void handle(javafx.scene.input.MouseEvent mouseEvent)
+      {
+        if (!( employeeTable.getSelectionModel().getSelectedItem() == null))
+        {
+          viewHandler.getModelManager().setSelectedTeamMember(
+              (TeamMember) employeeTable.getSelectionModel().getSelectedItem()
+          );
+
+          viewHandler.openView("viewTeamMember");
         }
       }
     });
