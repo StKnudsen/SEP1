@@ -45,7 +45,13 @@ public class ViewEditRequirementController
     chooseType.getItems().addAll(viewHandler.getModelManager().getRequirementTypes());
     chooseType.getSelectionModel().select(getTypeIndex());
 
-    if(chooseStatus.getValue() != null)
+    //int statusIndex = chooseStatus.getSelectionModel().getSelectedIndex();
+    chooseStatus.getItems().clear();
+    chooseStatus.getItems().addAll(viewHandler.getModelManager().getAllStatus());
+    //chooseStatus.getSelectionModel().select(statusIndex);
+    chooseStatus.getSelectionModel().select(getStatusIndex());
+
+    /*if(chooseStatus.getValue() != null)
     {
       int statusIndex = chooseStatus.getSelectionModel().getSelectedIndex();
       chooseStatus.getItems().clear();
@@ -57,11 +63,23 @@ public class ViewEditRequirementController
       chooseStatus.getItems().clear();
       chooseStatus.getItems().addAll(viewHandler.getModelManager().getAllStatus());
       chooseStatus.getSelectionModel().select(0);
-    }
+    }*/
 
     requirementDescription.setText(viewHandler.getModelManager().getSelectedRequirement().getDescription());
     requirementTitleInput.setText(viewHandler.getModelManager().getSelectedRequirement().getTitle());
     missingInputLabel.setText("");
+  }
+
+  private int getStatusIndex()
+  {
+    for (int i = 0; i < viewHandler.getModelManager().getAllStatus().length; i++)
+    {
+      if (viewHandler.getModelManager().getAllStatus()[i].equals(viewHandler.getModelManager().getSelectedRequirement().getStatus()))
+      {
+        return i;
+      }
+    }
+    return 0;
   }
 
   private int getResponsibleTeamMemberIndex()
