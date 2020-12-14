@@ -12,6 +12,16 @@ public class EmployeeList implements Serializable
     employeeList = new ArrayList<>();
   }
 
+  public void addEmployee(TeamMember teamMember)
+  {
+    employeeList.add(teamMember);
+  }
+
+  public ArrayList<TeamMember> getEmployees()
+  {
+    return employeeList;
+  }
+
   public ArrayList<TeamMember> searchEmployee(String searchName)
   {
     ArrayList<TeamMember> results = new ArrayList<>();
@@ -25,25 +35,5 @@ public class EmployeeList implements Serializable
     }
 
     return results;
-  }
-
-//Husk getAllTasks(TeamMember teamMember)
-
-  /*
-   *  Skal tilføjes til UML classe diagram!
-   */
-  //public ArrayList<TeamMember> getEmployeeList()
-  //{
-  //  return employeeList;
-  //}
-
-  public void addEmployee(TeamMember teamMember)
-  {
-    employeeList.add(teamMember);
-  }
-
-  public ArrayList<TeamMember> getEmployees()
-  {
-    return employeeList;
   }
 }

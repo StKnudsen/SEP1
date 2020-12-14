@@ -9,8 +9,7 @@ public class Task extends Job implements Serializable
   private int estimatedTime;
   private ArrayList<TeamMember> teamMemberList;
 
-  public Task(String title, String requirementTitle, String projectTitle,
-      TeamMember responsibleTeamMember, int priority)
+  public Task(String title, String requirementTitle, String projectTitle, TeamMember responsibleTeamMember, int priority)
   {
     super(title, projectTitle, responsibleTeamMember, priority);
     this.requirementTitle = requirementTitle;
@@ -19,8 +18,7 @@ public class Task extends Job implements Serializable
   }
 
   // Bruges til Requirement.resortTasks()
-  public Task(String title, String requirementTitle, String projectTitle,
-      TeamMember responsibleTeamMember, int priority, ArrayList<TeamMember> teamMemberList)
+  public Task(String title, String requirementTitle, String projectTitle, TeamMember responsibleTeamMember, int priority, ArrayList<TeamMember> teamMemberList)
   {
     super(title, projectTitle, responsibleTeamMember, priority);
     this.requirementTitle = requirementTitle;
@@ -32,6 +30,16 @@ public class Task extends Job implements Serializable
     return requirementTitle;
   }
 
+  public void setEstimatedTime(int hours)
+  {
+    this.estimatedTime = hours;
+  }
+
+  public String getEstimatedTime()
+  {
+    return Integer.toString(estimatedTime);
+  }
+
   public void updateTime(TeamMember teamMember, int time)
   {
     for (int i = 0; i < teamMemberList.size(); i++)
@@ -41,58 +49,6 @@ public class Task extends Job implements Serializable
         teamMemberList.get(i).updateTime(time);
       }
     }
-  }
-
-  public void registerTime(TeamMember teamMember, int time)
-  {
-
-  }
-
-  public void addTeamMember(TeamMember teamMember)
-  {
-    if (!teamMemberList.contains(teamMember))
-    {
-      teamMemberList.add(teamMember);
-    }
-  }
-
-  public TeamMember getTeamMember(TeamMember teamMember)
-  {
-    for (TeamMember member : teamMemberList)
-    {
-      if (member.equals(teamMember))
-        return teamMember;
-    }
-    return null;
-  }
-
-  public ArrayList<TeamMember> getTeamMemberList()
-  {
-    ArrayList<TeamMember> teamMemberArrayList = new ArrayList<>();
-
-    for (int i = 0; i < teamMemberList.size(); i++)
-    {
-      teamMemberArrayList.add(teamMemberList.get(i).copy());
-      teamMemberArrayList.get(i).updateTime(teamMemberList.get(i).getTimeSpent());
-    }
-
-    return teamMemberList;
-  }
-
-  /* PT kan man ikke slette en team member!
-   public void deleteTeamMember(TeamMember teamMember){
-     teamMemberList.remove(teamMember);
-   }
-    */
-
-  public boolean equals(Object obj)
-  {
-    if (!(obj instanceof Task))
-    {
-      return false;
-    }
-    Task other = (Task) obj;
-    return title.equals(other.getTitle()) && status.equals(other.status);
   }
 
   public int getTimeSpent()
@@ -107,13 +63,34 @@ public class Task extends Job implements Serializable
     return timeSpent;
   }
 
-  public void setEstimatedTime(int hours)
+  public void addTeamMember(TeamMember teamMember)
   {
-    this.estimatedTime = hours;
+    if (!teamMemberList.contains(teamMember))
+    {
+      teamMemberList.add(teamMember);
+    }
   }
 
-  public String getEstimatedTime()
+  public ArrayList<TeamMember> getTeamMemberList()
   {
-    return Integer.toString(estimatedTime);
+    ArrayList<TeamMember> teamMemberArrayList = new ArrayList<>();
+
+    for (int i = 0; i < teamMemberList.size(); i++)
+    {
+      teamMemberArrayList.add(teamMemberList.get(i).copy());
+      teamMemberArrayList.get(i).updateTime(teamMemberList.get(i).getTimeSpent());
+    }
+
+    return teamMemberArrayList;
+  }
+
+  public boolean equals(Object obj)
+  {
+    if (!(obj instanceof Task))
+    {
+      return false;
+    }
+    Task other = (Task) obj;
+    return title.equals(other.getTitle()) && status.equals(other.status);
   }
 }
