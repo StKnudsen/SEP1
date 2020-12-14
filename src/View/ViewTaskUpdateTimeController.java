@@ -24,7 +24,10 @@ public class ViewTaskUpdateTimeController
 
   public void reset()
   {
-    chooseEmployee.getItems().removeAll(viewHandler.getModelManager().getEmployees());
+    //chooseEmployee.getItems().removeAll(viewHandler.getModelManager().getEmployees());
+    missingInputLabel.setText("");
+    updateTimeInput.setText("");
+    chooseEmployee.getItems().clear();
     chooseEmployee.getItems().addAll(viewHandler.getModelManager().getEmployees());
   }
 

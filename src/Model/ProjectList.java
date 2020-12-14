@@ -453,6 +453,26 @@ public class ProjectList implements Serializable
   public String getTimeSpentForTeamMember(TeamMember selectedTeamMember)
   {
     int spentHours = 0;
+
+    // for hvert project, se om teammember er på og tilføj tid, hvis det er sandt
+    for (Project project : projectList)
+    {
+      for (Requirement requirement : project.getRequirementList())
+      {
+        for (Task task : requirement.getTasks())
+        {
+          for (int i = 0; i < task.getTeamMemberList().size(); i++)
+          {
+            if (task.getTeamMemberList().get(i).equals(selectedTeamMember))
+            {
+              spentHours += task.getTeamMemberList().get(i).getTimeSpent();
+            }
+          }
+        }
+      }
+    }
+
+    /*
     for (int i = 0; i < projectList.size(); i++)
     {
       for (int j = 0; j < projectList.get(i).getRequirementList().size(); j++)
@@ -468,8 +488,10 @@ public class ProjectList implements Serializable
           }
         }
       }
-    }
+    }*/
+
     return Integer.toString(spentHours);
+    //return Integer.toString(987);
   }
 
   public ArrayList<Project> getTeamMemberProjects(TeamMember selectedTeamMember)
