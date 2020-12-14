@@ -49,7 +49,7 @@ public class ViewTaskController
       populateTeamMemberList();
 
       taskDescriptionTextFlow.getChildren()
-          .addAll(new Text(viewHandler.getModelManager().getTaskDescription()));
+          .addAll(new Text(viewHandler.getModelManager().getSelectedTask().getDescription()));
     }
     catch (NullPointerException e)
     {

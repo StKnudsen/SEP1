@@ -47,26 +47,6 @@ public class ColourIT implements Serializable
     settetTest(); // Vores dummy data
   }
 
-  public String getTaskDescription()
-  {
-    return taskDescription;
-  }
-
-  public void setTaskDescription(String taskDescription)
-  {
-    this.taskDescription = taskDescription;
-  }
-
-  public String getRequirementDescription()
-  {
-    return requirementDescription;
-  }
-
-  public void setRequirementDescription(String requirementDescription)
-  {
-    this.requirementDescription = requirementDescription;
-  }
-
   public TeamMember getCurrentUser()
   {
     return currentUser;
