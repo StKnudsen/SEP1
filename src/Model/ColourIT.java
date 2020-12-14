@@ -80,18 +80,6 @@ public class ColourIT implements Serializable
       TeamMember projectCreator)
   {
     projectList.createNewProject(title, customer, projectCreator);
-//PARSER TIL XML
-    /*
-    try
-    {
-      File projects = theParser.toXml(projectList.getProjects(), "projects.xml");
-    }
-    catch (ParserException e)
-    {
-      e.printStackTrace();
-      System.out.println("XML parser error");
-    }
-     */
   }
 
   public void addNewTeamMemberToProject(TeamMember teamMember, Project project)
@@ -186,6 +174,21 @@ public class ColourIT implements Serializable
   public ArrayList<Task> searchTask(Project project, Requirement requirement, String title)
   {
     return projectList.searchTask(project, requirement, title);
+  }
+
+  public ProjectList getProjectList()
+  {
+    return projectList;
+  }
+
+  public CustomerList getCustomerList()
+  {
+    return customerList;
+  }
+
+  public EmployeeList getEmployeeList()
+  {
+    return employeeList;
   }
 
   public ArrayList<TeamMember> searchEmployee(String name)

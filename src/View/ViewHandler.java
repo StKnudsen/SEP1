@@ -1,6 +1,7 @@
 package View;
 
 import Model.ColourIT;
+import util.FileHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Region;
@@ -114,8 +115,11 @@ public class ViewHandler
     primaryStage.show();
   }
 
-  public void closeView()
+  public void closeView() throws IOException
   {
+    FileHandler.save(colourIT.getProjectList());
+    FileHandler.save(colourIT.getEmployeeList());
+    FileHandler.save(colourIT.getCustomerList());
     primaryStage.close();
   }
 
@@ -130,6 +134,10 @@ public class ViewHandler
         Region root = loader.load();
         viewLoginController = loader.getController();
         viewLoginController.init(this, root);
+
+        FileHandler.save(colourIT.getProjectList());
+        FileHandler.save(colourIT.getEmployeeList());
+        FileHandler.save(colourIT.getCustomerList());
       }
       catch (IOException e)
       {
