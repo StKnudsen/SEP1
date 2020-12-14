@@ -24,29 +24,50 @@ public class ViewTaskUpdateTimeController
 
   public void reset()
   {
-    //chooseEmployee.getItems().removeAll(viewHandler.getModelManager().getEmployees());
     missingInputLabel.setText("");
     updateTimeInput.setText("");
     chooseEmployee.getItems().clear();
-    chooseEmployee.getItems().addAll(viewHandler.getModelManager().getEmployees());
+    chooseEmployee.getItems().addAll(viewHandler.getModelManager().getSelectedTask().getTeamMemberList());
+    chooseEmployee.getSelectionModel().select(getTeamMemberIndex());
+  }
+
+  private int getTeamMemberIndex()
+  {
+    for (int i = 0; i < viewHandler.getModelManager().getEmployees().size(); i++)
+    {
+      if (viewHandler.getModelManager().getEmployees().get(i).equals(viewHandler.getModelManager().getCurrentUser()))
+      {
+        return i;
+      }
+    }
+    return 0;
   }
 
   public void updateTime()
   {
-    try
+    if (
+        viewHandler.getModelManager().getSelectedTask().getResponsibleTeamMember().equals(viewHandler.getModelManager().getCurrentUser())
+        || viewHandler.getModelManager().getCurrentUser().equals(chooseEmployee.getValue()))
     {
-      if (!chooseEmployee.getValue().equals("") && !updateTimeInput.getText().equals(""))
+      try
       {
-        viewHandler.getModelManager().getSelectedTask()
-            .updateTime((TeamMember) chooseEmployee.getValue(), Integer.parseInt(updateTimeInput.getText()));
-        viewHandler.openView("viewTask");
+        if (!chooseEmployee.getValue().equals("") && !updateTimeInput.getText().equals(""))
+        {
+          viewHandler.getModelManager().getSelectedTask()
+              .updateTime((TeamMember) chooseEmployee.getValue(), Integer.parseInt(updateTimeInput.getText()));
+          viewHandler.openView("viewTask");
+        }
       }
+      catch (NullPointerException e)
+      {
+        e.printStackTrace();
+      }
+      missingInputLabel.setText("Udfyld venligst alt...");
     }
-    catch (NullPointerException e)
+    else
     {
-      e.printStackTrace();
+      missingInputLabel.setText("Handling må kun udføres af " + viewHandler.getModelManager().getSelectedTask().getResponsibleTeamMember());
     }
-    missingInputLabel.setText("Udfyld venligst alt...");
   }
 
   public Region getRoot()
