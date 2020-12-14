@@ -91,8 +91,7 @@ public class ViewEditTaskController
             .setDescription(taskDescription.getText());
         viewHandler.getModelManager().getSelectedTask()
             .setEstimatedTime(Integer.parseInt(estimatedTimeInput.getText()));
-        //LocalDate skal konverteres til Date
-        //viewHandler.getModelManager().getSelectedTask().setDeadline(chooseDeadline.getValue().VIRKER IKKE DET LORT);
+        viewHandler.getModelManager().getSelectedTask().setDeadline(chooseDeadline.getValue());
         viewHandler.getModelManager().getSelectedTask()
             .setResponsibleTeamMember(
                 (TeamMember) chooseResponsibleTeamMember.getValue());

@@ -10,6 +10,9 @@ import javafx.scene.layout.Region;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
+
 public class ViewTaskController
 {
   @FXML private Label taskProjectTitle;
@@ -19,6 +22,7 @@ public class ViewTaskController
   @FXML private Label taskStatus;
   @FXML private ListView teamMemberList;
   @FXML private TextFlow taskDescriptionTextFlow;
+  @FXML private Label deadlineLabel;
 
   private Region root;
   private ViewHandler viewHandler;
@@ -45,6 +49,12 @@ public class ViewTaskController
               .getResponsibleTeamMember().getName());
       taskStatus
           .setText(viewHandler.getModelManager().getSelectedTask().getStatus());
+      if(viewHandler.getModelManager().getSelectedTask().getDeadline() != null)
+      {
+        deadlineLabel.setText(
+            viewHandler.getModelManager().getSelectedTask().getDeadline().format(
+                DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT)));
+      }
 
       populateTeamMemberList();
 

@@ -77,8 +77,7 @@ public class ViewEditRequirementController
         }
         viewHandler.getModelManager().getSelectedRequirement().setDescription(requirementDescription.getText());
         viewHandler.getModelManager().getSelectedRequirement().setType((String) chooseType.getValue());
-        //LocalDate skal konverteres til Date
-       viewHandler.getModelManager().getSelectedRequirement().setDeadline(chooseDeadline.getValue());
+        viewHandler.getModelManager().getSelectedRequirement().setDeadline(chooseDeadline.getValue());
         if(chooseResponsibleTeamMember.getValue() != null)
         {
           viewHandler.getModelManager().getSelectedRequirement()
