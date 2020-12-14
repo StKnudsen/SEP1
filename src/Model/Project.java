@@ -2,6 +2,7 @@ package Model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class Project implements Serializable
 {
@@ -279,5 +280,17 @@ public class Project implements Serializable
         }
       }
     }
+  }
+
+  public ArrayList<Task> searchTaskList(String searchText, TeamMember currentUser)
+  {
+    ArrayList<Task> taskArrayList = new ArrayList<>();
+
+    for (Requirement requirement : requirementList)
+    {
+      taskArrayList.addAll(requirement.searchTaskList(searchText, currentUser));
+    }
+
+    return taskArrayList;
   }
 }

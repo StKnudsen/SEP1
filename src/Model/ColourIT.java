@@ -400,8 +400,18 @@ public class ColourIT implements Serializable
     System.out.println("project: " + project.getTitle());
   }
 
-  public ArrayList<Project> searchProjectList(String text, TeamMember teamMember)
+  public ArrayList<Project> searchProjectList(String searchText, TeamMember teamMember)
   {
-    return projectList.searchProjectList(text, teamMember);
+    return projectList.searchProjectList(searchText, teamMember);
+  }
+
+  public ArrayList<Requirement> searchRequirementList(String searchText, TeamMember currentUser)
+  {
+    return projectList.searchRequirementList(searchText, currentUser);
+  }
+
+  public ArrayList<Task> searchTaskField(String searchText, TeamMember currentUser)
+  {
+    return projectList.searchTaskList(searchText, currentUser);
   }
 }

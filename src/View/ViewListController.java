@@ -18,11 +18,13 @@ public class ViewListController
   @FXML private TableView projectsTable;
   @FXML private TableColumn<String, String> projectsTitle;
 
+  @FXML private TextField searchRequirementTextField;
   @FXML private TableView requirementsTable;
   @FXML private TableColumn<String, String> requirementsPriority;
   @FXML private TableColumn<String, String> requirementsTitle;
   @FXML private TableColumn<String, String> requirementsStatus;
 
+  @FXML private TextField searchTaskTextField;
   @FXML private TableView tasksTable;
   @FXML private TableColumn<String, String> tasksPriority;
   @FXML private TableColumn<String, String> tasksTitle;
@@ -40,6 +42,9 @@ public class ViewListController
   public void reset()
   {
     searchProjectTextField.clear();
+    searchRequirementTextField.clear();
+    searchTaskTextField.clear();
+
     populateProjectsTable();
     populateRequirementsTable();
     populateTasksTable();
@@ -91,13 +96,8 @@ public class ViewListController
     {
       projectsTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
 
-      // nulstil
       projectsTable.getItems().clear();
 
-      // Indsæt data i tabellen
-      /*projectsTable.getItems().addAll(viewHandler.getModelManager().getProjectsCurrentUser(
-          viewHandler.getModelManager().getCurrentUser()
-      ));*/
       projectsTable.getItems().addAll(
         viewHandler.getModelManager().searchProjectList(
             searchProjectTextField.getText(),
@@ -105,7 +105,6 @@ public class ViewListController
           )
       );
 
-      // Fang klik på 'row' og åben det valgte projekt
       projectsTable.setOnMousePressed(new EventHandler<>()
       {
         @Override public void handle(javafx.scene.input.MouseEvent mouseEvent)
@@ -164,6 +163,48 @@ public class ViewListController
     });
   }
 
+  public void searchRequirements()
+  {
+    if (!searchRequirementTextField.getText().equals(""))
+    {
+      requirementsPriority.setCellValueFactory(new PropertyValueFactory<>("priority"));
+      requirementsTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
+      requirementsStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
+
+      requirementsTable.getItems().clear();
+
+      requirementsTable.getItems().addAll(
+          viewHandler.getModelManager().searchRequirementList(
+              searchRequirementTextField.getText(),
+              viewHandler.getModelManager().getCurrentUser()
+          )
+      );
+
+      requirementsTable.setOnMousePressed(new EventHandler<>()
+      {
+        @Override public void handle(javafx.scene.input.MouseEvent mouseEvent)
+        {
+          if (!(requirementsTable.getSelectionModel().getSelectedItem() == null))
+          {
+            viewHandler.getModelManager().setSelectedRequirement(
+                (Requirement) requirementsTable.getSelectionModel().getSelectedItem()
+            );
+
+            viewHandler.openView("viewRequirement");
+          }
+        }
+      });
+
+      searchRequirementTextField.clear();
+    }
+  }
+
+  public void clearSearchRequirements()
+  {
+    searchRequirementTextField.clear();
+    populateRequirementsTable();;
+  }
+
   public void populateTasksTable()
   {
     // Hvilke data felter vi vil tilknytte column cellerne
@@ -196,6 +237,49 @@ public class ViewListController
         }
       }
     });
+  }
+
+  public void searchTasks()
+  {
+    if (!searchTaskTextField.getText().equals(""))
+    {
+      tasksPriority.setCellValueFactory(new PropertyValueFactory<>("priority"));
+      tasksTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
+      tasksStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
+
+      tasksTable.getItems().clear();
+
+      tasksTable.getItems().addAll(
+        viewHandler.getModelManager().searchTaskField(
+          searchProjectTextField.getText(),
+          viewHandler.getModelManager().getCurrentUser()
+        )
+      );
+
+      // Fang klik på 'row' og åben den valgte requirement
+      tasksTable.setOnMousePressed(new EventHandler<>()
+      {
+        @Override public void handle(javafx.scene.input.MouseEvent mouseEvent)
+        {
+          if (!( tasksTable.getSelectionModel().getSelectedItem() == null))
+          {
+            viewHandler.getModelManager().setSelectedTask(
+                (Task) tasksTable.getSelectionModel().getSelectedItem()
+            );
+
+            viewHandler.openView("viewTask");
+          }
+        }
+      });
+
+      searchTaskTextField.clear();
+    }
+  }
+
+  public void clearSearchTasks()
+  {
+    searchTaskTextField.clear();
+    populateTasksTable();;
   }
 
   public void populateEmployeeTable()

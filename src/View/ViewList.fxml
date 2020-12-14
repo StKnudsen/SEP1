@@ -48,16 +48,17 @@
                                     <children>
                                         <HBox alignment="CENTER_RIGHT" prefHeight="33.0" prefWidth="586.0">
                                             <children>
-                                                <TextField>
+                                                <TextField fx:id="searchRequirementTextField" onAction="#searchRequirements">
                                                     <HBox.margin>
                                                         <Insets bottom="10.0" right="10.0" top="10.0" />
                                                     </HBox.margin>
                                                 </TextField>
-                                                <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="120.0" text="Find Requirement" textAlignment="RIGHT">
+                                                <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#searchRequirements" prefWidth="120.0" text="Find Requirement" textAlignment="RIGHT">
                                                     <HBox.margin>
-                                                        <Insets bottom="10.0" top="10.0" />
+                                                        <Insets bottom="10.0" right="10.0" top="10.0" />
                                                     </HBox.margin>
                                                 </Button>
+                                    <Button mnemonicParsing="false" onAction="#clearSearchRequirements" text="Nulstil" />
                                             </children>
                                         </HBox>
                                         <TableView fx:id="requirementsTable" maxHeight="400.0" maxWidth="600.0" prefHeight="276.0" prefWidth="580.0">
@@ -81,16 +82,17 @@
                                     <children>
                                         <HBox alignment="CENTER_RIGHT" prefHeight="33.0" prefWidth="586.0">
                                             <children>
-                                                <TextField>
+                                                <TextField fx:id="searchTaskTextField">
                                                     <HBox.margin>
                                                         <Insets bottom="10.0" right="10.0" top="10.0" />
                                                     </HBox.margin>
                                                 </TextField>
-                                                <Button alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" prefWidth="120.0" text="Find Task" textAlignment="RIGHT">
+                                                <Button alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#searchTasks" prefWidth="120.0" text="Find Task" textAlignment="RIGHT">
                                                     <HBox.margin>
-                                                        <Insets bottom="10.0" top="10.0" />
+                                                        <Insets bottom="10.0" right="10.0" top="10.0" />
                                                     </HBox.margin>
                                                 </Button>
+                                    <Button mnemonicParsing="false" onAction="#clearSearchTasks" text="Nulstil" />
                                             </children>
                                         </HBox>
                                         <TableView fx:id="tasksTable" maxHeight="400.0" maxWidth="600.0" prefHeight="276.0" prefWidth="585.0">

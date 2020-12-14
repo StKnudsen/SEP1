@@ -542,4 +542,34 @@ public class ProjectList implements Serializable
 
     return projectArrayList;
   }
+
+  public ArrayList<Requirement> searchRequirementList(String searchText, TeamMember currentUser)
+  {
+    ArrayList<Requirement> requirementArrayList = new ArrayList<>();
+
+    for (Project project : projectList)
+    {
+      for (Requirement requirement : project.getRequirementList())
+      {
+        if (requirement.getTitle().contains(searchText) && requirement.getResponsibleTeamMember().equals(currentUser))
+        {
+          requirementArrayList.add(requirement);
+        }
+      }
+    }
+
+    return requirementArrayList;
+  }
+
+  public ArrayList<Task> searchTaskList(String searchText, TeamMember currentUser)
+  {
+    ArrayList<Task> taskArrayList = new ArrayList<>();
+
+    for (Project project : projectList)
+    {
+      taskArrayList.addAll(project.searchTaskList(searchText, currentUser));
+    }
+
+    return taskArrayList;
+  }
 }

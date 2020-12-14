@@ -2,6 +2,7 @@ package Model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class Requirement extends Job implements Serializable
 {
@@ -153,4 +154,22 @@ public class Requirement extends Job implements Serializable
     }
   }
 
+  public ArrayList<Task> searchTaskList(String searchText, TeamMember currentUser)
+  {
+    ArrayList<Task> taskArrayList = new ArrayList<>();
+
+    for (Task task : taskList)
+    {
+      if (
+        task.getTitle().contains(searchText) &&
+        task.getResponsibleTeamMember().equals(currentUser) ||
+        task.getTeamMemberList().contains(currentUser)
+      )
+      {
+        taskArrayList.add(task);
+      }
+    }
+
+    return taskArrayList;
+  }
 }
