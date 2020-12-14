@@ -119,8 +119,6 @@ public class ViewListController
           }
         }
       });
-
-      searchProjectTextField.clear();
     }
 
   }
@@ -194,8 +192,6 @@ public class ViewListController
           }
         }
       });
-
-      searchRequirementTextField.clear();
     }
   }
 
@@ -251,7 +247,7 @@ public class ViewListController
 
       tasksTable.getItems().addAll(
         viewHandler.getModelManager().searchTaskField(
-          searchProjectTextField.getText(),
+          searchTaskTextField.getText(),
           viewHandler.getModelManager().getCurrentUser()
         )
       );
@@ -271,8 +267,6 @@ public class ViewListController
           }
         }
       });
-
-      searchTaskTextField.clear();
     }
   }
 
