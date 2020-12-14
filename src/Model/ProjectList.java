@@ -362,15 +362,18 @@ public class ProjectList implements Serializable
       {
         for (int k = 0; k < projectList.get(i).getRequirementList().get(j).getTasks().size(); k++)
         {
-          //  Hvis currentUser er responsibleTeamMember
-          if (projectList.get(i).getRequirementList().get(j).getTasks().get(k).getResponsibleTeamMember().equals(currentUser))
+          if (!projectList.get(i).getRequirementList().get(j).getStatus().equals("Approved"))
           {
-            allTeamMemberTasks.add(projectList.get(i).getRequirementList().get(j).getTasks().get(k));
-          }
-          //  Hvis currentUser er team member ud over responsibleTeamMember
-          else if (projectList.get(i).getRequirementList().get(j).getTasks().get(k).getTeamMemberList().contains(currentUser))
-          {
-            allTeamMemberTasks.add(projectList.get(i).getRequirementList().get(j).getTasks().get(k));
+            //  Hvis currentUser er responsibleTeamMember
+            if (projectList.get(i).getRequirementList().get(j).getTasks().get(k).getResponsibleTeamMember().equals(currentUser))
+            {
+              allTeamMemberTasks.add(projectList.get(i).getRequirementList().get(j).getTasks().get(k));
+            }
+            //  Hvis currentUser er team member ud over responsibleTeamMember
+            else if (projectList.get(i).getRequirementList().get(j).getTasks().get(k).getTeamMemberList().contains(currentUser))
+            {
+              allTeamMemberTasks.add(projectList.get(i).getRequirementList().get(j).getTasks().get(k));
+            }
           }
         }
       }
