@@ -15,6 +15,7 @@ public class Task extends Job implements Serializable
     super(title, projectTitle, responsibleTeamMember, priority);
     this.requirementTitle = requirementTitle;
     teamMemberList = new ArrayList<>();
+    addTeamMember(responsibleTeamMember);
   }
 
   // Bruges til Requirement.resortTasks()
@@ -47,9 +48,12 @@ public class Task extends Job implements Serializable
 
   }
 
-  public void addTeamMember(TeamMember teammember)
+  public void addTeamMember(TeamMember teamMember)
   {
-    teamMemberList.add(teammember);
+    if (!teamMemberList.contains(teamMember))
+    {
+      teamMemberList.add(teamMember);
+    }
   }
 
   public TeamMember getTeamMember(TeamMember teamMember)

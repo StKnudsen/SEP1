@@ -393,4 +393,9 @@ public class ColourIT implements Serializable
   {
     return projectList.getTeamMemberProjects(selectedTeamMember);
   }
+
+  public void checkIfAllTasksIsDoneForRequirement(Project project, String requirementTitle)
+  {
+    projectList.checkIfAllTasksIsDoneForRequirement(project, requirementTitle);
+  }
 }

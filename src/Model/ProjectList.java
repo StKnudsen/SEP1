@@ -515,4 +515,15 @@ public class ProjectList implements Serializable
     }
     return projectArrayList;
   }
+
+  public void checkIfAllTasksIsDoneForRequirement(Project project, String requirementTitle)
+  {
+    for (Project projectElement : projectList)
+    {
+      if (projectElement.equals(project))
+      {
+        projectElement.checkIfAllTasksIsDoneForRequirement(requirementTitle);
+      }
+    }
+  }
 }

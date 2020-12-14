@@ -110,6 +110,7 @@ public class ViewEditTaskController
   {
     try
     {
+      String status = (String) chooseStatus.getValue();
       if (!chooseResponsibleTeamMember.getValue().equals("") && !chooseStatus
           .getValue().equals(""))
       {
@@ -126,8 +127,18 @@ public class ViewEditTaskController
         viewHandler.getModelManager().getSelectedTask()
             .setResponsibleTeamMember(
                 (TeamMember) chooseResponsibleTeamMember.getValue());
-        viewHandler.getModelManager().getSelectedTask()
-            .updateStatus((String) chooseStatus.getValue());
+        viewHandler.getModelManager().getSelectedTask().updateStatus(status);
+      }
+
+      //  Hvis task er "Ended"
+      if (status.equals(viewHandler.getModelManager().getTaskStatusList()[2]))
+      {
+        viewHandler.getModelManager().checkIfAllTasksIsDoneForRequirement(
+            viewHandler.getModelManager().searchProject(
+                viewHandler.getModelManager().getSelectedTask().getProjectTitle()
+            ),
+            viewHandler.getModelManager().getSelectedTask().getRequirementTitle()
+        );
       }
       viewHandler.openView("viewList");
     }

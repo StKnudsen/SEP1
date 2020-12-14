@@ -253,4 +253,26 @@ public class Project implements Serializable
       }
     }
   }
+
+  public void checkIfAllTasksIsDoneForRequirement(String requirementTitle)
+  {
+    for (Requirement requirementElement : requirementList)
+    {
+      if (requirementElement.getProjectTitle().equals(requirementTitle))
+      {
+        boolean allTasksIsDone = true;
+        for (Task task : requirementElement.getTasks())
+        {
+          if (!task.getStatus().equals("Ended"))
+          {
+            allTasksIsDone = false;
+          }
+        }
+        if (allTasksIsDone)
+        {
+          requirementElement.updateStatus("Ended");
+        }
+      }
+    }
+  }
 }
