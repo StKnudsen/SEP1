@@ -3,6 +3,7 @@ package View;
 import Model.TeamMember;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
@@ -23,6 +24,8 @@ public class ViewTaskController
   @FXML private ListView teamMemberList;
   @FXML private TextFlow taskDescriptionTextFlow;
   @FXML private Label deadlineLabel;
+
+  @FXML private Button editTask;
 
   private Region root;
   private ViewHandler viewHandler;
@@ -92,7 +95,10 @@ public class ViewTaskController
 
   public void editTask()
   {
-    viewHandler.openView("viewEditTask");
+    if (viewHandler.getModelManager().getSelectedTask().getResponsibleTeamMember().equals(viewHandler.getModelManager().getCurrentUser()))
+    {
+      viewHandler.openView("viewEditTask");
+    }
   }
 
   public void updateTaskTime()
@@ -102,7 +108,10 @@ public class ViewTaskController
 
   public void addTeamMember()
   {
-    viewHandler.openView("viewTaskAddTeamMember");
+    if (viewHandler.getModelManager().getSelectedTask().getResponsibleTeamMember().equals(viewHandler.getModelManager().getCurrentUser()))
+    {
+      viewHandler.openView("viewTaskAddTeamMember");
+    }
   }
 
   public void gotoViewList()

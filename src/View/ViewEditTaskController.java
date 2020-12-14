@@ -60,7 +60,7 @@ public class ViewEditTaskController
 
   public void changePriority(ActionEvent actionEvent)
   {
-    //  Handling mu kun udføres af  scrum master
+    //  Handling mu kun udføres af  scrum master.. If statement er nu i view task controller!
     if (viewHandler.getModelManager().getSelectedTask().getResponsibleTeamMember().equals(viewHandler.getModelManager().getCurrentUser()))
     {
       viewHandler.getModelManager().prioritizeTask(
