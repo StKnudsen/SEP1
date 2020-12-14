@@ -31,68 +31,26 @@ public class FileHandler
 
   // En metode der kan oprette en ny fil og gemme data på nye projekter.
   // denne her laver mapper
-  public static void newSave(ProjectList projects) throws IOException
+  public static void Save(Object list) throws IOException
   {
-    String filename = "projectList.bin";
+        String filename = "";
+      if (list instanceof ProjectList)
+        filename = "projectList.bin";
+      if (list instanceof CustomerList)
+        filename = "customerList.bin";
+      if (list instanceof EmployeeList)
+        filename = "employeeList.bin";
+
     File file = new File(filename);
 
     FileOutputStream fos = new FileOutputStream(file);
     ObjectOutputStream out = new ObjectOutputStream(fos);
 
-    out.writeObject(projects);
+    out.writeObject(list);
     out.close();
     System.out.println("Saved file to: " + file.getAbsolutePath());
   }
 
-  //En metode der gemmer til en Json fil fordi det måske er nemmere, men gemmer alting i én fil
-  //Jeg tror virkelig ikke det er rigtigt, men jeg har ikke kunnet teste det endnu, så who knows?
-  public static void saveJson(ProjectList projects)
-  {
-    XmlJsonParser jParser = new XmlJsonParser();
-
-    File file;
-    try
-    {
-      file = jParser.toJson(projects.getProjects() , "allProjects.json");
-    }
-    catch (ParserException e)
-    {
-      System.out.println("JSon parser error");
-      e.printStackTrace();
-    }
-  }
-
-  public static void saveJson(CustomerList customers)
-  {
-    XmlJsonParser jParser = new XmlJsonParser();
-
-    File file;
-    try
-    {
-      file = jParser.toJson(customers.getCustomers() , "allCustomers.json");
-    }
-    catch (ParserException e)
-    {
-      System.out.println("JSon parser error");
-      e.printStackTrace();
-    }
-  }
-
-  public static void saveJson(EmployeeList employees)
-  {
-    XmlJsonParser jParser = new XmlJsonParser();
-
-    File file;
-    try
-    {
-      file = jParser.toJson(employees.getEmployees() , "allEmployees.json");
-    }
-    catch (ParserException e)
-    {
-      System.out.println("JSon parser error");
-      e.printStackTrace();
-    }
-  }
 }
 
 
