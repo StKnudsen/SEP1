@@ -35,21 +35,37 @@ public class ViewEditRequirementController
             viewHandler.getModelManager().getSelectedRequirement().getProjectTitle()
         ).getTeamMemberList()
     );*/
+    int responsibleTeamMemberIndex = chooseResponsibleTeamMember.getSelectionModel().getSelectedIndex();
     chooseResponsibleTeamMember.getItems().clear();
     chooseResponsibleTeamMember.getItems().addAll(
         viewHandler.getModelManager().searchProject(
             viewHandler.getModelManager().getSelectedRequirement().getProjectTitle()
         ).getTeamMemberList()
     );
+    chooseResponsibleTeamMember.getSelectionModel().select(responsibleTeamMemberIndex);
 
-    chooseType.getItems().removeAll(viewHandler.getModelManager().getRequirementTypes());
+    int typeIndex = chooseType.getSelectionModel().getSelectedIndex();
+    chooseType.getItems().clear();
     chooseType.getItems().addAll(viewHandler.getModelManager().getRequirementTypes());
+    chooseType.getSelectionModel().select(typeIndex);
 
-    chooseStatus.getItems().removeAll(viewHandler.getModelManager().getAllStatus());
-    chooseStatus.getItems().addAll(viewHandler.getModelManager().getAllStatus());
+    if(chooseStatus.getValue() != null)
+    {
+      int statusIndex = chooseStatus.getSelectionModel().getSelectedIndex();
+      chooseStatus.getItems().clear();
+      chooseStatus.getItems().addAll(viewHandler.getModelManager().getAllStatus());
+      chooseStatus.getSelectionModel().select(statusIndex);
+    }
+    else
+    {
+      chooseStatus.getItems().clear();
+      chooseStatus.getItems().addAll(viewHandler.getModelManager().getAllStatus());
+      chooseStatus.getSelectionModel().select(0);
+    }
 
     requirementDescription.setText(viewHandler.getModelManager().getSelectedRequirement().getDescription());
     requirementTitleInput.setText(viewHandler.getModelManager().getSelectedRequirement().getTitle());
+    missingInputLabel.setText("");
   }
 
   public void changePriority(ActionEvent actionEvent)
@@ -68,7 +84,7 @@ public class ViewEditRequirementController
   {
     try
     {
-      if (!chooseType.getValue().equals("") && !chooseStatus.getValue().equals(""))
+      if (!chooseType.getValue().equals(""))
       {
         //Hvis titelfelt udfyldes, opdater titel
         if(!requirementTitleInput.getText().equals(""))

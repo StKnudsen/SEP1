@@ -51,6 +51,7 @@ public class ViewRequirementController
           viewHandler.getModelManager().getSelectedRequirement().getDeadline().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT)));
     }
 
+    requirementDescriptionTextFlow.getChildren().clear();
     requirementDescriptionTextFlow.getChildren().addAll(new Text(viewHandler.getModelManager().getSelectedRequirement().getDescription()));
 
     populateTaskTable();
