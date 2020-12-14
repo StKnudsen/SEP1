@@ -1,0 +1,51 @@
+/*
+  Vi sætter her baggrundsbillede for hjemmesiden. Den er er indsat med css i 
+  'body' tag, hvor den er sat til ikke at gentage, fyld hele skærmen 
+  og fikseret, så den ikke bevæger sig med indholdet.
+    Da fixed-footer ligger ovenpå indholdet, kan vi enten bruge z-index 
+  eller give en margin bottom, her vælges den sidste løsning.
+    ~ Stefan
+ */
+body {
+  background-image: url('/images/backgroundPic.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  margin-bottom: 102px;
+}
+
+/*
+  Ændre størrelse og farve på vores svg iconer i footeren ~ Stefan
+ */
+footer svg {
+  height: 20px;
+  width: 20px;
+  fill: whitesmoke;
+}
+
+/*
+  Vi giver vores sticky contact en top, så sticky navbar og sticky #contact ikke overlapper hinanden
+  ~ Tina
+*/
+#contact {
+  top:72px;
+}
+
+/*Vi vil have labels på vores progress-bars til at fylde hele baren, og ikke kun være inde i progress. Ellers kommer "undervjs" til at være meget småt, hvis vi kun har nået 15%.
+- Line og Stefan*/
+.progress {
+  position: relative;
+}
+
+.progresbar-label
+{
+  position: absolute;
+  text-align: center;
+  line-height: 15px; /* line-height should be equal to bar height */
+  overflow: hidden;
+  color: whitesmoke;
+  right: 0;
+  left: 0;
+  top: 0;
+}
+

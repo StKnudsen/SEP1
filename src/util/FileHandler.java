@@ -25,8 +25,7 @@ public class FileHandler
     }
   }
 
-  // En metode der kan oprette en ny fil og gemme data på nye projekter.
-  // denne her laver mapper
+  // Metode der gemmer alting
   public static void save(Object list) throws IOException
   {
     String filename = "";
@@ -46,6 +45,7 @@ public class FileHandler
     System.out.println("Saved file to: " + file.getAbsolutePath());
   }
 
+  // Metoder der loader de forskellige filer vi har gemt
   public static ProjectList projectListLoad() throws IOException, ClassNotFoundException
   {
     File file = new File("projectList.bin");
