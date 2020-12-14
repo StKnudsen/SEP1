@@ -10,8 +10,6 @@ import javafx.scene.layout.Region;
 
 public class ViewTeamMemberController
 {
-  //Skal vi overhovedet have estimatedTime på teamMember???
-  @FXML private Label estimatedTimeLabel;
   @FXML private Label spentTimeLabel;
   @FXML private Label teamMemberNameLabel;
   @FXML private ListView<Project> projectListView;

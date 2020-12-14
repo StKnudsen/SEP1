@@ -7,6 +7,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.Region;
 
 import java.io.IOException;
+import java.time.LocalDate;
 
 public class ViewEditTaskController
 {
@@ -50,7 +51,16 @@ public class ViewEditTaskController
         .getTeamMemberList()
     );
     chooseResponsibleTeamMember.getSelectionModel().select(getResponsibleTeamMemberIndex());
-    //chooseResponsibleTeamMember.getSelectionModel().select(viewHandler.getModelManager().getSelectedTask().getResponsibleTeamMember());
+
+    if(viewHandler.getModelManager().getSelectedTask().getDeadline() == null)
+    {
+      chooseDeadline.setValue(null);
+    }
+    else
+    {
+      chooseDeadline.setValue(LocalDate
+          .parse(viewHandler.getModelManager().getSelectedTask().getDeadline().toString()));
+    }
 
     chooseStatus.getItems().clear();
     chooseStatus.getItems().addAll(viewHandler.getModelManager().getTaskStatusList());
@@ -83,7 +93,7 @@ public class ViewEditTaskController
 
   public void changePriority(ActionEvent actionEvent)
   {
-    //  Handling mu kun udføres af  scrum master.. If statement er nu i view task controller!
+    //  Handling mu kun udføres af scrum master.. If statement er nu i view task controller!
     if (viewHandler.getModelManager().getSelectedTask().getResponsibleTeamMember().equals(viewHandler.getModelManager().getCurrentUser()))
     {
       viewHandler.getModelManager().prioritizeTask(

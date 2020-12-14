@@ -1,12 +1,15 @@
 package View;
 
+import Model.MyDate;
 import Model.TeamMember;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.Region;
+import javafx.util.StringConverter;
 
 import java.io.IOException;
+import java.time.LocalDate;
 
 public class ViewEditRequirementController
 {
@@ -47,6 +50,15 @@ public class ViewEditRequirementController
     chooseStatus.getItems().clear();
     chooseStatus.getItems().addAll(viewHandler.getModelManager().getAllStatus());
     chooseStatus.getSelectionModel().select(getStatusIndex());
+
+    if(viewHandler.getModelManager().getSelectedRequirement().getDeadline() == null)
+    {
+      chooseDeadline.setValue(null);
+    }
+    else
+    {
+      chooseDeadline.setValue(LocalDate.parse(viewHandler.getModelManager().getSelectedRequirement().getDeadline().toString()));
+    }
 
     requirementDescription.setText(viewHandler.getModelManager().getSelectedRequirement().getDescription());
     requirementTitleInput.setText(viewHandler.getModelManager().getSelectedRequirement().getTitle());
@@ -113,10 +125,9 @@ public class ViewEditRequirementController
         {
           viewHandler.getModelManager().getSelectedRequirement().setTitle(requirementTitleInput.getText());
         }
-        if(!requirementDescription.getText().equals(""))
-        {
-          viewHandler.getModelManager().getSelectedRequirement().setDescription(requirementDescription.getText());
-        }
+
+        viewHandler.getModelManager().getSelectedRequirement().setDescription(requirementDescription.getText());
+
         //  Type skal være sat
         viewHandler.getModelManager().getSelectedRequirement().setType((String) chooseType.getValue());
         viewHandler.getModelManager().getSelectedRequirement().setDeadline(chooseDeadline.getValue());
@@ -129,12 +140,6 @@ public class ViewEditRequirementController
               .setResponsibleTeamMember(responsibleTeamMemberValue.copy()
           );
         }
-        /*else
-        {
-          viewHandler.getModelManager().getSelectedRequirement().setResponsibleTeamMember(
-              (viewHandler.getModelManager().getSelectedRequirement().getResponsibleTeamMember())
-          );
-        }*/
         //  Status skal være sat
         viewHandler.getModelManager().getSelectedRequirement().updateStatus((String) chooseStatus.getValue());
       }
@@ -146,17 +151,6 @@ public class ViewEditRequirementController
       e.printStackTrace();
     }
     missingInputLabel.setText("Udfyld venligst alt...");
-
-    //Kan dette koges ned ved at slå det sammen med koden i try? Altså i stedet for først at sette alting ovenfor og derefter gette dem her... (Se ViewTaskUpdateTimeController for reference)
-     /* viewHandler.getModelManager().updateRequirement(
-          viewHandler.getModelManager().searchProject(
-              viewHandler.getModelManager().getSelectedRequirement().getProjectTitle()),
-          viewHandler.getModelManager().getSelectedRequirement(),
-          viewHandler.getModelManager().getSelectedRequirement().getTitle(),
-          viewHandler.getModelManager().getSelectedRequirement().getDescription(),
-          viewHandler.getModelManager().getSelectedRequirement().getType(),
-          viewHandler.getModelManager().getSelectedRequirement().getDeadline(),
-          viewHandler.getModelManager().getSelectedRequirement().getResponsibleTeamMember()); */
   }
 
   public Region getRoot()

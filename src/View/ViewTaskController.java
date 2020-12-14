@@ -24,6 +24,7 @@ public class ViewTaskController
   @FXML private ListView teamMemberList;
   @FXML private TextFlow taskDescriptionTextFlow;
   @FXML private Label deadlineLabel;
+  @FXML private Label actionNotAllowed;
 
   @FXML private Button editTask;
 
@@ -61,6 +62,8 @@ public class ViewTaskController
 
       taskDescriptionTextFlow.getChildren()
           .addAll(new Text(viewHandler.getModelManager().getSelectedTask().getDescription()));
+
+      actionNotAllowed.setText("");
     }
     catch (NullPointerException e)
     {
@@ -93,11 +96,17 @@ public class ViewTaskController
     return root;
   }
 
+  String actionWarning = "Du har ikke adgang til denne handling...";
+
   public void editTask()
   {
     if (viewHandler.getModelManager().getSelectedTask().getResponsibleTeamMember().equals(viewHandler.getModelManager().getCurrentUser()))
     {
       viewHandler.openView("viewEditTask");
+    }
+    else
+    {
+      actionNotAllowed.setText(actionWarning);
     }
   }
 
@@ -111,6 +120,10 @@ public class ViewTaskController
     if (viewHandler.getModelManager().getSelectedTask().getResponsibleTeamMember().equals(viewHandler.getModelManager().getCurrentUser()))
     {
       viewHandler.openView("viewTaskAddTeamMember");
+    }
+    else
+    {
+      actionNotAllowed.setText(actionWarning);
     }
   }
 

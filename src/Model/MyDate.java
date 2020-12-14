@@ -199,6 +199,6 @@ public class MyDate implements Serializable {
 
 	@Override
 	public String toString( ) {
-		return day + "/" + month + "/" + year;
+		return year  + "-" + month + "-" + day;
 	}
 }

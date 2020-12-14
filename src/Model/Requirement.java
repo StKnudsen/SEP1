@@ -108,7 +108,7 @@ public class Requirement extends Job implements Serializable
     {
       if (taskElement.equals(task))
       {
-        taskElement.addTeamMember(teamMember);
+        taskElement.addTeamMember(teamMember.copy());
       }
     }
   }

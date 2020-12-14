@@ -139,6 +139,7 @@
                 <Insets bottom="10.0" />
             </padding>
         </HBox>
+      <Label fx:id="actionNotAllowed" />
         <HBox alignment="CENTER_LEFT" maxHeight="73.0" maxWidth="600.0" prefHeight="31.0" prefWidth="600.0">
             <children>
                 <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="434.0" spacing="15.0">
