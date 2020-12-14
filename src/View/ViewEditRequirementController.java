@@ -30,11 +30,6 @@ public class ViewEditRequirementController
 
   public void reset()
   {
-    /*chooseResponsibleTeamMember.getItems().removeAll(
-        viewHandler.getModelManager().searchProject(
-            viewHandler.getModelManager().getSelectedRequirement().getProjectTitle()
-        ).getTeamMemberList()
-    );*/
     int responsibleTeamMemberIndex = chooseResponsibleTeamMember.getSelectionModel().getSelectedIndex();
     chooseResponsibleTeamMember.getItems().clear();
     chooseResponsibleTeamMember.getItems().addAll(

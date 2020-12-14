@@ -1,6 +1,7 @@
 package View;
 
 import Model.Requirement;
+import Model.TeamMember;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -8,6 +9,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Region;
 
 public class ViewProjectController
@@ -46,11 +48,7 @@ public class ViewProjectController
         viewHandler.getModelManager().getSelectedProject()
             .getResponsibleTeamMember());
 
-    teamMemberList.getItems().removeAll(
-        viewHandler.getModelManager().getSelectedProject().getTeamMemberList());
-    teamMemberList.getItems().addAll(
-        viewHandler.getModelManager().getSelectedProject().getTeamMemberList());
-
+    populateTeamMemberList();
     populateRequirementsTable();
   }
 
@@ -85,10 +83,9 @@ public class ViewProjectController
 
     // Indsæt data i tabellen */
     requirementsTable.getItems().addAll(
-        viewHandler.getModelManager().getSelectedProject().getRequirementsForCurrentUser(
-                viewHandler.getModelManager().getCurrentUser()
-        )
-    );
+        viewHandler.getModelManager().getSelectedProject()
+            .getRequirementsForCurrentUser(
+                viewHandler.getModelManager().getCurrentUser()));
 
     // Fang klik på 'row' og åbn den valgte requirement
     requirementsTable.setOnMousePressed(new EventHandler<>()
@@ -100,6 +97,26 @@ public class ViewProjectController
                 .getSelectedItem());
 
         viewHandler.openView("viewRequirement");
+      }
+    });
+  }
+
+  public void populateTeamMemberList()
+  {
+    teamMemberList.getItems().clear();
+    teamMemberList.getItems().addAll(
+        viewHandler.getModelManager().getSelectedProject().getTeamMemberList());
+    teamMemberList.setOnMousePressed(new EventHandler<MouseEvent>()
+    {
+      @Override public void handle(javafx.scene.input.MouseEvent mouseEvent)
+      {
+        if (teamMemberList.getSelectionModel().getSelectedItem() != null)
+        {
+          viewHandler.getModelManager().setSelectedTeamMember(
+              (TeamMember) teamMemberList.getSelectionModel()
+                  .getSelectedItem());
+          viewHandler.openView("viewTeamMember");
+        }
       }
     });
   }
