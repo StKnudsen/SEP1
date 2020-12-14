@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="174.0" prefWidth="440.0" userData="Colour IT - Opdater tid på task" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ViewTaskUpdateTimeController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="240.0" prefWidth="440.0" userData="Colour IT - Opdater tid på task" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ViewTaskUpdateTimeController">
     <children>
         <Label text="Opdatér tidsforbrug">
             <font>
@@ -32,7 +32,7 @@
             </children>
         </GridPane>
       <Label fx:id="missingInputLabel" />
-        <HBox alignment="BOTTOM_LEFT" maxHeight="248.0" maxWidth="600.0" prefHeight="102.0" prefWidth="419.0">
+        <HBox alignment="BOTTOM_LEFT" maxHeight="248.0" maxWidth="600.0" prefHeight="68.0" prefWidth="420.0">
             <children>
                 <HBox alignment="BOTTOM_LEFT" prefHeight="30.0" prefWidth="290.0" spacing="15.0">
                     <children>

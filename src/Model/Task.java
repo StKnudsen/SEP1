@@ -33,7 +33,13 @@ public class Task extends Job implements Serializable
 
   public void updateTime(TeamMember teamMember, int time)
   {
-
+    for (int i = 0; i < teamMemberList.size(); i++)
+    {
+      if (teamMemberList.get(i).equals(teamMember))
+      {
+        teamMemberList.get(i).updateTime(time);
+      }
+    }
   }
 
   public void registerTime(TeamMember teamMember, int time)
@@ -58,6 +64,14 @@ public class Task extends Job implements Serializable
 
   public ArrayList<TeamMember> getTeamMemberList()
   {
+    ArrayList<TeamMember> teamMemberArrayList = new ArrayList<>();
+
+    for (int i = 0; i < teamMemberList.size(); i++)
+    {
+      teamMemberArrayList.add(teamMemberList.get(i).copy());
+      teamMemberArrayList.get(i).updateTime(teamMemberList.get(i).getTimeSpent());
+    }
+
     return teamMemberList;
   }
 
