@@ -527,4 +527,19 @@ public class ProjectList implements Serializable
       }
     }
   }
+
+  public ArrayList<Project> searchProjectList(String text)
+  {
+    ArrayList<Project> projectArrayList = new ArrayList<>();
+
+    for (Project project : projectList)
+    {
+      if (project.getTitle().contains(text))
+      {
+        projectArrayList.add(project);
+      }
+    }
+
+    return projectArrayList;
+  }
 }

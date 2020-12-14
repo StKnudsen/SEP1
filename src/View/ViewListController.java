@@ -5,6 +5,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Region;
 
@@ -13,6 +14,7 @@ public class ViewListController
   private Region root;
   private ViewHandler viewHandler;
 
+  @FXML private TextField searchProjectTextField;
   @FXML private TableView projectsTable;
   @FXML private TableColumn<String, String> projectsTitle;
 
@@ -37,6 +39,7 @@ public class ViewListController
 
   public void reset()
   {
+    searchProjectTextField.clear();
     populateProjectsTable();
     populateRequirementsTable();
     populateTasksTable();
@@ -80,6 +83,51 @@ public class ViewListController
         }
       }
     });
+  }
+
+  public void searchProjects()
+  {
+    if (!searchProjectTextField.getText().equals(""))
+    {
+      projectsTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
+
+      // nulstil
+      projectsTable.getItems().clear();
+
+      // Indsæt data i tabellen
+      /*projectsTable.getItems().addAll(viewHandler.getModelManager().getProjectsCurrentUser(
+          viewHandler.getModelManager().getCurrentUser()
+      ));*/
+      projectsTable.getItems().addAll(
+        viewHandler.getModelManager().searchProjectList(searchProjectTextField.getText())
+      );
+      System.out.println(viewHandler.getModelManager().searchProject(searchProjectTextField.getText()));
+
+      // Fang klik på 'row' og åben det valgte projekt
+      projectsTable.setOnMousePressed(new EventHandler<>()
+      {
+        @Override public void handle(javafx.scene.input.MouseEvent mouseEvent)
+        {
+          if (!(projectsTable.getSelectionModel().getSelectedItem() == null))
+          {
+            viewHandler.getModelManager().setSelectedProject(
+                (Project) projectsTable.getSelectionModel().getSelectedItem()
+            );
+
+            viewHandler.openView("viewProject");
+          }
+        }
+      });
+
+      searchProjectTextField.clear();
+    }
+
+  }
+
+  public void clearSearchProjects()
+  {
+    searchProjectTextField.clear();
+    populateProjectsTable();
   }
 
   public void populateRequirementsTable()

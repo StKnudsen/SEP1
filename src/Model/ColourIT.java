@@ -399,4 +399,9 @@ public class ColourIT implements Serializable
     projectList.checkIfAllTasksIsDoneForRequirement(project, requirementTitle);
     System.out.println("project: " + project.getTitle());
   }
+
+  public ArrayList<Project> searchProjectList(String text)
+  {
+    return projectList.searchProjectList(text);
+  }
 }

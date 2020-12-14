@@ -16,16 +16,17 @@
                                     <children>
                                         <HBox alignment="CENTER_RIGHT" prefHeight="33.0" prefWidth="580.0">
                                             <children>
-                                                <TextField>
+                                                <TextField fx:id="searchProjectTextField">
                                                     <HBox.margin>
                                                         <Insets bottom="10.0" right="10.0" top="10.0" />
                                                     </HBox.margin>
                                                 </TextField>
-                                                <Button alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" prefWidth="120.0" text="Find Projekt" textAlignment="RIGHT">
+                                                <Button alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#searchProjects" prefWidth="120.0" text="Find Projekt" textAlignment="RIGHT">
                                                     <HBox.margin>
-                                                        <Insets bottom="10.0" top="10.0" />
+                                                        <Insets bottom="10.0" right="10.0" top="10.0" />
                                                     </HBox.margin>
                                                 </Button>
+                                    <Button mnemonicParsing="false" onAction="#clearSearchProjects" text="Nulstil" />
                                             </children>
                                         </HBox>
                                         <TableView fx:id="projectsTable" maxHeight="400.0" maxWidth="600.0" prefHeight="276.0" prefWidth="580.0">
