@@ -48,7 +48,7 @@ public class ViewRequirementController
     if(viewHandler.getModelManager().getSelectedRequirement().getDeadline() != null)
     {
       deadlineLabel.setText(
-          viewHandler.getModelManager().getSelectedRequirement().getDeadline().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT)));
+          viewHandler.getModelManager().getSelectedRequirement().getDeadline().toString());
     }
 
     requirementDescriptionTextFlow.getChildren().clear();

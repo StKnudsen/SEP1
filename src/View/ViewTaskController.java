@@ -51,9 +51,7 @@ public class ViewTaskController
           .setText(viewHandler.getModelManager().getSelectedTask().getStatus());
       if(viewHandler.getModelManager().getSelectedTask().getDeadline() != null)
       {
-        deadlineLabel.setText(
-            viewHandler.getModelManager().getSelectedTask().getDeadline().format(
-                DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT)));
+        deadlineLabel.setText(viewHandler.getModelManager().getSelectedTask().getDeadline().toString());
       }
 
       populateTeamMemberList();

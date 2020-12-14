@@ -190,7 +190,7 @@ public class ColourIT implements Serializable
   }
 
   public void updateTask(Project project, Requirement requirement, Task task,
-      String title, String description, int estimatedTime, LocalDate deadline, TeamMember responsibleTeamMember)
+      String title, String description, int estimatedTime, MyDate deadline, TeamMember responsibleTeamMember)
   {
     projectList.updateTask(project, requirement, task, title, description, estimatedTime
     , deadline, responsibleTeamMember);

@@ -17,6 +17,7 @@ public class FileHandler
     try
     {
       theParser.toXml(projects, "projects.xml");
+      System.out.println(">From FileHandler.java\n\t<Parse toXml finished>");
     }
     catch (ParserException e)
     {
