@@ -6,7 +6,7 @@ public abstract class Job
 {
   int priority;
   String title, projectTitle, description, status;
-  LocalDate deadline;
+  MyDate deadline;
   TeamMember responsibleTeamMember;
 
   // NYT! Nu med responsible Team Member
@@ -64,12 +64,17 @@ public abstract class Job
     return status;
   }
 
-  public void setDeadline(LocalDate deadline)
+  public void setDeadline(MyDate deadline)
   {
-    this.deadline = deadline;
+    this.deadline=deadline;
   }
 
-  public LocalDate getDeadline()
+  public void setDeadline(LocalDate deadline)
+  {
+    this.deadline = new MyDate(deadline);
+  }
+
+  public MyDate getDeadline()
   {
     return deadline;
   }
@@ -83,4 +88,6 @@ public abstract class Job
   {
     return responsibleTeamMember;
   }
+
+
 }

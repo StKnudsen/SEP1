@@ -343,7 +343,7 @@ public class ProjectList implements Serializable
     return tasks;
   }
 
-  public void updateTask(Project project, Requirement requirement, Task task, String title, String description, int estimatedTime, LocalDate deadline, TeamMember responsibleTeamMember)
+  public void updateTask(Project project, Requirement requirement, Task task, String title, String description, int estimatedTime, MyDate deadline, TeamMember responsibleTeamMember)
   {
     for (int i = 0; i < projectList.size(); i++)
     {
