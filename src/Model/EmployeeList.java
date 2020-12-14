@@ -12,14 +12,16 @@ public class EmployeeList implements Serializable
     employeeList = new ArrayList<>();
   }
 
-  public ArrayList searchEmployee(String name)
+  public ArrayList<TeamMember> searchEmployee(String searchName)
   {
     ArrayList<TeamMember> results = new ArrayList<>();
 
     for (int i = 0; i < employeeList.size(); i++)
     {
-      if(name.equalsIgnoreCase(employeeList.get(i).getName()))
+      if(employeeList.get(i).getName().contains(searchName))
+      {
         results.add(employeeList.get(i));
+      }
     }
 
     return results;

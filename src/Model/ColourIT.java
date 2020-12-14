@@ -183,10 +183,9 @@ public class ColourIT implements Serializable
     return employeeList;
   }
 
-  public ArrayList<TeamMember> searchEmployee(String name)
+  public ArrayList<TeamMember> searchEmployee(String searchName)
   {
-    // TODO der foregår et eller andet her
-    return employeeList.searchEmployee(name);
+    return employeeList.searchEmployee(searchName);
   }
 
   public void updateTask(Project project, Requirement requirement, Task task,

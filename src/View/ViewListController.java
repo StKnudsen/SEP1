@@ -30,6 +30,7 @@ public class ViewListController
   @FXML private TableColumn<String, String> tasksTitle;
   @FXML private TableColumn<String, String> tasksStatus;
 
+  @FXML private TextField searchTeamMemberField;
   @FXML private TableView employeeTable;
   @FXML private TableColumn<String, String> employeeName;
 
@@ -273,24 +274,19 @@ public class ViewListController
   public void clearSearchTasks()
   {
     searchTaskTextField.clear();
-    populateTasksTable();;
+    populateTasksTable();
   }
 
   public void populateEmployeeTable()
   {
-    // Hvilke data felter vi vil tilknytte column cellerne
     employeeName.setCellValueFactory(new PropertyValueFactory<>("name"));
 
-
-    // nulstil
     employeeTable.getItems().clear();
 
-    // Indsæt data i tabellen
     employeeTable.getItems().addAll(
       viewHandler.getModelManager().getEmployees()
     );
 
-    // Fang klik på 'row' og åben den valgte requirement
     employeeTable.setOnMousePressed(new EventHandler<>()
     {
       @Override public void handle(javafx.scene.input.MouseEvent mouseEvent)
@@ -305,6 +301,43 @@ public class ViewListController
         }
       }
     });
+  }
+
+  public void searchTeamMembers()
+  {
+    if (!searchTeamMemberField.getText().equals(""))
+    {
+      employeeName.setCellValueFactory(new PropertyValueFactory<>("name"));
+
+      employeeTable.getItems().clear();
+
+      employeeTable.getItems().addAll(
+          viewHandler.getModelManager().searchEmployee(
+              searchTeamMemberField.getText()
+          )
+      );
+
+      employeeTable.setOnMousePressed(new EventHandler<>()
+      {
+        @Override public void handle(javafx.scene.input.MouseEvent mouseEvent)
+        {
+          if (!( employeeTable.getSelectionModel().getSelectedItem() == null))
+          {
+            viewHandler.getModelManager().setSelectedTeamMember(
+                (TeamMember) employeeTable.getSelectionModel().getSelectedItem()
+            );
+
+            viewHandler.openView("viewTeamMember");
+          }
+        }
+      });
+    }
+  }
+
+  public void clearSearchTeamMembers()
+  {
+    searchTeamMemberField.clear();
+    populateEmployeeTable();
   }
 
   public void addProjectButton()
