@@ -51,7 +51,7 @@
                       <Button mnemonicParsing="false" onAction="#changePriority" prefHeight="26.0" prefWidth="122.0" text="NED" GridPane.columnIndex="3" />
                       <Button mnemonicParsing="false" onAction="#changePriority" prefHeight="26.0" prefWidth="131.0" text="TIL TOP" GridPane.columnIndex="4" />
                       <Label text="Prioritering:" />
-                      <Label text="0" GridPane.columnIndex="1" />
+                      <Label fx:id="requirementPriority" text="0" GridPane.columnIndex="1" />
                   </children>
               </GridPane>
               <VBox prefHeight="154.0" prefWidth="579.0">

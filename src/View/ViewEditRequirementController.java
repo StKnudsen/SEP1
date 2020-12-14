@@ -12,6 +12,7 @@ public class ViewEditRequirementController
 {
   @FXML private TextArea requirementDescription;
   @FXML private TextField requirementTitleInput;
+  @FXML private Label requirementPriority;
   @FXML private ChoiceBox chooseResponsibleTeamMember;
   @FXML private ChoiceBox chooseType;
   @FXML private ChoiceBox chooseStatus;
@@ -30,43 +31,26 @@ public class ViewEditRequirementController
 
   public void reset()
   {
-    //int responsibleTeamMemberIndex = chooseResponsibleTeamMember.getSelectionModel().getSelectedIndex();
     chooseResponsibleTeamMember.getItems().clear();
     chooseResponsibleTeamMember.getItems().addAll(
         viewHandler.getModelManager().searchProject(
             viewHandler.getModelManager().getSelectedRequirement().getProjectTitle()
         ).getTeamMemberList()
     );
-    //chooseResponsibleTeamMember.getSelectionModel().select(responsibleTeamMemberIndex);
+
     chooseResponsibleTeamMember.getSelectionModel().select(getResponsibleTeamMemberIndex());
 
-    //int typeIndex = chooseType.getSelectionModel().getSelectedIndex();
     chooseType.getItems().clear();
     chooseType.getItems().addAll(viewHandler.getModelManager().getRequirementTypes());
     chooseType.getSelectionModel().select(getTypeIndex());
 
-    //int statusIndex = chooseStatus.getSelectionModel().getSelectedIndex();
     chooseStatus.getItems().clear();
     chooseStatus.getItems().addAll(viewHandler.getModelManager().getAllStatus());
-    //chooseStatus.getSelectionModel().select(statusIndex);
     chooseStatus.getSelectionModel().select(getStatusIndex());
-
-    /*if(chooseStatus.getValue() != null)
-    {
-      int statusIndex = chooseStatus.getSelectionModel().getSelectedIndex();
-      chooseStatus.getItems().clear();
-      chooseStatus.getItems().addAll(viewHandler.getModelManager().getAllStatus());
-      chooseStatus.getSelectionModel().select(statusIndex);
-    }
-    else
-    {
-      chooseStatus.getItems().clear();
-      chooseStatus.getItems().addAll(viewHandler.getModelManager().getAllStatus());
-      chooseStatus.getSelectionModel().select(0);
-    }*/
 
     requirementDescription.setText(viewHandler.getModelManager().getSelectedRequirement().getDescription());
     requirementTitleInput.setText(viewHandler.getModelManager().getSelectedRequirement().getTitle());
+    requirementPriority.setText(viewHandler.getModelManager().getSelectedRequirement().getPriority());
     missingInputLabel.setText("");
   }
 
