@@ -30,11 +30,12 @@ public class ViewEditRequirementController
 
   public void reset()
   {
-    chooseResponsibleTeamMember.getItems().removeAll(
+    /*chooseResponsibleTeamMember.getItems().removeAll(
         viewHandler.getModelManager().searchProject(
             viewHandler.getModelManager().getSelectedRequirement().getProjectTitle()
         ).getTeamMemberList()
-    );
+    );*/
+    chooseResponsibleTeamMember.getItems().clear();
     chooseResponsibleTeamMember.getItems().addAll(
         viewHandler.getModelManager().searchProject(
             viewHandler.getModelManager().getSelectedRequirement().getProjectTitle()
@@ -67,7 +68,6 @@ public class ViewEditRequirementController
   {
     try
     {
-
       if (!chooseType.getValue().equals("") && !chooseStatus.getValue().equals(""))
       {
         //Hvis titelfelt udfyldes, opdater titel
@@ -75,7 +75,11 @@ public class ViewEditRequirementController
         {
           viewHandler.getModelManager().getSelectedRequirement().setTitle(requirementTitleInput.getText());
         }
-        viewHandler.getModelManager().getSelectedRequirement().setDescription(requirementDescription.getText());
+        if(!requirementDescription.getText().equals(""))
+        {
+          viewHandler.getModelManager().getSelectedRequirement().setDescription(requirementDescription.getText());
+        }
+        //  Type skal være sat
         viewHandler.getModelManager().getSelectedRequirement().setType((String) chooseType.getValue());
         viewHandler.getModelManager().getSelectedRequirement().setDeadline(chooseDeadline.getValue());
         if(chooseResponsibleTeamMember.getValue() != null)
@@ -83,12 +87,16 @@ public class ViewEditRequirementController
           viewHandler.getModelManager().getSelectedRequirement()
               .setResponsibleTeamMember((TeamMember) chooseResponsibleTeamMember.getValue());
         }
-        else
+        /*else
         {
-          viewHandler.getModelManager().getSelectedRequirement().setResponsibleTeamMember((viewHandler.getModelManager().getSelectedRequirement().getResponsibleTeamMember()));
-        }
+          viewHandler.getModelManager().getSelectedRequirement().setResponsibleTeamMember(
+              (viewHandler.getModelManager().getSelectedRequirement().getResponsibleTeamMember())
+          );
+        }*/
+        //  Status skal være sat
         viewHandler.getModelManager().getSelectedRequirement().updateStatus((String) chooseStatus.getValue());
       }
+
       viewHandler.openView("viewList");
     }
     catch (NullPointerException e)
@@ -98,7 +106,7 @@ public class ViewEditRequirementController
     missingInputLabel.setText("Udfyld venligst alt...");
 
     //Kan dette koges ned ved at slå det sammen med koden i try? Altså i stedet for først at sette alting ovenfor og derefter gette dem her... (Se ViewTaskUpdateTimeController for reference)
-      viewHandler.getModelManager().updateRequirement(
+     /* viewHandler.getModelManager().updateRequirement(
           viewHandler.getModelManager().searchProject(
               viewHandler.getModelManager().getSelectedRequirement().getProjectTitle()),
           viewHandler.getModelManager().getSelectedRequirement(),
@@ -106,7 +114,7 @@ public class ViewEditRequirementController
           viewHandler.getModelManager().getSelectedRequirement().getDescription(),
           viewHandler.getModelManager().getSelectedRequirement().getType(),
           viewHandler.getModelManager().getSelectedRequirement().getDeadline(),
-          viewHandler.getModelManager().getSelectedRequirement().getResponsibleTeamMember());
+          viewHandler.getModelManager().getSelectedRequirement().getResponsibleTeamMember()); */
   }
 
   public Region getRoot()
