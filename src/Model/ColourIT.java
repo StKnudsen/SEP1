@@ -4,10 +4,14 @@ import parser.ParserException;
 import parser.XmlJsonParser;
 import java.io.File;
 import java.awt.image.AreaAveragingScaleFilter;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Date;
+import  util.FileHandler;
+
 
 public class ColourIT implements Serializable
 {
@@ -36,6 +40,13 @@ public class ColourIT implements Serializable
     customerList = new CustomerList();
     employeeList = new EmployeeList();
 
+    try{
+      projectList = FileHandler.projectListLoad();
+      customerList = FileHandler.customerListLoad();
+      employeeList = FileHandler.employeeListLoad();
+    }catch (IOException | ClassNotFoundException frick) {
+      frick.printStackTrace();
+    }
     // vi starter også lige en parser, det kan vi godt lide
     theParser = new XmlJsonParser();
 
