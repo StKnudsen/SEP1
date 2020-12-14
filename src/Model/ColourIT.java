@@ -4,11 +4,15 @@ import parser.ParserException;
 import parser.XmlJsonParser;
 import java.io.File;
 import java.awt.image.AreaAveragingScaleFilter;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
+import  util.FileHandler;
+
 
 public class ColourIT implements Serializable
 {
@@ -37,6 +41,13 @@ public class ColourIT implements Serializable
     customerList = new CustomerList();
     employeeList = new EmployeeList();
 
+    try{
+      projectList = FileHandler.projectListLoad();
+      customerList = FileHandler.customerListLoad();
+      employeeList = FileHandler.employeeListLoad();
+    }catch (IOException | ClassNotFoundException frick) {
+      frick.printStackTrace();
+    }
     // vi starter også lige en parser, det kan vi godt lide
     theParser = new XmlJsonParser();
 
@@ -61,18 +72,6 @@ public class ColourIT implements Serializable
       TeamMember projectCreator)
   {
     projectList.createNewProject(title, customer, projectCreator);
-//PARSER TIL XML
-    /*
-    try
-    {
-      File projects = theParser.toXml(projectList.getProjects(), "projects.xml");
-    }
-    catch (ParserException e)
-    {
-      e.printStackTrace();
-      System.out.println("XML parser error");
-    }
-     */
   }
 
   public void addNewTeamMemberToProject(TeamMember teamMember, Project project)
@@ -167,6 +166,21 @@ public class ColourIT implements Serializable
   public ArrayList<Task> searchTask(Project project, Requirement requirement, String title)
   {
     return projectList.searchTask(project, requirement, title);
+  }
+
+  public ProjectList getProjectList()
+  {
+    return projectList;
+  }
+
+  public CustomerList getCustomerList()
+  {
+    return customerList;
+  }
+
+  public EmployeeList getEmployeeList()
+  {
+    return employeeList;
   }
 
   public ArrayList<TeamMember> searchEmployee(String name)
