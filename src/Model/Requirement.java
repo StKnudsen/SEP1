@@ -160,11 +160,7 @@ public class Requirement extends Job implements Serializable
 
     for (Task task : taskList)
     {
-      if (
-        task.getTitle().contains(searchText) &&
-        task.getResponsibleTeamMember().equals(currentUser) ||
-        task.getTeamMemberList().contains(currentUser)
-      )
+      if (task.getTitle().contains(searchText) && task.getTeamMemberList().contains(currentUser))
       {
         taskArrayList.add(task);
       }
