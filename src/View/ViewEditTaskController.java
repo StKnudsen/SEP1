@@ -60,20 +60,28 @@ public class ViewEditTaskController
 
   public void changePriority(ActionEvent actionEvent)
   {
-    viewHandler.getModelManager().prioritizeTask(
-        ((Button) actionEvent.getSource()).getText(),
-        viewHandler.getModelManager().getSelectedTask(),
-        viewHandler.getModelManager().searchProject(
-            viewHandler.getModelManager().getSelectedTask().getProjectTitle()
-        ).searchRequirement(
-            viewHandler.getModelManager().getSelectedTask().getRequirementTitle()
-        ),
-        viewHandler.getModelManager().searchProject(
-            viewHandler.getModelManager().getSelectedTask().getProjectTitle()
-        )
-    );
+    //  Handling mu kun udføres af  scrum master
+    if (viewHandler.getModelManager().getSelectedTask().getResponsibleTeamMember().equals(viewHandler.getModelManager().getCurrentUser()))
+    {
+      viewHandler.getModelManager().prioritizeTask(
+          ((Button) actionEvent.getSource()).getText(),
+          viewHandler.getModelManager().getSelectedTask(),
+          viewHandler.getModelManager().searchProject(
+              viewHandler.getModelManager().getSelectedTask().getProjectTitle()
+          ).searchRequirement(
+              viewHandler.getModelManager().getSelectedTask().getRequirementTitle()
+          ),
+          viewHandler.getModelManager().searchProject(
+              viewHandler.getModelManager().getSelectedTask().getProjectTitle()
+          )
+      );
 
-    viewHandler.openView("viewList");
+      viewHandler.openView("viewList");
+    }
+    else
+    {
+      missingInputLabel.setText("Handlingen må kun udføres af " + viewHandler.getModelManager().getSelectedTask().getResponsibleTeamMember());
+    }
   }
 
   public void updateTask() throws IOException
