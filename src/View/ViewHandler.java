@@ -135,14 +135,21 @@ public class ViewHandler
         viewLoginController = loader.getController();
         viewLoginController.init(this, root);
 
-        FileHandler.save(colourIT.getProjectList());
-        FileHandler.save(colourIT.getEmployeeList());
-        FileHandler.save(colourIT.getCustomerList());
       }
       catch (IOException e)
       {
         e.printStackTrace();
       }
+    }
+    try
+    {
+      FileHandler.save(colourIT.getProjectList());
+      FileHandler.save(colourIT.getEmployeeList());
+      FileHandler.save(colourIT.getCustomerList());
+    }
+    catch (IOException e)
+    {
+      e.printStackTrace();
     }
 
     viewLoginController.reset();
@@ -433,7 +440,8 @@ public class ViewHandler
       try
       {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("ViewProjectAddTeamMember.fxml"));
+        loader.setLocation(
+            getClass().getResource("ViewProjectAddTeamMember.fxml"));
         Region root = loader.load();
         viewProjectAddTeamMemberController = loader.getController();
         viewProjectAddTeamMemberController.init(this, root);
@@ -456,7 +464,8 @@ public class ViewHandler
       try
       {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("ViewTaskAddTeamMember.fxml"));
+        loader
+            .setLocation(getClass().getResource("ViewTaskAddTeamMember.fxml"));
         Region root = loader.load();
         viewTaskAddTeamMemberController = loader.getController();
         viewTaskAddTeamMemberController.init(this, root);

@@ -100,8 +100,12 @@ public class ViewEditRequirementController
         viewHandler.getModelManager().getSelectedRequirement().setDeadline(chooseDeadline.getValue());
         if(chooseResponsibleTeamMember.getValue() != null)
         {
+          // Hvis der er sat tid på en responsible team member, så forsvinder den nok her...
+          TeamMember responsibleTeamMemberValue = (TeamMember) chooseResponsibleTeamMember.getValue();
+
           viewHandler.getModelManager().getSelectedRequirement()
-              .setResponsibleTeamMember((TeamMember) chooseResponsibleTeamMember.getValue());
+              .setResponsibleTeamMember(responsibleTeamMemberValue.copy()
+          );
         }
         /*else
         {

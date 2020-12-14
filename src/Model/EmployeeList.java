@@ -1,8 +1,9 @@
 package Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class EmployeeList
+public class EmployeeList implements Serializable
 {
   private ArrayList<TeamMember> employeeList;
 
