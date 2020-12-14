@@ -45,6 +45,7 @@ public class ViewEditTaskController
         .searchProject(
             viewHandler.getModelManager().getSelectedTask().getProjectTitle())
         .getTeamMemberList());
+    //chooseResponsibleTeamMember.getSelectionModel().select(viewHandler.getModelManager().getSelectedTask().getResponsibleTeamMember());
 
     chooseStatus.getItems()
         .removeAll(viewHandler.getModelManager().getAllStatus());
