@@ -30,10 +30,16 @@ public class ViewEditTaskController
 
   public void reset()
   {
-    taskTitleInput
-        .setText(viewHandler.getModelManager().getSelectedTask().getTitle());
+    taskTitleInput.clear();
+    taskTitleInput.setText(viewHandler.getModelManager().getSelectedTask().getTitle());
+
+    estimatedTimeInput.clear();
+    estimatedTimeInput.setText(viewHandler.getModelManager().getSelectedTask().getEstimatedTime());
+
     taskPriority
         .setText(viewHandler.getModelManager().getSelectedTask().getPriority());
+
+    taskDescription.clear();
     taskDescription.setText(
         viewHandler.getModelManager().getSelectedTask().getDescription());
 
@@ -49,11 +55,6 @@ public class ViewEditTaskController
     chooseStatus.getItems().clear();
     chooseStatus.getItems().addAll(viewHandler.getModelManager().getTaskStatusList());
     chooseStatus.getSelectionModel().select(getStatusIndex());
-
-    taskDescription.setText(
-        viewHandler.getModelManager().getSelectedTask().getDescription());
-    taskTitleInput
-        .setText(viewHandler.getModelManager().getSelectedTask().getTitle());
   }
 
   private int getStatusIndex()
@@ -131,7 +132,7 @@ public class ViewEditTaskController
       }
 
       //  Hvis task er "Ended"
-      if (status.equals(viewHandler.getModelManager().getTaskStatusList()[2]))
+      if (status.equals("Ended"))
       {
         viewHandler.getModelManager().checkIfAllTasksIsDoneForRequirement(
             viewHandler.getModelManager().searchProject(

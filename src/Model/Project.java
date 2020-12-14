@@ -256,21 +256,26 @@ public class Project implements Serializable
 
   public void checkIfAllTasksIsDoneForRequirement(String requirementTitle)
   {
-    for (Requirement requirementElement : requirementList)
+    System.out.println("checkIfAllTasksIsDoneForRequirement()");
+
+    for (int i = 0; i < requirementList.size(); i++)
     {
-      if (requirementElement.getProjectTitle().equals(requirementTitle))
+      if (requirementList.get(i).getTitle().equals(requirementTitle))
       {
         boolean allTasksIsDone = true;
-        for (Task task : requirementElement.getTasks())
+
+        for (int j = 0; j < requirementList.get(i).getTasks().size(); j++)
         {
-          if (!task.getStatus().equals("Ended"))
+          if(!requirementList.get(i).getTasks().get(j).getStatus().equals("Ended"))
           {
-            allTasksIsDone = false;
+            allTasksIsDone = true;
           }
         }
+
         if (allTasksIsDone)
         {
-          requirementElement.updateStatus("Ended");
+          System.out.println("Get me here...");
+          requirementList.get(i).updateStatus("Ended");
         }
       }
     }

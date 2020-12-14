@@ -523,6 +523,7 @@ public class ProjectList implements Serializable
       if (projectElement.equals(project))
       {
         projectElement.checkIfAllTasksIsDoneForRequirement(requirementTitle);
+        System.out.println("requirement: " + requirementTitle);
       }
     }
   }
