@@ -37,25 +37,47 @@ public class ViewEditTaskController
     taskDescription.setText(
         viewHandler.getModelManager().getSelectedTask().getDescription());
 
-    chooseResponsibleTeamMember.getItems().removeAll(
-        viewHandler.getModelManager().searchProject(
-            viewHandler.getModelManager().getSelectedTask().getProjectTitle())
-            .getTeamMemberList());
+    chooseResponsibleTeamMember.getItems().clear();
     chooseResponsibleTeamMember.getItems().addAll(viewHandler.getModelManager()
         .searchProject(
             viewHandler.getModelManager().getSelectedTask().getProjectTitle())
-        .getTeamMemberList());
+        .getTeamMemberList()
+    );
+    chooseResponsibleTeamMember.getSelectionModel().select(getResponsibleTeamMemberIndex());
     //chooseResponsibleTeamMember.getSelectionModel().select(viewHandler.getModelManager().getSelectedTask().getResponsibleTeamMember());
 
-    chooseStatus.getItems()
-        .removeAll(viewHandler.getModelManager().getAllStatus());
-    chooseStatus.getItems()
-        .addAll(viewHandler.getModelManager().getAllStatus());
+    chooseStatus.getItems().clear();
+    chooseStatus.getItems().addAll(viewHandler.getModelManager().getTaskStatusList());
+    chooseStatus.getSelectionModel().select(getStatusIndex());
 
     taskDescription.setText(
         viewHandler.getModelManager().getSelectedTask().getDescription());
     taskTitleInput
         .setText(viewHandler.getModelManager().getSelectedTask().getTitle());
+  }
+
+  private int getStatusIndex()
+  {
+    for (int i = 0; i < viewHandler.getModelManager().getTaskStatusList().length; i++)
+    {
+      if (viewHandler.getModelManager().getTaskStatusList()[i].equals(viewHandler.getModelManager().getSelectedTask().getStatus()))
+      {
+        return i;
+      }
+    }
+    return 0;
+  }
+
+  private int getResponsibleTeamMemberIndex()
+  {
+    for (int i = 0; i < viewHandler.getModelManager().searchProject(viewHandler.getModelManager().getSelectedTask().getProjectTitle()).getTeamMemberList().size(); i++)
+    {
+      if (viewHandler.getModelManager().searchProject(viewHandler.getModelManager().getSelectedTask().getProjectTitle()).getTeamMemberList().get(i).equals(viewHandler.getModelManager().getSelectedTask().getResponsibleTeamMember()))
+      {
+        return i;
+      }
+    }
+    return 0;
   }
 
   public void changePriority(ActionEvent actionEvent)
