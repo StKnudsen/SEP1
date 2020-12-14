@@ -30,19 +30,20 @@ public class ViewEditRequirementController
 
   public void reset()
   {
-    int responsibleTeamMemberIndex = chooseResponsibleTeamMember.getSelectionModel().getSelectedIndex();
+    //int responsibleTeamMemberIndex = chooseResponsibleTeamMember.getSelectionModel().getSelectedIndex();
     chooseResponsibleTeamMember.getItems().clear();
     chooseResponsibleTeamMember.getItems().addAll(
         viewHandler.getModelManager().searchProject(
             viewHandler.getModelManager().getSelectedRequirement().getProjectTitle()
         ).getTeamMemberList()
     );
-    chooseResponsibleTeamMember.getSelectionModel().select(responsibleTeamMemberIndex);
+    //chooseResponsibleTeamMember.getSelectionModel().select(responsibleTeamMemberIndex);
+    chooseResponsibleTeamMember.getSelectionModel().select(getResponsibleTeamMemberIndex());
 
-    int typeIndex = chooseType.getSelectionModel().getSelectedIndex();
+    //int typeIndex = chooseType.getSelectionModel().getSelectedIndex();
     chooseType.getItems().clear();
     chooseType.getItems().addAll(viewHandler.getModelManager().getRequirementTypes());
-    chooseType.getSelectionModel().select(typeIndex);
+    chooseType.getSelectionModel().select(getTypeIndex());
 
     if(chooseStatus.getValue() != null)
     {
@@ -61,6 +62,30 @@ public class ViewEditRequirementController
     requirementDescription.setText(viewHandler.getModelManager().getSelectedRequirement().getDescription());
     requirementTitleInput.setText(viewHandler.getModelManager().getSelectedRequirement().getTitle());
     missingInputLabel.setText("");
+  }
+
+  private int getResponsibleTeamMemberIndex()
+  {
+    for (int i = 0; i < viewHandler.getModelManager().searchProject(viewHandler.getModelManager().getSelectedRequirement().getProjectTitle()).getTeamMemberList().size(); i++)
+    {
+      if (viewHandler.getModelManager().searchProject(viewHandler.getModelManager().getSelectedRequirement().getProjectTitle()).getTeamMemberList().get(i).equals(viewHandler.getModelManager().getSelectedRequirement().getResponsibleTeamMember()))
+      {
+        return i;
+      }
+    }
+    return 0;
+  }
+
+  private int getTypeIndex()
+  {
+    for (int i = 0; i < viewHandler.getModelManager().getRequirementTypes().length; i++)
+    {
+      if (viewHandler.getModelManager().getRequirementTypes()[i].equals(viewHandler.getModelManager().getSelectedRequirement().getType()))
+      {
+        return i;
+      }
+    }
+    return 0;
   }
 
   public void changePriority(ActionEvent actionEvent)

@@ -30,7 +30,6 @@
         </SOURCES>
       </library>
     </orderEntry>
-    <orderEntry type="library" name="lib" level="application" />
     <orderEntry type="module-library">
       <library>
         <CLASSES>
@@ -44,5 +43,6 @@
         <jarDirectory url="file://D:/JavaFX/javafx-sdk-11.0.2/lib" recursive="false" type="SOURCES" />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="lib" level="project" />
   </component>
 </module>

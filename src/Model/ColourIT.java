@@ -277,7 +277,9 @@ public class ColourIT implements Serializable
     this.createNewProject("Colour IT PMS", customer2, teamMember2);
     //  Tilføj Team Members
     this.addNewTeamMemberToProject(teamMember2, projectList.searchProject("Best Project ever!"));
+    this.addNewTeamMemberToProject(teamMember1, projectList.searchProject("Best Project ever!"));
     this.addNewTeamMemberToProject(teamMember1, projectList.searchProject("Colour IT PMS"));
+    this.addNewTeamMemberToProject(teamMember2, projectList.searchProject("Colour IT PMS"));
 
     //  Nogle requirements
     // To til projekt 1
