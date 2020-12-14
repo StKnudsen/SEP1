@@ -13,18 +13,13 @@ public class FileHandler
   // En metode der gemmer vores projektliste til en XML, som kan loades ind på hjemmesiden.
   public static void saveXML(ProjectList projects)
   {
-
-    //TODO
-
     XmlJsonParser theParser = new XmlJsonParser();
-    File XMLfile;
     try
     {
-      XMLfile = theParser.toXml(projects.getProjects(), "projects.xml");
+      theParser.toXml(projects.getProjects(), "projects.xml");
     }
     catch (ParserException e)
     {
-      System.out.println("XML parser error");
       e.printStackTrace();
     }
   }
