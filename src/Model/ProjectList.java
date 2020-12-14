@@ -1,6 +1,7 @@
 package Model;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -287,7 +288,7 @@ public class ProjectList implements Serializable
 
   public void updateRequirement(Project project, Requirement requirement,
       String title, String description, String type,
-      Date deadline, TeamMember responsibleTeamMember)
+      LocalDate deadline, TeamMember responsibleTeamMember)
   {
     for (int i = 0; i < projectList.size(); i++)
     {
@@ -342,7 +343,7 @@ public class ProjectList implements Serializable
     return tasks;
   }
 
-  public void updateTask(Project project, Requirement requirement, Task task, String title, String description, int estimatedTime, Date deadline, TeamMember responsibleTeamMember)
+  public void updateTask(Project project, Requirement requirement, Task task, String title, String description, int estimatedTime, LocalDate deadline, TeamMember responsibleTeamMember)
   {
     for (int i = 0; i < projectList.size(); i++)
     {

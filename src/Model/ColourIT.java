@@ -6,6 +6,7 @@ import java.io.File;
 import java.awt.image.AreaAveragingScaleFilter;
 import java.io.Serializable;
 import java.lang.reflect.Array;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -178,7 +179,7 @@ public class ColourIT implements Serializable
 
   public void updateRequirement(Project project, Requirement requirement,
       String title, String description, String type,
-      Date deadline, TeamMember responsibleTeamMember)
+      LocalDate deadline, TeamMember responsibleTeamMember)
   {
     projectList.updateRequirement(project, requirement, title, description, type, deadline, responsibleTeamMember);
   }
@@ -195,7 +196,7 @@ public class ColourIT implements Serializable
   }
 
   public void updateTask(Project project, Requirement requirement, Task task,
-      String title, String description, int estimatedTime, Date deadline, TeamMember responsibleTeamMember)
+      String title, String description, int estimatedTime, LocalDate deadline, TeamMember responsibleTeamMember)
   {
     projectList.updateTask(project, requirement, task, title, description, estimatedTime
     , deadline, responsibleTeamMember);
