@@ -19,7 +19,6 @@ public class Project implements Serializable
     this.projectCreator = projectCreator;
 
     teamMemberList = new ArrayList<>();
-    teamMemberList.add(projectCreator);
     requirementList = new ArrayList<>();
   }
 
