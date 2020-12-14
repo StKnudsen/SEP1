@@ -99,9 +99,11 @@ public class ViewListController
           viewHandler.getModelManager().getCurrentUser()
       ));*/
       projectsTable.getItems().addAll(
-        viewHandler.getModelManager().searchProjectList(searchProjectTextField.getText())
+        viewHandler.getModelManager().searchProjectList(
+            searchProjectTextField.getText(),
+            viewHandler.getModelManager().getCurrentUser()
+          )
       );
-      System.out.println(viewHandler.getModelManager().searchProject(searchProjectTextField.getText()));
 
       // Fang klik på 'row' og åben det valgte projekt
       projectsTable.setOnMousePressed(new EventHandler<>()

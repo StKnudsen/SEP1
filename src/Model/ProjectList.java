@@ -528,13 +528,13 @@ public class ProjectList implements Serializable
     }
   }
 
-  public ArrayList<Project> searchProjectList(String text)
+  public ArrayList<Project> searchProjectList(String text, TeamMember teamMember)
   {
     ArrayList<Project> projectArrayList = new ArrayList<>();
 
     for (Project project : projectList)
     {
-      if (project.getTitle().contains(text))
+      if (project.getTitle().contains(text) && project.getResponsibleTeamMember().equals(teamMember.getName()))
       {
         projectArrayList.add(project);
       }
