@@ -11,6 +11,10 @@ import javafx.scene.layout.Region;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
+
 public class ViewRequirementController
 {
   @FXML private Label projectTitle;
@@ -18,6 +22,7 @@ public class ViewRequirementController
   @FXML private Label responsibleTeamMember;
   @FXML private Label requirementType;
   @FXML private Label requirementStatus;
+  @FXML private Label deadlineLabel;
   @FXML private TextFlow requirementDescriptionTextFlow;
 
   @FXML private TableView taskTable;
@@ -40,8 +45,13 @@ public class ViewRequirementController
     responsibleTeamMember.setText(viewHandler.getModelManager().getSelectedRequirement().getResponsibleTeamMember().getName());
     requirementType.setText(viewHandler.getModelManager().getSelectedRequirement().getType());
     requirementStatus.setText(viewHandler.getModelManager().getSelectedRequirement().getStatus());
+    if(viewHandler.getModelManager().getSelectedRequirement().getDeadline() != null)
+    {
+      deadlineLabel.setText(
+          viewHandler.getModelManager().getSelectedRequirement().getDeadline().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT)));
+    }
 
-    requirementDescriptionTextFlow.getChildren().addAll(new Text(viewHandler.getModelManager().getRequirementDescription()));
+    requirementDescriptionTextFlow.getChildren().addAll(new Text(viewHandler.getModelManager().getSelectedRequirement().getDescription()));
 
     populateTaskTable();
   }

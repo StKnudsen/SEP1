@@ -1,12 +1,12 @@
 package Model;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public abstract class Job
 {
   int priority;
   String title, projectTitle, description, status;
-  Date deadline;
+  LocalDate deadline;
   TeamMember responsibleTeamMember;
 
   // NYT! Nu med responsible Team Member
@@ -64,12 +64,12 @@ public abstract class Job
     return status;
   }
 
-  public void setDeadline(Date deadline)
+  public void setDeadline(LocalDate deadline)
   {
     this.deadline = deadline;
   }
 
-  public Date getDeadline()
+  public LocalDate getDeadline()
   {
     return deadline;
   }

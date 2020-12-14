@@ -8,6 +8,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.Serializable;
 import java.lang.reflect.Array;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import  util.FileHandler;
@@ -55,26 +56,6 @@ public class ColourIT implements Serializable
      *  så skal data vel indlæses her ;)
      */
     settetTest(); // Vores dummy data
-  }
-
-  public String getTaskDescription()
-  {
-    return taskDescription;
-  }
-
-  public void setTaskDescription(String taskDescription)
-  {
-    this.taskDescription = taskDescription;
-  }
-
-  public String getRequirementDescription()
-  {
-    return requirementDescription;
-  }
-
-  public void setRequirementDescription(String requirementDescription)
-  {
-    this.requirementDescription = requirementDescription;
   }
 
   public TeamMember getCurrentUser()
@@ -177,7 +158,7 @@ public class ColourIT implements Serializable
 
   public void updateRequirement(Project project, Requirement requirement,
       String title, String description, String type,
-      Date deadline, TeamMember responsibleTeamMember)
+      LocalDate deadline, TeamMember responsibleTeamMember)
   {
     projectList.updateRequirement(project, requirement, title, description, type, deadline, responsibleTeamMember);
   }
@@ -209,7 +190,7 @@ public class ColourIT implements Serializable
   }
 
   public void updateTask(Project project, Requirement requirement, Task task,
-      String title, String description, int estimatedTime, Date deadline, TeamMember responsibleTeamMember)
+      String title, String description, int estimatedTime, LocalDate deadline, TeamMember responsibleTeamMember)
   {
     projectList.updateTask(project, requirement, task, title, description, estimatedTime
     , deadline, responsibleTeamMember);

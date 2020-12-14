@@ -9,7 +9,7 @@
     <children>
         <HBox alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" prefHeight="50.0" prefWidth="723.0">
             <children>
-                <HBox alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="303.0">
+                <HBox alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="298.0">
                     <children>
                   <Label prefHeight="22.0" prefWidth="55.0" text="Projekt: ">
                      <font>
@@ -30,6 +30,18 @@
                     <HBox.margin>
                         <Insets />
                     </HBox.margin>
+               <children>
+                  <Label text="Deadline: ">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="deadlineLabel" text="00/00/00">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+               </children>
                 </HBox>
             </children>
             <padding>

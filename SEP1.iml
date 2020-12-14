@@ -19,7 +19,6 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="XmlJsonParser-1.4" level="project" />
-    <orderEntry type="library" name="lib" level="project" />
     <orderEntry type="module-library">
       <library>
         <CLASSES>
@@ -31,5 +30,6 @@
         </SOURCES>
       </library>
     </orderEntry>
+    <orderEntry type="library" name="lib" level="project" />
   </component>
 </module>
