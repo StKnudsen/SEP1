@@ -16,7 +16,7 @@ public class FileHandler
     XmlJsonParser theParser = new XmlJsonParser();
     try
     {
-      theParser.toXml(projects.getProjects(), "projects.xml");
+      theParser.toXml(projects, "projects.xml");
     }
     catch (ParserException e)
     {
