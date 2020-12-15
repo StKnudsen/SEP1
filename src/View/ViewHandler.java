@@ -120,6 +120,7 @@ public class ViewHandler
     FileHandler.save(colourIT.getProjectList());
     FileHandler.save(colourIT.getEmployeeList());
     FileHandler.save(colourIT.getCustomerList());
+    FileHandler.saveXML(getModelManager().getProjectList());
     primaryStage.close();
   }
 

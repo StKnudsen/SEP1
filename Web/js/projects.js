@@ -19,7 +19,7 @@ function xmlFunction(xml) {
   for (i = 0; i < x.length; i++) {
     var titles = x[i].getElementsByTagName(
       "title")[0].childNodes[0].nodeValue;
-    table += "<tr><td>" + titles + "</td></tr>";
+    table += "<tr><td>" + titles + "</td><td><a href='projekt.html?projekt=" + i + "'>Link</a></td></tr>";
   }
   document.getElementById("projects").innerHTML = table;
 }
