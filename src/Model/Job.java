@@ -4,19 +4,17 @@ import java.time.LocalDate;
 
 public abstract class Job
 {
+  String title, projectTitle, description, status = "Not Started";
   int priority;
-  String title, projectTitle, description, status;
   MyDate deadline;
   TeamMember responsibleTeamMember;
 
-  // NYT! Nu med responsible Team Member
   public Job(String title, String projectTitle, TeamMember responsibleTeamMember, int priority)
   {
     this.title = title;
     this.projectTitle = projectTitle;
     this.responsibleTeamMember = responsibleTeamMember;
     this.priority = priority;
-    this.status = "Not Started";
   }
 
   public void setTitle(String title)
@@ -44,10 +42,11 @@ public abstract class Job
     return description;
   }
 
+  /*
   public void setPriority(int priority)
   {
     this.priority = priority;
-  }
+  } */
 
   public String getPriority()
   {
@@ -66,8 +65,9 @@ public abstract class Job
 
   public void setDeadline(MyDate deadline)
   {
-    this.deadline=deadline;
+    this.deadline = deadline;
   }
+
 
   public void setDeadline(LocalDate deadline)
   {
@@ -88,6 +88,4 @@ public abstract class Job
   {
     return responsibleTeamMember;
   }
-
-
 }

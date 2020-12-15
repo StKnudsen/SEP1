@@ -68,8 +68,7 @@ public class ColourIT implements Serializable
     this.currentUser = currentUser;
   }
 
-  public void createNewProject(String title, Customer customer,
-      TeamMember projectCreator)
+  public void createNewProject(String title, Customer customer, TeamMember projectCreator)
   {
     projectList.createNewProject(title, customer, projectCreator);
   }
@@ -84,13 +83,6 @@ public class ColourIT implements Serializable
     projectList.addRequirement(project, requirement);
   }
 
-  /*
-  public void addTask(Project project, Requirement requirement, Task task)
-  {
-    projectList.addTask(project, requirement, task);
-  } */
-
-  // Ny udgave med responsible team member...
   public void addTask(Project project, Requirement requirement, String taskTitle, TeamMember responsibleTeamMember)
   {
     projectList.addTask(project, requirement, taskTitle, responsibleTeamMember);
@@ -133,11 +125,14 @@ public class ColourIT implements Serializable
 
   // TODO getAllTasks(TeamMember teamMember)
 
+  /*
   public void registerTime(TeamMember teamMember, Task task, int time)
   {
     // TODO projectList.registerTime(teamMember, task, time);
     teamMember.registerTime(time);
   }
+  */
+
 
   public  void updateTime(TeamMember teamMember, Task task, int time)
   {
@@ -183,10 +178,9 @@ public class ColourIT implements Serializable
     return employeeList;
   }
 
-  public ArrayList<TeamMember> searchEmployee(String name)
+  public ArrayList<TeamMember> searchEmployee(String searchName)
   {
-    // TODO der foregår et eller andet her
-    return employeeList.searchEmployee(name);
+    return employeeList.searchEmployee(searchName);
   }
 
   public void updateTask(Project project, Requirement requirement, Task task,
@@ -252,6 +246,85 @@ public class ColourIT implements Serializable
   public ArrayList<TeamMember> getEmployees()
   {
     return employeeList.getEmployees();
+  }
+
+  public void addRequirement(String title, String type, String projectTitle,
+      TeamMember teamMember)
+  {
+    projectList.addRequirement(title, type, projectTitle, teamMember);
+  }
+
+  public void addNewTeamMember(TeamMember newTeamMember)
+  {
+    employeeList.addEmployee(newTeamMember);
+  }
+
+  public void addNewCustomer(Customer customer)
+  {
+    customerList.addCustomer(customer);
+  }
+
+  public ArrayList<Customer> getCustomers()
+  {
+    return customerList.getCustomers();
+  }
+
+  public String[] getRequirementTypes()
+  {
+    return typeList;
+  }
+
+  public String[] getAllStatus() {return statusList;}
+
+  public String[] getTaskStatusList()
+  {
+    return taskStatusList;
+  }
+
+  public ArrayList<Project> getProjectsCurrentUser(TeamMember currentUser)
+  {
+    return projectList.getProjectsCurrentUser(currentUser);
+  }
+
+  public ArrayList<Requirement> getAllRequirementsCurrentUser(TeamMember currentUser)
+  {
+    return projectList.getAllRequirementsCurrentUser(currentUser);
+  }
+
+  public ArrayList<Task> getAllTeamMemberTasks(TeamMember currentUser)
+  {
+    return projectList.getAllTeamMemberTasks(currentUser);
+  }
+
+  public String getTimeSpentForTeamMember(TeamMember selectedTeamMember)
+  {
+    return projectList.getTimeSpentForTeamMember(selectedTeamMember);
+  }
+
+  public ArrayList<Project> getTeamMemberProjects(TeamMember selectedTeamMember)
+  {
+    return projectList.getTeamMemberProjects(selectedTeamMember);
+  }
+
+  public void checkIfAllTasksIsDoneForRequirement(Project project, String requirementTitle)
+  {
+    projectList.checkIfAllTasksIsDoneForRequirement(project, requirementTitle);
+    System.out.println("project: " + project.getTitle());
+  }
+
+  public ArrayList<Project> searchProjectList(String searchText, TeamMember teamMember)
+  {
+    return projectList.searchProjectList(searchText, teamMember);
+  }
+
+  public ArrayList<Requirement> searchRequirementList(String searchText, TeamMember currentUser)
+  {
+    return projectList.searchRequirementList(searchText, currentUser);
+  }
+
+  public ArrayList<Task> searchTaskField(String searchText, TeamMember currentUser)
+  {
+    return projectList.searchTaskList(searchText, currentUser);
   }
 
 
@@ -334,84 +407,5 @@ public class ColourIT implements Serializable
         projectList.getProjects().get(1).getRequirementList().get(1),
         "Find a rainbow coloured crayon! YAY.. YOU WIN!", teamMember2
     );
-  }
-
-  public void addRequirement(String title, String type, String projectTitle,
-      TeamMember teamMember)
-  {
-    projectList.addRequirement(title, type, projectTitle, teamMember);
-  }
-
-  public void addNewTeamMember(TeamMember newTeamMember)
-  {
-    employeeList.addEmployee(newTeamMember);
-  }
-
-  public void addNewCustomer(Customer customer)
-  {
-    customerList.addCustomer(customer);
-  }
-
-  public ArrayList<Customer> getCustomers()
-  {
-    return customerList.getCustomers();
-  }
-
-  public String[] getRequirementTypes()
-  {
-    return typeList;
-  }
-
-  public String[] getAllStatus() {return statusList;}
-
-  public String[] getTaskStatusList()
-  {
-    return taskStatusList;
-  }
-
-  public ArrayList<Project> getProjectsCurrentUser(TeamMember currentUser)
-  {
-    return projectList.getProjectsCurrentUser(currentUser);
-  }
-
-  public ArrayList<Requirement> getAllRequirementsCurrentUser(TeamMember currentUser)
-  {
-    return projectList.getAllRequirementsCurrentUser(currentUser);
-  }
-
-  public ArrayList<Task> getAllTeamMemberTasks(TeamMember currentUser)
-  {
-    return projectList.getAllTeamMemberTasks(currentUser);
-  }
-
-  public String getTimeSpentForTeamMember(TeamMember selectedTeamMember)
-  {
-    return projectList.getTimeSpentForTeamMember(selectedTeamMember);
-  }
-
-  public ArrayList<Project> getTeamMemberProjects(TeamMember selectedTeamMember)
-  {
-    return projectList.getTeamMemberProjects(selectedTeamMember);
-  }
-
-  public void checkIfAllTasksIsDoneForRequirement(Project project, String requirementTitle)
-  {
-    projectList.checkIfAllTasksIsDoneForRequirement(project, requirementTitle);
-    System.out.println("project: " + project.getTitle());
-  }
-
-  public ArrayList<Project> searchProjectList(String searchText, TeamMember teamMember)
-  {
-    return projectList.searchProjectList(searchText, teamMember);
-  }
-
-  public ArrayList<Requirement> searchRequirementList(String searchText, TeamMember currentUser)
-  {
-    return projectList.searchRequirementList(searchText, currentUser);
-  }
-
-  public ArrayList<Task> searchTaskField(String searchText, TeamMember currentUser)
-  {
-    return projectList.searchTaskList(searchText, currentUser);
   }
 }

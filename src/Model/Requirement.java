@@ -24,6 +24,16 @@ public class Requirement extends Job implements Serializable
     this.taskList = taskList;
   }
 
+  public void setType(String type)
+  {
+    this.type = type;
+  }
+
+  public String getType()
+  {
+    return type;
+  }
+
   public void addTask(String taskTitle, String requirementTitle, String projectTitle, TeamMember responsibleTeamMember)
   {
     Task newTask = new Task(
@@ -37,54 +47,15 @@ public class Requirement extends Job implements Serializable
     return taskList;
   }
 
-  public boolean equals(Object obj)
+  public void addTeamMemberToTask(Task task, TeamMember teamMember)
   {
-    if (!(obj instanceof Requirement))
+    for (Task taskElement : taskList)
     {
-      return false;
+      if (taskElement.equals(task))
+      {
+        taskElement.addTeamMember(teamMember.copy());
+      }
     }
-    Requirement other = (Requirement) obj;
-    return title.equals(other.getTitle()) && status.equals(other.status) && type.equals(other.type);
-  }
-
-  public void setType(String type)
-  {
-    this.type = type;
-  }
-
-  public String getType()
-  {
-    return type;
-  }
-
-  public void resortTasks()
-  {
-    ArrayList<Task> oldTaskList = copyTaskList();
-
-    taskList.clear();
-
-    for (int i = 0; i < oldTaskList.size(); i++)
-    {
-      taskList.add(i,
-          new Task(
-              oldTaskList.get(i).getTitle(),
-              oldTaskList.get(i).getRequirementTitle(),
-              oldTaskList.get(i).getProjectTitle(),
-              oldTaskList.get(i).getResponsibleTeamMember(),
-              i+1,
-              oldTaskList.get(i).getTeamMemberList()
-          )
-      );
-    }
-  }
-
-  private ArrayList<Task> copyTaskList()
-  {
-    ArrayList<Task> copy = new ArrayList<>();
-
-    copy.addAll(taskList);
-
-    return copy;
   }
 
   public ArrayList<Task> getTeamMemberTasks(TeamMember teamMember)
@@ -100,17 +71,6 @@ public class Requirement extends Job implements Serializable
     }
 
     return teamMemberTask;
-  }
-
-  public void addTeamMemberToTask(Task task, TeamMember teamMember)
-  {
-    for (Task taskElement : taskList)
-    {
-      if (taskElement.equals(task))
-      {
-        taskElement.addTeamMember(teamMember);
-      }
-    }
   }
 
   public void prioritize(Task task, String value)
@@ -167,5 +127,45 @@ public class Requirement extends Job implements Serializable
     }
 
     return taskArrayList;
+  }
+
+  public void resortTasks()
+  {
+    ArrayList<Task> oldTaskList = copyTaskList();
+
+    taskList.clear();
+
+    for (int i = 0; i < oldTaskList.size(); i++)
+    {
+      taskList.add(i,
+          new Task(
+              oldTaskList.get(i).getTitle(),
+              oldTaskList.get(i).getRequirementTitle(),
+              oldTaskList.get(i).getProjectTitle(),
+              oldTaskList.get(i).getResponsibleTeamMember(),
+              i+1,
+              oldTaskList.get(i).getTeamMemberList()
+          )
+      );
+    }
+  }
+
+  private ArrayList<Task> copyTaskList()
+  {
+    ArrayList<Task> copy = new ArrayList<>();
+
+    copy.addAll(taskList);
+
+    return copy;
+  }
+
+  public boolean equals(Object obj)
+  {
+    if (!(obj instanceof Requirement))
+    {
+      return false;
+    }
+    Requirement other = (Requirement) obj;
+    return title.equals(other.getTitle()) && status.equals(other.status) && type.equals(other.type);
   }
 }

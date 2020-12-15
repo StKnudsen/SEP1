@@ -17,6 +17,12 @@ public class CustomerList implements Serializable
     customerList.add(customer);
   }
 
+  public ArrayList<Customer> getCustomers()
+  {
+    return customerList;
+  }
+
+  /*
   public Customer getCustomer(Customer customer)
   {
     for (int i = 0; i < customerList.size(); i++)
@@ -25,10 +31,5 @@ public class CustomerList implements Serializable
         return customer;
     }
     return null;
-  }
-
-  public ArrayList<Customer> getCustomers()
-  {
-    return customerList;
-  }
+  }*/
 }

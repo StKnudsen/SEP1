@@ -83,28 +83,6 @@ public class ProjectList implements Serializable
     }
   }
 
-
-  /*public void addTeamMemberToTask(Project project, Requirement requirement, Task task, TeamMember teamMember)
-  {
-    for (int i = 0; i < projectList.size(); i++)
-    {
-      for (int j = 0; j < projectList.get(i).getRequirementList().size(); j++)
-      {
-        for (int k = 0;
-             k < projectList.get(i).getRequirementList().get(j).getTasks()
-                 .size(); k++)
-        {
-          if (projectList.get(i).getRequirementList().get(j).getTasks().get(k)
-              .equals(task))
-          {
-            projectList.get(i).getRequirementList().get(j).getTasks().get(k)
-                .addTeamMember(teamMember.copy());
-          }
-        }
-      }
-    }
-  }*/
-
   public void addTeamMemberToTask(Project project, Requirement requirement, Task task, TeamMember teamMember)
   {
     for (Project projectElement : projectList)
@@ -137,56 +115,6 @@ public class ProjectList implements Serializable
 
       }
     }
-    /*
-    for (Project item : projectList)
-    {
-      if (item.equals(project))
-      {
-        for (int j = 0; j < item.getRequirementList().size(); j++)
-        {
-          if (item.getRequirementList().get(j).equals(requirement))
-          {
-            for (int k = 0;
-                 k < item.getRequirementList().get(j).getTasks().size(); k++)
-            {
-              if (item.getRequirementList().get(j).getTasks().get(k).equals(task))
-              {
-                int taskPriority = Integer.parseInt(item.getRequirementList().get(j).getTasks().get(k).getPriority());
-                int taskAmount = item.getRequirementList().get(j).getTasks().size();
-
-                if (value.equals("OP") && taskPriority > 1)
-                {
-                  item.getRequirementList().get(j).getTasks().add(taskPriority - 2, item.getRequirementList().get(j).getTasks().remove(taskPriority - 1));
-                  item.getRequirementList().get(j).resortTasks();
-                }
-
-                if (value.equals("NED") && taskPriority < taskAmount)
-                {
-                  item.getRequirementList().get(j).getTasks().add(taskPriority, item.getRequirementList().get(j).getTasks().remove(taskPriority - 1));
-                  item.getRequirementList().get(j).resortTasks();
-                  for (int i = 0; i < item.getRequirementList().get(j).getTasks().size(); i++)
-                  {
-                    System.out.println(item.getRequirementList().get(j).getTasks().get(i).getTitle());
-                  }
-                }
-
-                if (value.equals("TIL TOP") && taskPriority != 1)
-                {
-                  item.getRequirementList().get(j).getTasks().add(0, item.getRequirementList().get(j).getTasks().remove(taskPriority - 1));
-                  item.getRequirementList().get(j).resortTasks();
-                }
-
-                if (value.equals("TIL BUND") && taskPriority != taskAmount)
-                {
-                  item.getRequirementList().get(j).getTasks().add(taskAmount - 1, item.getRequirementList().get(j).getTasks().remove(taskPriority - 1));
-                  item.getRequirementList().get(j).resortTasks();
-                }
-              }
-            }
-          }
-        }
-      }
-    } */
   }
 
   public void approveRequirement(Project project, Requirement requirement,
@@ -434,15 +362,18 @@ public class ProjectList implements Serializable
       {
         for (int k = 0; k < projectList.get(i).getRequirementList().get(j).getTasks().size(); k++)
         {
-          //  Hvis currentUser er responsibleTeamMember
-          if (projectList.get(i).getRequirementList().get(j).getTasks().get(k).getResponsibleTeamMember().equals(currentUser))
+          if (!projectList.get(i).getRequirementList().get(j).getStatus().equals("Approved"))
           {
-            allTeamMemberTasks.add(projectList.get(i).getRequirementList().get(j).getTasks().get(k));
-          }
-          //  Hvis currentUser er team member ud over responsibleTeamMember
-          else if (projectList.get(i).getRequirementList().get(j).getTasks().get(k).getTeamMemberList().contains(currentUser))
-          {
-            allTeamMemberTasks.add(projectList.get(i).getRequirementList().get(j).getTasks().get(k));
+            //  Hvis currentUser er responsibleTeamMember
+            if (projectList.get(i).getRequirementList().get(j).getTasks().get(k).getResponsibleTeamMember().equals(currentUser))
+            {
+              allTeamMemberTasks.add(projectList.get(i).getRequirementList().get(j).getTasks().get(k));
+            }
+            //  Hvis currentUser er team member ud over responsibleTeamMember
+            else if (projectList.get(i).getRequirementList().get(j).getTasks().get(k).getTeamMemberList().contains(currentUser))
+            {
+              allTeamMemberTasks.add(projectList.get(i).getRequirementList().get(j).getTasks().get(k));
+            }
           }
         }
       }
