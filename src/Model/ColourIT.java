@@ -52,7 +52,7 @@ public class ColourIT implements Serializable
      *  Når vi har lavet persist data med filer
      *  så skal data vel indlæses her ;)
      */
-    settetTest(); // Vores dummy data
+    //settetTest(); // Vores dummy data
   }
 
   public void setCurrentUser(TeamMember currentUser)

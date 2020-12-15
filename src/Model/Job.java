@@ -42,12 +42,6 @@ public abstract class Job
     return description;
   }
 
-  /*
-  public void setPriority(int priority)
-  {
-    this.priority = priority;
-  } */
-
   public String getPriority()
   {
     return Integer.toString(priority);

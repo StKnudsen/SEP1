@@ -50,13 +50,4 @@ public class TeamMember implements Serializable
     return name;
   }
 
-  /*
-  //Team member kan lægge timer til
-  public void registerTime(int time)
-  {
-    if(time > 0)
-    {
-      timeSpentOnTask += time;
-    }
-  }*/
 }
