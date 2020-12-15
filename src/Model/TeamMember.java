@@ -19,7 +19,10 @@ public class TeamMember implements Serializable
 
   public void updateTime(int time)
   {
-    timeSpentOnTask += time;
+    if ((timeSpentOnTask + time) >= 0)
+    {
+      timeSpentOnTask += time;
+    }
   }
 
   public int getTimeSpent()

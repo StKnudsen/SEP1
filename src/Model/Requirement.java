@@ -1,15 +1,18 @@
 package Model;
 
-import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collection;
 
-public class Requirement extends Job implements Serializable
+public class Requirement extends Job
 {
   private String type;
   private ArrayList<Task> taskList;
 
-
+  public Requirement(String title, String projectTitle, String type, TeamMember responsibleTeamMember, int priority)
+  {
+    super(title, projectTitle, responsibleTeamMember, priority);
+    this.type = type;
+    taskList = new ArrayList<>();
+  }
 
   //  Bliver brugt i Project.resort()
   public Requirement(String title, String projectTitle, String type, TeamMember responsibleTeamMember, int priority, ArrayList<Task> taskList)
@@ -17,13 +20,6 @@ public class Requirement extends Job implements Serializable
     super(title, projectTitle, responsibleTeamMember, priority);
     this.type = type;
     this.taskList = taskList;
-  }
-
-  public Requirement(String title, String projectTitle, String type, TeamMember responsibleTeamMember, int priority)
-  {
-    super(title, projectTitle, responsibleTeamMember, priority);
-    this.type = type;
-    taskList = new ArrayList<>();
   }
 
   public void setType(String type)
