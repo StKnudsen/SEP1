@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="492.0" prefWidth="600.0" userData="Colour IT - Se projekt" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ViewProjectController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="600.0" userData="Colour IT - Se projekt" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ViewProjectController">
     <children>
         <HBox alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" prefHeight="50.0" prefWidth="723.0">
             <children>
@@ -86,22 +86,12 @@
                 </HBox>
             </children>
         </HBox>
-        <VBox prefHeight="84.0" prefWidth="579.0">
-            <children>
-                <Label text="Beskrivelse:">
-                    <padding>
-                        <Insets bottom="10.0" right="10.0" top="10.0" />
-                    </padding>
-                </Label>
-                <TextFlow prefHeight="51.0" prefWidth="579.0" />
-            </children>
-        </VBox>
         <HBox prefHeight="100.0" prefWidth="200.0">
             <children>
-                <VBox prefHeight="119.0" prefWidth="580.0">
+                <VBox prefHeight="123.0" prefWidth="580.0">
                     <children>
                         <Label text="Team members" />
-                        <ListView fx:id="teamMemberList" maxWidth="1.7976931348623157E308" prefHeight="110.0" prefWidth="579.0">
+                        <ListView fx:id="teamMemberList" maxWidth="1.7976931348623157E308" prefHeight="110.0" prefWidth="580.0">
                             <VBox.margin>
                                 <Insets />
                             </VBox.margin>
@@ -113,7 +103,7 @@
                 <Insets bottom="10.0" />
             </padding>
         </HBox>
-        <TableView fx:id="requirementsTable" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="110.0" prefWidth="0.0">
+        <TableView fx:id="requirementsTable" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="580.0">
             <columns>
                 <TableColumn fx:id="prioritering" minWidth="0.0" prefWidth="94.39998948574066" text="Prioritering" />
                 <TableColumn fx:id="requirementTitle" prefWidth="512.8000106811523" text="Requirement title" />

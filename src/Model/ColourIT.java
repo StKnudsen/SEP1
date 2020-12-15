@@ -1,39 +1,37 @@
 package Model;
 
-import parser.ParserException;
+//import parser.ParserException;
 import parser.XmlJsonParser;
-import java.io.File;
-import java.awt.image.AreaAveragingScaleFilter;
-import java.io.FileNotFoundException;
+//import java.io.File;
+//import java.awt.image.AreaAveragingScaleFilter;
+//import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InvalidClassException;
 import java.io.Serializable;
-import java.lang.reflect.Array;
+//import java.lang.reflect.Array;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
+//import java.util.Date;
 import  util.FileHandler;
 
 
 public class ColourIT implements Serializable
 {
-  // Bruges lige til opsætning af View Handler
-
   private TeamMember currentUser;
   private Project selectedProject;
   private Requirement selectedRequirement;
   private Task selectedTask;
   private TeamMember selectedTeamMember;
   private XmlJsonParser theParser;
-  private String requirementDescription;
-  private String taskDescription;
-
-
+  //private String requirementDescription;
+  //private String taskDescription;
+  
   private ProjectList projectList;
   private CustomerList customerList;
   private EmployeeList employeeList;
-  final private String[] typeList = {"Functional", "Non-functional", "Project requirement"};
-  final private String[] statusList = {"Not started", "Started", "Ended","Approved", "Rejected"};
-  final private String[] taskStatusList = {"Not started", "Started", "Ended"};
+  final private String[] TYPE_LIST = {"Functional", "Non-functional", "Project requirement"};
+  final private String[] STATUS_LIST = {"Not started", "Started", "Ended","Approved", "Rejected"};
+  final private String[] TASK_STATUS_LIST = {"Not started", "Started", "Ended"};
 
   public ColourIT()
   {
@@ -45,8 +43,8 @@ public class ColourIT implements Serializable
       projectList = FileHandler.projectListLoad();
       customerList = FileHandler.customerListLoad();
       employeeList = FileHandler.employeeListLoad();
-    }catch (IOException | ClassNotFoundException frick) {
-      frick.printStackTrace();
+    }catch (IOException | ClassNotFoundException e) {
+      e.printStackTrace();
     }
     // vi starter også lige en parser, det kan vi godt lide
     theParser = new XmlJsonParser();
@@ -55,12 +53,7 @@ public class ColourIT implements Serializable
      *  Når vi har lavet persist data med filer
      *  så skal data vel indlæses her ;)
      */
-    settetTest(); // Vores dummy data
-  }
-
-  public TeamMember getCurrentUser()
-  {
-    return currentUser;
+    //settetTest(); // Vores dummy data
   }
 
   public void setCurrentUser(TeamMember currentUser)
@@ -68,131 +61,21 @@ public class ColourIT implements Serializable
     this.currentUser = currentUser;
   }
 
-  public void createNewProject(String title, Customer customer, TeamMember projectCreator)
+  public TeamMember getCurrentUser()
   {
-    projectList.createNewProject(title, customer, projectCreator);
+    return currentUser;
   }
 
-  public void addNewTeamMemberToProject(TeamMember teamMember, Project project)
+  public void setSelectedTeamMember(TeamMember selectedTeamMember)
   {
-    projectList.addNewTeamMemberToProject(teamMember, project);
+    this.selectedTeamMember = selectedTeamMember;
   }
 
-  public void addRequirement(Project project, Requirement requirement)
+  public TeamMember getSelectedTeamMember()
   {
-    projectList.addRequirement(project, requirement);
+    return selectedTeamMember;
   }
 
-  public void addTask(Project project, Requirement requirement, String taskTitle, TeamMember responsibleTeamMember)
-  {
-    projectList.addTask(project, requirement, taskTitle, responsibleTeamMember);
-  }
-
-  public void addTeamMemberToTask(Project project, Requirement requirement, Task task, TeamMember teamMember)
-  {
-    projectList.addTeamMemberToTask(project, requirement, task, teamMember);
-  }
-
-  public void prioritizeRequirement(Project project, Requirement requirement, String value)
-  {
-    projectList.prioritizeRequirement(project, requirement, value);
-  }
-
-  public void prioritizeTask(String value, Task task, Requirement requirement, Project project)
-  {
-    projectList.prioritizeTask(value, task, requirement, project);
-  }
-
-  public void approveRequirement(Project project, Requirement requirement, String value)
-  {
-    projectList.approveRequirement(project, requirement, value);
-  }
-
-  public void addRoleToProject(TeamMember teamMember, Project project)
-  {
-    projectList.addRoleToProject(teamMember, project);
-  }
-
-  public ArrayList<Task> getAllTasks(Project project, Requirement requirement)
-  {
-    return projectList.getAllTasks(project, requirement);
-  }
-
-  public ArrayList<Task> getAllTasks(Project project)
-  {
-    return projectList.getAllTasks(project);
-  }
-
-  // TODO getAllTasks(TeamMember teamMember)
-
-  /*
-  public void registerTime(TeamMember teamMember, Task task, int time)
-  {
-    // TODO projectList.registerTime(teamMember, task, time);
-    teamMember.registerTime(time);
-  }
-  */
-
-
-  public  void updateTime(TeamMember teamMember, Task task, int time)
-  {
-    // TODO projectList.updateTime(teamMember, task, time)
-    teamMember.updateTime(time);
-  }
-
-  public void updateStatus(Project project, Requirement requirement, Task task,
-      String value)
-  {
-    projectList.updateStatus(project, requirement, task, value);
-  }
-
-  public Project searchProject(String title)
-  {
-    return projectList.searchProject(title);
-  }
-
-  public void updateRequirement(Project project, Requirement requirement,
-      String title, String description, String type,
-      LocalDate deadline, TeamMember responsibleTeamMember)
-  {
-    projectList.updateRequirement(project, requirement, title, description, type, deadline, responsibleTeamMember);
-  }
-
-  public ArrayList<Task> searchTask(Project project, Requirement requirement, String title)
-  {
-    return projectList.searchTask(project, requirement, title);
-  }
-
-  public ProjectList getProjectList()
-  {
-    return projectList;
-  }
-
-  public CustomerList getCustomerList()
-  {
-    return customerList;
-  }
-
-  public EmployeeList getEmployeeList()
-  {
-    return employeeList;
-  }
-
-  public ArrayList<TeamMember> searchEmployee(String searchName)
-  {
-    return employeeList.searchEmployee(searchName);
-  }
-
-  public void updateTask(Project project, Requirement requirement, Task task,
-      String title, String description, int estimatedTime, MyDate deadline, TeamMember responsibleTeamMember)
-  {
-    projectList.updateTask(project, requirement, task, title, description, estimatedTime
-    , deadline, responsibleTeamMember);
-  }
-
-  /*
-   *  Herunder er methoder vi bruger for at få data til views!
-   */
   public void setSelectedProject(Project selectedProject)
   {
     this.selectedProject = selectedProject;
@@ -213,50 +96,26 @@ public class ColourIT implements Serializable
     return selectedRequirement;
   }
 
-  public Task getSelectedTask()
-  {
-    return selectedTask;
-  }
-
   public void setSelectedTask(Task selectedTask)
   {
     this.selectedTask = selectedTask;
   }
 
-  public TeamMember getSelectedTeamMember()
+  public Task getSelectedTask()
   {
-    return selectedTeamMember;
+    return selectedTask;
   }
 
-  public void setSelectedTeamMember(TeamMember selectedTeamMember)
+  public String[] getRequirementTypes()
   {
-    this.selectedTeamMember = selectedTeamMember;
+    return TYPE_LIST;
   }
 
-  public ArrayList<Project> getProjects()
-  {
-    return projectList.getProjects();
-  }
+  public String[] getAllStatus() {return STATUS_LIST;}
 
-  public ArrayList<Requirement> getAllRequirements()
+  public String[] getTaskStatusList()
   {
-    return projectList.getRequirements();
-  }
-
-  public ArrayList<TeamMember> getEmployees()
-  {
-    return employeeList.getEmployees();
-  }
-
-  public void addRequirement(String title, String type, String projectTitle,
-      TeamMember teamMember)
-  {
-    projectList.addRequirement(title, type, projectTitle, teamMember);
-  }
-
-  public void addNewTeamMember(TeamMember newTeamMember)
-  {
-    employeeList.addEmployee(newTeamMember);
+    return TASK_STATUS_LIST;
   }
 
   public void addNewCustomer(Customer customer)
@@ -269,16 +128,71 @@ public class ColourIT implements Serializable
     return customerList.getCustomers();
   }
 
-  public String[] getRequirementTypes()
+  public CustomerList getCustomerList()
   {
-    return typeList;
+    return customerList;
   }
 
-  public String[] getAllStatus() {return statusList;}
-
-  public String[] getTaskStatusList()
+  public void addNewTeamMember(TeamMember newTeamMember)
   {
-    return taskStatusList;
+    employeeList.addEmployee(newTeamMember);
+  }
+
+  public ArrayList<TeamMember> getEmployees()
+  {
+    return employeeList.getEmployees();
+  }
+
+  public EmployeeList getEmployeeList()   //  til File Handler
+  {
+    return employeeList;
+  }
+
+  public void createNewProject(String title, Customer customer, TeamMember projectCreator)
+  {
+    projectList.createNewProject(title, customer, projectCreator);
+  }
+
+  public ArrayList<Project> getProjects()
+  {
+    return projectList.getProjects();
+  }
+
+  public ProjectList getProjectList()   // til File Handler
+  {
+    return projectList;
+  }
+
+  public void addRequirement(String title, String type, String projectTitle, TeamMember teamMember)
+  {
+    projectList.addRequirement(title, type, projectTitle, teamMember);
+  }
+
+  public ArrayList<Requirement> getAllRequirements()
+  {
+    return projectList.getRequirements();
+  }
+
+  public void addTask(Project project, Requirement requirement, String taskTitle, TeamMember responsibleTeamMember)
+  {
+    projectList.addTask(project, requirement, taskTitle, responsibleTeamMember);
+  }
+
+  public void updateTask(Project project, Requirement requirement, Task task,
+      String title, String description, int estimatedTime, MyDate deadline, TeamMember responsibleTeamMember)
+  {
+    projectList.updateTask(project, requirement, task, title, description, estimatedTime
+        , deadline, responsibleTeamMember);
+  }
+
+  public void addNewTeamMemberToProject(TeamMember teamMember, Project project)
+  {
+    projectList.addNewTeamMemberToProject(teamMember, project);
+  }
+
+  public void addTeamMemberToTask(Project project, Requirement requirement, Task task, TeamMember teamMember)
+  {
+    projectList.addTeamMemberToTask(project, requirement, task, teamMember);
   }
 
   public ArrayList<Project> getProjectsCurrentUser(TeamMember currentUser)
@@ -296,20 +210,40 @@ public class ColourIT implements Serializable
     return projectList.getAllTeamMemberTasks(currentUser);
   }
 
-  public String getTimeSpentForTeamMember(TeamMember selectedTeamMember)
-  {
-    return projectList.getTimeSpentForTeamMember(selectedTeamMember);
-  }
-
   public ArrayList<Project> getTeamMemberProjects(TeamMember selectedTeamMember)
   {
     return projectList.getTeamMemberProjects(selectedTeamMember);
+  }
+
+  public String getTimeSpentForTeamMember(TeamMember selectedTeamMember)
+  {
+    return projectList.getTimeSpentForTeamMember(selectedTeamMember);
   }
 
   public void checkIfAllTasksIsDoneForRequirement(Project project, String requirementTitle)
   {
     projectList.checkIfAllTasksIsDoneForRequirement(project, requirementTitle);
     System.out.println("project: " + project.getTitle());
+  }
+
+  public void prioritizeRequirement(Project project, Requirement requirement, String value)
+  {
+    projectList.prioritizeRequirement(project, requirement, value);
+  }
+
+  public void prioritizeTask(String value, Task task, Requirement requirement, Project project)
+  {
+    projectList.prioritizeTask(value, task, requirement, project);
+  }
+
+  public Project searchProject(String title)
+  {
+    return projectList.searchProject(title);
+  }
+
+  public ArrayList<TeamMember> searchEmployee(String searchName)
+  {
+    return employeeList.searchEmployee(searchName);
   }
 
   public ArrayList<Project> searchProjectList(String searchText, TeamMember teamMember)
@@ -322,7 +256,7 @@ public class ColourIT implements Serializable
     return projectList.searchRequirementList(searchText, currentUser);
   }
 
-  public ArrayList<Task> searchTaskField(String searchText, TeamMember currentUser)
+  public ArrayList<Task> searchTaskList(String searchText, TeamMember currentUser)
   {
     return projectList.searchTaskList(searchText, currentUser);
   }
@@ -407,5 +341,70 @@ public class ColourIT implements Serializable
         projectList.getProjects().get(1).getRequirementList().get(1),
         "Find a rainbow coloured crayon! YAY.. YOU WIN!", teamMember2
     );
+  }
+
+
+  /*
+   *  The abyss
+   */
+
+  public void addRequirement(Project project, Requirement requirement)
+  {
+    //projectList.addRequirement(project, requirement);
+  }
+
+
+  public ArrayList<Task> getAllTasks(Project project, Requirement requirement)
+  {
+    //return projectList.getAllTasks(project, requirement);
+    return null;
+  }
+
+  public ArrayList<Task> getAllTasks(Project project)
+  {
+    //return projectList.getAllTasks(project);
+    return null;
+  }
+
+  // TODO getAllTasks(TeamMember teamMember)
+
+  public void registerTime(TeamMember teamMember, Task task, int time)
+  {
+    // TODO projectList.registerTime(teamMember, task, time);
+    //teamMember.registerTime(time);
+  }
+
+  public  void updateTime(TeamMember teamMember, Task task, int time)
+  {
+    // TODO projectList.updateTime(teamMember, task, time)
+    teamMember.updateTime(time);
+  }
+
+  public void updateStatus(Project project, Requirement requirement, Task task,
+      String value)
+  {
+    projectList.updateStatus(project, requirement, task, value);
+  }
+
+  public void updateRequirement(Project project, Requirement requirement,
+      String title, String description, String type,
+      LocalDate deadline, TeamMember responsibleTeamMember)
+  {
+    projectList.updateRequirement(project, requirement, title, description, type, deadline, responsibleTeamMember);
+  }
+
+  public ArrayList<Task> searchTask(Project project, Requirement requirement, String title)
+  {
+    return projectList.searchTask(project, requirement, title);
+  }
+
+  public void approveRequirement(Project project, Requirement requirement, String value)
+  {
+    //projectList.approveRequirement(project, requirement, value);
+  }
+
+  public void addRoleToProject(TeamMember teamMember, Project project)
+  {
+    //projectList.addRoleToProject(teamMember, project);
   }
 }

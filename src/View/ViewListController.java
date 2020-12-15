@@ -247,7 +247,7 @@ public class ViewListController
       tasksTable.getItems().clear();
 
       tasksTable.getItems().addAll(
-        viewHandler.getModelManager().searchTaskField(
+        viewHandler.getModelManager().searchTaskList(
           searchTaskTextField.getText(),
           viewHandler.getModelManager().getCurrentUser()
         )

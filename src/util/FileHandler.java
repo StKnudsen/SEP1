@@ -78,7 +78,7 @@ public class FileHandler
 
     CustomerList customerList = (CustomerList)  in.readObject();
     in.close();
-    System.out.println("Employee list loaded");
+    System.out.println("Customer list loaded");
     return customerList;
   }
 }

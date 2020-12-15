@@ -1,8 +1,9 @@
 package Model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public abstract class Job
+public abstract class Job implements Serializable
 {
   String title, projectTitle, description, status = "Not Started";
   int priority;
@@ -41,12 +42,6 @@ public abstract class Job
   {
     return description;
   }
-
-  /*
-  public void setPriority(int priority)
-  {
-    this.priority = priority;
-  } */
 
   public String getPriority()
   {
