@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import  util.FileHandler;
 
 
-public class ColourIT implements Serializable
+public class ColourIT //implements Serializable
 {
   private TeamMember currentUser;
   private Project selectedProject;

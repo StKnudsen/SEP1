@@ -1,16 +1,28 @@
-var xhr = new XMLHttpRequest();
-xhr.onload = function () {
-    showData(this)
-};
+var xmlFile = '../projects.xml';
 
-xhr.open('GET', 'SEP1/projects.xml', false);
-var projects = XMLDocument.grtE
+function loadXML() {
+  var xhttp = new XMLHttpRequest();
 
-function showData(xml) {
-    txt = "<table class='projects'>";
-    for (i = 0; i < listLength; i++) {
-        txt += "<tr><td class='projects'>" + x[i].childNodes[0].nodeValue + "</td></tr>";
+  xhttp.open("GET", xmlFile, true);
+  xhttp.send();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState === 4 && this.status === 200) {
+      xmlFunction(this.response);
     }
-    txt += "</table>";
-    document.getElementById("id").innerHTML = txt;
+  };
+
 }
+
+function xmlFunction(xml) {
+  var parser = new DOMParser();
+  var xmlDoc = parser.parseFromString(xml, "text/xml");
+  var table = "<tr><th>Titel</th></tr>";
+  var x = xmlDoc.getElementsByTagName("projectList");
+  for (var elem of x) {
+    var titles = elem.getElementsByTagName(
+      "title")[0].childNodes[0].nodeValue;
+    table += "<tr><td>" + titles + "</td></tr>";
+  }
+  document.getElementById("projects").innerHTML = table;
+}
+loadXML();
