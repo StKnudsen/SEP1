@@ -1,23 +1,13 @@
 package Model;
 
 import java.io.Serializable;
-import java.text.DecimalFormat;
 import java.time.LocalDate;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 
 public class MyDate implements Serializable {
 
 	private int day;
 	private int month;
 	private int year;
-
-	public MyDate( ) {
-		Calendar now = GregorianCalendar.getInstance( );
-		day = now.get(Calendar.DAY_OF_MONTH);
-		month = now.get(Calendar.MONTH) + 1;
-		year = now.get(Calendar.YEAR);
-	}
 
 	public MyDate(LocalDate localDate) {
 
@@ -26,6 +16,13 @@ public class MyDate implements Serializable {
 		day = localDate.getDayOfMonth( );
 
 	}
+
+	@Override
+	public String toString( ) {
+		return year  + "-" + month + "-" + day;
+	}
+
+	/*
 
 	public MyDate(int year, int month, int day) {
 		set(day, month, year);
@@ -197,8 +194,5 @@ public class MyDate implements Serializable {
 		return year == other.year && month == other.month && day == other.day;
 	}
 
-	@Override
-	public String toString( ) {
-		return year  + "-" + month + "-" + day;
-	}
+	 */
 }
