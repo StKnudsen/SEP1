@@ -105,23 +105,26 @@ public class ColourIT implements Serializable
 
   public void approveRequirement(Project project, Requirement requirement, String value)
   {
-    projectList.approveRequirement(project, requirement, value);
+    //projectList.approveRequirement(project, requirement, value);
   }
 
   public void addRoleToProject(TeamMember teamMember, Project project)
   {
-    projectList.addRoleToProject(teamMember, project);
+    //projectList.addRoleToProject(teamMember, project);
   }
 
+  /*
   public ArrayList<Task> getAllTasks(Project project, Requirement requirement)
   {
     return projectList.getAllTasks(project, requirement);
-  }
+  } */
 
+  /*
   public ArrayList<Task> getAllTasks(Project project)
   {
     return projectList.getAllTasks(project);
   }
+  */
 
   // TODO getAllTasks(TeamMember teamMember)
 

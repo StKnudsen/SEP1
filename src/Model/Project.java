@@ -6,7 +6,6 @@ import java.util.ArrayList;
 public class Project implements Serializable
 {
   private String title;
-  private String description;
   private Customer customer;
   private TeamMember projectCreator;
   private ArrayList<TeamMember> teamMemberList;
