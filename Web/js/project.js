@@ -26,12 +26,12 @@ function xmlFunction(xml) {
 
   for (i = 0; i < x[project].getElementsByTagName("requirementList").length; i++) {
 
-    console.log(x[project].getElementsByTagName("requirementList")[i].sibling);
+    console.log(x[project].getElementsByTagName("title")[i + x[project].getElementsByTagName("taskList").length - 1] );
     //console.log(x[project].getElementsByTagName("requirementList")[i].childNodes);
     //console.log(x[project].getElementsByTagName("title")[i].childNodes[0].nodeValue);
     //for (i = 0; i < x[project].getElementsByTagName("requirementList")[i].childNodes.title)
 
-    var titles = x[project].getElementsByTagName("title")[i].lastChild.nodeValue;
+    var titles = x[project].getElementsByTagName("title")[i + x[project].getElementsByTagName("taskList").length - 1];
     //var titles = x[project].getElementsByTagName("requirementList");
 
     table += "<tr><td>" + titles + "</td><td><a href='projekt.html?projekt=" + i + "'>Link</a></td></tr>";
@@ -46,4 +46,10 @@ var project = searchParams.get("projekt");
 
 loadXML();
 
-//projectTitle
+function lastSibling(node){
+    var tempObj=node.parentNode.lastChild;
+    while(tempObj.nodeType!=1 && tempObj.previousSibling!=null){
+    tempObj=tempObj.previousSibling;
+    }
+    return (tempObj.nodeType==1)?tempObj:false;
+}
