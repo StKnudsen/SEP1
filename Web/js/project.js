@@ -19,9 +19,21 @@ function xmlFunction(xml) {
   document.getElementById("projectTitle").innerHTML = projectTitle;
 
 
+
   var table = "<tr><th>Requirement titel</th><th>Type</th><th>Deadline</th><th>Status</th></tr>";
-  for (i = 0; i < x[project].getElementsByTagName("requirementList"); i++) {
-    var titles = x[project][i].getElementsByTagName("requirementList")[0].childNodes[0].nodeValue;
+
+    console.log(x[project].getElementsByTagName("requirementList"));  // første vi kan se
+
+  for (i = 0; i < x[project].getElementsByTagName("requirementList").length; i++) {
+
+    console.log(x[project].getElementsByTagName("requirementList")[i].sibling);
+    //console.log(x[project].getElementsByTagName("requirementList")[i].childNodes);
+    //console.log(x[project].getElementsByTagName("title")[i].childNodes[0].nodeValue);
+    //for (i = 0; i < x[project].getElementsByTagName("requirementList")[i].childNodes.title)
+
+    var titles = x[project].getElementsByTagName("title")[i].lastChild.nodeValue;
+    //var titles = x[project].getElementsByTagName("requirementList");
+
     table += "<tr><td>" + titles + "</td><td><a href='projekt.html?projekt=" + i + "'>Link</a></td></tr>";
   }
   document.getElementById("requirementTable").innerHTML = table;
