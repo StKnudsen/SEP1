@@ -19,7 +19,8 @@ public class MyDate implements Serializable {
 
 	@Override
 	public String toString( ) {
-		return year  + "-" + month + "-" + day;
+		//tilføj 0 foran tal, hvis tallet er mindre end 9 (3 = 03)
+		return year  + "-" + (month < 9 ? "0" + month : month) + "-" + (day < 9 ? "0" + day : day);
 	}
 
 	/*
