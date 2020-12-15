@@ -6,6 +6,7 @@ import parser.XmlJsonParser;
 //import java.awt.image.AreaAveragingScaleFilter;
 //import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InvalidClassException;
 import java.io.Serializable;
 //import java.lang.reflect.Array;
 import java.time.LocalDate;

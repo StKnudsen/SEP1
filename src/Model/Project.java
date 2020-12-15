@@ -21,6 +21,16 @@ public class Project implements Serializable
     requirementList = new ArrayList<>();
   }
 
+  public Project(String title, Customer customer, TeamMember projectCreator, ArrayList<Requirement> requirements, ArrayList<TeamMember> teamMembers)
+  {
+    this.title = title;
+    this.customer = customer;
+    this.projectCreator = projectCreator;
+
+    teamMemberList = teamMembers;
+    requirementList = requirements;
+  }
+
   public String getTitle()
   {
     return title;
