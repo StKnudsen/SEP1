@@ -60,6 +60,7 @@ public class ViewTaskController
 
       populateTeamMemberList();
 
+      taskDescriptionTextFlow.getChildren().clear();
       taskDescriptionTextFlow.getChildren()
           .addAll(new Text(viewHandler.getModelManager().getSelectedTask().getDescription()));
 
