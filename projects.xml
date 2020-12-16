@@ -2,138 +2,55 @@
 <ProjectList>
   <projectList>
     <projectCreator>
-      <timeSpentOnTask>5</timeSpentOnTask>
-      <name>Test medarbejder</name>
-    </projectCreator>
-    <teamMemberList>
-      <timeSpentOnTask>5</timeSpentOnTask>
-      <name>Test medarbejder</name>
-    </teamMemberList>
-    <title>Test projekt</title>
-    <requirementList>
-      <responsibleTeamMember>
-        <timeSpentOnTask>5</timeSpentOnTask>
-        <name>Test medarbejder</name>
-      </responsibleTeamMember>
-      <taskList>
-        <estimatedTime>15</estimatedTime>
-        <responsibleTeamMember>
-          <timeSpentOnTask>5</timeSpentOnTask>
-          <name>Test medarbejder</name>
-        </responsibleTeamMember>
-        <requirementTitle>Test requirement</requirementTitle>
-        <description>Test beskrivelse</description>
-        <teamMemberList>
-          <timeSpentOnTask>5</timeSpentOnTask>
-          <name>Test medarbejder</name>
-        </teamMemberList>
-        <title>Test task</title>
-        <priority>1</priority>
-        <deadline>
-          <month>12</month>
-          <year>2020</year>
-          <day>18</day>
-        </deadline>
-        <projectTitle>Test projekt</projectTitle>
-        <status>Not started</status>
-      </taskList>
-      <type>Functional</type>
-      <title>Test requirement</title>
-      <priority>1</priority>
-      <projectTitle>Test projekt</projectTitle>
-      <status>Not Started</status>
-    </requirementList>
-    <customer>
-      <name>Test kunde</name>
-    </customer>
-  </projectList>
-  <projectList>
-    <projectCreator>
       <timeSpentOnTask>0</timeSpentOnTask>
-      <name>Project Creator</name>
+      <name>hej</name>
     </projectCreator>
     <teamMemberList>
       <timeSpentOnTask>0</timeSpentOnTask>
-      <name>Project Creator</name>
+      <name>hej</name>
     </teamMemberList>
-    <teamMemberList>
-      <timeSpentOnTask>0</timeSpentOnTask>
-      <name>Project Owner</name>
-    </teamMemberList>
-    <teamMemberList>
-      <timeSpentOnTask>0</timeSpentOnTask>
-      <name>Scrum Master</name>
-    </teamMemberList>
-    <teamMemberList>
-      <timeSpentOnTask>5</timeSpentOnTask>
-      <name>Test medarbejder</name>
-    </teamMemberList>
-    <title>Nyt projekt</title>
+    <title>gafgf</title>
     <requirementList>
       <responsibleTeamMember>
         <timeSpentOnTask>0</timeSpentOnTask>
-        <name>Project Owner</name>
+        <name>hej</name>
       </responsibleTeamMember>
       <taskList>
         <estimatedTime>0</estimatedTime>
         <responsibleTeamMember>
           <timeSpentOnTask>0</timeSpentOnTask>
-          <name>Project Owner</name>
+          <name>hej</name>
         </responsibleTeamMember>
-        <requirementTitle>Test requirement</requirementTitle>
+        <requirementTitle>adjrt</requirementTitle>
+        <description>bsdb</description>
         <teamMemberList>
           <timeSpentOnTask>0</timeSpentOnTask>
-          <name>Project Owner</name>
+          <name>hej</name>
         </teamMemberList>
-        <title>Test task 1</title>
+        <title>bsgfs</title>
         <priority>1</priority>
-        <projectTitle>Nyt projekt</projectTitle>
-        <status>Not Started</status>
-      </taskList>
-      <taskList>
-        <estimatedTime>15</estimatedTime>
-        <responsibleTeamMember>
-          <timeSpentOnTask>0</timeSpentOnTask>
-          <name>Scrum Master</name>
-        </responsibleTeamMember>
-        <requirementTitle>Test requirement</requirementTitle>
-        <description>Test beskrivelse...</description>
-        <teamMemberList>
-          <timeSpentOnTask>0</timeSpentOnTask>
-          <name>Project Owner</name>
-        </teamMemberList>
-        <teamMemberList>
-          <timeSpentOnTask>0</timeSpentOnTask>
-          <name>Scrum Master</name>
-        </teamMemberList>
-        <teamMemberList>
-          <timeSpentOnTask>0</timeSpentOnTask>
-          <name>Test medarbejder</name>
-        </teamMemberList>
-        <title>Test task 2</title>
-        <priority>2</priority>
         <deadline>
           <month>12</month>
           <year>2020</year>
-          <day>18</day>
+          <day>17</day>
         </deadline>
-        <projectTitle>Nyt projekt</projectTitle>
-        <status>Started</status>
+        <projectTitle>gafgf</projectTitle>
+        <status>Not started</status>
       </taskList>
-      <description>Test beskrivelse</description>
+      <description>gfsdf</description>
       <type>Functional</type>
-      <title>Test requirement</title>
+      <title>adjrt</title>
       <priority>1</priority>
       <deadline>
         <month>12</month>
         <year>2020</year>
         <day>18</day>
       </deadline>
-      <projectTitle>Nyt projekt</projectTitle>
+      <projectTitle>gafgf</projectTitle>
       <status>Started</status>
     </requirementList>
     <customer>
-      <name>Test kunde</name>
+      <name>nej</name>
     </customer>
   </projectList>
 </ProjectList>

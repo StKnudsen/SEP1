@@ -3,7 +3,7 @@ package Model;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-public abstract class Job implements Serializable
+public class Job implements Serializable
 {
   String title, projectTitle, description, status = "Not Started";
   int priority;
