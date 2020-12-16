@@ -51,6 +51,7 @@ public class ProjectList implements Serializable
     }
   }
 
+  /*
   public void addRequirement(Project project, Requirement requirement)
   {
     for (int i = 0; i < projectList.size(); i++)
@@ -60,7 +61,7 @@ public class ProjectList implements Serializable
         projectList.get(i).addRequirement(requirement);
       }
     }
-  }
+  }*/
 
   public void addTask(Project project, Requirement requirement, String taskTitle, TeamMember responsibleTeamMember)
   {
@@ -320,7 +321,6 @@ public class ProjectList implements Serializable
       if (projectElement.equals(project))
       {
         projectElement.checkIfAllTasksIsDoneForRequirement(requirementTitle);
-        System.out.println("requirement: " + requirementTitle);
       }
     }
   }

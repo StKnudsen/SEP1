@@ -3,54 +3,48 @@
   <projectList>
     <projectCreator>
       <timeSpentOnTask>0</timeSpentOnTask>
-      <name>hej</name>
+      <name>Tinananas</name>
     </projectCreator>
     <teamMemberList>
       <timeSpentOnTask>0</timeSpentOnTask>
-      <name>hej</name>
+      <name>Stefanden</name>
     </teamMemberList>
-    <title>gafgf</title>
+    <title>Save me</title>
     <requirementList>
       <responsibleTeamMember>
         <timeSpentOnTask>0</timeSpentOnTask>
-        <name>hej</name>
+        <name>Tinananas</name>
       </responsibleTeamMember>
-      <taskList>
-        <estimatedTime>0</estimatedTime>
-        <responsibleTeamMember>
-          <timeSpentOnTask>0</timeSpentOnTask>
-          <name>hej</name>
-        </responsibleTeamMember>
-        <requirementTitle>adjrt</requirementTitle>
-        <description>bsdb</description>
-        <teamMemberList>
-          <timeSpentOnTask>0</timeSpentOnTask>
-          <name>hej</name>
-        </teamMemberList>
-        <title>bsgfs</title>
-        <priority>1</priority>
-        <deadline>
-          <month>12</month>
-          <year>2020</year>
-          <day>17</day>
-        </deadline>
-        <projectTitle>gafgf</projectTitle>
-        <status>Not started</status>
-      </taskList>
-      <description>gfsdf</description>
       <type>Functional</type>
-      <title>adjrt</title>
+      <title>Release 'Juleanden'</title>
       <priority>1</priority>
-      <deadline>
-        <month>12</month>
-        <year>2020</year>
-        <day>18</day>
-      </deadline>
-      <projectTitle>gafgf</projectTitle>
-      <status>Started</status>
+      <projectTitle>Save me</projectTitle>
+      <status>Not Started</status>
+    </requirementList>
+    <requirementList>
+      <responsibleTeamMember>
+        <timeSpentOnTask>0</timeSpentOnTask>
+        <name>Tinananas</name>
+      </responsibleTeamMember>
+      <type>Functional</type>
+      <title>Replace with rubberduck</title>
+      <priority>2</priority>
+      <projectTitle>Save me</projectTitle>
+      <status>Not Started</status>
+    </requirementList>
+    <requirementList>
+      <responsibleTeamMember>
+        <timeSpentOnTask>0</timeSpentOnTask>
+        <name>Tinananas</name>
+      </responsibleTeamMember>
+      <type>Non-functional</type>
+      <title>Run like f*#king Forest Gump</title>
+      <priority>3</priority>
+      <projectTitle>Save me</projectTitle>
+      <status>Not Started</status>
     </requirementList>
     <customer>
-      <name>nej</name>
+      <name>Juleanden</name>
     </customer>
   </projectList>
 </ProjectList>
