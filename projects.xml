@@ -198,11 +198,17 @@
         <projectTitle>Colour IT PMS</projectTitle>
         <status>Not Started</status>
       </taskList>
-      <type>Colour that rainbow</type>
+      <description>hg</description>
+      <type>Functional</type>
       <title>Colour that rainbow</title>
       <priority>2</priority>
+      <deadline>
+        <month>12</month>
+        <year>2020</year>
+        <day>18</day>
+      </deadline>
       <projectTitle>Colour IT PMS</projectTitle>
-      <status>Not Started</status>
+      <status>Started</status>
     </requirementList>
     <customer>
       <name>Jack Black</name>
