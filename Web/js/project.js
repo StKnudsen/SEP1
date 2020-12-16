@@ -28,7 +28,7 @@ function xmlFunction(xml) {
 
   // HTML Table genereres og værdierne i headeren sættes ind
   var table = "<thead class='thead-dark'><tr>"
-  table += "<th>Requirement titel</th><th>Type</th><th>Deadline</th><th>Status</th>";
+  table += "<th>Requirement titel</th><th>Type</th><th>Status</th>";
   table += "</tr></thead><tbody>";
 
   // Her findes de data i XML dokumentet der skal sendes præsenteres på hjemmesiden
@@ -37,13 +37,13 @@ function xmlFunction(xml) {
     var requirement = requirementList[i]; // Sætter requirement til at være et requirementList[i], som indeholder alle requirements
     var requirementTitle = requirement.getElementsByTagName("title")[requirementList[i].getElementsByTagName("title").length - 1].innerHTML; // Sætter requirementTitle til den sidste title der findes. Da alle Tasks kommer før og også har en title, så skal de springes over først
     var requirementType = requirement.getElementsByTagName("type")[requirementList[i].getElementsByTagName("type").length - 1].innerHTML;
-    //var requirementDeadline = requirement.getElementsByTagName("deadline")[requirementList[i].getElementsByTagName("deadline").length - 1].innerHTML;
+    //var requirementDeadline = requirement.getElementsByTagName("year")[requirementList[i].getElementsByTagName("year").length - 1];
     var requirementStatus = requirement.getElementsByTagName("status")[requirementList[i].getElementsByTagName("status").length - 1].innerHTML; // Sætter requirementStatus til den sidste status der findes. samme grund som ovenfor
 
     // Body på HTML Table genereres udfra de data fra XML dokumentet
     table += "<tr><td>" + requirementTitle + "</td>";
     table += "<td>" + requirementType + "</td>";
-    table += "<td>Deadline fra XML... Hvor?</td>";
+   // table += "<td>" + requirementDeadline + "</td>";
     table += "<td>" + requirementStatus + "</td></tr>";
   }
   table += "</tbody>";
