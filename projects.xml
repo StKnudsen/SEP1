@@ -51,11 +51,17 @@
         <projectTitle>Best Project ever!</projectTitle>
         <status>Not Started</status>
       </taskList>
-      <type>Functional Requirement</type>
+      <description>123</description>
+      <type>Functional</type>
       <title>Find a fish</title>
       <priority>1</priority>
+      <deadline>
+        <month>12</month>
+        <year>2020</year>
+        <day>17</day>
+      </deadline>
       <projectTitle>Best Project ever!</projectTitle>
-      <status>Not Started</status>
+      <status>Ended</status>
     </requirementList>
     <requirementList>
       <responsibleTeamMember>
