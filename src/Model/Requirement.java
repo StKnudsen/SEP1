@@ -81,27 +81,22 @@ public class Requirement extends Job
         {
           int taskPriority = Integer.parseInt(taskElement.getPriority());
           int taskAmount = taskList.size();
-
           if (value.equals("OP") && taskPriority > 1)
           {
             taskList.add(taskPriority - 2, taskList.remove(taskPriority - 1));
           }
-
           if (value.equals("NED") && taskPriority < taskAmount)
           {
             taskList.add(taskPriority, taskList.remove(taskPriority - 1));
           }
-
           if (value.equals("TIL TOP") && taskPriority > 1)
           {
             taskList.add(0, taskList.remove(taskPriority - 1));
           }
-
           if (value.equals("TIL BUND") && taskPriority != taskAmount)
           {
             taskList.add(taskAmount - 1, taskList.remove(taskPriority - 1));
           }
-
           resortTasks();
         }
       }
