@@ -1,7 +1,6 @@
 package Model;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class ProjectList implements Serializable
@@ -34,6 +33,7 @@ public class ProjectList implements Serializable
     {
       if (projectList.get(i).equals(project))
       {
+        // se task
         projectList.get(i).addTeamMember(teamMember);
       }
     }
@@ -50,18 +50,6 @@ public class ProjectList implements Serializable
       }
     }
   }
-
-  /*
-  public void addRequirement(Project project, Requirement requirement)
-  {
-    for (int i = 0; i < projectList.size(); i++)
-    {
-      if (projectList.get(i).equals(project))
-      {
-        projectList.get(i).addRequirement(requirement);
-      }
-    }
-  }*/
 
   public void addTask(Project project, Requirement requirement, String taskTitle, TeamMember responsibleTeamMember)
   {
@@ -114,76 +102,7 @@ public class ProjectList implements Serializable
       }
     }
 
-    /*
-    for (int i = 0; i < projectList.size(); i++)
-    {
-      for (int j = 0; j < projectList.get(i).getRequirementList().size(); j++)
-      {
-        for (int k = 0; k < projectList.get(i).getRequirementList().get(j).getTasks().size(); k++)
-        {
-          for (int l = 0; l < projectList.get(i).getRequirementList().get(j).getTasks().get(k).getTeamMemberList().size(); l++)
-          {
-            if(projectList.get(i).getRequirementList().get(j).getTasks().get(k).getTeamMemberList().get(l).equals(selectedTeamMember))
-            {
-              spentHours += projectList.get(i).getRequirementList().get(j).getTasks().get(k).getTeamMemberList().get(l).getTimeSpent();
-            }
-          }
-        }
-      }
-    }*/
-
     return Integer.toString(spentHours);
-    //return Integer.toString(987);
-  }
-
-  public void updateStatus(Project project, Requirement requirement, Task task, String value)
-  {
-    for (int i = 0; i < projectList.size(); i++)
-    {
-      if (projectList.get(i).equals(project))
-      {
-        for (int j = 0; j < projectList.get(i).getRequirementList().size(); j++)
-        {
-          if (projectList.get(i).getRequirementList().get(j)
-              .equals(requirement))
-          {
-            for (int k = 0;
-                 k < projectList.get(i).getRequirementList().get(j).getTasks()
-                     .size(); k++)
-            {
-              if (projectList.get(i).getRequirementList().get(j).getTasks()
-                  .get(k).equals(task))
-              {
-                projectList.get(i).getRequirementList().get(j).getTasks().get(k)
-                    .updateStatus(value);
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-
-  public void updateRequirement(Project project, Requirement requirement, String title, String description, String type, LocalDate deadline, TeamMember responsibleTeamMember)
-  {
-    for (int i = 0; i < projectList.size(); i++)
-    {
-      if (projectList.get(i).equals(project))
-      {
-        for (int j = 0; j < projectList.get(i).getRequirementList().size(); j++)
-        {
-          if (projectList.get(i).getRequirementList().get(j)
-              .equals(requirement))
-          {
-            requirement.setTitle(title);
-            requirement.setDescription(description);
-            requirement.setType(type);
-            requirement.setDeadline(deadline);
-            requirement.setResponsibleTeamMember(responsibleTeamMember);
-          }
-        }
-      }
-    }
   }
 
   public void updateTask(Project project, Requirement requirement, Task task, String title, String description, int estimatedTime, MyDate deadline, TeamMember responsibleTeamMember)
@@ -346,38 +265,6 @@ public class ProjectList implements Serializable
 
       }
     }
-  }
-
-  public ArrayList<Task> searchTask(Project project, Requirement requirement, String title)
-  {
-    ArrayList<Task> tasks = new ArrayList<>();
-
-    for (int i = 0; i < projectList.size(); i++)
-    {
-      if (projectList.get(i).equals(project))
-      {
-        for (int j = 0; j < projectList.get(i).getRequirementList().size(); j++)
-        {
-          if (projectList.get(i).getRequirementList().get(j)
-              .equals(requirement))
-          {
-            for (int k = 0;
-                 k < projectList.get(i).getRequirementList().get(j).getTasks()
-                     .size(); k++)
-            {
-              if (projectList.get(i).getRequirementList().get(j).getTasks()
-                  .get(k).getTitle().equals(title))
-              {
-                tasks.add(
-                    projectList.get(i).getRequirementList().get(j).getTasks()
-                        .get(k));
-              }
-            }
-          }
-        }
-      }
-    }
-    return tasks;
   }
 
   public Project searchProject(String title)

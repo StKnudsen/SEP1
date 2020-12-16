@@ -1,21 +1,13 @@
 package Model;
 
-//import parser.ParserException;
 import parser.XmlJsonParser;
-//import java.io.File;
-//import java.awt.image.AreaAveragingScaleFilter;
-//import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InvalidClassException;
-import java.io.Serializable;
-//import java.lang.reflect.Array;
 import java.time.LocalDate;
 import java.util.ArrayList;
-//import java.util.Date;
 import  util.FileHandler;
 
 
-public class ColourIT //implements Serializable
+public class ColourIT
 {
   private TeamMember currentUser;
   private Project selectedProject;
@@ -23,8 +15,6 @@ public class ColourIT //implements Serializable
   private Task selectedTask;
   private TeamMember selectedTeamMember;
   private XmlJsonParser theParser;
-  //private String requirementDescription;
-  //private String taskDescription;
   
   private ProjectList projectList;
   private CustomerList customerList;
@@ -340,70 +330,5 @@ public class ColourIT //implements Serializable
         projectList.getProjects().get(1).getRequirementList().get(1),
         "Find a rainbow coloured crayon! YAY.. YOU WIN!", teamMember2
     );
-  }
-
-
-  /*
-   *  The abyss
-   */
-
-  public void addRequirement(Project project, Requirement requirement)
-  {
-    //projectList.addRequirement(project, requirement);
-  }
-
-
-  public ArrayList<Task> getAllTasks(Project project, Requirement requirement)
-  {
-    //return projectList.getAllTasks(project, requirement);
-    return null;
-  }
-
-  public ArrayList<Task> getAllTasks(Project project)
-  {
-    //return projectList.getAllTasks(project);
-    return null;
-  }
-
-  // TODO getAllTasks(TeamMember teamMember)
-
-  public void registerTime(TeamMember teamMember, Task task, int time)
-  {
-    // TODO projectList.registerTime(teamMember, task, time);
-    //teamMember.registerTime(time);
-  }
-
-  public  void updateTime(TeamMember teamMember, Task task, int time)
-  {
-    // TODO projectList.updateTime(teamMember, task, time)
-    teamMember.updateTime(time);
-  }
-
-  public void updateStatus(Project project, Requirement requirement, Task task,
-      String value)
-  {
-    projectList.updateStatus(project, requirement, task, value);
-  }
-
-  public void updateRequirement(Project project, Requirement requirement,
-      String title, String description, String type,
-      LocalDate deadline, TeamMember responsibleTeamMember)
-  {
-    projectList.updateRequirement(project, requirement, title, description, type, deadline, responsibleTeamMember);
-  }
-
-  public ArrayList<Task> searchTask(Project project, Requirement requirement, String title)
-  {
-    return projectList.searchTask(project, requirement, title);
-  }
-
-  public void approveRequirement(Project project, Requirement requirement, String value)
-  {
-    //projectList.approveRequirement(project, requirement, value);
-  }
-
-  public void addRoleToProject(TeamMember teamMember, Project project)
-  {
-    //projectList.addRoleToProject(teamMember, project);
   }
 }
