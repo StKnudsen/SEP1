@@ -36,7 +36,7 @@
             <children>
                 <HBox alignment="BOTTOM_LEFT" prefHeight="30.0" prefWidth="290.0" spacing="15.0">
                     <children>
-                        <Button mnemonicParsing="false" onAction="#updateTime" prefHeight="26.0" prefWidth="100.0" text="Opdatér/Tilføj" />
+                        <Button mnemonicParsing="false" onAction="#updateTime" prefHeight="26.0" prefWidth="100.0" text="Tilføj" />
                     </children>
                 </HBox>
                 <HBox alignment="BOTTOM_RIGHT" layoutX="324.0" layoutY="20.0" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="290.0">

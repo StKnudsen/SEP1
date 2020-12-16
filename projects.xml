@@ -2,198 +2,138 @@
 <ProjectList>
   <projectList>
     <projectCreator>
+      <timeSpentOnTask>5</timeSpentOnTask>
+      <name>Test medarbejder</name>
+    </projectCreator>
+    <teamMemberList>
+      <timeSpentOnTask>5</timeSpentOnTask>
+      <name>Test medarbejder</name>
+    </teamMemberList>
+    <title>Test projekt</title>
+    <requirementList>
+      <responsibleTeamMember>
+        <timeSpentOnTask>5</timeSpentOnTask>
+        <name>Test medarbejder</name>
+      </responsibleTeamMember>
+      <taskList>
+        <estimatedTime>15</estimatedTime>
+        <responsibleTeamMember>
+          <timeSpentOnTask>5</timeSpentOnTask>
+          <name>Test medarbejder</name>
+        </responsibleTeamMember>
+        <requirementTitle>Test requirement</requirementTitle>
+        <description>Test beskrivelse</description>
+        <teamMemberList>
+          <timeSpentOnTask>5</timeSpentOnTask>
+          <name>Test medarbejder</name>
+        </teamMemberList>
+        <title>Test task</title>
+        <priority>1</priority>
+        <deadline>
+          <month>12</month>
+          <year>2020</year>
+          <day>18</day>
+        </deadline>
+        <projectTitle>Test projekt</projectTitle>
+        <status>Not started</status>
+      </taskList>
+      <type>Functional</type>
+      <title>Test requirement</title>
+      <priority>1</priority>
+      <projectTitle>Test projekt</projectTitle>
+      <status>Not Started</status>
+    </requirementList>
+    <customer>
+      <name>Test kunde</name>
+    </customer>
+  </projectList>
+  <projectList>
+    <projectCreator>
       <timeSpentOnTask>0</timeSpentOnTask>
-      <name>Julemanden</name>
+      <name>Project Creator</name>
     </projectCreator>
     <teamMemberList>
       <timeSpentOnTask>0</timeSpentOnTask>
-      <name>Julemanden</name>
+      <name>Project Creator</name>
     </teamMemberList>
     <teamMemberList>
       <timeSpentOnTask>0</timeSpentOnTask>
-      <name>Nissen Nis</name>
+      <name>Project Owner</name>
     </teamMemberList>
-    <title>Topkarakter</title>
+    <teamMemberList>
+      <timeSpentOnTask>0</timeSpentOnTask>
+      <name>Scrum Master</name>
+    </teamMemberList>
+    <teamMemberList>
+      <timeSpentOnTask>5</timeSpentOnTask>
+      <name>Test medarbejder</name>
+    </teamMemberList>
+    <title>Nyt projekt</title>
     <requirementList>
       <responsibleTeamMember>
         <timeSpentOnTask>0</timeSpentOnTask>
-        <name>Julemanden</name>
+        <name>Project Owner</name>
       </responsibleTeamMember>
       <taskList>
         <estimatedTime>0</estimatedTime>
         <responsibleTeamMember>
           <timeSpentOnTask>0</timeSpentOnTask>
-          <name>Julemanden</name>
+          <name>Project Owner</name>
         </responsibleTeamMember>
-        <requirementTitle>Hårdt arbejde</requirementTitle>
+        <requirementTitle>Test requirement</requirementTitle>
         <teamMemberList>
           <timeSpentOnTask>0</timeSpentOnTask>
-          <name>Julemanden</name>
+          <name>Project Owner</name>
         </teamMemberList>
-        <title>Knokle</title>
+        <title>Test task 1</title>
         <priority>1</priority>
-        <projectTitle>Topkarakter</projectTitle>
+        <projectTitle>Nyt projekt</projectTitle>
         <status>Not Started</status>
       </taskList>
       <taskList>
-        <estimatedTime>0</estimatedTime>
+        <estimatedTime>15</estimatedTime>
         <responsibleTeamMember>
           <timeSpentOnTask>0</timeSpentOnTask>
-          <name>Julemanden</name>
+          <name>Scrum Master</name>
         </responsibleTeamMember>
-        <requirementTitle>Hårdt arbejde</requirementTitle>
+        <requirementTitle>Test requirement</requirementTitle>
+        <description>Test beskrivelse...</description>
         <teamMemberList>
           <timeSpentOnTask>0</timeSpentOnTask>
-          <name>Julemanden</name>
+          <name>Project Owner</name>
         </teamMemberList>
-        <title>Svede</title>
+        <teamMemberList>
+          <timeSpentOnTask>0</timeSpentOnTask>
+          <name>Scrum Master</name>
+        </teamMemberList>
+        <teamMemberList>
+          <timeSpentOnTask>0</timeSpentOnTask>
+          <name>Test medarbejder</name>
+        </teamMemberList>
+        <title>Test task 2</title>
         <priority>2</priority>
-        <projectTitle>Topkarakter</projectTitle>
-        <status>Not Started</status>
+        <deadline>
+          <month>12</month>
+          <year>2020</year>
+          <day>18</day>
+        </deadline>
+        <projectTitle>Nyt projekt</projectTitle>
+        <status>Started</status>
       </taskList>
-      <description>Arbejdssmølferi</description>
-      <type>Non-functional</type>
-      <title>Hårdt arbejde</title>
+      <description>Test beskrivelse</description>
+      <type>Functional</type>
+      <title>Test requirement</title>
       <priority>1</priority>
       <deadline>
         <month>12</month>
         <year>2020</year>
         <day>18</day>
       </deadline>
-      <projectTitle>Topkarakter</projectTitle>
-      <status>Started</status>
-    </requirementList>
-    <requirementList>
-      <responsibleTeamMember>
-        <timeSpentOnTask>0</timeSpentOnTask>
-        <name>Julemanden</name>
-      </responsibleTeamMember>
-      <taskList>
-        <estimatedTime>0</estimatedTime>
-        <responsibleTeamMember>
-          <timeSpentOnTask>0</timeSpentOnTask>
-          <name>Julemanden</name>
-        </responsibleTeamMember>
-        <requirementTitle>Snacks</requirementTitle>
-        <teamMemberList>
-          <timeSpentOnTask>0</timeSpentOnTask>
-          <name>Julemanden</name>
-        </teamMemberList>
-        <title>Hygge</title>
-        <priority>1</priority>
-        <projectTitle>Topkarakter</projectTitle>
-        <status>Not Started</status>
-      </taskList>
-      <taskList>
-        <estimatedTime>0</estimatedTime>
-        <responsibleTeamMember>
-          <timeSpentOnTask>0</timeSpentOnTask>
-          <name>Julemanden</name>
-        </responsibleTeamMember>
-        <requirementTitle>Snacks</requirementTitle>
-        <teamMemberList>
-          <timeSpentOnTask>0</timeSpentOnTask>
-          <name>Julemanden</name>
-        </teamMemberList>
-        <title>Nyde</title>
-        <priority>2</priority>
-        <projectTitle>Topkarakter</projectTitle>
-        <status>Not Started</status>
-      </taskList>
-      <description>Alle snacks er velkomne</description>
-      <type>Functional</type>
-      <title>Snacks</title>
-      <priority>2</priority>
-      <deadline>
-        <month>12</month>
-        <year>2020</year>
-        <day>31</day>
-      </deadline>
-      <projectTitle>Topkarakter</projectTitle>
+      <projectTitle>Nyt projekt</projectTitle>
       <status>Started</status>
     </requirementList>
     <customer>
-      <name>Smølfeparadis</name>
-    </customer>
-  </projectList>
-  <projectList>
-    <projectCreator>
-      <timeSpentOnTask>0</timeSpentOnTask>
-      <name>Julemanden</name>
-    </projectCreator>
-    <teamMemberList>
-      <timeSpentOnTask>0</timeSpentOnTask>
-      <name>Nissen Nis</name>
-    </teamMemberList>
-    <title>Surstrømning</title>
-    <requirementList>
-      <responsibleTeamMember>
-        <timeSpentOnTask>0</timeSpentOnTask>
-        <name>Nissen Nis</name>
-      </responsibleTeamMember>
-      <taskList>
-        <estimatedTime>0</estimatedTime>
-        <responsibleTeamMember>
-          <timeSpentOnTask>0</timeSpentOnTask>
-          <name>Julemanden</name>
-        </responsibleTeamMember>
-        <requirementTitle>Tårer</requirementTitle>
-        <teamMemberList>
-          <timeSpentOnTask>0</timeSpentOnTask>
-          <name>Julemanden</name>
-        </teamMemberList>
-        <title>Smerte</title>
-        <priority>1</priority>
-        <projectTitle>Surstrømning</projectTitle>
-        <status>Not Started</status>
-      </taskList>
-      <description>Snub nogle lommetørklæder</description>
-      <type>Non-functional</type>
-      <title>Tårer</title>
-      <priority>1</priority>
-      <deadline>
-        <month>12</month>
-        <year>2020</year>
-        <day>17</day>
-      </deadline>
-      <projectTitle>Surstrømning</projectTitle>
-      <status>Not started</status>
-    </requirementList>
-    <requirementList>
-      <responsibleTeamMember>
-        <timeSpentOnTask>0</timeSpentOnTask>
-        <name>Nissen Nis</name>
-      </responsibleTeamMember>
-      <taskList>
-        <estimatedTime>0</estimatedTime>
-        <responsibleTeamMember>
-          <timeSpentOnTask>0</timeSpentOnTask>
-          <name>Julemanden</name>
-        </responsibleTeamMember>
-        <requirementTitle>Nul venner</requirementTitle>
-        <teamMemberList>
-          <timeSpentOnTask>0</timeSpentOnTask>
-          <name>Julemanden</name>
-        </teamMemberList>
-        <title>Ensomhed</title>
-        <priority>1</priority>
-        <projectTitle>Surstrømning</projectTitle>
-        <status>Not Started</status>
-      </taskList>
-      <description>Mobninb</description>
-      <type>Non-functional</type>
-      <title>Nul venner</title>
-      <priority>2</priority>
-      <deadline>
-        <month>12</month>
-        <year>2020</year>
-        <day>19</day>
-      </deadline>
-      <projectTitle>Surstrømning</projectTitle>
-      <status>Started</status>
-    </requirementList>
-    <customer>
-      <name>Sure hr. Madsen</name>
+      <name>Test kunde</name>
     </customer>
   </projectList>
 </ProjectList>
