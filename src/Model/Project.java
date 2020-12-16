@@ -73,10 +73,11 @@ public class Project implements Serializable
     requirementList.add(newRequirement);
   }
 
+  /*
   public void addRequirement(Requirement requirement)
   {
     requirementList.add(requirement);
-  }
+  }*/
 
   public ArrayList<Requirement> getRequirementList()
   {
@@ -135,8 +136,6 @@ public class Project implements Serializable
 
   public void checkIfAllTasksIsDoneForRequirement(String requirementTitle)
   {
-    System.out.println("checkIfAllTasksIsDoneForRequirement()");
-
     for (int i = 0; i < requirementList.size(); i++)
     {
       if (requirementList.get(i).getTitle().equals(requirementTitle))
@@ -147,13 +146,12 @@ public class Project implements Serializable
         {
           if(!requirementList.get(i).getTasks().get(j).getStatus().equals("Ended"))
           {
-            allTasksIsDone = true;
+            allTasksIsDone = false;
           }
         }
 
         if (allTasksIsDone)
         {
-          System.out.println("Get me here...");
           requirementList.get(i).updateStatus("Ended");
         }
       }

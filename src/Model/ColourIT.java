@@ -223,7 +223,6 @@ public class ColourIT //implements Serializable
   public void checkIfAllTasksIsDoneForRequirement(Project project, String requirementTitle)
   {
     projectList.checkIfAllTasksIsDoneForRequirement(project, requirementTitle);
-    System.out.println("project: " + project.getTitle());
   }
 
   public void prioritizeRequirement(Project project, Requirement requirement, String value)
