@@ -3,58 +3,61 @@
   <projectList>
     <projectCreator>
       <timeSpentOnTask>0</timeSpentOnTask>
-      <name>jhg</name>
+      <name>hej</name>
     </projectCreator>
-    <teamMemberList>
-      <timeSpentOnTask>0</timeSpentOnTask>
-      <name>jhg</name>
-    </teamMemberList>
-    <title>lkjh</title>
+    <title>fafa</title>
     <requirementList>
       <responsibleTeamMember>
         <timeSpentOnTask>0</timeSpentOnTask>
-        <name>jhg</name>
+        <name>hej</name>
       </responsibleTeamMember>
-      <taskList>
-        <estimatedTime>0</estimatedTime>
-        <responsibleTeamMember>
-          <timeSpentOnTask>0</timeSpentOnTask>
-          <name>jhg</name>
-        </responsibleTeamMember>
-        <requirementTitle>kjg</requirementTitle>
-        <teamMemberList>
-          <timeSpentOnTask>0</timeSpentOnTask>
-          <name>jhg</name>
-        </teamMemberList>
-        <title>kj</title>
-        <priority>1</priority>
-        <projectTitle>lkjh</projectTitle>
-        <status>Not Started</status>
-      </taskList>
-      <taskList>
-        <estimatedTime>0</estimatedTime>
-        <responsibleTeamMember>
-          <timeSpentOnTask>0</timeSpentOnTask>
-          <name>jhg</name>
-        </responsibleTeamMember>
-        <requirementTitle>kjg</requirementTitle>
-        <teamMemberList>
-          <timeSpentOnTask>0</timeSpentOnTask>
-          <name>jhg</name>
-        </teamMemberList>
-        <title>jkh</title>
-        <priority>2</priority>
-        <projectTitle>lkjh</projectTitle>
-        <status>Not Started</status>
-      </taskList>
+      <description>fhgdhfdh</description>
       <type>Non-functional</type>
-      <title>kjg</title>
+      <title>gfshgf</title>
       <priority>1</priority>
-      <projectTitle>lkjh</projectTitle>
+      <deadline>
+        <month>12</month>
+        <year>2020</year>
+        <day>25</day>
+      </deadline>
+      <projectTitle>fafa</projectTitle>
+      <status>Not started</status>
+    </requirementList>
+    <requirementList>
+      <responsibleTeamMember>
+        <timeSpentOnTask>0</timeSpentOnTask>
+        <name>hej</name>
+      </responsibleTeamMember>
+      <type>Functional</type>
+      <title>haha</title>
+      <priority>2</priority>
+      <projectTitle>fafa</projectTitle>
+      <status>Not Started</status>
+    </requirementList>
+    <requirementList>
+      <responsibleTeamMember>
+        <timeSpentOnTask>0</timeSpentOnTask>
+        <name>hej</name>
+      </responsibleTeamMember>
+      <type>Non-functional</type>
+      <title>dshfgsh</title>
+      <priority>3</priority>
+      <projectTitle>fafa</projectTitle>
+      <status>Not Started</status>
+    </requirementList>
+    <requirementList>
+      <responsibleTeamMember>
+        <timeSpentOnTask>0</timeSpentOnTask>
+        <name>hej</name>
+      </responsibleTeamMember>
+      <type>Functional</type>
+      <title>sdfs</title>
+      <priority>4</priority>
+      <projectTitle>fafa</projectTitle>
       <status>Not Started</status>
     </requirementList>
     <customer>
-      <name>jh</name>
+      <name>nej</name>
     </customer>
   </projectList>
 </ProjectList>

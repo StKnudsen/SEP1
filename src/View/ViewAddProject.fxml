@@ -38,7 +38,7 @@
                   <children>
                       <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="147.0">
                           <children>
-                              <Label text="Title: " />
+                              <Label text="Titel: " />
                           </children>
                           <HBox.margin>
                               <Insets left="5.0" />
