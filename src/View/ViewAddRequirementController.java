@@ -24,7 +24,9 @@ public class ViewAddRequirementController
 
   public void reset()
   {
+    requirementTitleInput.setText("");
     missingInputLabel.setText("");
+    chooseRequirementType.setValue(null);
   }
 
   public void addRequirement()
