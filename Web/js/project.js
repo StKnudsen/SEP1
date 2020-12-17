@@ -34,20 +34,21 @@ function xmlFunction(xml) {
   // Her findes de data i XML dokumentet der skal sendes præsenteres på hjemmesiden
   var requirementList = projectList[project].getElementsByTagName("requirementList");
   for (i = 0; i < requirementList.length; i++) {
-    var requirement = requirementList[i]; // Sætter requirement til at være et requirementList[i], som indeholder alle requirements
-    var requirementTitle = requirement.getElementsByTagName("title")[requirementList[i].getElementsByTagName("title").length - 1].innerHTML; // Sætter requirementTitle til den sidste title der findes. Da alle Tasks kommer før og også har en title, så skal de springes over først
+    // Sætter requirement til at være et requirementList[i], som indeholder alle requirements
+    var requirement = requirementList[i];
+    // Sætter requirementTitle til den sidste title der findes. Da alle Tasks kommer før og også har en title, så skal de springes over først
+    var requirementTitle = requirement.getElementsByTagName("title")[requirementList[i].getElementsByTagName("title").length - 1].innerHTML;
     var requirementType = requirement.getElementsByTagName("type")[requirementList[i].getElementsByTagName("type").length - 1].innerHTML;
-    //var requirementDeadline = requirement.getElementsByTagName("year")[requirementList[i].getElementsByTagName("year").length - 1];
-    var requirementStatus = requirement.getElementsByTagName("status")[requirementList[i].getElementsByTagName("status").length - 1].innerHTML; // Sætter requirementStatus til den sidste status der findes. samme grund som ovenfor
+    // Sætter requirementStatus til den sidste status der findes. samme grund som ovenfor
+    var requirementStatus = requirement.getElementsByTagName("status")[requirementList[i].getElementsByTagName("status").length - 1].innerHTML;
 
     // Body på HTML Table genereres udfra de data fra XML dokumentet
     table += "<tr><td>" + requirementTitle + "</td>";
     table += "<td>" + requirementType + "</td>";
-   // table += "<td>" + requirementDeadline + "</td>";
     table += "<td>" + requirementStatus + "</td></tr>";
   }
   table += "</tbody>";
-  //  Den nu genereret tabel indsættes her på hjemmesiden
+  //  Den nu genererede tabel indsættes her på hjemmesiden
   document.getElementById("requirementTable").innerHTML = table;
 }
 
