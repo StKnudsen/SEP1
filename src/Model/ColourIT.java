@@ -235,9 +235,9 @@ public class ColourIT
     return employeeList.searchEmployee(searchName);
   }
 
-  public ArrayList<Project> searchProjectList(String searchText, TeamMember teamMember)
+  public ArrayList<Project> searchProjectList(String searchText, TeamMember currentUser)
   {
-    return projectList.searchProjectList(searchText, teamMember);
+    return projectList.searchProjectList(searchText, currentUser);
   }
 
   public ArrayList<Requirement> searchRequirementList(String searchText, TeamMember currentUser)
